@@ -26,7 +26,7 @@ struct Provider: IntentTimelineProvider {
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
         let viewModel = ViewModel()
-        viewModel.getChannelDetails(for: channelId) { (success, channel) in
+        viewModel.getChannelDetailsFromId(for: channelId) { (success, channel) in
             let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel!)
             completion(entry)
         }
@@ -35,8 +35,8 @@ struct Provider: IntentTimelineProvider {
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
         
-        // Update widget every 6 hours
-        let refresh = Calendar.current.date(byAdding: .hour, value: 6, to: Date())!
+        // Update widget every hour
+        let refresh = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
         
         ViewModel().getChannelDetailsFromId(for: channelId) { (success, channel) in
             if success {
@@ -64,11 +64,23 @@ struct SubscriberCountEntryView : View {
 
 @main
 struct SubscriberCount: Widget {
+    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor = ""
+    @State private var bgColor = Color(UIColor.systemBackground)
     let kind: String = "SubscriberCount"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             SubscriberCountEntryView(entry: entry)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(bgColor)
+                .onAppear {
+                    if (backgroundColor != "") {
+                        let rgbArray = backgroundColor.components(separatedBy: ",")
+                        if let red = Double(rgbArray[0]), let green = Double(rgbArray[1]), let blue = Double(rgbArray[2]), let alpha = Double(rgbArray[3]) {
+                            bgColor = Color(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
+                        }
+                    }
+                }
         }
         .configurationDisplayName("Subscriber Count")
         .description("View your YouTube subscriber count in realtime")

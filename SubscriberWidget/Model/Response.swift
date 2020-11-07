@@ -35,3 +35,17 @@ struct ChannelResponse: Decodable {
         self.items = try container.decode([Channel].self, forKey: .items)
     }
 }
+
+struct ChannelIDResponse: Decodable {
+    var items: [ChannelID]?
+    
+    enum CodingKeys: String, CodingKey {
+        case items
+    }
+    
+    init (from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.items = try container.decode([ChannelID].self, forKey: .items)
+    }
+}

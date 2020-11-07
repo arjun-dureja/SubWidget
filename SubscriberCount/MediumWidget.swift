@@ -13,19 +13,20 @@ struct MediumWidget: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: -5) {
             NetworkImage(url: URL(string: entry.profileImage))
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())
                 .shadow(radius: 3)
                 .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
             
+            Spacer()
             
             VStack(alignment: .leading) {
                 Text("\(entry.channelName)")
                     .fontWeight(.bold)
                     .font(.system(size: 26))
-                    .lineLimit(entry.channelName.firstIndex(of: " ") != nil ? .max : 1)
+                    .lineLimit(entry.channelName.firstIndex(of: " ") != nil && entry.channelName.count > 15 ? .max : 1)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                 Text("\(Int(entry.subCount)!)")
                     .fontWeight(.bold)
@@ -38,6 +39,8 @@ struct MediumWidget: View {
             }
             .minimumScaleFactor(0.3)
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 8, trailing: 16))
+            
+            Spacer()
             
             Image("youtube-logo")
                 .resizable()

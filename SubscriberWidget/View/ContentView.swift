@@ -12,6 +12,7 @@ import WidgetKit
 
 struct ContentView: View {
     @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
+    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor = ""
     
     @ObservedObject var viewModel = ViewModel()
     @Environment(\.colorScheme) var colorScheme
@@ -23,6 +24,7 @@ struct ContentView: View {
     @State private var animate = false
     @State private var rotateIn3D = false
     @State private var helpAlert = false
+    @State private var bgColor = Color(UIColor.systemBackground)
     
     init() {
         // Segmented control colors
@@ -45,22 +47,23 @@ struct ContentView: View {
             HStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
-                        .frame(width: 220, height: 42, alignment: .center)
+                        .frame(width: 200, height: 42, alignment: .center)
                         .foregroundColor(Color(UIColor.systemBackground))
                     HStack {
                         if name.isEmpty {
-                            Text("Channel Username or ID")
+                            Text("Channel Name or ID")
                                 .foregroundColor(.gray)
                         }
                         Spacer()
-                            .frame(width: 6)
+                            .frame(width: 14)
                     }
                     TextField("", text: $name)
+                        .disableAutocorrection(true)
                         .padding(10)
-                        .frame(width: 220)
+                        .frame(width: 200)
                         .foregroundColor(Color(UIColor.label))
                         .cornerRadius(8)
-                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 10))
+                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 5))
                 }
                 
                 Button(action: {
@@ -87,17 +90,64 @@ struct ContentView: View {
                 .font(.subheadline)
                 .background(Color.youtubeRed)
                 .cornerRadius(8)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 20))
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 10))
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Unable to find channel"), message: Text("Please enter the correct channel username or ID"), primaryButton: .default(Text("Find my ID")) {
+                        openURL(URL(string: "https://commentpicker.com/youtube-channel-id.php")!)
+                    }, secondaryButton: .default(Text("OK")) {
+
+                    })
+                }
+                
+                Button(action: {
+                    self.helpAlert = true
+                }, label: {
+                    Image(systemName: "info.circle")
+                })
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                .alert(isPresented: $helpAlert) {
+                    Alert(title: Text("Can't find your channel?"), message: Text("Try entering your YouTube channel ID instead"), primaryButton: .default(Text("Find my ID")) {
+                        openURL(URL(string: "https://commentpicker.com/youtube-channel-id.php")!)
+                    }, secondaryButton: .default(Text("OK")) {
+
+                    })
+                }
             }
             
             Spacer()
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .frame(width: 225, height: 50, alignment: .leading)
+                    .foregroundColor(colorScheme == .dark ? .black : .white)
+                
+                ColorPicker("Background Color", selection: Binding(get: {
+                    bgColor
+                }, set: { newValue in
+                    backgroundColor = self.updateColorInAppStorage(color: newValue)
+                    bgColor = newValue
+                }), supportsOpacity: false)
+                .frame(width: 200, height: 50)
+                .font(.headline)
+                
+            }
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 50, trailing: 0))
 
+            
             ZStack {
                 RoundedRectangle(cornerRadius: 25)
                     .frame(width: self.animate ? 329 : 155, height: 155, alignment: .leading)
-                    .foregroundColor(Color(UIColor.systemBackground))
+                    .foregroundColor(self.bgColor)
                     .shadow(radius: 22)
                     .animation(.easeInOut(duration: 0.25))
+                    .onAppear {
+                        if (backgroundColor != "") {
+                            let rgbArray = backgroundColor.components(separatedBy: ",")
+                            if let red = Double(rgbArray[0]), let green = Double(rgbArray[1]), let blue = Double(rgbArray[2]), let alpha = Double(rgbArray[3]) {
+                                bgColor = Color(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
+                            }
+                        }
+                    }
                 
                 SmallWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"))
                     .frame(width: 155, height: 155, alignment: .leading)
@@ -166,21 +216,25 @@ struct ContentView: View {
                 }
                 return
             }
-            self.viewModel.getChannelDetails(for: channelId) { (success, _) in
+            self.viewModel.getChannelDetailsFromId(for: channelId) { (success, _) in
                 if !success {
                     self.showingAlert = true
                 }
             }
         }
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text("Unable to find channel"), message: Text("Please enter the correct channel username or ID"), primaryButton: .default(Text("Find my ID")) {
-                openURL(URL(string: "https://commentpicker.com/youtube-channel-id.php")!)
-            }, secondaryButton: .default(Text("OK")) {
-
-            })
-        }
     }
     
+    func updateColorInAppStorage(color: Color) -> String {
+        let uiColor = UIColor(color)
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return "\(red),\(green),\(blue),\(alpha)"
+    }
 }
 
 struct RoundedCorner: Shape {

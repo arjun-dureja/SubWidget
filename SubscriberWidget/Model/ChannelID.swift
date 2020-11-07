@@ -2,13 +2,13 @@
 //  Channel.swift
 //  SubscriberWidget
 //
-//  Created by Arjun Dureja on 2020-09-24.
+//  Created by Arjun Dureja on 2020-11-06.
 //  Copyright © 2020 Arjun Dureja. All rights reserved.
 //
 
 import Foundation
 
-struct Channel: Decodable, Identifiable {
+struct ChannelID: Decodable, Identifiable {
     var id = UUID()
     
     var channelId = ""
@@ -16,10 +16,10 @@ struct Channel: Decodable, Identifiable {
     var profileImage = ""
     
     enum CodingKeys: String, CodingKey {
+        case channelId = "id"
         case snippet
         case thumbnails
         case high
-        case channelId
         
         case channelName = "title"
         case profileImage = "url"
@@ -28,9 +28,9 @@ struct Channel: Decodable, Identifiable {
     init (from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        let snippetContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .snippet)
+        self.channelId = try container.decode(String.self, forKey: .channelId)
         
-        self.channelId = try snippetContainer.decode(String.self, forKey: .channelId)
+        let snippetContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .snippet)
         
         self.channelName = try snippetContainer.decode(String.self, forKey: .channelName)
         
