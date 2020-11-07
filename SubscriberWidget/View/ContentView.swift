@@ -12,7 +12,7 @@ import WidgetKit
 
 struct ContentView: View {
     @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
-    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor = ""
+    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
     
     @ObservedObject var viewModel = ViewModel()
     @Environment(\.colorScheme) var colorScheme
@@ -24,7 +24,7 @@ struct ContentView: View {
     @State private var animate = false
     @State private var rotateIn3D = false
     @State private var helpAlert = false
-    @State private var bgColor = Color(UIColor.systemBackground)
+    @State private var bgColor = UIColor.systemBackground.cgColor
     
     init() {
         // Segmented control colors
@@ -124,40 +124,39 @@ struct ContentView: View {
                 ColorPicker("Background Color", selection: Binding(get: {
                     bgColor
                 }, set: { newValue in
-                    backgroundColor = self.updateColorInAppStorage(color: newValue)
+                    self.updateColorInAppStorage(color: UIColor(cgColor: newValue))
                     bgColor = newValue
                 }), supportsOpacity: false)
                 .frame(width: 200, height: 50)
                 .font(.headline)
+                .onAppear {
+                    var color: UIColor?
+                    
+                    do {
+                        color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
+                    } catch let error {
+                        print("\(error.localizedDescription)")
+                    }
+                    
+                    bgColor = color?.cgColor ?? UIColor.systemBackground.cgColor
+                }
                 
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 50, trailing: 0))
 
             
             ZStack {
-                RoundedRectangle(cornerRadius: 25)
-                    .frame(width: self.animate ? 329 : 155, height: 155, alignment: .leading)
-                    .foregroundColor(self.bgColor)
-                    .shadow(radius: 22)
-                    .animation(.easeInOut(duration: 0.25))
-                    .onAppear {
-                        if (backgroundColor != "") {
-                            let rgbArray = backgroundColor.components(separatedBy: ",")
-                            if let red = Double(rgbArray[0]), let green = Double(rgbArray[1]), let blue = Double(rgbArray[2]), let alpha = Double(rgbArray[3]) {
-                                bgColor = Color(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
-                            }
-                        }
-                    }
-                
-                SmallWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"))
+                SmallWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor(cgColor: self.bgColor))
                     .frame(width: 155, height: 155, alignment: .leading)
                     .opacity(self.animate ? 0 : 1)
                     .animation(.easeInOut(duration: 0.5))
+                    .cornerRadius(25)
                 
-                MediumWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"))
+                MediumWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor(cgColor: self.bgColor))
                     .frame(width: 329, height: 155, alignment: .leading)
                     .opacity(self.animate ? 1 : 0)
                     .animation(.easeInOut(duration: 0.5))
+                    .cornerRadius(25)
             }
             .rotation3DEffect(
                 .degrees(rotateIn3D ? 12 : -12),
@@ -224,16 +223,13 @@ struct ContentView: View {
         }
     }
     
-    func updateColorInAppStorage(color: Color) -> String {
-        let uiColor = UIColor(color)
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        
-        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        
-        return "\(red),\(green),\(blue),\(alpha)"
+    func updateColorInAppStorage(color: UIColor) {
+        do {
+            backgroundColor = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
+            WidgetCenter.shared.reloadAllTimelines()
+        } catch let error {
+            print("\(error.localizedDescription)")
+        }
     }
 }
 

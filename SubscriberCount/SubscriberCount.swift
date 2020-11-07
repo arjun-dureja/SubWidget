@@ -14,20 +14,22 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
     let channel: YouTubeChannel
+    let bgColor: UIColor
 }
 
 struct Provider: IntentTimelineProvider {
     @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
+    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "", profileImage: "", subCount: "0", channelId: ""))
+        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "", profileImage: "", subCount: "0", channelId: ""), bgColor: UIColor.systemBackground)
     }
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
         let viewModel = ViewModel()
         viewModel.getChannelDetailsFromId(for: channelId) { (success, channel) in
-            let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel!)
+            let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel!, bgColor: color)
             completion(entry)
         }
     }
@@ -40,11 +42,22 @@ struct Provider: IntentTimelineProvider {
         
         ViewModel().getChannelDetailsFromId(for: channelId) { (success, channel) in
             if success {
-                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel!)
+                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel!, bgColor: color)
                 let timeline = Timeline(entries: [entry], policy: .after(refresh))
                 completion(timeline)
             }
         }
+    }
+    
+    var color: UIColor {
+        var color: UIColor?
+        
+        do {
+            color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
+        } catch let error {
+            print("\(error.localizedDescription)")
+        }
+        return color ?? .systemBackground
     }
 }
 
@@ -55,32 +68,20 @@ struct SubscriberCountEntryView : View {
     var body: some View {
         switch widgetFamily {
         case .systemSmall:
-            SmallWidget(entry: entry.channel)
+            SmallWidget(entry: entry.channel, bgColor: entry.bgColor)
         default:
-            MediumWidget(entry: entry.channel)
+            MediumWidget(entry: entry.channel, bgColor: entry.bgColor)
         }
     }
 }
 
 @main
 struct SubscriberCount: Widget {
-    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor = ""
-    @State private var bgColor = Color(UIColor.systemBackground)
     let kind: String = "SubscriberCount"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             SubscriberCountEntryView(entry: entry)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(bgColor)
-                .onAppear {
-                    if (backgroundColor != "") {
-                        let rgbArray = backgroundColor.components(separatedBy: ",")
-                        if let red = Double(rgbArray[0]), let green = Double(rgbArray[1]), let blue = Double(rgbArray[2]), let alpha = Double(rgbArray[3]) {
-                            bgColor = Color(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
-                        }
-                    }
-                }
         }
         .configurationDisplayName("Subscriber Count")
         .description("View your YouTube subscriber count in realtime")
@@ -91,7 +92,7 @@ struct SubscriberCount: Widget {
 
 struct SubscriberCount_Previews: PreviewProvider {
     static var previews: some View {
-            SubscriberCountEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "Google", profileImage: "https://yt3.ggpht.com/a/AATXAJy1Y4nZmI7R2mSni2KzVUHhlrvlbb58Ydp7qWO4=s800-c-k-c0xffffffff-no-rj-mo", subCount: "123,501", channelId: "test")))
+        SubscriberCountEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "Google", profileImage: "https://yt3.ggpht.com/a/AATXAJy1Y4nZmI7R2mSni2KzVUHhlrvlbb58Ydp7qWO4=s800-c-k-c0xffffffff-no-rj-mo", subCount: "123,501", channelId: "test"), bgColor: .systemBackground))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .previewDisplayName("Small widget")
                 .environment(\.colorScheme, .dark)

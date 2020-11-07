@@ -13,6 +13,5 @@ struct YouTubeChannel: Identifiable, Codable {
     let profileImage: String
     let subCount: String
     let channelId: String
-    
     var id = UUID()
 }

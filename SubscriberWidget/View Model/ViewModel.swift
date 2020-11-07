@@ -78,6 +78,7 @@ class ViewModel: ObservableObject {
     ///   - completion: Sends an optional YouTubeChannel. Only called if getChannelDetailsFromId is successful so no need to send a bool
     private func getSubCount(for channelID: String, completion: @escaping (YouTubeChannel?) -> ()) {
         // YouTube data API URL
+        print("test")
         guard let statisticsURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=\(channelID)&key=\(Constants.apiKey)") else { return }
         
         URLSession.shared.dataTask(with: statisticsURL) { (data, response, error) in
