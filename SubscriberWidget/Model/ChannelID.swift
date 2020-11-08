@@ -10,7 +10,6 @@ import Foundation
 
 struct ChannelID: Decodable, Identifiable {
     var id = UUID()
-    
     var channelId = ""
     var channelName = ""
     var profileImage = ""

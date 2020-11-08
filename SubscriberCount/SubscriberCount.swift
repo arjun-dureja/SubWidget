@@ -37,7 +37,7 @@ struct Provider: IntentTimelineProvider {
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
         
-        // Update widget every hour
+        // Refresh widget every hour
         let refresh = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
         
         ViewModel().getChannelDetailsFromId(for: channelId) { (success, channel) in
@@ -78,7 +78,7 @@ struct SubscriberCountEntryView : View {
 @main
 struct SubscriberCount: Widget {
     let kind: String = "SubscriberCount"
-
+    
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             SubscriberCountEntryView(entry: entry)

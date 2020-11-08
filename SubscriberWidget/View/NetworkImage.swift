@@ -11,7 +11,6 @@ import SwiftUI
 
 // Download image from URL
 struct NetworkImage: View {
-    
     public let url: URL?
     
     var body: some View {
@@ -27,6 +26,5 @@ struct NetworkImage: View {
                 ProgressView()
             }
         }
-        
     }
 }
