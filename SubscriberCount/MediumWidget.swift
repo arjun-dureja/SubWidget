@@ -10,13 +10,14 @@ import SwiftUI
 
 struct MediumWidget: View {
     var entry: YouTubeChannel
-    var bgColor: UIColor
+    var bgColor: UIColor?
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack {
-            ContainerRelativeShape()
-                .fill(Color(bgColor))
+            if let bgColor = bgColor {
+                Color(bgColor)
+            }
             HStack(spacing: -5) {
                 NetworkImage(url: URL(string: entry.profileImage))
                     .frame(width: 100, height: 100)

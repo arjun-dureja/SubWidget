@@ -10,13 +10,14 @@ import SwiftUI
 
 struct SmallWidget: View {
     var entry: YouTubeChannel
-    var bgColor: UIColor
+    var bgColor: UIColor?
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack {
-            ContainerRelativeShape()
-                .fill(Color(bgColor))
+            if let bgColor = bgColor {
+                Color(bgColor)
+            }
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
                     NetworkImage(url: URL(string: entry.profileImage))

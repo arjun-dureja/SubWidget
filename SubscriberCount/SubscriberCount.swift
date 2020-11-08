@@ -14,7 +14,7 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
     let channel: YouTubeChannel
-    let bgColor: UIColor
+    let bgColor: UIColor?
 }
 
 struct Provider: IntentTimelineProvider {
@@ -49,7 +49,7 @@ struct Provider: IntentTimelineProvider {
         }
     }
     
-    var color: UIColor {
+    var color: UIColor? {
         var color: UIColor?
         
         do {
@@ -57,7 +57,7 @@ struct Provider: IntentTimelineProvider {
         } catch let error {
             print("\(error.localizedDescription)")
         }
-        return color ?? .systemBackground
+        return color ?? nil
     }
 }
 

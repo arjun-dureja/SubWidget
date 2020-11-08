@@ -24,7 +24,8 @@ struct ContentView: View {
     @State private var animate = false
     @State private var rotateIn3D = false
     @State private var helpAlert = false
-    @State private var bgColor = UIColor.systemBackground.cgColor
+    @State private var bgColor: CGColor?
+    @State private var colorChanged = false
     
     init() {
         // Segmented control colors
@@ -37,6 +38,8 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 4) {
             Spacer()
+            
+            // MARK: Title
             Text("SubWidget")
                 .foregroundColor(Color(UIColor.label))
                 .font(.largeTitle)
@@ -45,6 +48,7 @@ struct ContentView: View {
             Spacer()
             
             HStack {
+                // MARK: Textfield
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
                         .frame(width: 200, height: 42, alignment: .center)
@@ -66,6 +70,7 @@ struct ContentView: View {
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 5))
                 }
                 
+                // MARK: Submit Button
                 Button(action: {
                     if name.count > 0 {
                         self.viewModel.getChannelDetails(for: name) { (success, channel) in
@@ -99,6 +104,7 @@ struct ContentView: View {
                     })
                 }
                 
+                // MARK: Help Button
                 Button(action: {
                     self.helpAlert = true
                 }, label: {
@@ -116,47 +122,69 @@ struct ContentView: View {
             
             Spacer()
             
-            ZStack {
-                RoundedRectangle(cornerRadius: 16)
-                    .frame(width: 225, height: 50, alignment: .leading)
-                    .foregroundColor(colorScheme == .dark ? .black : .white)
-                
-                ColorPicker("Background Color", selection: Binding(get: {
-                    bgColor
-                }, set: { newValue in
-                    self.updateColorInAppStorage(color: UIColor(cgColor: newValue))
-                    bgColor = newValue
-                }), supportsOpacity: false)
-                .frame(width: 200, height: 50)
-                .font(.headline)
-                .onAppear {
-                    var color: UIColor?
+            VStack {
+                // MARK: Color Picker
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(width: 215, height: 50, alignment: .leading)
+                        .foregroundColor(colorScheme == .dark ? .black : .white)
                     
-                    do {
-                        color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
-                    } catch let error {
-                        print("\(error.localizedDescription)")
+                    ColorPicker("Background Color", selection: Binding(get: {
+                        bgColor ?? (colorScheme == .dark ? UIColor.black.cgColor : UIColor.white.cgColor)
+                    }, set: { newValue in
+                        self.updateColorInAppStorage(color: UIColor(cgColor: newValue))
+                        self.bgColor = newValue
+                        self.colorChanged = true
+                    }), supportsOpacity: false)
+                    .frame(width: 190, height: 50)
+                    .font(.headline)
+                    .onAppear {
+                        var color: UIColor?
+                        
+                        do {
+                            color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
+                        } catch let error {
+                            print("\(error.localizedDescription)")
+                        }
+                        
+                        bgColor = color?.cgColor ?? nil
                     }
                     
-                    bgColor = color?.cgColor ?? UIColor.systemBackground.cgColor
                 }
-                
-            }
-            .padding(EdgeInsets(top: 0, leading: 15, bottom: 50, trailing: 0))
+                .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
 
+                //MARK: Reset Button
+                Button(action: {
+                    if bgColor != nil {
+                        self.updateColorInAppStorage(color: nil)
+                        self.bgColor = nil
+                        self.colorChanged = true
+                    }
+                }, label: {
+                    Text("Reset")
+                        .font(.subheadline)
+                        .bold()
+                })
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 45, trailing: 10))
+            }
             
+            // MARK: Widget Preview
             ZStack {
-                SmallWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor(cgColor: self.bgColor))
+                RoundedRectangle(cornerRadius: 25)
+                                    .frame(width: self.animate ? 329 : 155, height: 155, alignment: .leading)
+                    .foregroundColor(Color(bgColor ?? (colorScheme == .dark ? UIColor.black.cgColor : UIColor.white.cgColor)))
+                                    .shadow(radius: 16)
+                                    .animation(.easeInOut(duration: 0.25))
+
+                SmallWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor.clear)
                     .frame(width: 155, height: 155, alignment: .leading)
                     .opacity(self.animate ? 0 : 1)
                     .animation(.easeInOut(duration: 0.5))
-                    .cornerRadius(25)
                 
-                MediumWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor(cgColor: self.bgColor))
+                MediumWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor.clear)
                     .frame(width: 329, height: 155, alignment: .leading)
                     .opacity(self.animate ? 1 : 0)
                     .animation(.easeInOut(duration: 0.5))
-                    .cornerRadius(25)
             }
             .rotation3DEffect(
                 .degrees(rotateIn3D ? 12 : -12),
@@ -168,6 +196,7 @@ struct ContentView: View {
               
             Spacer()
             
+            // MARK: Segmented Control
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
                     .frame(width: UIScreen.main.bounds.width-40, height: 100, alignment: .center)
@@ -204,6 +233,7 @@ struct ContentView: View {
         }
         .ignoresSafeArea(.keyboard)
         .background(Color(UIColor.systemGray6)).edgesIgnoringSafeArea(.all)
+        // MARK: View On Appear
         .onAppear() {
             guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else {
                 self.viewModel.getChannelDetails(for: "pewdiepie") { (success, channel)   in
@@ -221,12 +251,20 @@ struct ContentView: View {
                 }
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            // Only reload timelines if the color was changed
+            if self.colorChanged {
+                print("Color changed, reloading timelines")
+                WidgetCenter.shared.reloadAllTimelines()
+                self.colorChanged = false
+            }
+        }
     }
     
-    func updateColorInAppStorage(color: UIColor) {
+    // MARK: Update Color Function
+    func updateColorInAppStorage(color: UIColor?) {
         do {
             backgroundColor = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
-            WidgetCenter.shared.reloadAllTimelines()
         } catch let error {
             print("\(error.localizedDescription)")
         }
