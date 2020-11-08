@@ -393,6 +393,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -419,6 +420,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -560,6 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -585,6 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
