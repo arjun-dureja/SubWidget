@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7207540825D732D7003411CE /* ChannelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207540725D732D7003411CE /* ChannelTextField.swift */; };
+		7207540C25D73504003411CE /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207540B25D73504003411CE /* SubmitButton.swift */; };
+		7207541025D739CC003411CE /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207540F25D739CC003411CE /* HelpButton.swift */; };
+		7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541325D73B4D003411CE /* WidgetColorPicker.swift */; };
+		7207541825D73C8F003411CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
+		7207541D25D73CD7003411CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
 		725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1F0251D3983004B2907 /* SwiftUI.framework */; };
 		725FE1F4251D3983004B2907 /* SubscriberCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE1F3251D3983004B2907 /* SubscriberCount.swift */; };
@@ -29,14 +35,15 @@
 		7295DAB12528FF3C005FA093 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAB02528FF3C005FA093 /* NetworkImage.swift */; };
 		7295DAB22528FF3C005FA093 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAB02528FF3C005FA093 /* NetworkImage.swift */; };
 		7295DABF252909BC005FA093 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DABE252909BC005FA093 /* Constants.swift */; };
-		7295DAC925292F97005FA093 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAC825292F97005FA093 /* Colors.swift */; };
 		7295DACE25294C50005FA093 /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DACD25294C50005FA093 /* SmallWidget.swift */; };
 		7295DACF25294C50005FA093 /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DACD25294C50005FA093 /* SmallWidget.swift */; };
 		7295DAD325294CB6005FA093 /* MediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAD225294CB6005FA093 /* MediumWidget.swift */; };
 		7295DAD425294CB6005FA093 /* MediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAD225294CB6005FA093 /* MediumWidget.swift */; };
-		72A3B46C252E2CA500891D69 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAC825292F97005FA093 /* Colors.swift */; };
 		72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE208251D44B1004B2907 /* Subscribers.swift */; };
 		72A3B472252E2CC300891D69 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DABE252909BC005FA093 /* Constants.swift */; };
+		72D820A125D74613008240B2 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A025D74613008240B2 /* ResetButton.swift */; };
+		72D820A525D74DBE008240B2 /* WidgetSizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */; };
+		72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820AA25D75440008240B2 /* WidgetPreview.swift */; };
 		72EFF49B252015D1007E1FA6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE212251D4905004B2907 /* Channel.swift */; };
 		72EFF4A1252016FF007E1FA6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE204251D3E75004B2907 /* ViewModel.swift */; };
 		72EFF4A425201712007E1FA6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE20C251D4607004B2907 /* Response.swift */; };
@@ -69,6 +76,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7207540725D732D7003411CE /* ChannelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTextField.swift; sourceTree = "<group>"; };
+		7207540B25D73504003411CE /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
+		7207540F25D739CC003411CE /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
+		7207541325D73B4D003411CE /* WidgetColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetColorPicker.swift; sourceTree = "<group>"; };
+		7207541725D73C8F003411CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriberCountExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		725FE1EE251D3983004B2907 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		725FE1F0251D3983004B2907 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -91,9 +103,11 @@
 		72920013251D1F420050194B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7295DAB02528FF3C005FA093 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		7295DABE252909BC005FA093 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7295DAC825292F97005FA093 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7295DACD25294C50005FA093 /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
 		7295DAD225294CB6005FA093 /* MediumWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidget.swift; sourceTree = "<group>"; };
+		72D820A025D74613008240B2 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
+		72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizePicker.swift; sourceTree = "<group>"; };
+		72D820AA25D75440008240B2 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
 		72EFF4A725201AAD007E1FA6 /* SubscriberWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriberWidget.entitlements; sourceTree = "<group>"; };
 		72EFF4AA25201B3B007E1FA6 /* YouTubeChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeChannel.swift; sourceTree = "<group>"; };
 		72EFF4AF25201CAB007E1FA6 /* SubscriberCountExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriberCountExtension.entitlements; sourceTree = "<group>"; };
@@ -158,7 +172,6 @@
 				72A3B461252E28FF00891D69 /* View Model */,
 				72EFF4A725201AAD007E1FA6 /* SubscriberWidget.entitlements */,
 				7295DABE252909BC005FA093 /* Constants.swift */,
-				7295DAC825292F97005FA093 /* Colors.swift */,
 				72920005251D1F3D0050194B /* AppDelegate.swift */,
 				72920007251D1F3D0050194B /* SceneDelegate.swift */,
 				7292000B251D1F420050194B /* Assets.xcassets */,
@@ -200,7 +213,14 @@
 			isa = PBXGroup;
 			children = (
 				72920009251D1F3D0050194B /* ContentView.swift */,
+				7207541325D73B4D003411CE /* WidgetColorPicker.swift */,
 				7295DAB02528FF3C005FA093 /* NetworkImage.swift */,
+				7207540725D732D7003411CE /* ChannelTextField.swift */,
+				7207540B25D73504003411CE /* SubmitButton.swift */,
+				7207540F25D739CC003411CE /* HelpButton.swift */,
+				72D820A025D74613008240B2 /* ResetButton.swift */,
+				72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */,
+				72D820AA25D75440008240B2 /* WidgetPreview.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +233,7 @@
 				725FE208251D44B1004B2907 /* Subscribers.swift */,
 				725FE212251D4905004B2907 /* Channel.swift */,
 				7277197A2555E05000358EEB /* ChannelID.swift */,
+				7207541725D73C8F003411CE /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,7 +347,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				725FE1F9251D3988004B2907 /* SubscriberCount.intentdefinition in Sources */,
-				72A3B46C252E2CA500891D69 /* Colors.swift in Sources */,
 				72EFF49B252015D1007E1FA6 /* Channel.swift in Sources */,
 				7295DACF25294C50005FA093 /* SmallWidget.swift in Sources */,
 				72EFF4A1252016FF007E1FA6 /* ViewModel.swift in Sources */,
@@ -334,6 +354,7 @@
 				72A3B472252E2CC300891D69 /* Constants.swift in Sources */,
 				72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */,
 				725FE1F4251D3983004B2907 /* SubscriberCount.swift in Sources */,
+				7207541D25D73CD7003411CE /* Extensions.swift in Sources */,
 				7277197E2555E07A00358EEB /* ChannelID.swift in Sources */,
 				7295DAB22528FF3C005FA093 /* NetworkImage.swift in Sources */,
 				7295DAD425294CB6005FA093 /* MediumWidget.swift in Sources */,
@@ -346,16 +367,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				725FE1FA251D3988004B2907 /* SubscriberCount.intentdefinition in Sources */,
-				7295DAC925292F97005FA093 /* Colors.swift in Sources */,
+				72D820A525D74DBE008240B2 /* WidgetSizePicker.swift in Sources */,
 				7295DABF252909BC005FA093 /* Constants.swift in Sources */,
+				7207540825D732D7003411CE /* ChannelTextField.swift in Sources */,
+				72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */,
+				7207541025D739CC003411CE /* HelpButton.swift in Sources */,
 				7295DACE25294C50005FA093 /* SmallWidget.swift in Sources */,
 				7295DAD325294CB6005FA093 /* MediumWidget.swift in Sources */,
 				72EFF4AB25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
+				7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */,
 				7277197B2555E05000358EEB /* ChannelID.swift in Sources */,
 				725FE213251D4905004B2907 /* Channel.swift in Sources */,
 				725FE209251D44B1004B2907 /* Subscribers.swift in Sources */,
+				72D820A125D74613008240B2 /* ResetButton.swift in Sources */,
+				7207540C25D73504003411CE /* SubmitButton.swift in Sources */,
 				72920006251D1F3D0050194B /* AppDelegate.swift in Sources */,
 				725FE205251D3E75004B2907 /* ViewModel.swift in Sources */,
+				7207541825D73C8F003411CE /* Extensions.swift in Sources */,
 				7295DAB12528FF3C005FA093 /* NetworkImage.swift in Sources */,
 				72920008251D1F3D0050194B /* SceneDelegate.swift in Sources */,
 				7292000A251D1F3D0050194B /* ContentView.swift in Sources */,
