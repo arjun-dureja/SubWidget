@@ -20,7 +20,10 @@ class ViewModel: ObservableObject {
     ///   - completion: Sends a bool to determine if the API call was successful and an optional YouTubeChannel
     func getChannelDetails(for channelName: String, completion: @escaping (Bool, YouTubeChannel?) -> ()) {
         // YouTube data API URL
-        guard let snippetURL = URL(string: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(channelName.replacingOccurrences(of: " ", with: ""))&key=\(Constants.apiKey)&type=channel") else { return }
+        let channelNameWithoutSpaces = channelName.replacingOccurrences(of: " ", with: "")
+        guard let snippetURL = URL(string: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(channelNameWithoutSpaces)&key=\(Constants.apiKey)&type=channel") else {
+            return
+        }
         
         URLSession.shared.dataTask(with: snippetURL) { (data, response, error) in
             do {
@@ -51,13 +54,17 @@ class ViewModel: ObservableObject {
     ///   - completion: Sends a bool to determine if the API call was successful and an optional YouTubeChannel
     func getChannelDetailsFromId(for id: String, completion: @escaping (Bool, YouTubeChannel?) -> ()) {
         // YouTube data API URL
-        guard let snippetURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=snippet&id=\(id.replacingOccurrences(of: " ", with: ""))&key=\(Constants.apiKey)") else { return }
+        let idWithoutSpaces = id.replacingOccurrences(of: " ", with: "")
+        guard let snippetURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=snippet&id=\(idWithoutSpaces)&key=\(Constants.apiKey)") else {
+            return
+        }
         
         URLSession.shared.dataTask(with: snippetURL) { (data, response, error) in
             do {
                 let response = try JSONDecoder().decode(ChannelIDResponse.self, from: data!)
                 DispatchQueue.main.async {
-                    self.channelDetails = [Channel(channelName: response.items![0].channelName, profileImage: response.items![0].profileImage)]
+                    self.channelDetails = [Channel(channelName: response.items![0].channelName,
+                                                   profileImage: response.items![0].profileImage)]
                 }
                 self.getSubCount(for: response.items![0].channelId) { (channel) in
                     completion(true, channel)
@@ -78,14 +85,19 @@ class ViewModel: ObservableObject {
     ///   - completion: Sends an optional YouTubeChannel. Only called if getChannelDetailsFromId is successful so no need to send a bool
     private func getSubCount(for channelID: String, completion: @escaping (YouTubeChannel?) -> ()) {
         // YouTube data API URL
-        guard let statisticsURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=\(channelID)&key=\(Constants.apiKey)") else { return }
+        guard let statisticsURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=\(channelID)&key=\(Constants.apiKey)") else {
+            return
+        }
         
         URLSession.shared.dataTask(with: statisticsURL) { (data, response, error) in
             do {
                 let response = try JSONDecoder().decode(SubscriberResponse.self, from: data!)
                 DispatchQueue.main.async {
                     self.subCount = response.items!
-                    completion(YouTubeChannel(channelName: self.channelDetails[0].channelName, profileImage: self.channelDetails[0].profileImage, subCount: response.items![0].subscriberCount, channelId: channelID))
+                    completion(YouTubeChannel(channelName: self.channelDetails[0].channelName,
+                                              profileImage: self.channelDetails[0].profileImage,
+                                              subCount: response.items![0].subscriberCount,
+                                              channelId: channelID))
                 }
             }
             catch {
