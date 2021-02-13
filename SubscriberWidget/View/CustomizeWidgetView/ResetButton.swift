@@ -14,13 +14,7 @@ struct ResetButton: View {
     @Binding var colorChanged: Bool
     
     var body: some View {
-        Button(action: {
-            if bgColor != nil {
-                self.updateColorInAppStorage(color: nil)
-                self.bgColor = nil
-                self.colorChanged = true
-            }
-        }, label: {
+        Button(action: resetTapped, label: {
             Text("Reset")
                 .font(.subheadline)
                 .bold()
@@ -28,9 +22,17 @@ struct ResetButton: View {
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 45, trailing: 10))
     }
     
+    func resetTapped() {
+        if bgColor != nil {
+            self.updateColorInAppStorage(color: nil)
+            self.bgColor = nil
+            self.colorChanged = true
+        }
+    }
+    
     func updateColorInAppStorage(color: UIColor?) {
         do {
-            backgroundColor = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
+            backgroundColor = try NSKeyedArchiver.archivedData(withRootObject: color as Any, requiringSecureCoding: false)
         } catch let error {
             print("\(error.localizedDescription)")
         }

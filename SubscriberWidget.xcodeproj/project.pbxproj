@@ -26,6 +26,7 @@
 		725FE213251D4905004B2907 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE212251D4905004B2907 /* Channel.swift */; };
 		7277197B2555E05000358EEB /* ChannelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7277197A2555E05000358EEB /* ChannelID.swift */; };
 		7277197E2555E07A00358EEB /* ChannelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7277197A2555E05000358EEB /* ChannelID.swift */; };
+		728E246C25D7757400D4BB6E /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E246B25D7757400D4BB6E /* SafariView.swift */; };
 		72920006251D1F3D0050194B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72920005251D1F3D0050194B /* AppDelegate.swift */; };
 		72920008251D1F3D0050194B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72920007251D1F3D0050194B /* SceneDelegate.swift */; };
 		7292000A251D1F3D0050194B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72920009251D1F3D0050194B /* ContentView.swift */; };
@@ -93,6 +94,7 @@
 		725FE20C251D4607004B2907 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		725FE212251D4905004B2907 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		7277197A2555E05000358EEB /* ChannelID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelID.swift; sourceTree = "<group>"; };
+		728E246B25D7757400D4BB6E /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		72920002251D1F3D0050194B /* SubWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72920005251D1F3D0050194B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72920007251D1F3D0050194B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,20 @@
 			path = SubscriberCount;
 			sourceTree = "<group>";
 		};
+		728E246525D76FBF00D4BB6E /* AddWidgetView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddWidgetView;
+			sourceTree = "<group>";
+		};
+		728E246825D76FD600D4BB6E /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		72920003251D1F3D0050194B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,15 +228,9 @@
 		72A3B462252E290C00891D69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				72920009251D1F3D0050194B /* ContentView.swift */,
-				7207541325D73B4D003411CE /* WidgetColorPicker.swift */,
-				7295DAB02528FF3C005FA093 /* NetworkImage.swift */,
-				7207540725D732D7003411CE /* ChannelTextField.swift */,
-				7207540B25D73504003411CE /* SubmitButton.swift */,
-				7207540F25D739CC003411CE /* HelpButton.swift */,
-				72D820A025D74613008240B2 /* ResetButton.swift */,
-				72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */,
-				72D820AA25D75440008240B2 /* WidgetPreview.swift */,
+				728E246825D76FD600D4BB6E /* SettingsView */,
+				728E246525D76FBF00D4BB6E /* AddWidgetView */,
+				72D820AE25D76F5F008240B2 /* CustomizeWidgetView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +246,23 @@
 				7207541725D73C8F003411CE /* Extensions.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		72D820AE25D76F5F008240B2 /* CustomizeWidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				72920009251D1F3D0050194B /* ContentView.swift */,
+				7207541325D73B4D003411CE /* WidgetColorPicker.swift */,
+				7295DAB02528FF3C005FA093 /* NetworkImage.swift */,
+				7207540725D732D7003411CE /* ChannelTextField.swift */,
+				7207540B25D73504003411CE /* SubmitButton.swift */,
+				7207540F25D739CC003411CE /* HelpButton.swift */,
+				72D820A025D74613008240B2 /* ResetButton.swift */,
+				72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */,
+				72D820AA25D75440008240B2 /* WidgetPreview.swift */,
+				728E246B25D7757400D4BB6E /* SafariView.swift */,
+			);
+			path = CustomizeWidgetView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +406,7 @@
 				7277197B2555E05000358EEB /* ChannelID.swift in Sources */,
 				725FE213251D4905004B2907 /* Channel.swift in Sources */,
 				725FE209251D44B1004B2907 /* Subscribers.swift in Sources */,
+				728E246C25D7757400D4BB6E /* SafariView.swift in Sources */,
 				72D820A125D74613008240B2 /* ResetButton.swift in Sources */,
 				7207540C25D73504003411CE /* SubmitButton.swift in Sources */,
 				72920006251D1F3D0050194B /* AppDelegate.swift in Sources */,

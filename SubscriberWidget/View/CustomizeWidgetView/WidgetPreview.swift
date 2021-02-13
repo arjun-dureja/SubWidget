@@ -26,12 +26,14 @@ struct WidgetPreview: View {
                                 .shadow(radius: 16)
                                 .animation(.easeInOut(duration: 0.25))
 
-            SmallWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor.clear)
+            SmallWidget(entry: channelEntry,
+                        bgColor: UIColor.clear)
                 .frame(width: 155, height: 155, alignment: .leading)
                 .opacity(self.animate ? 0 : 1)
                 .animation(.easeInOut(duration: 0.5))
             
-            MediumWidget(entry: YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)", profileImage: "\(viewModel.channelDetails[0].profileImage)", subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)", channelId: "\(viewModel.channelDetails[0].channelId)"), bgColor: UIColor.clear)
+            MediumWidget(entry: channelEntry,
+                         bgColor: UIColor.clear)
                 .frame(width: 329, height: 155, alignment: .leading)
                 .opacity(self.animate ? 1 : 0)
                 .animation(.easeInOut(duration: 0.5))
@@ -43,5 +45,12 @@ struct WidgetPreview: View {
         .onAppear() {
             rotateIn3D.toggle()
         }
+    }
+    
+    var channelEntry: YouTubeChannel {
+        return YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)",
+                              profileImage: "\(viewModel.channelDetails[0].profileImage)",
+                              subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)",
+                              channelId: "\(viewModel.channelDetails[0].channelId)")
     }
 }

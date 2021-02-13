@@ -21,9 +21,7 @@ struct ContentView: View {
     
     @State private var name: String = ""
     @State private var showingAlert = false
-    @State public var widgetSize = 0
     @State private var animate = false
-    @State private var rotateIn3D = false
     @State private var helpAlert = false
     @State private var bgColor: CGColor?
     @State private var colorChanged = false
@@ -61,7 +59,7 @@ struct ContentView: View {
             Spacer()
             
             VStack {
-                WidgetColorPicker(bgColor: $bgColor,
+                WidgetColorPicker(pickerColor: $bgColor,
                                   colorChanged: $colorChanged,
                                   backgroundColor: $backgroundColor)
                 
@@ -76,8 +74,7 @@ struct ContentView: View {
             
             Spacer()
             
-            WidgetSizePicker(widgetSize: $widgetSize,
-                             animate: $animate)
+            WidgetSizePicker(animate: $animate)
             
             Spacer()
         
@@ -126,4 +123,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
