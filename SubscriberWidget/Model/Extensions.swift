@@ -9,6 +9,7 @@
 import SwiftUI
 
 extension Color {
+    // Custom colors
     static let youtubeRed = Color(.sRGB, red: 212/255, green: 35/255, blue: 34/255, opacity: 1)
     static let titleGray = Color(.sRGB, red: 96/255, green: 96/255, blue: 96/255, opacity: 1)
     
@@ -17,6 +18,7 @@ extension Color {
 }
 
 extension View {
+    // Round specific corners only of any shape
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
@@ -32,7 +34,7 @@ struct RoundedCorner: Shape {
     }
 }
 
-// extension for keyboard to dismiss
+// Dismiss keyboard
 extension UIApplication {
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

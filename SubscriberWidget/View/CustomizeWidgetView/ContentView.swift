@@ -52,7 +52,7 @@ struct ContentView: View {
                              name: $name,
                              showingAlert: $showingAlert,
                              channelData: $channelData)
-                
+            
                 HelpButton(helpAlert: $helpAlert)
             }
             
@@ -77,11 +77,9 @@ struct ContentView: View {
             WidgetSizePicker(animate: $animate)
             
             Spacer()
-        
         }
         .ignoresSafeArea(.keyboard)
         .background(Color(UIColor.systemGray6)).edgesIgnoringSafeArea(.all)
-        // MARK: View On Appear
         .onAppear() {
             self.updateDataOnAppear()
         }
