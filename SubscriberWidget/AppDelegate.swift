@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import SwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.barTintColor = .systemGray6
+        
+        let segmentedControlAppearance = UISegmentedControl.appearance()
+        segmentedControlAppearance.backgroundColor = .systemGray6
+        segmentedControlAppearance.selectedSegmentTintColor = UIColor(Color.youtubeRed)
+        segmentedControlAppearance.setTitleTextAttributes([.foregroundColor: UIColor.systemBackground], for: .selected)
+        segmentedControlAppearance.setTitleTextAttributes([.foregroundColor: UIColor.label], for: .normal)
         return true
     }
 

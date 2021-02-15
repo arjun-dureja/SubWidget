@@ -16,6 +16,7 @@ struct SubmitButton: View {
     @Binding var name: String
     @Binding var showingAlert: Bool
     @Binding var channelData: Data
+    @Binding var channel: YouTubeChannel
     
     @State private var showSafari = false
     
@@ -45,17 +46,15 @@ struct SubmitButton: View {
     
     func submitButtonTapped() {
         if name.count > 0 {
-            self.viewModel.getChannelDetails(for: name) { (success, channel) in
-                if success {
+            self.viewModel.updateChannel(id: channel.id.uuidString, name: name, completion: { (channel) in
+                if let channel = channel {
                     UIApplication.shared.endEditing()
-                    guard let channelData = try? JSONEncoder().encode(channel!.channelId) else { return }
-                    self.channelData = channelData
-                    WidgetCenter.shared.reloadAllTimelines()
+                    name.removeAll()
+                    self.channel = channel
                 } else {
                     self.showingAlert = true
                 }
-                name.removeAll()
-            }
+            })
         }
     }
 }

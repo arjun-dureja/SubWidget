@@ -11,7 +11,7 @@ import SwiftUI
 struct WidgetPreview: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @ObservedObject var viewModel: ViewModel
+    @Binding var channel: YouTubeChannel
     
     @State private var rotateIn3D = false
     
@@ -22,17 +22,17 @@ struct WidgetPreview: View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
                                 .frame(width: self.animate ? 329 : 155, height: 155, alignment: .leading)
-                .foregroundColor(Color(bgColor ?? (colorScheme == .dark ? UIColor.black.cgColor : UIColor.white.cgColor)))
+                .foregroundColor(Color((channel.bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
                                 .shadow(radius: 16)
                                 .animation(.easeInOut(duration: 0.25))
 
-            SmallWidget(entry: channelEntry,
+            SmallWidget(entry: channel,
                         bgColor: UIColor.clear)
                 .frame(width: 155, height: 155, alignment: .leading)
                 .opacity(self.animate ? 0 : 1)
                 .animation(.easeInOut(duration: 0.5))
             
-            MediumWidget(entry: channelEntry,
+            MediumWidget(entry: channel,
                          bgColor: UIColor.clear)
                 .frame(width: 329, height: 155, alignment: .leading)
                 .opacity(self.animate ? 1 : 0)
@@ -45,12 +45,5 @@ struct WidgetPreview: View {
         .onAppear() {
             rotateIn3D.toggle()
         }
-    }
-    
-    var channelEntry: YouTubeChannel {
-        return YouTubeChannel(channelName: "\(viewModel.channelDetails[0].channelName)",
-                              profileImage: "\(viewModel.channelDetails[0].profileImage)",
-                              subCount: "\(Int(viewModel.subCount[0].subscriberCount)!)",
-                              channelId: "\(viewModel.channelDetails[0].channelId)")
     }
 }

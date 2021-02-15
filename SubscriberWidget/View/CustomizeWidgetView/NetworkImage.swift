@@ -24,6 +24,7 @@ struct NetworkImage: View {
             }
             else {
                 ProgressView()
+                    .scaleEffect(1.5, anchor: .center)
             }
         }
     }

@@ -11,14 +11,82 @@ import SwiftUI
 import WidgetKit
 
 class ViewModel: ObservableObject {
-    @Published var channelDetails: [Channel] = [.init(channelName: "", profileImage: "0")]
-    @Published var subCount: [Subscribers] = [.init(subCount: "0")]
+    @Published var channels: [YouTubeChannel] = []
+    @Published var isLoading = false
+    
+    @AppStorage("channels", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
+    @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var singleChannelData: Data = Data()
+    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
+    
+    var color: UIColor? {
+        var color: UIColor?
+        
+        do {
+            color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
+        } catch let error {
+            print("\(error.localizedDescription)")
+        }
+        return color ?? nil
+    }
+    
+    init() {
+        isLoading = true
+        guard let decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData) else {
+            print("Channel list is empty")
+            guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
+                print("First time user")
+                self.getChannelDetailsFromId(for: "UC-lHJZR3Gqxm24_Vd_AJ5Yw") { (channel) in
+                    if let channel = channel {
+                        withAnimation {
+                            self.channels.append(channel)
+                        }
+                        guard let encodedChannels = try? JSONEncoder().encode([channel]) else { return }
+                        self.channelData = encodedChannels
+                    }
+                }
+                isLoading = false
+                return
+            }
+            self.getChannelDetailsFromId(for: channelId) { (channel) in
+                if let channel = channel {
+                    var channel = channel
+                    if let color = self.color {
+                        print("Updating old color")
+                        channel.bgColor = color
+                    }
+                    withAnimation {
+                        self.channels.append(channel)
+                    }
+                    guard let encodedChannels = try? JSONEncoder().encode([channel]) else { return }
+                    self.channelData = encodedChannels
+                }
+            }
+            isLoading = false
+            return
+        }
+        print("Channel list has values")
+        self.channels = decodedChannels
+        for decodedChannel in decodedChannels {
+            print(decodedChannel)
+            self.getChannelDetailsFromId(for: decodedChannel.channelId) { [weak self] (channel) in
+                if let channel = channel {
+                    withAnimation {
+                        print(channel)
+                        self?.channels.append(channel)
+                        self?.channels[(self?.channels.count)! - 1].bgColor = decodedChannel.bgColor
+                        self?.isLoading = false
+                    }
+                }
+            }
+        }
+    }
     
     /// Get youtube channel details by channel username
     /// - Parameters:
     ///   - channelName: YouTube channel username
     ///   - completion: Sends a bool to determine if the API call was successful and an optional YouTubeChannel
-    func getChannelDetails(for channelName: String, completion: @escaping (Bool, YouTubeChannel?) -> ()) {
+    func getChannelDetails(for channelName: String, completion: @escaping (YouTubeChannel?) -> ()) {
+        print("Performing network call")
         // YouTube data API URL
         let channelNameWithoutSpaces = channelName.replacingOccurrences(of: " ", with: "")
         guard let snippetURL = URL(string: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(channelNameWithoutSpaces)&key=\(Constants.apiKey)&type=channel") else {
@@ -31,19 +99,15 @@ class ViewModel: ObservableObject {
 
                 // Check if any channels were returned
                 if response.items!.count == 0 {
-                    completion(false, nil)
+                    completion(nil)
                     return
                 }
-                
-                DispatchQueue.main.async {
-                    self.channelDetails = response.items!
-                }
-                self.getSubCount(for: response.items![0].channelId) { (channel) in
-                    completion(true, channel)
+                self.getSubCount(channel: response.items![0]) { (channel) in
+                    completion(channel)
                 }
             }
             catch {
-                completion(false, nil)
+                completion(nil)
             }
         }.resume()
     }
@@ -52,7 +116,8 @@ class ViewModel: ObservableObject {
     /// - Parameters:
     ///   - id: YouTube channel ID
     ///   - completion: Sends a bool to determine if the API call was successful and an optional YouTubeChannel
-    func getChannelDetailsFromId(for id: String, completion: @escaping (Bool, YouTubeChannel?) -> ()) {
+    func getChannelDetailsFromId(for id: String, completion: @escaping (YouTubeChannel?) -> ()) {
+        print("Performing network call")
         // YouTube data API URL
         let idWithoutSpaces = id.replacingOccurrences(of: " ", with: "")
         guard let snippetURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=snippet&id=\(idWithoutSpaces)&key=\(Constants.apiKey)") else {
@@ -62,17 +127,13 @@ class ViewModel: ObservableObject {
         URLSession.shared.dataTask(with: snippetURL) { (data, response, error) in
             do {
                 let response = try JSONDecoder().decode(ChannelIDResponse.self, from: data!)
-                DispatchQueue.main.async {
-                    self.channelDetails = [Channel(channelName: response.items![0].channelName,
-                                                   profileImage: response.items![0].profileImage)]
-                }
-                self.getSubCount(for: response.items![0].channelId) { (channel) in
-                    completion(true, channel)
+                self.getSubCount(for: response.items![0]) { (channel) in
+                    completion(channel)
                 }
             }
             catch {
                 print("json error: \(error)")
-                completion(false, nil)
+                completion(nil)
             }
 
         }.resume()
@@ -83,9 +144,16 @@ class ViewModel: ObservableObject {
     /// - Parameters:
     ///   - channelID: YouTube channel ID
     ///   - completion: Sends an optional YouTubeChannel. Only called if getChannelDetailsFromId is successful so no need to send a bool
-    private func getSubCount(for channelID: String, completion: @escaping (YouTubeChannel?) -> ()) {
+    private func getSubCount(for channelID: ChannelID? = nil, channel: Channel? = nil, completion: @escaping (YouTubeChannel?) -> ()) {
         // YouTube data API URL
-        guard let statisticsURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=\(channelID)&key=\(Constants.apiKey)") else {
+        var id = ""
+        if let channelID = channelID {
+            id = channelID.channelId
+        }
+        if let channel = channel {
+            id = channel.channelId
+        }
+        guard let statisticsURL = URL(string: "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=\(id)&key=\(Constants.apiKey)") else {
             return
         }
         
@@ -93,11 +161,18 @@ class ViewModel: ObservableObject {
             do {
                 let response = try JSONDecoder().decode(SubscriberResponse.self, from: data!)
                 DispatchQueue.main.async {
-                    self.subCount = response.items!
-                    completion(YouTubeChannel(channelName: self.channelDetails[0].channelName,
-                                              profileImage: self.channelDetails[0].profileImage,
-                                              subCount: response.items![0].subscriberCount,
-                                              channelId: channelID))
+                    if let channelID = channelID {
+                        completion(YouTubeChannel(channelName: channelID.channelName,
+                                                  profileImage: channelID.profileImage,
+                                                  subCount: response.items![0].subscriberCount,
+                                                  channelId: channelID.channelId))
+                    }
+                    if let channelID = channel {
+                        completion(YouTubeChannel(channelName: channelID.channelName,
+                                                  profileImage: channelID.profileImage,
+                                                  subCount: response.items![0].subscriberCount,
+                                                  channelId: channelID.channelId))
+                    }
                 }
             }
             catch {
@@ -105,5 +180,51 @@ class ViewModel: ObservableObject {
             }
 
         }.resume()
+    }
+    
+    func addNewChannel(completion: @escaping (Bool) -> ()) {
+        self.getChannelDetailsFromId(for: "UC-lHJZR3Gqxm24_Vd_AJ5Yw") { [weak self] (channel) in
+            if let channel = channel {
+                withAnimation {
+                    self?.channels.append(channel)
+                }
+                guard let encodedChannels = try? JSONEncoder().encode(self?.channels) else { return }
+                self?.channelData = encodedChannels
+                completion(true)
+            }
+            completion(false)
+        }
+    }
+    
+    func updateColorForChannel(id: String, color: UIColor?) {
+        for i in 0..<self.channels.count {
+            if id == channels[i].id.uuidString {
+                channels[i].bgColor = color
+                break
+            }
+        }
+        guard let encodedChannels = try? JSONEncoder().encode(self.channels) else { return }
+        self.channelData = encodedChannels
+    }
+    
+    func updateChannel(id: String, name: String, completion: @escaping (YouTubeChannel?) -> ()) {
+        for i in 0..<self.channels.count {
+            if id == channels[i].id.uuidString {
+                self.getChannelDetails(for: name) { [weak self] (channel) in
+                    if let channel = channel {
+                        self?.channels[i].channelName = channel.channelName
+                        self?.channels[i].channelId = channel.channelId
+                        self?.channels[i].profileImage = channel.profileImage
+                        guard let encodedChannels = try? JSONEncoder().encode(self?.channels) else { return }
+                        self?.channelData = encodedChannels
+                        WidgetCenter.shared.reloadAllTimelines()
+                        completion(self?.channels[i])
+                    } else {
+                        completion(nil)
+                    }
+                }
+                break
+            }
+        }
     }
 }

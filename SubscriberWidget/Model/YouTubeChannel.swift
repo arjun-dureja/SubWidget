@@ -7,11 +7,54 @@
 //
 
 import Foundation
+import UIKit
 
-struct YouTubeChannel: Identifiable, Codable {
-    let channelName: String
-    let profileImage: String
-    let subCount: String
-    let channelId: String
+struct YouTubeChannel: Identifiable, Codable, Hashable {
+    
+    private enum CodingKeys: String, CodingKey { case channelName, profileImage, subCount, channelId, bgColor }
+    
+    var channelName: String
+    var profileImage: String
+    var subCount: String
+    var channelId: String
+    var bgColor: UIColor?
     var id = UUID()
+    
+    init(channelName: String, profileImage: String, subCount : String, channelId: String, bgColor: UIColor? = nil) {
+        self.channelName = channelName
+        self.profileImage = profileImage
+        self.subCount = subCount
+        self.channelId = channelId
+        self.bgColor = bgColor
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        channelName = try container.decode(String.self, forKey: .channelName)
+        profileImage = try container.decode(String.self, forKey: .profileImage)
+        subCount = try container.decode(String.self, forKey: .subCount)
+        channelId = try container.decode(String.self, forKey: .channelId)
+        bgColor = try? container.decode(BGColor.self, forKey: .bgColor).uiColor
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(channelName, forKey: .channelName)
+        try container.encode(profileImage, forKey: .profileImage)
+        try container.encode(subCount, forKey: .subCount)
+        try container.encode(channelId, forKey: .channelId)
+        try container.encode(bgColor != nil ? BGColor(uiColor: bgColor) : nil, forKey: .bgColor)
+    }
+}
+
+struct BGColor : Codable {
+    var red : CGFloat = 0.0, green: CGFloat = 0.0, blue: CGFloat = 0.0, alpha: CGFloat = 0.0
+    
+    var uiColor : UIColor {
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+
+    init(uiColor : UIColor?) {
+        uiColor!.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+    }
 }

@@ -10,11 +10,12 @@ import SwiftUI
 import UIKit
 import WidgetKit
 
-struct ContentView: View {
+struct CustomizeWidgetView: View {
     @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
     @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
     
-    @ObservedObject var viewModel = ViewModel()
+    @StateObject var viewModel: ViewModel
+    @State var channel: YouTubeChannel
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
@@ -26,49 +27,36 @@ struct ContentView: View {
     @State private var bgColor: CGColor?
     @State private var colorChanged = false
     
-    init() {
-        // Segmented control colors
-        UISegmentedControl.appearance().backgroundColor = .systemGray6
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.youtubeRed)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.systemBackground], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.label], for: .normal)
-    }
-    
     var body: some View {
-        VStack(spacing: 4) {
-            Spacer()
-            
-            Text("SubWidget")
-                .foregroundColor(Color(UIColor.label))
-                .font(.largeTitle)
-                .bold()
-            
+        VStack(spacing: 16) {
             Spacer()
             
             HStack {
                 ChannelTextField(name: $name)
                 
-                SubmitButton(viewModel: self.viewModel,
+                SubmitButton(viewModel: viewModel,
                              name: $name,
                              showingAlert: $showingAlert,
-                             channelData: $channelData)
+                             channelData: $channelData,
+                             channel: $channel)
             
                 HelpButton(helpAlert: $helpAlert)
             }
             
-            Spacer()
-            
             VStack {
-                WidgetColorPicker(pickerColor: $bgColor,
+                WidgetColorPicker(viewModel: viewModel,
+                                  channel: $channel,
                                   colorChanged: $colorChanged,
                                   backgroundColor: $backgroundColor)
                 
-                ResetButton(backgroundColor: $backgroundColor,
-                            bgColor: $bgColor,
+                ResetButton(viewModel: viewModel,
+                            channel: $channel,
                             colorChanged: $colorChanged)
             }
+            
+            Spacer()
     
-            WidgetPreview(viewModel: viewModel,
+            WidgetPreview(channel: $channel,
                           animate: $animate,
                           bgColor: $bgColor)
             
@@ -80,28 +68,30 @@ struct ContentView: View {
         }
         .ignoresSafeArea(.keyboard)
         .background(Color(UIColor.systemGray6)).edgesIgnoringSafeArea(.all)
+        .navigationBarTitle("", displayMode: .inline)
         .onAppear() {
-            self.updateDataOnAppear()
+            //self.updateDataOnAppear()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            self.updateColorIfNeeded()
+            //self.updateColorIfNeeded()
         }
     }
     
     func updateDataOnAppear() {
         guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else {
-            self.viewModel.getChannelDetails(for: "pewdiepie") { (success, channel)   in
-                if success {
-                    guard let channelData = try? JSONEncoder().encode(channel!.channelId) else { return }
+            self.viewModel.getChannelDetails(for: "pewdiepie") { (channel)   in
+                if let channel = channel {
+                    guard let channelData = try? JSONEncoder().encode(channel.channelId) else { return }
                     self.channelData = channelData
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             }
             return
         }
-        self.viewModel.getChannelDetailsFromId(for: channelId) { (success, _) in
-            if !success {
+        self.viewModel.getChannelDetailsFromId(for: channelId) { (channel) in
+            guard let _ = channel else {
                 self.showingAlert = true
+                return
             }
         }
     }
@@ -116,8 +106,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CustomizeWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CustomizeWidgetView(viewModel: ViewModel(), channel: YouTubeChannel(channelName: "PreviewChannel", profileImage: "", subCount: "0", channelId: ""))
     }
 }

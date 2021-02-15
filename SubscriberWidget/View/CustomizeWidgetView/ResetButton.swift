@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct ResetButton: View {
-    @Binding var backgroundColor: Data
-    @Binding var bgColor: CGColor?
+    @StateObject var viewModel: ViewModel
+    @Binding var channel: YouTubeChannel
     @Binding var colorChanged: Bool
     
     var body: some View {
@@ -19,22 +19,12 @@ struct ResetButton: View {
                 .font(.subheadline)
                 .bold()
         })
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 45, trailing: 10))
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
     }
     
     func resetTapped() {
-        if bgColor != nil {
-            self.updateColorInAppStorage(color: nil)
-            self.bgColor = nil
-            self.colorChanged = true
-        }
-    }
-    
-    func updateColorInAppStorage(color: UIColor?) {
-        do {
-            backgroundColor = try NSKeyedArchiver.archivedData(withRootObject: color as Any, requiringSecureCoding: false)
-        } catch let error {
-            print("\(error.localizedDescription)")
-        }
+        viewModel.updateColorForChannel(id: channel.id.uuidString, color: nil)
+        channel.bgColor = nil
+        colorChanged = true
     }
 }
