@@ -65,19 +65,20 @@ class ViewModel: ObservableObject {
             return
         }
         print("Channel list has values")
-        self.channels = decodedChannels
-        for decodedChannel in decodedChannels {
-            print(decodedChannel)
-            self.getChannelDetailsFromId(for: decodedChannel.channelId) { [weak self] (channel) in
+        withAnimation {
+            self.channels = decodedChannels
+        }
+        for i in 0..<channels.count {
+            print(channels[i])
+            self.getChannelDetailsFromId(for: channels[i].channelId) { [weak self] (channel) in
                 if let channel = channel {
-                    withAnimation {
-                        print(channel)
-                        self?.channels.append(channel)
-                        self?.channels[(self?.channels.count)! - 1].bgColor = decodedChannel.bgColor
-                        self?.isLoading = false
-                    }
+                    print(channel)
+                    self?.channels[i].subCount = channel.subCount
                 }
             }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.isLoading = false
         }
     }
     
@@ -212,9 +213,9 @@ class ViewModel: ObservableObject {
             if id == channels[i].id.uuidString {
                 self.getChannelDetails(for: name) { [weak self] (channel) in
                     if let channel = channel {
-                        self?.channels[i].channelName = channel.channelName
-                        self?.channels[i].channelId = channel.channelId
-                        self?.channels[i].profileImage = channel.profileImage
+                        let color = self?.channels[i].bgColor
+                        self?.channels[i] = channel
+                        self?.channels[i].bgColor = color
                         guard let encodedChannels = try? JSONEncoder().encode(self?.channels) else { return }
                         self?.channelData = encodedChannels
                         WidgetCenter.shared.reloadAllTimelines()
@@ -226,5 +227,11 @@ class ViewModel: ObservableObject {
                 break
             }
         }
+    }
+    
+    func delete(at index: Int) {
+        self.channels.remove(at: index)
+        guard let encodedChannels = try? JSONEncoder().encode(self.channels) else { return }
+        self.channelData = encodedChannels
     }
 }

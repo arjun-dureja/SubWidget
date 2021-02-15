@@ -11,6 +11,7 @@ import SwiftUI
 struct WidgetListView: View {
     @State private var newWidget = false
     @StateObject var viewModel = ViewModel()
+    @State private var showingAlert = false
     
     init() {
         // List row color
@@ -33,6 +34,7 @@ struct WidgetListView: View {
                                 })
                                 .listRowBackground(Color(UIColor.systemBackground))
                         }
+                        .onDelete(perform: delete)
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
@@ -56,6 +58,9 @@ struct WidgetListView: View {
             .sheet(isPresented: $newWidget, content: {
                 CustomizeWidgetView(viewModel: viewModel, channel: viewModel.channels.last!)
             })
+            .alert(isPresented: $showingAlert, content: {
+                Alert(title: Text("You must have at least one widget."), dismissButton: .default(Text("OK")))
+            })
         }
     }
     
@@ -64,6 +69,16 @@ struct WidgetListView: View {
             if success {
                 self.newWidget = true
             }
+        }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        guard viewModel.channels.count > 1 else {
+            self.showingAlert = true
+            return
+        }
+        if let index = offsets.first {
+            viewModel.delete(at: index)
         }
     }
 }
