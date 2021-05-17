@@ -46,7 +46,7 @@ struct SubmitButton: View {
     
     func submitButtonTapped() {
         if name.count > 0 {
-            self.viewModel.updateChannel(id: channel.id.uuidString, name: name, completion: { (channel) in
+            self.viewModel.updateChannel(id: channel.id, name: name, completion: { (channel) in
                 if let channel = channel {
                     UIApplication.shared.endEditing()
                     name.removeAll()

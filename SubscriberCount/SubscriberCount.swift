@@ -14,7 +14,6 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
     let channel: YouTubeChannel
-    let bgColor: UIColor?
 }
 
 struct Provider: IntentTimelineProvider {
@@ -22,7 +21,7 @@ struct Provider: IntentTimelineProvider {
     @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "", profileImage: "", subCount: "0", channelId: ""), bgColor: UIColor.systemBackground)
+        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "PewDiePie", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "1111111110", channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw"))
     }
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -30,7 +29,7 @@ struct Provider: IntentTimelineProvider {
         let viewModel = ViewModel()
         viewModel.getChannelDetailsFromId(for: channelId) { (channel) in
             if let channel = channel {
-                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel, bgColor: color)
+                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel)
                 completion(entry)
             }
         }
@@ -44,22 +43,11 @@ struct Provider: IntentTimelineProvider {
         
         ViewModel().getChannelDetailsFromId(for: channelId) { (channel) in
             if let channel = channel {
-                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel, bgColor: color)
+                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel)
                 let timeline = Timeline(entries: [entry], policy: .after(refresh))
                 completion(timeline)
             }
         }
-    }
-    
-    var color: UIColor? {
-        var color: UIColor?
-        
-        do {
-            color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
-        } catch let error {
-            print("\(error.localizedDescription)")
-        }
-        return color ?? nil
     }
 }
 
@@ -70,9 +58,9 @@ struct SubscriberCountEntryView : View {
     var body: some View {
         switch widgetFamily {
         case .systemSmall:
-            SmallWidget(entry: entry.channel, bgColor: entry.bgColor)
+            SmallWidget(entry: entry.channel)
         default:
-            MediumWidget(entry: entry.channel, bgColor: entry.bgColor)
+            MediumWidget(entry: entry.channel)
         }
     }
 }
@@ -82,9 +70,9 @@ struct SubscriberCount: Widget {
     let kind: String = "SubscriberCount"
     
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
             SubscriberCountEntryView(entry: entry)
-        }
+        })
         .configurationDisplayName("Subscriber Count")
         .description("View your YouTube subscriber count in realtime")
         .supportedFamilies([.systemSmall, .systemMedium])
@@ -94,7 +82,7 @@ struct SubscriberCount: Widget {
 
 struct SubscriberCount_Previews: PreviewProvider {
     static var previews: some View {
-        SubscriberCountEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "Google", profileImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/1200px-Google_Chrome_icon_%28September_2014%29.svg.png", subCount: "123,501", channelId: "test"), bgColor: .systemBackground))
+        SubscriberCountEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "Google", profileImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/1200px-Google_Chrome_icon_%28September_2014%29.svg.png", subCount: "123,501", channelId: "test")))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .previewDisplayName("Small widget")
                 .environment(\.colorScheme, .dark)

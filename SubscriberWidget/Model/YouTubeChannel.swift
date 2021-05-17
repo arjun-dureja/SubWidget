@@ -11,14 +11,14 @@ import UIKit
 
 struct YouTubeChannel: Identifiable, Codable, Hashable {
     
-    private enum CodingKeys: String, CodingKey { case channelName, profileImage, subCount, channelId, bgColor }
+    private enum CodingKeys: String, CodingKey { case channelName, profileImage, subCount, channelId, bgColor, id }
     
     var channelName: String
     var profileImage: String
     var subCount: String
     var channelId: String
     var bgColor: UIColor?
-    var id = UUID()
+    var id = UUID().uuidString
     
     init(channelName: String, profileImage: String, subCount : String, channelId: String, bgColor: UIColor? = nil) {
         self.channelName = channelName
@@ -35,6 +35,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         subCount = try container.decode(String.self, forKey: .subCount)
         channelId = try container.decode(String.self, forKey: .channelId)
         bgColor = try? container.decode(BGColor.self, forKey: .bgColor).uiColor
+        id = try container.decode(String.self, forKey: .id)
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -44,6 +45,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         try container.encode(subCount, forKey: .subCount)
         try container.encode(channelId, forKey: .channelId)
         try container.encode(bgColor != nil ? BGColor(uiColor: bgColor) : nil, forKey: .bgColor)
+        try container.encode(id, forKey: .id)
     }
 }
 

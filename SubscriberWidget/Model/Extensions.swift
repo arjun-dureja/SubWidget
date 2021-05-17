@@ -17,6 +17,19 @@ extension Color {
     static let darkModeBG = Color(.sRGB, red: 41/255, green: 20/255, blue: 20/255, opacity: 1)
 }
 
+extension UIColor {
+    func hexStringFromColor() -> String {
+        let components = self.cgColor.components
+        let r: CGFloat = components?[0] ?? 0.0
+        let g: CGFloat = components?[1] ?? 0.0
+        let b: CGFloat = components?[2] ?? 0.0
+
+        let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
+        return hexString
+     }
+
+}
+
 extension View {
     // Round specific corners only of any shape
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
@@ -38,5 +51,16 @@ struct RoundedCorner: Shape {
 extension UIApplication {
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+extension YouTubeChannelParam {
+    
+    convenience init(channel: YouTubeChannel) {
+        self.init(identifier: channel.id, display: channel.channelName)
+    }
+    
+    static var global: YouTubeChannelParam {
+        YouTubeChannelParam(channel: .init(channelName: "", profileImage: "", subCount: "0", channelId: ""))
     }
 }

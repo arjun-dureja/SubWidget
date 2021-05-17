@@ -33,7 +33,7 @@ struct WidgetColorPicker: View {
     }
     
     func updateBackgroundColor(with color: CGColor) {
-        self.viewModel.updateColorForChannel(id: channel.id.uuidString, color: UIColor(cgColor: color))
+        self.viewModel.updateColorForChannel(id: channel.id, color: UIColor(cgColor: color))
         channel.bgColor = UIColor(cgColor: color)
     }
 }

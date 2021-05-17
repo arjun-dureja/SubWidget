@@ -27,7 +27,9 @@ struct WidgetListView: View {
                     {
                         ForEach(viewModel.channels, id: \.id) { channel in
                             NavigationLink(
-                                destination: CustomizeWidgetView(viewModel: viewModel, channel: channel),
+                                destination: CustomizeWidgetView(viewModel: viewModel,
+                                                                 channel: channel,
+                                                                 isNewWidget: false),
                                 label: {
                                     ChannelListRow(channel: channel)
                                         .redacted(reason: viewModel.isLoading ? .placeholder : [])
@@ -56,7 +58,9 @@ struct WidgetListView: View {
                         })
             )
             .sheet(isPresented: $newWidget, content: {
-                CustomizeWidgetView(viewModel: viewModel, channel: viewModel.channels.last!)
+                CustomizeWidgetView(viewModel: viewModel,
+                                    channel: viewModel.channels.last!,
+                                    isNewWidget: true)
             })
             .alert(isPresented: $showingAlert, content: {
                 Alert(title: Text("You must have at least one widget."), dismissButton: .default(Text("OK")))

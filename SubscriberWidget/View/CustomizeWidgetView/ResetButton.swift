@@ -23,7 +23,7 @@ struct ResetButton: View {
     }
     
     func resetTapped() {
-        viewModel.updateColorForChannel(id: channel.id.uuidString, color: nil)
+        viewModel.updateColorForChannel(id: channel.id, color: nil)
         channel.bgColor = nil
         colorChanged = true
     }

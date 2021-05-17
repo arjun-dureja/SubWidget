@@ -21,20 +21,20 @@ struct WidgetPreview: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
-                                .frame(width: self.animate ? 329 : 155, height: 155, alignment: .leading)
+                .frame(width: self.animate ? 329 : 155, height: 155, alignment: .leading)
                 .foregroundColor(Color((channel.bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
-                                .shadow(radius: 16)
-                                .animation(.easeInOut(duration: 0.25))
-
-            SmallWidget(entry: channel,
-                        bgColor: UIColor.clear)
+                .shadow(radius: 16)
+                .animation(.easeInOut(duration: 0.25))
+            
+            SmallWidget(entry: channel)
                 .frame(width: 155, height: 155, alignment: .leading)
+                .cornerRadius(25)
                 .opacity(self.animate ? 0 : 1)
                 .animation(.easeInOut(duration: 0.5))
             
-            MediumWidget(entry: channel,
-                         bgColor: UIColor.clear)
+            MediumWidget(entry: channel)
                 .frame(width: 329, height: 155, alignment: .leading)
+                .cornerRadius(25)
                 .opacity(self.animate ? 1 : 0)
                 .animation(.easeInOut(duration: 0.5))
         }

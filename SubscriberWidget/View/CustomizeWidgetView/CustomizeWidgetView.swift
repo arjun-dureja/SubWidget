@@ -16,6 +16,7 @@ struct CustomizeWidgetView: View {
     
     @StateObject var viewModel: ViewModel
     @State var channel: YouTubeChannel
+    @State var isNewWidget: Bool
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
@@ -29,20 +30,23 @@ struct CustomizeWidgetView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            Spacer()
-            
-            HStack {
-                ChannelTextField(name: $name)
+            if isNewWidget {
+                CustomizeWidgetHeader(viewModel: viewModel)
                 
-                SubmitButton(viewModel: viewModel,
-                             name: $name,
-                             showingAlert: $showingAlert,
-                             channelData: $channelData,
-                             channel: $channel)
-            
-                HelpButton(helpAlert: $helpAlert)
+                HStack {
+                    ChannelTextField(name: $name)
+                    
+                    SubmitButton(viewModel: viewModel,
+                                 name: $name,
+                                 showingAlert: $showingAlert,
+                                 channelData: $channelData,
+                                 channel: $channel)
+                    
+                    HelpButton(helpAlert: $helpAlert)
+                }
+            } else {
+                Spacer()
             }
-            
             VStack {
                 WidgetColorPicker(viewModel: viewModel,
                                   channel: $channel,
@@ -55,7 +59,7 @@ struct CustomizeWidgetView: View {
             }
             
             Spacer()
-    
+            
             WidgetPreview(channel: $channel,
                           animate: $animate,
                           bgColor: $bgColor)
@@ -68,12 +72,12 @@ struct CustomizeWidgetView: View {
         }
         .ignoresSafeArea(.keyboard)
         .background(Color(UIColor.systemGray6)).edgesIgnoringSafeArea(.all)
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarTitle(self.channel.channelName, displayMode: .inline)
         .onAppear() {
             //self.updateDataOnAppear()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            //self.updateColorIfNeeded()
+            self.updateColorIfNeeded()
         }
     }
     
@@ -98,16 +102,18 @@ struct CustomizeWidgetView: View {
     
     func updateColorIfNeeded() {
         // Only reload timelines if the color was changed
-        if self.colorChanged {
-            print("Color changed, reloading timelines")
-            WidgetCenter.shared.reloadAllTimelines()
-            self.colorChanged = false
-        }
+        //        if self.colorChanged {
+        //            print("Color changed, reloading timelines")
+        //            WidgetCenter.shared.reloadAllTimelines()
+        //            self.colorChanged = false
+        //        }
+        print("reloading")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 
 struct CustomizeWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomizeWidgetView(viewModel: ViewModel(), channel: YouTubeChannel(channelName: "PreviewChannel", profileImage: "", subCount: "0", channelId: ""))
+        CustomizeWidgetView(viewModel: ViewModel(), channel: YouTubeChannel(channelName: "PreviewChannel", profileImage: "", subCount: "0", channelId: ""), isNewWidget: false)
     }
 }

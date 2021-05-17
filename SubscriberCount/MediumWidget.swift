@@ -10,12 +10,11 @@ import SwiftUI
 
 struct MediumWidget: View {
     var entry: YouTubeChannel
-    var bgColor: UIColor?
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack {
-            if let bgColor = bgColor {
+            if let bgColor = entry.bgColor {
                 Color(bgColor)
             }
             HStack(spacing: -5) {
