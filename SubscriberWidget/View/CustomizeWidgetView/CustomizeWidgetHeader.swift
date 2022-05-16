@@ -16,7 +16,7 @@ struct CustomizeWidgetHeader: View {
     var body: some View {
         HStack {
             Button("Cancel") {
-                viewModel.delete(at: viewModel.channels.count-1)
+                viewModel.deleteChannel(at: viewModel.channels.count-1)
                 presentationMode.wrappedValue.dismiss()
             }
             .foregroundColor(.youtubeRed)

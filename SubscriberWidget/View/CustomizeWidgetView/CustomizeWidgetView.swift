@@ -29,91 +29,100 @@ struct CustomizeWidgetView: View {
     @State private var colorChanged = false
     
     var body: some View {
-        VStack(spacing: 16) {
-            if isNewWidget {
-                CustomizeWidgetHeader(viewModel: viewModel)
-                
-                HStack {
-                    ChannelTextField(name: $name)
-                    
-                    SubmitButton(viewModel: viewModel,
-                                 name: $name,
-                                 showingAlert: $showingAlert,
-                                 channelData: $channelData,
-                                 channel: $channel)
-                    
-                    HelpButton(helpAlert: $helpAlert)
+        GeometryReader { _ in // Use geometry reader to prevent keyboard avoidance
+            VStack(spacing: 16) {
+                if isNewWidget {
+                    CustomizeWidgetHeader(viewModel: viewModel)
+                    HStack {
+                        ChannelTextField(
+                            name: $name,
+                            submitButtonTapped: submitButtonTapped
+                        )
+
+                        SubmitButton(
+                            viewModel: viewModel,
+                            name: $name,
+                            showingAlert: $showingAlert,
+                            channelData: $channelData,
+                            channel: $channel,
+                            submitButtonTapped: submitButtonTapped
+                        )
+
+                        HelpButton(helpAlert: $helpAlert)
+                    }
+                } else {
+                    Spacer()
                 }
-            } else {
+                VStack {
+                    WidgetColorPicker(
+                        viewModel: viewModel,
+                        channel: $channel,
+                        colorChanged: $colorChanged,
+                        backgroundColor: $backgroundColor
+                    )
+
+                    ResetButton(
+                        viewModel: viewModel,
+                        channel: $channel,
+                        colorChanged: $colorChanged
+                    )
+                }
+                Spacer()
+                WidgetPreview(
+                    channel: $channel,
+                    animate: $animate,
+                    bgColor: $bgColor
+                )
+
+                Spacer()
+                WidgetSizePicker(animate: $animate)
                 Spacer()
             }
-            VStack {
-                WidgetColorPicker(viewModel: viewModel,
-                                  channel: $channel,
-                                  colorChanged: $colorChanged,
-                                  backgroundColor: $backgroundColor)
-                
-                ResetButton(viewModel: viewModel,
-                            channel: $channel,
-                            colorChanged: $colorChanged)
+            .background(Color(UIColor.systemGray6)).edgesIgnoringSafeArea(.all)
+            .navigationBarTitle(self.channel.channelName, displayMode: .inline)
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                updateColorIfNeeded()
             }
-            
-            Spacer()
-            
-            WidgetPreview(channel: $channel,
-                          animate: $animate,
-                          bgColor: $bgColor)
-            
-            Spacer()
-            
-            WidgetSizePicker(animate: $animate)
-            
-            Spacer()
-        }
-        .ignoresSafeArea(.keyboard)
-        .background(Color(UIColor.systemGray6)).edgesIgnoringSafeArea(.all)
-        .navigationBarTitle(self.channel.channelName, displayMode: .inline)
-        .onAppear() {
-            //self.updateDataOnAppear()
-        }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            self.updateColorIfNeeded()
-        }
-    }
-    
-    func updateDataOnAppear() {
-        guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else {
-            self.viewModel.getChannelDetails(for: "pewdiepie") { (channel)   in
-                if let channel = channel {
-                    guard let channelData = try? JSONEncoder().encode(channel.channelId) else { return }
-                    self.channelData = channelData
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
-            }
-            return
-        }
-        self.viewModel.getChannelDetailsFromId(for: channelId) { (channel) in
-            guard let _ = channel else {
-                self.showingAlert = true
-                return
-            }
+            .ignoresSafeArea(.keyboard, edges: .all)
         }
     }
     
     func updateColorIfNeeded() {
         // Only reload timelines if the color was changed
-        //        if self.colorChanged {
-        //            print("Color changed, reloading timelines")
-        //            WidgetCenter.shared.reloadAllTimelines()
-        //            self.colorChanged = false
-        //        }
-        print("reloading")
-        WidgetCenter.shared.reloadAllTimelines()
+        if self.colorChanged {
+            print("Color changed, reloading timelines")
+            WidgetCenter.shared.reloadAllTimelines()
+            self.colorChanged = false
+        }
+    }
+
+    func submitButtonTapped() {
+        guard name.count > 0 else { return }
+
+        Task {
+            do {
+                let channel = try await viewModel.updateChannel(id: channel.id, name: name)
+                UIApplication.shared.endEditing()
+                name.removeAll()
+                self.channel = channel
+            } catch {
+                showingAlert = true
+            }
+        }
     }
 }
 
 struct CustomizeWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomizeWidgetView(viewModel: ViewModel(), channel: YouTubeChannel(channelName: "PreviewChannel", profileImage: "", subCount: "0", channelId: ""), isNewWidget: false)
+        CustomizeWidgetView(
+            viewModel: ViewModel(),
+            channel: YouTubeChannel(
+                channelName: "PreviewChannel",
+                profileImage: "",
+                subCount: "0",
+                channelId: ""
+            ),
+            isNewWidget: false
+        )
     }
 }

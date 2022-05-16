@@ -8,44 +8,16 @@
 
 import Foundation
 
-struct SubscriberResponse: Decodable {
-    var items: [Subscribers]?
-    
-    enum CodingKeys: String, CodingKey {
-        case items
-    }
-    
-    init (from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.items = try container.decode([Subscribers].self, forKey: .items)
-    }
-}
+struct Response<T: Decodable>: Decodable {
+    var items: [T]?
 
-struct ChannelResponse: Decodable {
-    var items: [Channel]?
-    
     enum CodingKeys: String, CodingKey {
         case items
     }
-    
-    init (from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.items = try container.decode([Channel].self, forKey: .items)
-    }
-}
 
-struct ChannelIDResponse: Decodable {
-    var items: [ChannelID]?
-    
-    enum CodingKeys: String, CodingKey {
-        case items
-    }
-    
     init (from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.items = try container.decode([ChannelID].self, forKey: .items)
+
+        self.items = try container.decode([T].self, forKey: .items)
     }
 }

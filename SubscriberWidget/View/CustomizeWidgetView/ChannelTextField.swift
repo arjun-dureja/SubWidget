@@ -10,6 +10,9 @@ import SwiftUI
 
 struct ChannelTextField: View {
     @Binding var name: String
+    @FocusState private var isFocused: Bool
+
+    var submitButtonTapped: () -> Void
     
     var body: some View {
         ZStack {
@@ -31,6 +34,15 @@ struct ChannelTextField: View {
                 .foregroundColor(Color(UIColor.label))
                 .cornerRadius(8)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 5))
+                .focused($isFocused)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                        self.isFocused = true
+                    }
+                }
+                .onSubmit {
+                    submitButtonTapped()
+                }
         }
     }
 }

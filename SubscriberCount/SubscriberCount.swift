@@ -13,46 +13,46 @@ import Intents
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
-    let channel: YouTubeChannel
+    let channel: YouTubeChannel?
 }
-
-struct Provider: IntentTimelineProvider {
-    @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
-    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
-    
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "PewDiePie", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "1111111110", channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw"))
-    }
-    
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
-        let viewModel = ViewModel()
-        viewModel.getChannelDetailsFromId(for: channelId) { (channel) in
-            if let channel = channel {
-                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel)
-                completion(entry)
-            }
-        }
-    }
-
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
-        
-        // Refresh widget every hour
-        let refresh = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
-        
-        ViewModel().getChannelDetailsFromId(for: channelId) { (channel) in
-            if let channel = channel {
-                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel)
-                let timeline = Timeline(entries: [entry], policy: .after(refresh))
-                completion(timeline)
-            }
-        }
-    }
-}
+//
+//struct Provider: IntentTimelineProvider {
+//    @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
+//    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
+//    
+//    func placeholder(in context: Context) -> SimpleEntry {
+//        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "PewDiePie", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "1111111110", channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw"))
+//    }
+//    
+//    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+//        guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
+//        let viewModel = ViewModel()
+//        viewModel.getChannelDetailsFromId(for: channelId) { (channel) in
+//            if let channel = channel {
+//                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel)
+//                completion(entry)
+//            }
+//        }
+//    }
+//
+//    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+//        guard let channelId = try? JSONDecoder().decode(String.self, from: channelData) else { return }
+//        
+//        // Refresh widget every hour
+//        let refresh = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
+//        
+//        ViewModel().getChannelDetailsFromId(for: channelId) { (channel) in
+//            if let channel = channel {
+//                let entry = SimpleEntry(date: Date(), configuration: configuration, channel: channel)
+//                let timeline = Timeline(entries: [entry], policy: .after(refresh))
+//                completion(timeline)
+//            }
+//        }
+//    }
+//}
 
 struct SubscriberCountEntryView : View {
-    var entry: Provider.Entry
+    var entry: SubWidgetIntentTimelineProvider.Entry
     @Environment(\.widgetFamily) private var widgetFamily
     
     var body: some View {

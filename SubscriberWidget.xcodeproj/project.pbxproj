@@ -13,6 +13,7 @@
 		7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541325D73B4D003411CE /* WidgetColorPicker.swift */; };
 		7207541825D73C8F003411CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
 		7207541D25D73CD7003411CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
+		7211EB68282CB7BD00E3CDA9 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		721AC2C925DA4C3200C6100C /* ChannelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7277197A2555E05000358EEB /* ChannelID.swift */; };
 		721AC2CA25DA4C3200C6100C /* YouTubeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EFF4AA25201B3B007E1FA6 /* YouTubeChannel.swift */; };
 		721AC2CB25DA4C3200C6100C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE204251D3E75004B2907 /* ViewModel.swift */; };
@@ -22,6 +23,8 @@
 		721AC2DB25DA4FAF00C6100C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DABE252909BC005FA093 /* Constants.swift */; };
 		721AC2E225DA4FF200C6100C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
 		721AC2E825DA505700C6100C /* SubWidgetIntentTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AC2E625DA505700C6100C /* SubWidgetIntentTimelineProvider.swift */; };
+		7243E144282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
+		7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		725059F625D881F20064A451 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F525D881F20064A451 /* MainView.swift */; };
 		725059FA25D882080064A451 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F925D882080064A451 /* SettingsView.swift */; };
 		72505A0C25DA400B0064A451 /* CustomizeWidgetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72505A0B25DA400B0064A451 /* CustomizeWidgetHeader.swift */; };
@@ -110,6 +113,7 @@
 		7207540F25D739CC003411CE /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
 		7207541325D73B4D003411CE /* WidgetColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetColorPicker.swift; sourceTree = "<group>"; };
 		7207541725D73C8F003411CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWidgetError.swift; sourceTree = "<group>"; };
 		721AC2AB25DA473000C6100C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		721AC2E625DA505700C6100C /* SubWidgetIntentTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWidgetIntentTimelineProvider.swift; sourceTree = "<group>"; };
 		721AC2EF25DB301F00C6100C /* SubWidgetIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubWidgetIntents.entitlements; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 				725FE212251D4905004B2907 /* Channel.swift */,
 				7277197A2555E05000358EEB /* ChannelID.swift */,
 				7207541725D73C8F003411CE /* Extensions.swift */,
+				7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				728683F225DA45D800568034 /* WidgetIntents.intentdefinition in Sources */,
 				72EFF4AC25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
 				72A3B472252E2CC300891D69 /* Constants.swift in Sources */,
+				7243E144282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */,
 				72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */,
 				725FE1F4251D3983004B2907 /* SubscriberCount.swift in Sources */,
 				7207541D25D73CD7003411CE /* Extensions.swift in Sources */,
@@ -496,6 +502,7 @@
 			files = (
 				721AC2CE25DA4C3200C6100C /* Response.swift in Sources */,
 				721AC2CD25DA4C3200C6100C /* Subscribers.swift in Sources */,
+				7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */,
 				721AC2CB25DA4C3200C6100C /* ViewModel.swift in Sources */,
 				721AC2CC25DA4C3200C6100C /* Channel.swift in Sources */,
 				721AC2C925DA4C3200C6100C /* ChannelID.swift in Sources */,
@@ -528,6 +535,7 @@
 				725FE213251D4905004B2907 /* Channel.swift in Sources */,
 				725FE209251D44B1004B2907 /* Subscribers.swift in Sources */,
 				728E246C25D7757400D4BB6E /* SafariView.swift in Sources */,
+				7211EB68282CB7BD00E3CDA9 /* SubWidgetError.swift in Sources */,
 				72D820A125D74613008240B2 /* ResetButton.swift in Sources */,
 				7207540C25D73504003411CE /* SubmitButton.swift in Sources */,
 				72505A0C25DA400B0064A451 /* CustomizeWidgetHeader.swift in Sources */,
@@ -581,7 +589,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,7 +616,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -632,7 +640,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -654,7 +662,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -796,7 +804,7 @@
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SubscriberWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -822,7 +830,7 @@
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SubscriberWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

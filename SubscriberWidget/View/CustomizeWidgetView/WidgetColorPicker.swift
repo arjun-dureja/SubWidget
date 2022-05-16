@@ -24,7 +24,9 @@ struct WidgetColorPicker: View {
             ColorPicker("Background Color", selection: Binding(get: {
                 channel.bgColor?.cgColor ?? (colorScheme == .dark ? UIColor.black.cgColor : UIColor.white.cgColor)
             }, set: { newValue in
-                updateBackgroundColor(with: newValue)
+                if UIColor(cgColor: newValue).hexStringFromColor() != channel.bgColor?.hexStringFromColor() {
+                    updateBackgroundColor(with: newValue)
+                }
             }), supportsOpacity: false)
             .frame(width: 190, height: 50)
             .font(.headline)
@@ -33,7 +35,8 @@ struct WidgetColorPicker: View {
     }
     
     func updateBackgroundColor(with color: CGColor) {
-        self.viewModel.updateColorForChannel(id: channel.id, color: UIColor(cgColor: color))
+        viewModel.updateColorForChannel(id: channel.id, color: UIColor(cgColor: color))
         channel.bgColor = UIColor(cgColor: color)
+        colorChanged = true
     }
 }

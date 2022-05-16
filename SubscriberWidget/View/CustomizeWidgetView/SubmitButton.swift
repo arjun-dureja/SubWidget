@@ -19,6 +19,8 @@ struct SubmitButton: View {
     @Binding var channel: YouTubeChannel
     
     @State private var showSafari = false
+
+    var submitButtonTapped: () -> Void
     
     var body: some View {
         Button(action: submitButtonTapped, label: {
@@ -41,20 +43,6 @@ struct SubmitButton: View {
         }
         .sheet(isPresented: $showSafari) {
             SafariView(url: URL(string: "https://commentpicker.com/youtube-channel-id.php")!)
-        }
-    }
-    
-    func submitButtonTapped() {
-        if name.count > 0 {
-            self.viewModel.updateChannel(id: channel.id, name: name, completion: { (channel) in
-                if let channel = channel {
-                    UIApplication.shared.endEditing()
-                    name.removeAll()
-                    self.channel = channel
-                } else {
-                    self.showingAlert = true
-                }
-            })
         }
     }
 }

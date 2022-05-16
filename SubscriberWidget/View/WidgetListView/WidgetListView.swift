@@ -10,40 +10,35 @@ import SwiftUI
 
 struct WidgetListView: View {
     @State private var newWidget = false
-    @StateObject var viewModel = ViewModel()
-    @State private var showingAlert = false
-    
-    init() {
-        // List row color
-        UITableView.appearance().backgroundColor = .systemGray6
-    }
+    @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
         NavigationView {
             ZStack {
                 List {
-                    Section(header:
-                                Text("Channels"))
+                    Section(header: Text("Channels"))
                     {
                         ForEach(viewModel.channels, id: \.id) { channel in
                             NavigationLink(
-                                destination: CustomizeWidgetView(viewModel: viewModel,
-                                                                 channel: channel,
-                                                                 isNewWidget: false),
+                                destination: CustomizeWidgetView(
+                                    viewModel: viewModel,
+                                    channel: channel,
+                                    isNewWidget: false
+                                ),
                                 label: {
                                     ChannelListRow(channel: channel)
                                         .redacted(reason: viewModel.isLoading ? .placeholder : [])
                                 })
-                                .listRowBackground(Color(UIColor.systemBackground))
                         }
                         .onDelete(perform: delete)
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
-                
+
                 if viewModel.channels.isEmpty {
                     ProgressView()
                         .scaleEffect(1.5, anchor: .center)
+                    Text("Tap + to add a widget")
                 }
             }
             .navigationBarTitle("SubWidget")
@@ -58,31 +53,29 @@ struct WidgetListView: View {
                         })
             )
             .sheet(isPresented: $newWidget, content: {
-                CustomizeWidgetView(viewModel: viewModel,
-                                    channel: viewModel.channels.last!,
-                                    isNewWidget: true)
-            })
-            .alert(isPresented: $showingAlert, content: {
-                Alert(title: Text("You must have at least one widget."), dismissButton: .default(Text("OK")))
+                CustomizeWidgetView(
+                    viewModel: viewModel,
+                    channel: viewModel.channels.last!,
+                    isNewWidget: true
+                )
             })
         }
     }
     
     func addWidgetTapped() {
-        viewModel.addNewChannel { (success) in
-            if success {
+        Task {
+            do {
+                try await viewModel.addNewChannel()
                 self.newWidget = true
+            } catch let error {
+                print(error.localizedDescription)
             }
         }
     }
     
     func delete(at offsets: IndexSet) {
-        guard viewModel.channels.count > 1 else {
-            self.showingAlert = true
-            return
-        }
         if let index = offsets.first {
-            viewModel.delete(at: index)
+            viewModel.deleteChannel(at: index)
         }
     }
 }
