@@ -1,5 +1,5 @@
 //
-//  APIManager.swift
+//  ViewModel.swift
 //  SubscriberWidget
 //
 //  Created by Arjun Dureja on 2020-09-24.
