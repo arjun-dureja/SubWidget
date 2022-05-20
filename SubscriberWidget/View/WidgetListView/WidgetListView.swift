@@ -35,9 +35,10 @@ struct WidgetListView: View {
                 }
                 .listStyle(InsetGroupedListStyle())
 
-                if viewModel.channels.isEmpty {
+                if viewModel.isLoading && viewModel.channels.isEmpty {
                     ProgressView()
                         .scaleEffect(1.5, anchor: .center)
+                } else if viewModel.channels.isEmpty {
                     Text("Tap + to add a widget")
                 }
             }
