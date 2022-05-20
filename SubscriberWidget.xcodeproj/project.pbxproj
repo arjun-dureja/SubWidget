@@ -31,7 +31,6 @@
 		72505A1225DA420B0064A451 /* WidgetIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 72505A1125DA420B0064A451 /* WidgetIntents.intentdefinition */; };
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
 		725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1F0251D3983004B2907 /* SwiftUI.framework */; };
-		725FE1F4251D3983004B2907 /* SubscriberCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE1F3251D3983004B2907 /* SubscriberCount.swift */; };
 		725FE1F7251D3988004B2907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725FE1F6251D3988004B2907 /* Assets.xcassets */; };
 		725FE1F9251D3988004B2907 /* SubscriberCount.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 725FE1F5251D3983004B2907 /* SubscriberCount.intentdefinition */; };
 		725FE1FA251D3988004B2907 /* SubscriberCount.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 725FE1F5251D3983004B2907 /* SubscriberCount.intentdefinition */; };
@@ -124,7 +123,6 @@
 		725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriberCountExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		725FE1EE251D3983004B2907 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		725FE1F0251D3983004B2907 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		725FE1F3251D3983004B2907 /* SubscriberCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberCount.swift; sourceTree = "<group>"; };
 		725FE1F5251D3983004B2907 /* SubscriberCount.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SubscriberCount.intentdefinition; sourceTree = "<group>"; };
 		725FE1F6251D3988004B2907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		725FE1F8251D3988004B2907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 		725FE1F2251D3983004B2907 /* SubscriberCount */ = {
 			isa = PBXGroup;
 			children = (
-				725FE1F3251D3983004B2907 /* SubscriberCount.swift */,
 				725FE1F5251D3983004B2907 /* SubscriberCount.intentdefinition */,
 				725FE1F6251D3988004B2907 /* Assets.xcassets */,
 				725FE1F8251D3988004B2907 /* Info.plist */,
@@ -486,7 +483,6 @@
 				72A3B472252E2CC300891D69 /* Constants.swift in Sources */,
 				7243E144282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */,
 				72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */,
-				725FE1F4251D3983004B2907 /* SubscriberCount.swift in Sources */,
 				7207541D25D73CD7003411CE /* Extensions.swift in Sources */,
 				7277197E2555E07A00358EEB /* ChannelID.swift in Sources */,
 				721AC2E825DA505700C6100C /* SubWidgetIntentTimelineProvider.swift in Sources */,

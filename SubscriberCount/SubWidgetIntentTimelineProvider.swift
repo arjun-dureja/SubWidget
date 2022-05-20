@@ -8,6 +8,13 @@
 
 import Foundation
 import WidgetKit
+import SwiftUI
+
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+    let configuration: ConfigurationIntent
+    let channel: YouTubeChannel?
+}
 
 struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     
@@ -61,4 +68,40 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     }
 }
 
+struct SubscriberCountEntryView : View {
+    var entry: SubWidgetIntentTimelineProvider.Entry
+    @Environment(\.widgetFamily) private var widgetFamily
 
+    var body: some View {
+        switch widgetFamily {
+        case .systemSmall:
+            SmallWidget(entry: entry.channel)
+        default:
+            MediumWidget(entry: entry.channel)
+        }
+    }
+}
+
+@main
+struct SubscriberCount: Widget {
+    let kind: String = "SubscriberCount"
+
+    var body: some WidgetConfiguration {
+        IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
+            SubscriberCountEntryView(entry: entry)
+        })
+        .configurationDisplayName("Subscriber Count")
+        .description("View your YouTube subscriber count in realtime")
+        .supportedFamilies([.systemSmall, .systemMedium])
+    }
+}
+
+
+struct SubscriberCount_Previews: PreviewProvider {
+    static var previews: some View {
+        SubscriberCountEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "Google", profileImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/1200px-Google_Chrome_icon_%28September_2014%29.svg.png", subCount: "123,501", channelId: "test")))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .previewDisplayName("Small widget")
+                .environment(\.colorScheme, .dark)
+    }
+}
