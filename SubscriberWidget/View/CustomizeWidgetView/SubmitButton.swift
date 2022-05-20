@@ -37,7 +37,7 @@ struct SubmitButton: View {
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Can't find your channel?"),
                   message: Text("Try entering your YouTube channel ID instead"),
-                  primaryButton: .default(Text("Find my ID")) {
+                  primaryButton: .default(Text("Find My ID")) {
                 self.showSafari = true
             }, secondaryButton: .default(Text("OK")))
         }
