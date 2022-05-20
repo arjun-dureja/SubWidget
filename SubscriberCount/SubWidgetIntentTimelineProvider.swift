@@ -95,13 +95,3 @@ struct SubscriberCount: Widget {
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
-
-
-struct SubscriberCount_Previews: PreviewProvider {
-    static var previews: some View {
-        SubscriberCountEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "Google", profileImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/1200px-Google_Chrome_icon_%28September_2014%29.svg.png", subCount: "123,501", channelId: "test")))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-                .previewDisplayName("Small widget")
-                .environment(\.colorScheme, .dark)
-    }
-}
