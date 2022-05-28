@@ -22,7 +22,16 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     typealias Intent = SelectChannelIntent
 
     func placeholder(in context: Context) -> SimpleEntry {
-        return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: YouTubeChannel(channelName: "PewDiePie", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "100000000", channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw"))
+        return SimpleEntry(
+            date: Date(),
+            configuration: ConfigurationIntent(),
+            channel: YouTubeChannel(
+                channelName: "PewDiePie",
+                profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj",
+                subCount: "100000000",
+                channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw"
+            )
+        )
     }
     
     func getSnapshot(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) {
@@ -38,33 +47,38 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     
     func getTimeline(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
         if configuration.channel == nil {
-            let timeline = Timeline(entries: [SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)], policy: .never)
+            let timeline = Timeline(
+                entries: [SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)],
+                policy: .never
+            )
             completion(timeline)
             return
         }
 
         Task {
             let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
-            let timeline = Timeline(entries: [result], policy: .after(Date().addingTimeInterval(60 * 30)))
+            let timeline = Timeline(
+                entries: [result],
+                policy: .after(Date().addingTimeInterval(60 * 30))
+            )
             completion(timeline)
         }
     }
     
     private func fetchChannel(for param: YouTubeChannelParam) async throws -> SimpleEntry {
-        guard let id = param.identifier else { throw SubWidgetError.invalidURL }
+        guard let id = param.identifier else {
+            throw SubWidgetError.invalidIdentifer
+        }
 
         let viewModel = await ViewModel()
         let channels = try await viewModel.fetchChannels()
-        for channel in channels {
-            if channel.id == id {
-                let resultChannel = try await viewModel.getChannelDetailsFromId(for: channel.channelId)
-                var finalChannel = resultChannel
-                finalChannel.bgColor = channel.bgColor
-                return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: finalChannel)
-            }
+        if let channel = channels.first(where: { $0.id == id }) {
+            var updatedChannel = try await viewModel.getChannelDetailsFromId(for: channel.channelId)
+            updatedChannel.bgColor = channel.bgColor
+            return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: updatedChannel)
         }
 
-        throw SubWidgetError.invalidURL
+        return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)
     }
 }
 

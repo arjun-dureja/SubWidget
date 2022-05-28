@@ -49,7 +49,7 @@ struct SmallWidget: View {
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 8, trailing: 16))
                 }
             } else {
-                Text("Please add a widget")
+                ConfigurationView(baselineOffset: 5.0)
             }
         }
     }

@@ -22,7 +22,7 @@ class ViewModel: ObservableObject {
             channelData = encodedChannels
         }
     }
-    @Published var isLoading = false
+    @Published var isLoading = true
 
     var color: UIColor? {
         try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
@@ -33,7 +33,6 @@ class ViewModel: ObservableObject {
     }
     
     private func fetchAndUpdateChannelList() async throws {
-        isLoading = true
         guard
             var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData),
             !decodedChannels.isEmpty

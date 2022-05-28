@@ -12,4 +12,5 @@ enum SubWidgetError: Error {
     case invalidURL
     case channelNotfound
     case encodingError
+    case invalidIdentifer
 }

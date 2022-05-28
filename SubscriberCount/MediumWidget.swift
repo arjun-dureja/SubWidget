@@ -55,7 +55,7 @@ struct MediumWidget: View {
                 .minimumScaleFactor(0.3)
                 .padding()
             } else {
-                Text("Please add a widget")
+                ConfigurationView(baselineOffset: 0.0)
             }
         }
     }
