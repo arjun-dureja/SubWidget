@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WidgetListView: View {
     @State private var newWidget = false
+    @State private var tooManyChannels = false
     @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
@@ -60,16 +61,23 @@ struct WidgetListView: View {
                     isNewWidget: true
                 )
             })
+            .alert("You can only add 10 channels. Swipe left on a channel to delete it.", isPresented: $tooManyChannels) {
+                Button("OK", role: .cancel) { }
+            }
         }
     }
     
     func addWidgetTapped() {
-        Task {
-            do {
-                try await viewModel.addNewChannel()
-                self.newWidget = true
-            } catch let error {
-                print(error.localizedDescription)
+        if viewModel.channels.count >= 10 {
+            tooManyChannels = true
+        } else {
+            Task {
+                do {
+                    try await viewModel.addNewChannel()
+                    newWidget = true
+                } catch let error {
+                    print(error.localizedDescription)
+                }
             }
         }
     }

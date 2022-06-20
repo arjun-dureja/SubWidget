@@ -63,7 +63,7 @@ class ViewModel: ObservableObject {
         }
 
         withAnimation { self.channels = decodedChannels }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             self.isLoading = false
         }
     }
@@ -83,6 +83,7 @@ class ViewModel: ObservableObject {
     }
 
     func makeRequest<T: Decodable>(with query: String) async throws -> T {
+        print("Making API Call")
         guard let url = URL(string: "https://www.googleapis.com/youtube/v3/\(query)&key=\(Constants.apiKey)") else {
             throw SubWidgetError.invalidURL
         }
@@ -151,5 +152,12 @@ class ViewModel: ObservableObject {
     
     func deleteChannel(at index: Int) {
         channels.remove(at: index)
+    }
+
+    func getFaq() async throws -> [FAQItem] {
+        guard let faqUrl = URL(string: "https://api.npoint.io/705eb0378a484c18d135") else { throw SubWidgetError.invalidURL }
+        let (data, _) = try await URLSession.shared.data(from: faqUrl)
+        let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
+        return jsonData
     }
 }

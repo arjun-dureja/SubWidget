@@ -18,7 +18,7 @@ struct ConfigurationView: View {
                 Text("Select Your Channel")
                     .fontWeight(.bold)
                     .font(.system(size: 15))
-                    .foregroundColor(.youtubeRed)
+                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                 Spacer()
                 Image("youtube-logo")
                     .resizable()
@@ -31,19 +31,22 @@ struct ConfigurationView: View {
                     .foregroundColor(.youtubeRed)
                     .baselineOffset(baselineOffset)
                 Text("Add a channel in the app")
-                    .fontWeight(.bold)
                     .font(.system(size: 13))
+                    .fontWeight(.medium)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
             }
+            .padding(.top, 2)
+
             HStack {
                 Text(Image(systemName: "2.circle.fill"))
                     .foregroundColor(.youtubeRed)
                     .baselineOffset(baselineOffset)
                 Text("Hold and tap 'Edit Widget'")
-                    .fontWeight(.bold)
                     .font(.system(size: 13))
+                    .fontWeight(.medium)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
             }
+
 
             Spacer()
         }

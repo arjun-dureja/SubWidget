@@ -22,6 +22,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     typealias Intent = SelectChannelIntent
 
     func placeholder(in context: Context) -> SimpleEntry {
+        // Arbitrary channel for placeholder - will show as redacted
         return SimpleEntry(
             date: Date(),
             configuration: ConfigurationIntent(),
@@ -35,33 +36,48 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     }
     
     func getSnapshot(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        if configuration.channel == nil {
-            return
-        }
-
         Task {
-            let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
-            completion(result)
+            // Determine if caller is from add widget screen or home screen
+            if configuration.channel == nil {
+                // Show first channel in add widget screen if exists
+                let viewModel = await ViewModel()
+                let channels = try await viewModel.fetchChannels()
+                if !channels.isEmpty {
+                    let entry = SimpleEntry(
+                        date: Date(),
+                        configuration: ConfigurationIntent(),
+                        channel: channels[0]
+                    )
+
+                    completion(entry)
+                }
+            } else {
+                let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
+                completion(result)
+            }
         }
     }
     
     func getTimeline(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
+        // Determine if user has already selected a channel or not
         if configuration.channel == nil {
             let timeline = Timeline(
                 entries: [SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)],
                 policy: .never
             )
-            completion(timeline)
-            return
-        }
 
-        Task {
-            let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
-            let timeline = Timeline(
-                entries: [result],
-                policy: .after(Date().addingTimeInterval(60 * 30))
-            )
             completion(timeline)
+        } else {
+            Task {
+                // Refresh subscriber count every 30 minutes
+                let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
+                let timeline = Timeline(
+                    entries: [result],
+                    policy: .after(Date().addingTimeInterval(60 * 30))
+                )
+
+                completion(timeline)
+            }
         }
     }
     

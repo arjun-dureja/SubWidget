@@ -14,6 +14,7 @@ extension Color {
     static let titleGray = Color(.sRGB, red: 96/255, green: 96/255, blue: 96/255, opacity: 1)
     
     static let darkModeTitleGray = Color(.sRGB, red: 229/255, green: 229/255, blue: 229/255, opacity: 1)
+    static let darkModeTitleGray2 = Color(.sRGB, red: 200/255, green: 200/255, blue: 200/255, opacity: 1)
     static let darkModeBG = Color(.sRGB, red: 41/255, green: 20/255, blue: 20/255, opacity: 1)
 }
 

@@ -23,6 +23,9 @@
 		721AC2DB25DA4FAF00C6100C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DABE252909BC005FA093 /* Constants.swift */; };
 		721AC2E225DA4FF200C6100C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
 		721AC2E825DA505700C6100C /* SubWidgetIntentTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AC2E625DA505700C6100C /* SubWidgetIntentTimelineProvider.swift */; };
+		72345923286025B9000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
+		72345924286025DF000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
+		72345925286025DF000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
 		7243E144282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		725059F625D881F20064A451 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F525D881F20064A451 /* MainView.swift */; };
@@ -46,6 +49,7 @@
 		728683DA25DA44AE00568034 /* SubWidgetIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 728683C025DA44AE00568034 /* SubWidgetIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		728683F225DA45D800568034 /* WidgetIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 72505A1125DA420B0064A451 /* WidgetIntents.intentdefinition */; };
 		728683F325DA45D800568034 /* WidgetIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 72505A1125DA420B0064A451 /* WidgetIntents.intentdefinition */; };
+		72871554285EB8FC000C68D9 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72871553285EB8FC000C68D9 /* FAQ.swift */; };
 		728E246C25D7757400D4BB6E /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E246B25D7757400D4BB6E /* SafariView.swift */; };
 		728E247825D781E300D4BB6E /* WidgetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E247725D781E300D4BB6E /* WidgetListView.swift */; };
 		728E247C25D7978600D4BB6E /* ChannelListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E247B25D7978600D4BB6E /* ChannelListRow.swift */; };
@@ -69,6 +73,7 @@
 		72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820AA25D75440008240B2 /* WidgetPreview.swift */; };
 		72E3191A2841DA2900F1C1AE /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E319192841DA2900F1C1AE /* ConfigurationView.swift */; };
 		72E3191B2841DA9E00F1C1AE /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E319192841DA2900F1C1AE /* ConfigurationView.swift */; };
+		72E3191D2844683F00F1C1AE /* FAQCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3191C2844683F00F1C1AE /* FAQCell.swift */; };
 		72EFF49B252015D1007E1FA6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE212251D4905004B2907 /* Channel.swift */; };
 		72EFF4A1252016FF007E1FA6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE204251D3E75004B2907 /* ViewModel.swift */; };
 		72EFF4A425201712007E1FA6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE20C251D4607004B2907 /* Response.swift */; };
@@ -118,6 +123,7 @@
 		721AC2AB25DA473000C6100C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		721AC2E625DA505700C6100C /* SubWidgetIntentTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWidgetIntentTimelineProvider.swift; sourceTree = "<group>"; };
 		721AC2EF25DB301F00C6100C /* SubWidgetIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubWidgetIntents.entitlements; sourceTree = "<group>"; };
+		72345922286025B8000C7DA5 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		725059F525D881F20064A451 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		725059F925D882080064A451 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		72505A0B25DA400B0064A451 /* CustomizeWidgetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeWidgetHeader.swift; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 		728683C125DA44AE00568034 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		728683C425DA44AE00568034 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		728683CC25DA44AE00568034 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		72871553285EB8FC000C68D9 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		728E246B25D7757400D4BB6E /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		728E247725D781E300D4BB6E /* WidgetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetListView.swift; sourceTree = "<group>"; };
 		728E247B25D7978600D4BB6E /* ChannelListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListRow.swift; sourceTree = "<group>"; };
@@ -156,6 +163,7 @@
 		72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizePicker.swift; sourceTree = "<group>"; };
 		72D820AA25D75440008240B2 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
 		72E319192841DA2900F1C1AE /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		72E3191C2844683F00F1C1AE /* FAQCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCell.swift; sourceTree = "<group>"; };
 		72EFF4A725201AAD007E1FA6 /* SubscriberWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriberWidget.entitlements; sourceTree = "<group>"; };
 		72EFF4AA25201B3B007E1FA6 /* YouTubeChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeChannel.swift; sourceTree = "<group>"; };
 		72EFF4AF25201CAB007E1FA6 /* SubscriberCountExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriberCountExtension.entitlements; sourceTree = "<group>"; };
@@ -237,6 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				725059F925D882080064A451 /* SettingsView.swift */,
+				72E3191C2844683F00F1C1AE /* FAQCell.swift */,
+				72871553285EB8FC000C68D9 /* FAQ.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -319,6 +329,7 @@
 				7277197A2555E05000358EEB /* ChannelID.swift */,
 				7207541725D73C8F003411CE /* Extensions.swift */,
 				7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */,
+				72345922286025B8000C7DA5 /* FAQItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,6 +498,7 @@
 				72EFF4AC25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
 				72A3B472252E2CC300891D69 /* Constants.swift in Sources */,
 				7243E144282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */,
+				72345925286025DF000C7DA5 /* FAQItem.swift in Sources */,
 				72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */,
 				7207541D25D73CD7003411CE /* Extensions.swift in Sources */,
 				7277197E2555E07A00358EEB /* ChannelID.swift in Sources */,
@@ -508,6 +520,7 @@
 				721AC2CC25DA4C3200C6100C /* Channel.swift in Sources */,
 				721AC2C925DA4C3200C6100C /* ChannelID.swift in Sources */,
 				721AC2E225DA4FF200C6100C /* Extensions.swift in Sources */,
+				72345924286025DF000C7DA5 /* FAQItem.swift in Sources */,
 				721AC2CA25DA4C3200C6100C /* YouTubeChannel.swift in Sources */,
 				728683F325DA45D800568034 /* WidgetIntents.intentdefinition in Sources */,
 				728683C525DA44AE00568034 /* IntentHandler.swift in Sources */,
@@ -519,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E3191D2844683F00F1C1AE /* FAQCell.swift in Sources */,
 				728E247C25D7978600D4BB6E /* ChannelListRow.swift in Sources */,
 				725059F625D881F20064A451 /* MainView.swift in Sources */,
 				725FE1FA251D3988004B2907 /* SubscriberCount.intentdefinition in Sources */,
@@ -527,11 +541,13 @@
 				7207540825D732D7003411CE /* ChannelTextField.swift in Sources */,
 				72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */,
 				7207541025D739CC003411CE /* HelpButton.swift in Sources */,
+				72345923286025B9000C7DA5 /* FAQItem.swift in Sources */,
 				7295DACE25294C50005FA093 /* SmallWidget.swift in Sources */,
 				72505A1225DA420B0064A451 /* WidgetIntents.intentdefinition in Sources */,
 				7295DAD325294CB6005FA093 /* MediumWidget.swift in Sources */,
 				72EFF4AB25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
 				7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */,
+				72871554285EB8FC000C68D9 /* FAQ.swift in Sources */,
 				7277197B2555E05000358EEB /* ChannelID.swift in Sources */,
 				725FE213251D4905004B2907 /* Channel.swift in Sources */,
 				725FE209251D44B1004B2907 /* Subscribers.swift in Sources */,
