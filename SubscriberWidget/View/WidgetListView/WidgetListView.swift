@@ -11,7 +11,7 @@ import SwiftUI
 struct WidgetListView: View {
     @State private var newWidget = false
     @State private var tooManyChannels = false
-    @ObservedObject var viewModel = ViewModel()
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
@@ -22,7 +22,6 @@ struct WidgetListView: View {
                         ForEach(viewModel.channels, id: \.id) { channel in
                             NavigationLink(
                                 destination: CustomizeWidgetView(
-                                    viewModel: viewModel,
                                     channel: channel,
                                     isNewWidget: false
                                 ),
@@ -56,7 +55,6 @@ struct WidgetListView: View {
             )
             .sheet(isPresented: $newWidget, content: {
                 CustomizeWidgetView(
-                    viewModel: viewModel,
                     channel: viewModel.channels.last!,
                     isNewWidget: true
                 )

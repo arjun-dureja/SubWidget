@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FAQ: View {
-    var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @State var faqData: [FAQItem] = []
     @State var loading = true
     @Environment(\.colorScheme) var colorScheme
@@ -45,6 +45,6 @@ struct FAQ: View {
 
 struct FAQ_Previews: PreviewProvider {
     static var previews: some View {
-        FAQ(viewModel: ViewModel())
+        FAQ()
     }
 }

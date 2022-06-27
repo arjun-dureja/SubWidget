@@ -26,6 +26,12 @@
 		72345923286025B9000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
 		72345924286025DF000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
 		72345925286025DF000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
+		723459272868D8A4000C7DA5 /* RefreshFrequencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723459262868D8A4000C7DA5 /* RefreshFrequencies.swift */; };
+		723459282868DB35000C7DA5 /* RefreshFrequencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723459262868D8A4000C7DA5 /* RefreshFrequencies.swift */; };
+		723459292868DB35000C7DA5 /* RefreshFrequencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723459262868D8A4000C7DA5 /* RefreshFrequencies.swift */; };
+		7234592B2869581B000C7DA5 /* RefreshFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7234592A2869581B000C7DA5 /* RefreshFrequency.swift */; };
+		7234592D28695D96000C7DA5 /* SafariSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7234592C28695D96000C7DA5 /* SafariSheet.swift */; };
+		7234592F286960C0000C7DA5 /* FormLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7234592E286960C0000C7DA5 /* FormLabel.swift */; };
 		7243E144282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		725059F625D881F20064A451 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F525D881F20064A451 /* MainView.swift */; };
@@ -124,6 +130,10 @@
 		721AC2E625DA505700C6100C /* SubWidgetIntentTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWidgetIntentTimelineProvider.swift; sourceTree = "<group>"; };
 		721AC2EF25DB301F00C6100C /* SubWidgetIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubWidgetIntents.entitlements; sourceTree = "<group>"; };
 		72345922286025B8000C7DA5 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
+		723459262868D8A4000C7DA5 /* RefreshFrequencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFrequencies.swift; sourceTree = "<group>"; };
+		7234592A2869581B000C7DA5 /* RefreshFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFrequency.swift; sourceTree = "<group>"; };
+		7234592C28695D96000C7DA5 /* SafariSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariSheet.swift; sourceTree = "<group>"; };
+		7234592E286960C0000C7DA5 /* FormLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLabel.swift; sourceTree = "<group>"; };
 		725059F525D881F20064A451 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		725059F925D882080064A451 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		72505A0B25DA400B0064A451 /* CustomizeWidgetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeWidgetHeader.swift; sourceTree = "<group>"; };
@@ -247,6 +257,9 @@
 				725059F925D882080064A451 /* SettingsView.swift */,
 				72E3191C2844683F00F1C1AE /* FAQCell.swift */,
 				72871553285EB8FC000C68D9 /* FAQ.swift */,
+				7234592A2869581B000C7DA5 /* RefreshFrequency.swift */,
+				7234592C28695D96000C7DA5 /* SafariSheet.swift */,
+				7234592E286960C0000C7DA5 /* FormLabel.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -330,6 +343,7 @@
 				7207541725D73C8F003411CE /* Extensions.swift */,
 				7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */,
 				72345922286025B8000C7DA5 /* FAQItem.swift */,
+				723459262868D8A4000C7DA5 /* RefreshFrequencies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,6 +507,7 @@
 				72EFF49B252015D1007E1FA6 /* Channel.swift in Sources */,
 				7295DACF25294C50005FA093 /* SmallWidget.swift in Sources */,
 				72EFF4A1252016FF007E1FA6 /* ViewModel.swift in Sources */,
+				723459282868DB35000C7DA5 /* RefreshFrequencies.swift in Sources */,
 				728683F225DA45D800568034 /* WidgetIntents.intentdefinition in Sources */,
 				72E3191B2841DA9E00F1C1AE /* ConfigurationView.swift in Sources */,
 				72EFF4AC25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
@@ -519,6 +534,7 @@
 				721AC2CB25DA4C3200C6100C /* ViewModel.swift in Sources */,
 				721AC2CC25DA4C3200C6100C /* Channel.swift in Sources */,
 				721AC2C925DA4C3200C6100C /* ChannelID.swift in Sources */,
+				723459292868DB35000C7DA5 /* RefreshFrequencies.swift in Sources */,
 				721AC2E225DA4FF200C6100C /* Extensions.swift in Sources */,
 				72345924286025DF000C7DA5 /* FAQItem.swift in Sources */,
 				721AC2CA25DA4C3200C6100C /* YouTubeChannel.swift in Sources */,
@@ -534,12 +550,14 @@
 			files = (
 				72E3191D2844683F00F1C1AE /* FAQCell.swift in Sources */,
 				728E247C25D7978600D4BB6E /* ChannelListRow.swift in Sources */,
+				7234592B2869581B000C7DA5 /* RefreshFrequency.swift in Sources */,
 				725059F625D881F20064A451 /* MainView.swift in Sources */,
 				725FE1FA251D3988004B2907 /* SubscriberCount.intentdefinition in Sources */,
 				72D820A525D74DBE008240B2 /* WidgetSizePicker.swift in Sources */,
 				7295DABF252909BC005FA093 /* Constants.swift in Sources */,
 				7207540825D732D7003411CE /* ChannelTextField.swift in Sources */,
 				72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */,
+				7234592D28695D96000C7DA5 /* SafariSheet.swift in Sources */,
 				7207541025D739CC003411CE /* HelpButton.swift in Sources */,
 				72345923286025B9000C7DA5 /* FAQItem.swift in Sources */,
 				7295DACE25294C50005FA093 /* SmallWidget.swift in Sources */,
@@ -548,9 +566,11 @@
 				72EFF4AB25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
 				7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */,
 				72871554285EB8FC000C68D9 /* FAQ.swift in Sources */,
+				7234592F286960C0000C7DA5 /* FormLabel.swift in Sources */,
 				7277197B2555E05000358EEB /* ChannelID.swift in Sources */,
 				725FE213251D4905004B2907 /* Channel.swift in Sources */,
 				725FE209251D44B1004B2907 /* Subscribers.swift in Sources */,
+				723459272868D8A4000C7DA5 /* RefreshFrequencies.swift in Sources */,
 				728E246C25D7757400D4BB6E /* SafariView.swift in Sources */,
 				7211EB68282CB7BD00E3CDA9 /* SubWidgetError.swift in Sources */,
 				72D820A125D74613008240B2 /* ResetButton.swift in Sources */,

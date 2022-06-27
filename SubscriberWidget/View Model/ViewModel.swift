@@ -15,6 +15,7 @@ class ViewModel: ObservableObject {
     @AppStorage("channels", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
     @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var singleChannelData: Data = Data()
     @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
+    @AppStorage("refreshFrequency", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var refreshFrequencyData: Data = Data()
 
     @Published var channels: [YouTubeChannel] = [] {
         didSet {
@@ -22,22 +23,32 @@ class ViewModel: ObservableObject {
             channelData = encodedChannels
         }
     }
+
+    @Published var refreshFrequency: RefreshFrequencies = .ONE_HR {
+        didSet {
+            guard let encodedFrequency = try? JSONEncoder().encode(refreshFrequency) else { return }
+            refreshFrequencyData = encodedFrequency
+        }
+    }
+
+
     @Published var isLoading = true
 
     var color: UIColor? {
         try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
     }
-    
+
     init() {
-        Task { try? await self.fetchAndUpdateChannelList() }
+        Task { try? await self.fetchAndUpdateChannelData() }
     }
     
-    private func fetchAndUpdateChannelList() async throws {
+    private func fetchAndUpdateChannelData() async throws {
         guard
             var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData),
             !decodedChannels.isEmpty
         else {
             print("Channel list is empty")
+
             guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
                 print("First time user")
                 isLoading = false
@@ -57,6 +68,11 @@ class ViewModel: ObservableObject {
         }
         
         print("Channel list has values")
+
+        if let frequency = try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData) {
+            refreshFrequency = frequency
+        }
+
         for i in 0..<decodedChannels.count {
             let channel = try await getChannelDetailsFromId(for: decodedChannels[i].channelId)
             decodedChannels[i].subCount = channel.subCount
@@ -83,7 +99,6 @@ class ViewModel: ObservableObject {
     }
 
     func makeRequest<T: Decodable>(with query: String) async throws -> T {
-        print("Making API Call")
         guard let url = URL(string: "https://www.googleapis.com/youtube/v3/\(query)&key=\(Constants.apiKey)") else {
             throw SubWidgetError.invalidURL
         }
@@ -159,5 +174,9 @@ class ViewModel: ObservableObject {
         let (data, _) = try await URLSession.shared.data(from: faqUrl)
         let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
         return jsonData
+    }
+
+    func updateRefreshFrequency(to frequency: RefreshFrequencies) {
+        refreshFrequency = frequency
     }
 }

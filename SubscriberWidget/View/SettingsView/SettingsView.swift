@@ -7,17 +7,37 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct SettingsView: View {
-    @ObservedObject var viewModel = ViewModel()
-
     var body: some View {
         NavigationView {
             Form {
-                NavigationLink {
-                    FAQ(viewModel: viewModel)
-                } label: {
-                    Text("FAQ")
+                Section(footer: Text("Choose how often the subscriber count should update")) {
+                    RefreshFrequency()
+                }
+
+                Section {
+                    NavigationLink {
+                        FAQ()
+                    } label: {
+                        Label("FAQ", systemImage: "questionmark.circle.fill")
+                    }
+                    SafariSheet(
+                        text: "Contact",
+                        icon: "envelope.circle.fill",
+                        url: URL(string: "https://www.emailmeform.com/builder/form/Sg3ejer1CD0ehy")!
+                    )
+                    Button {
+                        SKStoreReviewController.requestReview()
+                    } label: {
+                        FormLabel(text: "Rate", icon: "star.circle.fill")
+                    }
+                    SafariSheet(
+                        text: "Privacy Policy",
+                        icon: "lock.circle.fill",
+                        url: URL(string: "https://pages.flycricket.io/subwidget/privacy.html")!
+                    )
                 }
             }
             .navigationBarTitle("Settings")

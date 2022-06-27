@@ -28,7 +28,6 @@ struct FAQCell: View {
             .padding(.top)
             .padding(.bottom, 8)
 
-
             if tapped {
                 Text(answer)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray2 : .titleGray)

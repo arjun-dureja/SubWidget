@@ -11,6 +11,7 @@ import SwiftUI
 struct ChannelTextField: View {
     @Binding var name: String
     @FocusState private var isFocused: Bool
+    @Environment(\.colorScheme) var colorScheme
 
     var submitButtonTapped: () -> Void
     
@@ -18,7 +19,7 @@ struct ChannelTextField: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 200, height: 42, alignment: .center)
-                .foregroundColor(Color(UIColor.systemBackground))
+                .foregroundColor(colorScheme == .light ? .white : .black)
             HStack {
                 if name.isEmpty {
                     Text("Channel Name or ID")

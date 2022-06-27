@@ -11,10 +11,7 @@ import UIKit
 import WidgetKit
 
 struct CustomizeWidgetView: View {
-    @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
-    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
-    
-    @StateObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @State var channel: YouTubeChannel
     @State var isNewWidget: Bool
     
@@ -32,7 +29,7 @@ struct CustomizeWidgetView: View {
         GeometryReader { _ in // Use geometry reader to prevent keyboard avoidance
             VStack(spacing: 16) {
                 if isNewWidget {
-                    CustomizeWidgetHeader(viewModel: viewModel)
+                    CustomizeWidgetHeader()
                     HStack {
                         ChannelTextField(
                             name: $name,
@@ -40,10 +37,8 @@ struct CustomizeWidgetView: View {
                         )
 
                         SubmitButton(
-                            viewModel: viewModel,
                             name: $name,
                             showingAlert: $showingAlert,
-                            channelData: $channelData,
                             channel: $channel,
                             submitButtonTapped: submitButtonTapped
                         )
@@ -55,14 +50,11 @@ struct CustomizeWidgetView: View {
                 }
                 VStack {
                     WidgetColorPicker(
-                        viewModel: viewModel,
                         channel: $channel,
-                        colorChanged: $colorChanged,
-                        backgroundColor: $backgroundColor
+                        colorChanged: $colorChanged
                     )
 
                     ResetButton(
-                        viewModel: viewModel,
                         channel: $channel,
                         colorChanged: $colorChanged
                     )
@@ -115,7 +107,6 @@ struct CustomizeWidgetView: View {
 struct CustomizeWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         CustomizeWidgetView(
-            viewModel: ViewModel(),
             channel: YouTubeChannel(
                 channelName: "PreviewChannel",
                 profileImage: "",

@@ -10,12 +10,11 @@ import SwiftUI
 import WidgetKit
 
 struct SubmitButton: View {
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @Environment(\.openURL) var openURL
     
     @Binding var name: String
     @Binding var showingAlert: Bool
-    @Binding var channelData: Data
     @Binding var channel: YouTubeChannel
     
     @State private var showSafari = false

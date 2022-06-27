@@ -10,10 +10,9 @@ import SwiftUI
 
 struct WidgetColorPicker: View {
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
     @Binding var colorChanged: Bool
-    @Binding var backgroundColor: Data
     
     var body: some View {
         ZStack {
