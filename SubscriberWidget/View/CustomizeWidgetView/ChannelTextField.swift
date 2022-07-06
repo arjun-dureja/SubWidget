@@ -20,6 +20,7 @@ struct ChannelTextField: View {
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 200, height: 42, alignment: .center)
                 .foregroundColor(colorScheme == .light ? .white : .black)
+            
             HStack {
                 if name.isEmpty {
                     Text("Channel Name or ID")
@@ -28,6 +29,7 @@ struct ChannelTextField: View {
                 Spacer()
                     .frame(width: 14)
             }
+
             TextField("", text: $name)
                 .disableAutocorrection(true)
                 .padding(10)

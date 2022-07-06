@@ -47,7 +47,6 @@ struct ConfigurationView: View {
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
             }
 
-
             Spacer()
         }
         .padding(EdgeInsets(top: 16 , leading: 16, bottom: 0, trailing: 16))

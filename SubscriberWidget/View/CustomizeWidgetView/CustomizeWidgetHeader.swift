@@ -19,7 +19,9 @@ struct CustomizeWidgetHeader: View {
                 presentationMode.wrappedValue.dismiss()
             }
             .foregroundColor(.youtubeRed)
+            
             Spacer()
+
             Button("Done") {
                 presentationMode.wrappedValue.dismiss()
             }

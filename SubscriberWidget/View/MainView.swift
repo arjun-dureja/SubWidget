@@ -15,6 +15,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
+            
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")

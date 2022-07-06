@@ -19,7 +19,9 @@ struct FAQCell: View {
             HStack {
                 Text(question)
                     .foregroundColor(tapped ? .youtubeRed : .primary)
+                
                 Spacer()
+
                 Image(systemName: "chevron.right")
                     .font(.system(size: 14))
                     .rotationEffect(.degrees(tapped ? 90 : 0))

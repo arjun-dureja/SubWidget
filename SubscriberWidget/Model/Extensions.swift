@@ -56,7 +56,6 @@ extension UIApplication {
 }
 
 extension YouTubeChannelParam {
-    
     convenience init(channel: YouTubeChannel) {
         self.init(identifier: channel.id, display: channel.channelName)
     }

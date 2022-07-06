@@ -23,16 +23,19 @@ struct SettingsView: View {
                     } label: {
                         Label("FAQ", systemImage: "questionmark.circle.fill")
                     }
+                    
                     SafariSheet(
                         text: "Contact",
                         icon: "envelope.circle.fill",
                         url: URL(string: "https://www.emailmeform.com/builder/form/Sg3ejer1CD0ehy")!
                     )
+
                     Button {
                         SKStoreReviewController.requestReview()
                     } label: {
                         FormLabel(text: "Rate", icon: "star.circle.fill")
                     }
+
                     SafariSheet(
                         text: "Privacy Policy",
                         icon: "lock.circle.fill",

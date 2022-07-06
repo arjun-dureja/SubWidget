@@ -28,9 +28,9 @@ class ViewModel: ObservableObject {
         didSet {
             guard let encodedFrequency = try? JSONEncoder().encode(refreshFrequency) else { return }
             refreshFrequencyData = encodedFrequency
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
-
 
     @Published var isLoading = true
 
@@ -174,9 +174,5 @@ class ViewModel: ObservableObject {
         let (data, _) = try await URLSession.shared.data(from: faqUrl)
         let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
         return jsonData
-    }
-
-    func updateRefreshFrequency(to frequency: RefreshFrequencies) {
-        refreshFrequency = frequency
     }
 }

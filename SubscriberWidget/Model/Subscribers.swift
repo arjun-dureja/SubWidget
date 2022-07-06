@@ -19,9 +19,7 @@ struct Subscribers: Decodable, Identifiable {
     
     init (from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
         let statisticsContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .statistics)
-        
         self.subscriberCount = try statisticsContainer.decode(String.self, forKey: .subscriberCount)
     }
     

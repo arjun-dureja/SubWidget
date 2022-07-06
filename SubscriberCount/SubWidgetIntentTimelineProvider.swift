@@ -69,11 +69,24 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             completion(timeline)
         } else {
             Task {
-                // Refresh subscriber count every 30 minutes
                 let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
+
+                let viewModel = await ViewModel()
+                let refreshFrequency: Int
+                switch await viewModel.refreshFrequency {
+                case .THIRTY_MIN:
+                    refreshFrequency = 30
+                case .ONE_HR:
+                    refreshFrequency = 60
+                case .SIX_HR:
+                    refreshFrequency = 180
+                case .TWELVE_HR:
+                    refreshFrequency = 720
+                }
+
                 let timeline = Timeline(
                     entries: [result],
-                    policy: .after(Date().addingTimeInterval(60 * 30))
+                    policy: .after(Calendar.current.date(byAdding: .minute, value: refreshFrequency, to: Date())!)
                 )
 
                 completion(timeline)

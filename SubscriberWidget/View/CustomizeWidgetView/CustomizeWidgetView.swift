@@ -48,6 +48,7 @@ struct CustomizeWidgetView: View {
                 } else {
                     Spacer()
                 }
+
                 VStack {
                     WidgetColorPicker(
                         channel: $channel,
@@ -59,7 +60,9 @@ struct CustomizeWidgetView: View {
                         colorChanged: $colorChanged
                     )
                 }
+
                 Spacer()
+
                 WidgetPreview(
                     channel: $channel,
                     animate: $animate,
@@ -81,10 +84,10 @@ struct CustomizeWidgetView: View {
     
     func updateColorIfNeeded() {
         // Only reload timelines if the color was changed
-        if self.colorChanged {
+        if colorChanged {
             print("Color changed, reloading timelines")
             WidgetCenter.shared.reloadAllTimelines()
-            self.colorChanged = false
+            colorChanged = false
         }
     }
 
