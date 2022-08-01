@@ -21,7 +21,12 @@ struct SettingsView: View {
                     NavigationLink {
                         FAQ()
                     } label: {
-                        Label("FAQ", systemImage: "questionmark.circle.fill")
+                        HStack(spacing: 16) {
+                            Image(systemName: "questionmark.circle.fill")
+                                .foregroundStyle(.white, Color.youtubeRed)
+                            Text("FAQ")
+                        }
+                        .padding(.leading, 4)
                     }
                     
                     SafariSheet(
@@ -45,6 +50,7 @@ struct SettingsView: View {
             }
             .navigationBarTitle("Settings")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

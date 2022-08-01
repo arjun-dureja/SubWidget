@@ -14,7 +14,15 @@ struct RefreshFrequency: View {
     var body: some View {
         Picker(
             selection: $viewModel.refreshFrequency,
-            label: Label("Update Frequency", systemImage: "arrow.clockwise.circle.fill")
+            label: Label(
+                title: {
+                    Text("Update Frequency")
+                },
+                icon: {
+                    Image(systemName: "arrow.clockwise.circle.fill")
+                        .foregroundStyle(.white, Color.youtubeRed)
+                }
+            )
         ) {
             ForEach(RefreshFrequencies.allCases, id: \.self) { freq in
                 Text(freq.rawValue).tag(freq)

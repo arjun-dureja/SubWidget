@@ -24,7 +24,7 @@ struct SubmitButton: View {
     var body: some View {
         Button(action: submitButtonTapped, label: {
             Text("Submit")
-                .foregroundColor(Color(UIColor.systemBackground))
+                .foregroundColor(.white)
                 .bold()
         })
         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))

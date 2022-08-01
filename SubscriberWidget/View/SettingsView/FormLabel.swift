@@ -19,7 +19,7 @@ struct FormLabel: View {
                     .foregroundColor(Color(UIColor.label))
             } icon: {
                 Image(systemName: icon)
-                    .foregroundColor(.youtubeRed)
+                    .foregroundStyle(.white, Color.youtubeRed)
             }
 
             Spacer()

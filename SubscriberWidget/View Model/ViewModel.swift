@@ -16,6 +16,7 @@ class ViewModel: ObservableObject {
     @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var singleChannelData: Data = Data()
     @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
     @AppStorage("refreshFrequency", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var refreshFrequencyData: Data = Data()
+    @AppStorage("storedVersion", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var storedVersion = ""
 
     @Published var channels: [YouTubeChannel] = [] {
         didSet {
@@ -33,6 +34,10 @@ class ViewModel: ObservableObject {
     }
 
     @Published var isLoading = true
+
+    var appVersion: String {
+        Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    }
 
     var color: UIColor? {
         try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
@@ -174,5 +179,13 @@ class ViewModel: ObservableObject {
         let (data, _) = try await URLSession.shared.data(from: faqUrl)
         let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
         return jsonData
+    }
+
+    func shouldShowWhatsNew() -> Bool {
+        if storedVersion != appVersion {
+            storedVersion = appVersion
+            return true
+        }
+        return false
     }
 }

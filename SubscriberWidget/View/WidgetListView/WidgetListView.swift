@@ -11,6 +11,7 @@ import SwiftUI
 struct WidgetListView: View {
     @State private var newWidget = false
     @State private var tooManyChannels = false
+    @State private var showWhatsNew = false
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
@@ -39,28 +40,40 @@ struct WidgetListView: View {
                     ProgressView()
                         .scaleEffect(1.5, anchor: .center)
                 } else if viewModel.channels.isEmpty {
-                    Text("Tap + to add a widget")
+                    EmptyState(addWidgetTapped: addWidgetTapped)
                 }
             }
             .navigationBarTitle("SubWidget")
-            .navigationBarItems(
-                trailing:
-                    Button(
-                        action: addWidgetTapped,
-                        label: {
-                            Image(systemName: "plus.circle.fill")
-                                .font(.system(size: 28))
-                                .foregroundColor(.youtubeRed)
-                        })
-            )
+            .if(viewModel.channels.count > 0) { view in
+                view.navigationBarItems(
+                    trailing:
+                        Button(
+                            action: addWidgetTapped,
+                            label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 28))
+                                    .foregroundStyle(.white, Color.youtubeRed)
+                            }
+                        )
+                )
+            }
             .sheet(isPresented: $newWidget, content: {
                 CustomizeWidgetView(
                     channel: viewModel.channels.last!,
                     isNewWidget: true
                 )
             })
+            .sheet(isPresented: $showWhatsNew, content: {
+                WhatsNewView(isPresented: $showWhatsNew)
+            })
             .alert("You can only add 10 channels. Swipe left on a channel to delete it.", isPresented: $tooManyChannels) {
                 Button("OK", role: .cancel) { }
+            }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            if viewModel.shouldShowWhatsNew() {
+                showWhatsNew = true
             }
         }
     }
@@ -90,5 +103,20 @@ struct WidgetListView: View {
 struct AddWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         WidgetListView()
+    }
+}
+
+extension View {
+    /// Applies the given transform if the given condition evaluates to `true`.
+    /// - Parameters:
+    ///   - condition: The condition to evaluate.
+    ///   - transform: The transform to apply to the source `View`.
+    /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
+    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
     }
 }

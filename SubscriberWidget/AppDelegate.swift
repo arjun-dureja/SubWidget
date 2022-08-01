@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let segmentedControlAppearance = UISegmentedControl.appearance()
         segmentedControlAppearance.backgroundColor = .systemGray6
         segmentedControlAppearance.selectedSegmentTintColor = UIColor(Color.youtubeRed)
-        segmentedControlAppearance.setTitleTextAttributes([.foregroundColor: UIColor.systemBackground], for: .selected)
+        segmentedControlAppearance.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segmentedControlAppearance.setTitleTextAttributes([.foregroundColor: UIColor.label], for: .normal)
         return true
     }

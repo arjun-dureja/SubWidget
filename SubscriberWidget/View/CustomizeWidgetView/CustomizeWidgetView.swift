@@ -26,10 +26,11 @@ struct CustomizeWidgetView: View {
     @State private var colorChanged = false
     
     var body: some View {
-        GeometryReader { _ in // Use geometry reader to prevent keyboard avoidance
+        GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
             VStack(spacing: 16) {
                 if isNewWidget {
                     CustomizeWidgetHeader()
+
                     HStack {
                         ChannelTextField(
                             name: $name,
@@ -73,13 +74,18 @@ struct CustomizeWidgetView: View {
                 WidgetSizePicker(animate: $animate)
                 Spacer()
             }
-            .background(Color(UIColor.systemGray6)).edgesIgnoringSafeArea(.all)
+            .background(Color(UIColor.systemGray6))
+            .edgesIgnoringSafeArea(.all)
             .navigationBarTitle(self.channel.channelName, displayMode: .inline)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                 updateColorIfNeeded()
             }
-            .ignoresSafeArea(.keyboard, edges: .all)
+            .frame(
+                width: geometry.frame(in: .global).width,
+                height: geometry.frame(in: .global).height
+            )
         }
+        .ignoresSafeArea(.keyboard, edges: .all)
     }
     
     func updateColorIfNeeded() {
