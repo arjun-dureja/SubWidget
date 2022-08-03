@@ -12,6 +12,7 @@ struct WidgetListView: View {
     @State private var newWidget = false
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
+    @State private var showUpdateAlert = false
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
@@ -63,8 +64,17 @@ struct WidgetListView: View {
                     isNewWidget: true
                 )
             })
-            .sheet(isPresented: $showWhatsNew, content: {
+            .sheet(isPresented: $showWhatsNew, onDismiss: {
+                if viewModel.isMigratedUser {
+                    showUpdateAlert = true
+                }
+            }, content: {
                 WhatsNewView(isPresented: $showWhatsNew)
+            })
+            .alert("Can't see your widgets?", isPresented: $showUpdateAlert, actions: {
+                Button("OK", role: .cancel) { }
+            }, message: {
+                Text("Please remove them from your homescreen and add them back.")
             })
             .alert("You can only add 10 channels. Swipe left on a channel to delete it.", isPresented: $tooManyChannels) {
                 Button("OK", role: .cancel) { }

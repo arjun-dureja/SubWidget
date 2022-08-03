@@ -35,6 +35,8 @@ class ViewModel: ObservableObject {
 
     @Published var isLoading = true
 
+    @Published var isMigratedUser = false
+
     var appVersion: String {
         Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
@@ -69,6 +71,7 @@ class ViewModel: ObservableObject {
 
             withAnimation { self.channels.append(channel) }
             isLoading = false
+            isMigratedUser = true
             return
         }
         
@@ -104,6 +107,7 @@ class ViewModel: ObservableObject {
     }
 
     func makeRequest<T: Decodable>(with query: String) async throws -> T {
+        print("Making request")
         guard let url = URL(string: "https://www.googleapis.com/youtube/v3/\(query)&key=\(Constants.apiKey)") else {
             throw SubWidgetError.invalidURL
         }

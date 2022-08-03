@@ -17,7 +17,7 @@ struct ConfigurationView: View {
             HStack {
                 Text("Select Your Channel")
                     .fontWeight(.bold)
-                    .font(.system(size: 15))
+                    .font(.system(size: 14))
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                 Spacer()
                 Image("youtube-logo")
