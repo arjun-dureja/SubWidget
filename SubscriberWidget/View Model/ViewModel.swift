@@ -54,18 +54,13 @@ class ViewModel: ObservableObject {
             var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData),
             !decodedChannels.isEmpty
         else {
-            print("Channel list is empty")
-
             guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
-                print("First time user")
                 isLoading = false
                 return
             }
 
-            print("Old user with outdated configuration")
             var channel = try await getChannelDetailsFromId(for: channelId)
             if let color = color {
-                print("Updating old color")
                 channel.bgColor = color
             }
 
@@ -74,8 +69,6 @@ class ViewModel: ObservableObject {
             isMigratedUser = true
             return
         }
-        
-        print("Channel list has values")
 
         if let frequency = try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData) {
             refreshFrequency = frequency
@@ -107,7 +100,6 @@ class ViewModel: ObservableObject {
     }
 
     func makeRequest<T: Decodable>(with query: String) async throws -> T {
-        print("Making request")
         guard let url = URL(string: "https://www.googleapis.com/youtube/v3/\(query)&key=\(Constants.apiKey)") else {
             throw SubWidgetError.invalidURL
         }
