@@ -171,7 +171,7 @@ class ViewModel: ObservableObject {
     }
 
     func getFaq() async throws -> [FAQItem] {
-        guard let faqUrl = URL(string: "https://api.npoint.io/705eb0378a484c18d135") else { throw SubWidgetError.invalidURL }
+        guard let faqUrl = URL(string: "https://arjundureja.com/subwidget/faq.json") else { throw SubWidgetError.invalidURL }
         let (data, _) = try await URLSession.shared.data(from: faqUrl)
         let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
         return jsonData
