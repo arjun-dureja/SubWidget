@@ -17,7 +17,7 @@ struct EmptyState: View {
             MediumWidget(
                 entry: YouTubeChannel(
                     channelName: "Redacted",
-                    profileImage: "https://via.placeholder.com/350x150",
+                    profileImage: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png",
                     subCount: "1000000",
                     channelId: "Redacted"
                 )
