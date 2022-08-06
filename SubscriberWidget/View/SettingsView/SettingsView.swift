@@ -18,10 +18,10 @@ struct SettingsView: View {
                 Section(footer: EmptyView()) {
                     HStack(spacing: 16) {
                         Spacer()
-
                         AppIcon()
                             .cornerRadius(16)
                             .frame(width: 60, height: 60)
+
                         VStack(alignment: .leading, spacing: 2) {
                             Text("SubWidget \(Bundle.main.appVersion)")
                                 .font(.system(size: 16, weight: .medium))
@@ -29,8 +29,6 @@ struct SettingsView: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(colorScheme == .dark ? .darkModeTitleGray2 : .titleGray)
                         }
-
-
                         Spacer()
                     }
                 }
