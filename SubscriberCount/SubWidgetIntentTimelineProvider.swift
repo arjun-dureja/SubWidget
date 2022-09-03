@@ -119,6 +119,8 @@ struct SubscriberCountEntryView : View {
         switch widgetFamily {
         case .systemSmall:
             SmallWidget(entry: entry.channel)
+        case .accessoryRectangular:
+            LockscreenWidget(entry: entry.channel)
         default:
             MediumWidget(entry: entry.channel)
         }
@@ -135,6 +137,6 @@ struct SubscriberCount: Widget {
         })
         .configurationDisplayName("Subscriber Count")
         .description("View your YouTube subscriber count in realtime")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
     }
 }

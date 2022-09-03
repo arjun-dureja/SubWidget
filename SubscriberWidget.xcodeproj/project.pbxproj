@@ -75,6 +75,8 @@
 		72D820A125D74613008240B2 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A025D74613008240B2 /* ResetButton.swift */; };
 		72D820A525D74DBE008240B2 /* WidgetSizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */; };
 		72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820AA25D75440008240B2 /* WidgetPreview.swift */; };
+		72DF862D28C3D61400452E3B /* LockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF862C28C3D61400452E3B /* LockscreenWidget.swift */; };
+		72DF862E28C3D61400452E3B /* LockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF862C28C3D61400452E3B /* LockscreenWidget.swift */; };
 		72E3191A2841DA2900F1C1AE /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E319192841DA2900F1C1AE /* ConfigurationView.swift */; };
 		72E3191B2841DA9E00F1C1AE /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E319192841DA2900F1C1AE /* ConfigurationView.swift */; };
 		72E3191D2844683F00F1C1AE /* FAQCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E3191C2844683F00F1C1AE /* FAQCell.swift */; };
@@ -176,6 +178,7 @@
 		72D820A025D74613008240B2 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
 		72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizePicker.swift; sourceTree = "<group>"; };
 		72D820AA25D75440008240B2 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
+		72DF862C28C3D61400452E3B /* LockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidget.swift; sourceTree = "<group>"; };
 		72E319192841DA2900F1C1AE /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		72E3191C2844683F00F1C1AE /* FAQCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCell.swift; sourceTree = "<group>"; };
 		72EFF4A725201AAD007E1FA6 /* SubscriberWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriberWidget.entitlements; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 				7295DAD225294CB6005FA093 /* MediumWidget.swift */,
 				721AC2E625DA505700C6100C /* SubWidgetIntentTimelineProvider.swift */,
 				72E319192841DA2900F1C1AE /* ConfigurationView.swift */,
+				72DF862C28C3D61400452E3B /* LockscreenWidget.swift */,
 			);
 			path = SubscriberCount;
 			sourceTree = "<group>";
@@ -526,6 +530,7 @@
 				72EFF4A1252016FF007E1FA6 /* ViewModel.swift in Sources */,
 				723459282868DB35000C7DA5 /* RefreshFrequencies.swift in Sources */,
 				72FD5209289CB59C001F9F48 /* WidgetIntents.intentdefinition in Sources */,
+				72DF862E28C3D61400452E3B /* LockscreenWidget.swift in Sources */,
 				72E3191B2841DA9E00F1C1AE /* ConfigurationView.swift in Sources */,
 				72EFF4AC25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
 				72A3B472252E2CC300891D69 /* Constants.swift in Sources */,
@@ -565,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DF862D28C3D61400452E3B /* LockscreenWidget.swift in Sources */,
 				72E3191D2844683F00F1C1AE /* FAQCell.swift in Sources */,
 				728E247C25D7978600D4BB6E /* ChannelListRow.swift in Sources */,
 				7234592B2869581B000C7DA5 /* RefreshFrequency.swift in Sources */,
@@ -663,7 +669,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -690,7 +696,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -714,7 +720,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -737,7 +743,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -803,7 +809,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -858,7 +864,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -880,7 +886,7 @@
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SubscriberWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -906,7 +912,7 @@
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SubscriberWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
