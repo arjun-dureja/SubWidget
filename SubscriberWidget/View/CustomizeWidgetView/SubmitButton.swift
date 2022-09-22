@@ -10,7 +10,7 @@ import SwiftUI
 import WidgetKit
 
 struct SubmitButton: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
     @Environment(\.openURL) var openURL
     
     @Binding var name: String

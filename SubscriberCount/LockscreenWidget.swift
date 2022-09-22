@@ -30,7 +30,10 @@ struct LockscreenWidget: View {
                         .minimumScaleFactor(0.01)
                         .lineLimit(1)
                     Text("Total subscribers")
-                        .font(.system(size: 12))
+                        .fontWeight(.medium)
+                        .font(.system(size: 11))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
                 }
             }
         } else {

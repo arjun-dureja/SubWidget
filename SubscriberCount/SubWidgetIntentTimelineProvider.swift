@@ -132,11 +132,20 @@ struct SubscriberCount: Widget {
     let kind: String = "SubscriberCount"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
-            SubscriberCountEntryView(entry: entry)
-        })
-        .configurationDisplayName("Subscriber Count")
-        .description("View your YouTube subscriber count in realtime")
-        .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
+        if #available(iOSApplicationExtension 16.0, *) {
+            return IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
+                SubscriberCountEntryView(entry: entry)
+            })
+            .configurationDisplayName("Subscriber Count")
+            .description("View your YouTube subscriber count in realtime")
+            .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
+        } else {
+            return IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
+                SubscriberCountEntryView(entry: entry)
+            })
+            .configurationDisplayName("Subscriber Count")
+            .description("View your YouTube subscriber count in realtime")
+            .supportedFamilies([.systemSmall, .systemMedium])
+        }
     }
 }

@@ -20,10 +20,18 @@ struct SmallWidget: View {
                 }
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        NetworkImage(url: URL(string: entry.profileImage))
-                            .frame(width: 65, height: 65)
-                            .clipShape(Circle())
-                            .shadow(radius: 2)
+                        if Utils.isInWidget() {
+                            NetworkImage(url: URL(string: entry.profileImage))
+                                .frame(width: 65, height: 65)
+                                .clipShape(Circle())
+                                .shadow(radius: 2)
+                        } else {
+                            AsyncImageView(url: URL(string: entry.profileImage))
+                                .frame(width: 65, height: 65)
+                                .clipShape(Circle())
+                                .shadow(radius: 2)
+                        }
+
                         Spacer()
                         Image("youtube-logo")
                             .resizable()
@@ -54,4 +62,3 @@ struct SmallWidget: View {
         }
     }
 }
-

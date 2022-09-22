@@ -9,14 +9,16 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel: ViewModel = ViewModel()
+
     var body: some View {
         TabView {
-            WidgetListView()
+            WidgetListView(viewModel: viewModel)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
             
-            SettingsView()
+            SettingsView(viewModel: viewModel)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }

@@ -14,7 +14,7 @@ struct ChannelListRow: View {
     
     var body: some View {
         HStack(spacing: 15) {
-            NetworkImage(url: URL(string: channel.profileImage))
+            AsyncImageView(url: URL(string: channel.profileImage))
                 .frame(width: 70, height: 70)
                 .clipShape(Circle())
                 .shadow(radius: 2)

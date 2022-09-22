@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RefreshFrequency: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
 
     var body: some View {
         Picker(
@@ -28,11 +28,5 @@ struct RefreshFrequency: View {
                 Text(freq.rawValue).tag(freq)
             }
         }
-    }
-}
-
-struct RefreshFrequency_Previews: PreviewProvider {
-    static var previews: some View {
-        RefreshFrequency()
     }
 }

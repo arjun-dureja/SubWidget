@@ -11,7 +11,7 @@ import UIKit
 import WidgetKit
 
 struct CustomizeWidgetView: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
     @State var channel: YouTubeChannel
     @State var isNewWidget: Bool
     
@@ -29,7 +29,7 @@ struct CustomizeWidgetView: View {
         GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
             VStack(spacing: 16) {
                 if isNewWidget {
-                    CustomizeWidgetHeader()
+                    CustomizeWidgetHeader(viewModel: viewModel)
 
                     HStack {
                         ChannelTextField(
@@ -38,6 +38,7 @@ struct CustomizeWidgetView: View {
                         )
 
                         SubmitButton(
+                            viewModel: viewModel,
                             name: $name,
                             showingAlert: $showingAlert,
                             channel: $channel,
@@ -52,11 +53,13 @@ struct CustomizeWidgetView: View {
 
                 VStack {
                     WidgetColorPicker(
+                        viewModel: viewModel,
                         channel: $channel,
                         colorChanged: $colorChanged
                     )
 
                     ResetButton(
+                        viewModel: viewModel,
                         channel: $channel,
                         colorChanged: $colorChanged
                     )
@@ -116,6 +119,7 @@ struct CustomizeWidgetView: View {
 struct CustomizeWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         CustomizeWidgetView(
+            viewModel: ViewModel(),
             channel: YouTubeChannel(
                 channelName: "PreviewChannel",
                 profileImage: "",

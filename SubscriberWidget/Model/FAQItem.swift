@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FAQItem: Identifiable, Decodable {
+struct FAQItem: Identifiable, Decodable, Equatable {
     let question: String
     let answer: String
     var id: String { question }

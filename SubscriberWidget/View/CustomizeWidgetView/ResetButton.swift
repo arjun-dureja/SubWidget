@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ResetButton: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
     @Binding var colorChanged: Bool
     

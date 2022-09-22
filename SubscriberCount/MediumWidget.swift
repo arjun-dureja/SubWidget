@@ -19,11 +19,19 @@ struct MediumWidget: View {
                     Color(bgColor)
                 }
                 HStack(spacing: -5) {
-                    NetworkImage(url: URL(string: entry.profileImage))
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                        .shadow(radius: 3)
-                        .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
+                    if Utils.isInWidget() {
+                        NetworkImage(url: URL(string: entry.profileImage))
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .shadow(radius: 3)
+                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
+                    } else {
+                        AsyncImageView(url: URL(string: entry.profileImage))
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .shadow(radius: 3)
+                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
+                    }
 
                     Spacer()
 
