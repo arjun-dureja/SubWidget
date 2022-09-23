@@ -178,13 +178,13 @@ class ViewModel: ObservableObject {
     }
 
     func shouldShowWhatsNew() -> Bool {
-// Lockscreen widgets are only available on iOS
-#if os(iOS)
-        if storedVersion != appVersion {
-            storedVersion = appVersion
-            return true
+        // Lockscreen widgets are only available on iPhone
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            if storedVersion != appVersion {
+                storedVersion = appVersion
+                return true
+            }
         }
-#endif
         return false
     }
 }
