@@ -12,7 +12,7 @@ import StoreKit
 struct SettingsView: View {
     @StateObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -22,7 +22,7 @@ struct SettingsView: View {
                         AppIcon()
                             .cornerRadius(16)
                             .frame(width: 60, height: 60)
-                        
+
                         VStack(alignment: .leading, spacing: 2) {
                             Text("SubWidget \(Bundle.main.appVersion)")
                                 .font(.system(size: 16, weight: .medium))
@@ -35,35 +35,35 @@ struct SettingsView: View {
                 }
                 .padding(.top, 24)
                 .listRowBackground(Color.clear)
-                
+
                 Section(footer: Text("Choose how often the subscriber count should update")) {
                     RefreshFrequency(viewModel: viewModel)
                 }
-                
+
                 Section {
                     NavigationLink {
                         FAQ(viewModel: viewModel)
                     } label: {
-                        HStack(spacing: 16) {
+                        HStack(spacing: 24) {
                             Image(systemName: "questionmark.circle.fill")
                                 .foregroundStyle(.white, Color.youtubeRed)
                             Text("FAQ")
                         }
                         .padding(.leading, 4)
                     }
-                    
+
                     SafariSheet(
                         text: "Contact",
                         icon: "envelope.circle.fill",
                         url: URL(string: "https://www.emailmeform.com/builder/form/Sg3ejer1CD0ehy")!
                     )
-                    
+
                     Button {
                         SKStoreReviewController.requestReview()
                     } label: {
                         FormLabel(text: "Rate", icon: "star.circle.fill")
                     }
-                    
+
                     SafariSheet(
                         text: "Privacy Policy",
                         icon: "lock.circle.fill",

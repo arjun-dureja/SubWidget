@@ -24,6 +24,7 @@ struct LockscreenWidget: View {
                         .fontWeight(.bold)
                         .font(.system(size: 14))
                         .minimumScaleFactor(0.01)
+                        .lineLimit(2)
                     Text("\(Int(entry.subCount)!)")
                         .fontWeight(.bold)
                         .font(.system(size: 16))

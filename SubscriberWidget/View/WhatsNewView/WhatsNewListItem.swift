@@ -18,7 +18,7 @@ struct WhatsNewListItem: View {
     var body: some View {
         HStack(spacing: 16) {
             Image(systemName: iconName)
-                .font(.system(size: 40))
+                .font(.system(size: 32))
                 .foregroundStyle(.white, Color.youtubeRed)
             VStack(alignment: .leading, spacing: 2) {
                 Text(heading)

@@ -39,6 +39,7 @@
 		725059F625D881F20064A451 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F525D881F20064A451 /* MainView.swift */; };
 		725059FA25D882080064A451 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F925D882080064A451 /* SettingsView.swift */; };
 		72505A0C25DA400B0064A451 /* CustomizeWidgetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72505A0B25DA400B0064A451 /* CustomizeWidgetHeader.swift */; };
+		725C412E28DD5407007BA4DE /* lockscreen_widget.gif in Resources */ = {isa = PBXBuildFile; fileRef = 725C412D28DD5406007BA4DE /* lockscreen_widget.gif */; };
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
 		725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1F0251D3983004B2907 /* SwiftUI.framework */; };
 		725FE1F7251D3988004B2907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725FE1F6251D3988004B2907 /* Assets.xcassets */; };
@@ -148,6 +149,7 @@
 		725059F525D881F20064A451 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		725059F925D882080064A451 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		72505A0B25DA400B0064A451 /* CustomizeWidgetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeWidgetHeader.swift; sourceTree = "<group>"; };
+		725C412D28DD5406007BA4DE /* lockscreen_widget.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lockscreen_widget.gif; sourceTree = "<group>"; };
 		725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriberCountExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		725FE1EE251D3983004B2907 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		725FE1F0251D3983004B2907 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -305,6 +307,7 @@
 		72920004251D1F3D0050194B /* SubscriberWidget */ = {
 			isa = PBXGroup;
 			children = (
+				725C412D28DD5406007BA4DE /* lockscreen_widget.gif */,
 				72A3B467252E292000891D69 /* Model */,
 				72A3B462252E290C00891D69 /* View */,
 				72A3B461252E28FF00891D69 /* View Model */,
@@ -520,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72920012251D1F420050194B /* LaunchScreen.storyboard in Resources */,
+				725C412E28DD5407007BA4DE /* lockscreen_widget.gif in Resources */,
 				7292000F251D1F420050194B /* Preview Assets.xcassets in Resources */,
 				7292000C251D1F420050194B /* Assets.xcassets in Resources */,
 			);

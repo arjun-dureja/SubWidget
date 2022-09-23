@@ -7,37 +7,28 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct WhatsNewView: View {
     @Binding var isPresented: Bool
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 32) {
+        VStack(alignment: .center, spacing: 32) {
             Text("What's New in SubWidget")
                 .font(.system(size: 26, weight: .bold, design: .default))
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.bottom, 32)
+                .padding(.top, 56)
 
             WhatsNewListItem(
                 iconName: "plus.circle.fill",
-                heading: "Add More Channels",
-                description: "You can now add multiple channels. View the subscriber counts of several different channels from your homescreen."
+                heading: "Lockscreen Widgets",
+                description: "You can now add widgets to your lockscreen with iOS 16!"
             )
+            .frame(width: 325, height: 55, alignment: .leading)
 
-            WhatsNewListItem(
-                iconName: "arrow.clockwise.circle.fill",
-                heading: "Customize Update Frequency",
-                description: "Choose how often the subscriber count should update. From every 30 minutes to every 12 hours."
-            )
-
-            WhatsNewListItem(
-                iconName: "magnifyingglass.circle.fill",
-                heading: "Improved Search Functionality",
-                description: "SubWidget will now do a better job at finding your YouTube channel."
-            )
-
-            Spacer()
+            GifImage("lockscreen_widget")
+                .frame(width: 222, height: 479)
+                .cornerRadius(16)
 
             Button {
                 isPresented = false
@@ -50,10 +41,45 @@ struct WhatsNewView: View {
                     .background(Color.youtubeRed)
                     .cornerRadius(12)
             }
-
         }
         .padding(32)
         .padding(.vertical, 32)
         .background(colorScheme == .dark ? .black : Color(UIColor.systemGray6))
     }
+}
+
+struct WhatsNewView_Previews: PreviewProvider {
+    static var previews: some View {
+        WhatsNewView(isPresented: .constant(true))
+    }
+}
+
+
+struct GifImage: UIViewRepresentable {
+    private let name: String
+
+    init(_ name: String) {
+        self.name = name
+    }
+
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
+        let url = Bundle.main.url(forResource: name, withExtension: "gif")!
+        let data = try! Data(contentsOf: url)
+        webView.load(
+            data,
+            mimeType: "image/gif",
+            characterEncodingName: "UTF-8",
+            baseURL: url.deletingLastPathComponent()
+        )
+        webView.scrollView.isScrollEnabled = false
+        webView.sizeToFit()
+
+        return webView
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.reload()
+    }
+
 }

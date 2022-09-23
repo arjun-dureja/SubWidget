@@ -80,7 +80,7 @@ class ViewModel: ObservableObject {
         }
 
         withAnimation { self.channels = decodedChannels }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             self.isLoading = false
         }
     }
@@ -178,10 +178,13 @@ class ViewModel: ObservableObject {
     }
 
     func shouldShowWhatsNew() -> Bool {
+// Lockscreen widgets are only available on iOS
+#if os(iOS)
         if storedVersion != appVersion {
             storedVersion = appVersion
             return true
         }
+#endif
         return false
     }
 }
