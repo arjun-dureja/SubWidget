@@ -18,11 +18,12 @@ struct ConfigurationView: View {
                 Text("Select Your Channel")
                     .fontWeight(.bold)
                     .font(.system(size: 14))
+                    .minimumScaleFactor(0.01)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+
                 Spacer()
-                Image("youtube-logo")
-                    .resizable()
-                    .frame(width: 20.5, height: 14.6)
+
+                YouTubeLogo()
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 16, trailing: 0))
             }
 

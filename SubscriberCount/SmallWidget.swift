@@ -11,7 +11,7 @@ import SwiftUI
 struct SmallWidget: View {
     var entry: YouTubeChannel?
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
         ZStack {
             if let entry = entry {
@@ -33,9 +33,8 @@ struct SmallWidget: View {
                         }
 
                         Spacer()
-                        Image("youtube-logo")
-                            .resizable()
-                            .frame(width: 20.5, height: 14.6)
+
+                        YouTubeLogo()
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 45, trailing: 0))
                     }
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))

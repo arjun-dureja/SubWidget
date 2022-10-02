@@ -55,9 +55,7 @@ struct MediumWidget: View {
 
                     Spacer()
 
-                    Image("youtube-logo")
-                        .resizable()
-                        .frame(width: 20.5, height: 14.6)
+                    YouTubeLogo()
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 90, trailing: 0))
                 }
                 .minimumScaleFactor(0.3)
