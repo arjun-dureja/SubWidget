@@ -38,6 +38,7 @@ struct WidgetPreview: View {
                 .opacity(self.animate ? 1 : 0)
                 .animation(.easeInOut(duration: 0.5))
         }
+        #if !targetEnvironment(macCatalyst)
         .rotation3DEffect(
             .degrees(rotateIn3D ? 12 : -12),
             axis: (x: rotateIn3D ? 90 : -45, y: rotateIn3D ? -45 : -90, z: 0))
@@ -45,5 +46,6 @@ struct WidgetPreview: View {
         .onAppear() {
             rotateIn3D.toggle()
         }
+        #endif
     }
 }
