@@ -112,9 +112,7 @@ struct WidgetListView: View {
     }
     
     func tryAgainTapped() {
-        Task {
-            try await viewModel.tryInitAgain()
-        }
+        viewModel.tryInitAgain()
     }
     
     func addWidgetTapped() {

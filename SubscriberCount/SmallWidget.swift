@@ -11,14 +11,15 @@ import SwiftUI
 struct SmallWidget: View {
     var entry: YouTubeChannel?
     @Environment(\.colorScheme) var colorScheme
-
+    
     var body: some View {
         ZStack {
             if let entry = entry {
                 if let bgColor = entry.bgColor {
                     Color(bgColor)
                 }
-                VStack(alignment: .leading, spacing: 4) {
+                
+                VStack(alignment: .leading) {
                     HStack {
                         if Utils.isInWidget() {
                             NetworkImage(url: URL(string: entry.profileImage))
@@ -31,14 +32,13 @@ struct SmallWidget: View {
                                 .clipShape(Circle())
                                 .shadow(radius: 2)
                         }
-
+                        
                         Spacer()
-
+                        
                         YouTubeLogo()
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 45, trailing: 0))
                     }
-                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
-
+                    
                     VStack(alignment: .leading) {
                         Text("\(entry.channelName)")
                             .fontWeight(.bold)
@@ -53,8 +53,8 @@ struct SmallWidget: View {
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                     }
                     .minimumScaleFactor(0.3)
-                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 8, trailing: 16))
                 }
+                .padding()
             } else {
                 ConfigurationView(baselineOffset: 5.0)
             }

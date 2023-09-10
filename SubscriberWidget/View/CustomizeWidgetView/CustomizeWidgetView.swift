@@ -129,7 +129,7 @@ struct CustomizeWidgetView_Previews: PreviewProvider {
             channel: YouTubeChannel(
                 channelName: "PreviewChannel",
                 profileImage: "",
-                subCount: "0",
+                subCount: "10000",
                 channelId: ""
             ),
             isNewWidget: false
