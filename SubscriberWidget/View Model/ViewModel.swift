@@ -34,8 +34,8 @@ class ViewModel: ObservableObject {
     }
 
     @Published var isLoading = true
-
     @Published var isMigratedUser = false
+    @Published var networkError = false
 
     var appVersion: String {
         Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
@@ -49,39 +49,59 @@ class ViewModel: ObservableObject {
         Task { try? await self.fetchAndUpdateChannelData() }
     }
     
-    private func fetchAndUpdateChannelData() async throws {
-        guard
-            var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData),
-            !decodedChannels.isEmpty
-        else {
-            guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
-                isLoading = false
-                return
-            }
-
-            var channel = try await getChannelDetailsFromId(for: channelId)
-            if let color = color {
-                channel.bgColor = color
-            }
-
-            withAnimation { self.channels.append(channel) }
-            isLoading = false
-            isMigratedUser = true
+    func tryInitAgain() {
+        if isLoading {
             return
         }
-
-        if let frequency = try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData) {
-            refreshFrequency = frequency
+        
+        networkError = false
+        isLoading = true
+        // Wait one second to avoid spamming retries
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            Task {
+                try await self.fetchAndUpdateChannelData()
+            }
         }
-
-        for i in 0..<decodedChannels.count {
-            let channel = try await getChannelDetailsFromId(for: decodedChannels[i].channelId)
-            decodedChannels[i].subCount = channel.subCount
-        }
-
-        withAnimation { self.channels = decodedChannels }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-            self.isLoading = false
+    }
+    
+    private func fetchAndUpdateChannelData() async throws {
+        do {
+            guard
+                var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData),
+                !decodedChannels.isEmpty
+            else {
+                guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
+                    isLoading = false
+                    return
+                }
+                
+                var channel = try await getChannelDetailsFromId(for: channelId)
+                if let color = color {
+                    channel.bgColor = color
+                }
+                
+                withAnimation { self.channels.append(channel) }
+                isLoading = false
+                isMigratedUser = true
+                return
+            }
+            
+            if let frequency = try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData) {
+                refreshFrequency = frequency
+            }
+            
+            for i in 0..<decodedChannels.count {
+                let channel = try await getChannelDetailsFromId(for: decodedChannels[i].channelId)
+                decodedChannels[i].subCount = channel.subCount
+            }
+            
+            withAnimation { self.channels = decodedChannels }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                self.isLoading = false
+            }
+        } catch {
+            isLoading = false
+            networkError = true
         }
     }
     
@@ -103,8 +123,16 @@ class ViewModel: ObservableObject {
         guard let url = URL(string: "https://www.googleapis.com/youtube/v3/\(query)&key=\(Constants.apiKey)") else {
             throw SubWidgetError.invalidURL
         }
-
-        let (data, _) = try await URLSession.shared.data(from: url)
+  
+        var request = URLRequest(url: url)
+        request.setValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 400 {
+            throw SubWidgetError.serverError
+        }
+        
         let jsonData = try JSONDecoder().decode(Response<T>.self, from: data)
         guard let items = jsonData.items, items.count > 0 else {
             throw SubWidgetError.channelNotfound

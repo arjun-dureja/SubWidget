@@ -24,6 +24,7 @@ struct CustomizeWidgetView: View {
     @State private var helpAlert = false
     @State private var bgColor: CGColor?
     @State private var colorChanged = false
+    @State private var showNetworkError = false
     
     var body: some View {
         GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
@@ -89,6 +90,9 @@ struct CustomizeWidgetView: View {
             )
         }
         .ignoresSafeArea(.keyboard, edges: .all)
+        .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
+            Button("OK", role: .cancel) { }
+        }
     }
     
     func updateColorIfNeeded() {
@@ -109,6 +113,8 @@ struct CustomizeWidgetView: View {
                 UIApplication.shared.endEditing()
                 name.removeAll()
                 self.channel = channel
+            } catch SubWidgetError.serverError {
+                showNetworkError = true
             } catch {
                 showingAlert = true
             }

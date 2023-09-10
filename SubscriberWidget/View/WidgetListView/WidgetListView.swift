@@ -13,6 +13,7 @@ struct WidgetListView: View {
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
     @State private var showUpdateAlert = false
+    @State private var showNetworkError = false
     @StateObject var viewModel: ViewModel
     
     var body: some View {
@@ -37,8 +38,25 @@ struct WidgetListView: View {
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
-
-                if viewModel.isLoading && viewModel.channels.isEmpty {
+                
+                if viewModel.networkError {
+                    VStack {
+                        Text("Network error. Please try again.")
+                        Button(
+                            action: tryAgainTapped,
+                            label: {
+                                Text("Try Again")
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .frame(width: 250, height: 15)
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.youtubeRed)
+                                    .cornerRadius(16)
+                            }
+                        )
+                        .padding(.top, 16)
+                    }
+                } else if viewModel.isLoading && viewModel.channels.isEmpty {
                     ProgressView()
                         .scaleEffect(1.5, anchor: .center)
                 } else if viewModel.channels.isEmpty {
@@ -81,12 +99,21 @@ struct WidgetListView: View {
             .alert("You can only add 10 channels. Swipe left on a channel to delete it.", isPresented: $tooManyChannels) {
                 Button("OK", role: .cancel) { }
             }
+            .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
+                Button("OK", role: .cancel) { }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             if viewModel.shouldShowWhatsNew() {
                 showWhatsNew = true
             }
+        }
+    }
+    
+    func tryAgainTapped() {
+        Task {
+            try await viewModel.tryInitAgain()
         }
     }
     
@@ -100,6 +127,7 @@ struct WidgetListView: View {
                     newWidget = true
                 } catch let error {
                     print(error.localizedDescription)
+                    showNetworkError = true
                 }
             }
         }

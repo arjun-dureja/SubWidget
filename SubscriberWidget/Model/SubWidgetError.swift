@@ -13,4 +13,5 @@ enum SubWidgetError: Error {
     case channelNotfound
     case encodingError
     case invalidIdentifer
+    case serverError
 }
