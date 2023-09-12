@@ -33,6 +33,6 @@ struct ChannelListRow: View {
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
             }
         }
-        .padding(8)
+        .padding(.vertical, 8)
     }
 }

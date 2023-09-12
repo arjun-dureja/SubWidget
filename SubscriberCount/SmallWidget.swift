@@ -23,12 +23,12 @@ struct SmallWidget: View {
                     HStack {
                         if Utils.isInWidget() {
                             NetworkImage(url: URL(string: entry.profileImage))
-                                .frame(width: 65, height: 65)
+                                .frame(width: 60, height: 60)
                                 .clipShape(Circle())
                                 .shadow(radius: 2)
                         } else {
                             AsyncImageView(url: URL(string: entry.profileImage))
-                                .frame(width: 65, height: 65)
+                                .frame(width: 60, height: 60)
                                 .clipShape(Circle())
                                 .shadow(radius: 2)
                         }
@@ -39,14 +39,16 @@ struct SmallWidget: View {
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 45, trailing: 0))
                     }
                     
+                    Spacer()
+                    
                     VStack(alignment: .leading) {
                         Text("\(entry.channelName)")
                             .fontWeight(.bold)
-                            .font(.system(size: 16))
+                            .font(.system(size: 14))
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                         Text("\(Int(entry.subCount)!)")
                             .fontWeight(.bold)
-                            .font(.system(size: 26))
+                            .font(.system(size: 22))
                             .foregroundColor(.youtubeRed)
                         Text("Total subscribers")
                             .font(.system(size: 12))

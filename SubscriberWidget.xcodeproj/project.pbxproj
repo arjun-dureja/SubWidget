@@ -684,7 +684,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -693,7 +693,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.0;
+				MARKETING_VERSION = 8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -711,7 +711,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -720,7 +720,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.0;
+				MARKETING_VERSION = 8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -735,7 +735,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SubWidgetIntents/SubWidgetIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -744,7 +744,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.0;
+				MARKETING_VERSION = 8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubWidgetIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -759,7 +759,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SubWidgetIntents/SubWidgetIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -768,7 +768,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.0;
+				MARKETING_VERSION = 8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubWidgetIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -901,7 +901,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -913,7 +913,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8.0;
+				MARKETING_VERSION = 8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -931,7 +931,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -943,7 +943,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8.0;
+				MARKETING_VERSION = 8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

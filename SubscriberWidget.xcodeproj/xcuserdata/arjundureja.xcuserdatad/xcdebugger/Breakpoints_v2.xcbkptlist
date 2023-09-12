@@ -3,4 +3,178 @@
    uuid = "60C334C0-54BD-43F8-BD81-18D30E59D724"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5C1A6C0-8EB6-4E52-9602-569D6E742C65"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getSnapshot(for:in:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D5C1A6C0-8EB6-4E52-9602-569D6E742C65 - c3c6dd2828d711c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getSnapshot(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (SubscriberCountExtension.SimpleEntry) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "D5C1A6C0-8EB6-4E52-9602-569D6E742C65 - 88811afed090060f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getSnapshot(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (SubscriberCountExtension.SimpleEntry) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  uuid = "D5C1A6C0-8EB6-4E52-9602-569D6E742C65 - 29443cbf032dcdca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getSnapshot(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (SubscriberCountExtension.SimpleEntry) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "131">
+               </Location>
+               <Location
+                  uuid = "D5C1A6C0-8EB6-4E52-9602-569D6E742C65 - 9024e95ea9827cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getSnapshot(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (SubscriberCountExtension.SimpleEntry) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "58">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB2EF3C2-0BE7-4A18-99BC-A5F88B35582F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "placeholder(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59FA5FCA-6C59-450F-B52F-07876BC9C535"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "getTimeline(for:in:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "59FA5FCA-6C59-450F-B52F-07876BC9C535 - 30794897511e8d68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getTimeline(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;SubscriberCountExtension.SimpleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "82">
+               </Location>
+               <Location
+                  uuid = "59FA5FCA-6C59-450F-B52F-07876BC9C535 - 63033b02ae35657"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getTimeline(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;SubscriberCountExtension.SimpleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "45">
+               </Location>
+               <Location
+                  uuid = "59FA5FCA-6C59-450F-B52F-07876BC9C535 - 8ebe2b14d1f17366"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getTimeline(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;SubscriberCountExtension.SimpleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  uuid = "59FA5FCA-6C59-450F-B52F-07876BC9C535 - a3eb5a4e94381461"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in SubscriberCountExtension.SubWidgetIntentTimelineProvider.getTimeline(for: SubscriberCountExtension.SelectChannelIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;SubscriberCountExtension.SimpleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SubscriberCountExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arjundureja/Desktop/SubscriberWidget/SubscriberCount/SubWidgetIntentTimelineProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "102">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

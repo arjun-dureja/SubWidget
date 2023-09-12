@@ -27,7 +27,7 @@ struct WidgetPreview: View {
                 .animation(.easeInOut(duration: 0.25))
             
             SmallWidget(entry: channel)
-                .frame(width: 155, height: 155, alignment: .leading)
+                .frame(width: 160, height: 160, alignment: .leading)
                 .cornerRadius(25)
                 .opacity(self.animate ? 0 : 1)
                 .animation(.easeInOut(duration: 0.5))
