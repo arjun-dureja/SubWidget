@@ -141,30 +141,84 @@ class ViewModel: ObservableObject {
         return items[0]
     }
 
+    func searchForChannelFromMixerno(for name: String) async throws -> YouTubeChannel {
+        guard let url = URL(string: "https://mixerno.space/api/youtube-channel-counter/search/\(name)") else {
+            throw SubWidgetError.invalidURL
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: URLRequest(url: url))
+        
+        if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 400 {
+            throw SubWidgetError.serverError
+        }
+        
+        let jsonData = try JSONDecoder().decode(MixernoSearch.self, from: data)
+        guard let id = jsonData.list.first?.last else {
+            throw SubWidgetError.channelNotfound
+        }
+        
+        return try await getChannelDetailsFromId(for: id)
+    }
+    
     func getChannelDetailsFromChannelName(for name: String) async throws -> YouTubeChannel {
         let channelNameWithoutSpaces = name.replacingOccurrences(of: " ", with: "%20")
-        let query = "search?part=snippet&q=\(channelNameWithoutSpaces)&type=channel"
-        let channel: Channel = try await makeRequest(with: query)
-        let subCount = try await getSubCount(channelId: channel.channelId)
+        do {
+            return try await searchForChannelFromMixerno(for: channelNameWithoutSpaces)
+        } catch let error {
+            print(error)
+            let query = "search?part=snippet&q=\(channelNameWithoutSpaces)&type=channel"
+            let channel: Channel = try await makeRequest(with: query)
+            let subCount = try await getSubCount(channelId: channel.channelId)
+            return YouTubeChannel(
+                channelName: channel.channelName,
+                profileImage: channel.profileImage,
+                subCount: subCount,
+                channelId: channel.channelId
+            )
+        }
+    }
+    
+    func getChannelDetailsFromMixerno(for id: String) async throws -> YouTubeChannel {
+        guard let url = URL(string: "https://mixerno.space/api/youtube-channel-counter/user/\(id)") else {
+            throw SubWidgetError.invalidURL
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: URLRequest(url: url))
+        
+        if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 400 {
+            throw SubWidgetError.serverError
+        }
+        
+        let jsonData = try JSONDecoder().decode(Mixerno.self, from: data)
+        guard let name = jsonData.user.first(where: { $0.value == "name" })?.count,
+              let image = jsonData.user.first(where: { $0.value == "pfp" })?.count,
+              let count = jsonData.counts.first(where: { $0.value == "apisubscribers" })?.count else {
+            throw SubWidgetError.channelNotfound
+        }
+        
         return YouTubeChannel(
-            channelName: channel.channelName,
-            profileImage: channel.profileImage,
-            subCount: subCount,
-            channelId: channel.channelId
+            channelName: name,
+            profileImage: image,
+            subCount: String(count),
+            channelId: id
         )
     }
 
     func getChannelDetailsFromId(for id: String) async throws -> YouTubeChannel {
         let idWithoutSpaces = id.replacingOccurrences(of: " ", with: "")
-        let query = "channels?part=snippet&id=\(idWithoutSpaces)"
-        let channelData: ChannelID = try await makeRequest(with: query)
-        let subCount = try await getSubCount(channelId: channelData.channelId)
-        return YouTubeChannel(
-            channelName: channelData.channelName,
-            profileImage: channelData.profileImage,
-            subCount: subCount,
-            channelId: channelData.channelId
-        )
+        do {
+            return try await getChannelDetailsFromMixerno(for: idWithoutSpaces)
+        } catch {
+            let query = "channels?part=snippet&id=\(idWithoutSpaces)"
+            let channelData: ChannelID = try await makeRequest(with: query)
+            let subCount = try await getSubCount(channelId: channelData.channelId)
+            return YouTubeChannel(
+                channelName: channelData.channelName,
+                profileImage: channelData.profileImage,
+                subCount: subCount,
+                channelId: channelData.channelId
+            )
+        }
     }
 
     private func getSubCount(channelId: String) async throws -> String {
@@ -218,4 +272,23 @@ class ViewModel: ObservableObject {
 //        }
 //        return false
     }
+}
+
+struct Mixerno: Codable {
+    let counts: [Count]
+    let user: [User]
+}
+
+struct Count: Codable {
+    let value: String
+    let count: Int
+}
+
+struct User: Codable {
+    let value: String
+    let count: String
+}
+
+struct MixernoSearch: Codable {
+    let list: [[String]]
 }
