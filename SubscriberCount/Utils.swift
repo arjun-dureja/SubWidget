@@ -14,4 +14,8 @@ class Utils {
         guard let widget = extesion["NSExtensionPointIdentifier"] else { return false }
         return widget == "com.apple.widgetkit-extension"
     }
+    
+    static func isInApp() -> Bool {
+        return Bundle.main.bundleIdentifier == "com.arjundureja.SubscriberWidget"
+    }
 }

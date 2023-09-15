@@ -36,6 +36,7 @@
 		723459312877528D000C7DA5 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723459302877528D000C7DA5 /* WhatsNewView.swift */; };
 		7243E144282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
+		724BD92A2AB4063A008C1DB2 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 724BD9292AB4063A008C1DB2 /* Cache */; };
 		725059F625D881F20064A451 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F525D881F20064A451 /* MainView.swift */; };
 		725059FA25D882080064A451 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725059F925D882080064A451 /* SettingsView.swift */; };
 		72505A0C25DA400B0064A451 /* CustomizeWidgetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72505A0B25DA400B0064A451 /* CustomizeWidgetHeader.swift */; };
@@ -70,6 +71,9 @@
 		72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE208251D44B1004B2907 /* Subscribers.swift */; };
 		72A3B472252E2CC300891D69 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DABE252909BC005FA093 /* Constants.swift */; };
 		72B5BB382897033B005D4897 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5BB372897033B005D4897 /* EmptyState.swift */; };
+		72B936F82AB40BC500997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F72AB40BC500997D20 /* Cache */; };
+		72B936FA2AB40BC900997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F92AB40BC900997D20 /* Cache */; };
+		72B936FB2AB40FB300997D20 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8328DC1057002617E4 /* Utils.swift */; };
 		72D12C7E28DC0CD0002617E4 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */; };
 		72D12C7F28DC0CD0002617E4 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */; };
 		72D12C8128DC0F8C002617E4 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */; };
@@ -202,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B936FA2AB40BC900997D20 /* Cache in Frameworks */,
 				725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */,
 				725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */,
 			);
@@ -212,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				728683C225DA44AE00568034 /* Intents.framework in Frameworks */,
+				72B936F82AB40BC500997D20 /* Cache in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724BD92A2AB4063A008C1DB2 /* Cache in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +423,7 @@
 			);
 			name = SubscriberCountExtension;
 			packageProductDependencies = (
+				72B936F92AB40BC900997D20 /* Cache */,
 			);
 			productName = SubscriberCountExtension;
 			productReference = 725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */;
@@ -434,6 +442,9 @@
 			dependencies = (
 			);
 			name = SubWidgetIntents;
+			packageProductDependencies = (
+				72B936F72AB40BC500997D20 /* Cache */,
+			);
 			productName = SubWidgetIntents;
 			productReference = 728683C025DA44AE00568034 /* SubWidgetIntents.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -455,6 +466,7 @@
 			);
 			name = SubscriberWidget;
 			packageProductDependencies = (
+				724BD9292AB4063A008C1DB2 /* Cache */,
 			);
 			productName = SubscriberWidget;
 			productReference = 72920002251D1F3D0050194B /* SubWidget.app */;
@@ -491,6 +503,7 @@
 			);
 			mainGroup = 7292FFF9251D1F3D0050194B;
 			packageReferences = (
+				724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */,
 			);
 			productRefGroup = 72920003251D1F3D0050194B /* Products */;
 			projectDirPath = "";
@@ -568,6 +581,7 @@
 				721AC2CE25DA4C3200C6100C /* Response.swift in Sources */,
 				721AC2CD25DA4C3200C6100C /* Subscribers.swift in Sources */,
 				7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */,
+				72B936FB2AB40FB300997D20 /* Utils.swift in Sources */,
 				721AC2CB25DA4C3200C6100C /* ViewModel.swift in Sources */,
 				721AC2CC25DA4C3200C6100C /* Channel.swift in Sources */,
 				721AC2C925DA4C3200C6100C /* ChannelID.swift in Sources */,
@@ -684,7 +698,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -693,7 +707,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.2;
+				MARKETING_VERSION = 8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -711,7 +725,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -720,7 +734,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.2;
+				MARKETING_VERSION = 8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -735,7 +749,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SubWidgetIntents/SubWidgetIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -744,7 +758,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.2;
+				MARKETING_VERSION = 8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubWidgetIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -759,7 +773,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SubWidgetIntents/SubWidgetIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -768,7 +782,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.2;
+				MARKETING_VERSION = 8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubWidgetIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -901,7 +915,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -913,7 +927,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8.2;
+				MARKETING_VERSION = 8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -931,7 +945,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -943,7 +957,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8.2;
+				MARKETING_VERSION = 8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -994,6 +1008,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hyperoslo/Cache";
+			requirement = {
+				kind = revision;
+				revision = d048bf404a5c8362c6cf840c2096d5777975cd27;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		724BD9292AB4063A008C1DB2 /* Cache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */;
+			productName = Cache;
+		};
+		72B936F72AB40BC500997D20 /* Cache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */;
+			productName = Cache;
+		};
+		72B936F92AB40BC900997D20 /* Cache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */;
+			productName = Cache;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7292FFFA251D1F3D0050194B /* Project object */;
 }

@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 import WidgetKit
+import Cache
 
 @MainActor
 class ViewModel: ObservableObject {
@@ -44,8 +45,19 @@ class ViewModel: ObservableObject {
     var color: UIColor? {
         try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
     }
+    
+    let storage: Storage<String, YouTubeChannel>?
 
     init() {
+        let diskConfig = DiskConfig(name: "SubWidget", expiry: .seconds(1200))
+        let memoryConfig = MemoryConfig(expiry: .seconds(1200))
+        
+        self.storage = try? Storage(
+            diskConfig: diskConfig,
+            memoryConfig: memoryConfig,
+            transformer: TransformerFactory.forCodable(ofType: YouTubeChannel.self)
+        )
+        
         Task { try? await self.fetchAndUpdateChannelData() }
     }
     
@@ -66,11 +78,16 @@ class ViewModel: ObservableObject {
     
     private func fetchAndUpdateChannelData() async throws {
         do {
+            // Only fetch all channels when inside the app
+            guard Utils.isInApp() else {
+                return
+            }
+            
             guard
                 var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData),
                 !decodedChannels.isEmpty
             else {
-                guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
+                    guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
                     isLoading = false
                     return
                 }
@@ -205,19 +222,31 @@ class ViewModel: ObservableObject {
     }
 
     func getChannelDetailsFromId(for id: String) async throws -> YouTubeChannel {
+        try? storage?.removeExpiredObjects()
+        
         let idWithoutSpaces = id.replacingOccurrences(of: " ", with: "")
+        
+        if let cachedChannel = try? storage?.object(forKey: idWithoutSpaces) {
+            return cachedChannel
+        }
+        
         do {
-            return try await getChannelDetailsFromMixerno(for: idWithoutSpaces)
+            let channelFromMixerno = try await getChannelDetailsFromMixerno(for: idWithoutSpaces)
+            try storage?.setObject(channelFromMixerno, forKey: idWithoutSpaces)
+            return channelFromMixerno
         } catch {
             let query = "channels?part=snippet&id=\(idWithoutSpaces)"
             let channelData: ChannelID = try await makeRequest(with: query)
             let subCount = try await getSubCount(channelId: channelData.channelId)
-            return YouTubeChannel(
+            let channelFromGoogle = YouTubeChannel(
                 channelName: channelData.channelName,
                 profileImage: channelData.profileImage,
                 subCount: subCount,
                 channelId: channelData.channelId
             )
+            
+            try storage?.setObject(channelFromGoogle, forKey: idWithoutSpaces)
+            return channelFromGoogle
         }
     }
 
