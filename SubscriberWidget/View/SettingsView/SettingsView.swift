@@ -52,14 +52,17 @@ struct SettingsView: View {
                         .padding(.leading, 4)
                     }
 
-                    SafariSheet(
-                        text: "Contact",
-                        icon: "envelope.circle.fill",
-                        url: URL(string: "https://www.emailmeform.com/builder/form/Sg3ejer1CD0ehy")!
-                    )
+                    Button {
+                        EmailHelper.shared.send(
+                            subject: "SubWidget Feedback",
+                            to: "arjun.dureja1000@gmail.com"
+                        )
+                    } label: {
+                        FormLabel(text: "Contact", icon: "envelope.circle.fill")
+                    }
 
                     Button {
-                        SKStoreReviewController.requestReview()
+                        SKStoreReviewController.requestReviewInCurrentScene()
                     } label: {
                         FormLabel(text: "Rate", icon: "star.circle.fill")
                     }
@@ -108,4 +111,14 @@ struct AppIcon: View {
 extension Bundle {
     public var appVersion: String { getInfo("CFBundleShortVersionString") }
     fileprivate func getInfo(_ str: String) -> String { infoDictionary?[str] as? String ?? "⚠️" }
+}
+
+extension SKStoreReviewController {
+    public static func requestReviewInCurrentScene() {
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            DispatchQueue.main.async {
+                requestReview(in: scene)
+            }
+        }
+    }
 }
