@@ -128,7 +128,7 @@ struct CustomizeWidgetView_Previews: PreviewProvider {
             viewModel: ViewModel(),
             channel: YouTubeChannel(
                 channelName: "PreviewChannel",
-                profileImage: "",
+                profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj",
                 subCount: "10000",
                 channelId: ""
             ),

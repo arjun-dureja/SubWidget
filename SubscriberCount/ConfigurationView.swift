@@ -7,9 +7,12 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ConfigurationView: View {
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
+    
     var baselineOffset: CGFloat
 
     var body: some View {
@@ -18,7 +21,6 @@ struct ConfigurationView: View {
                 Text("Select Your Channel")
                     .fontWeight(.bold)
                     .font(.system(size: 14))
-                    .minimumScaleFactor(0.01)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
 
                 Spacer()
@@ -26,7 +28,7 @@ struct ConfigurationView: View {
                 YouTubeLogo()
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 16, trailing: 0))
             }
-
+            
             HStack {
                 Text(Image(systemName: "1.circle.fill"))
                     .foregroundColor(.youtubeRed)
@@ -36,7 +38,6 @@ struct ConfigurationView: View {
                     .fontWeight(.medium)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
             }
-            .padding(.top, 2)
 
             HStack {
                 Text(Image(systemName: "2.circle.fill"))
@@ -47,9 +48,17 @@ struct ConfigurationView: View {
                     .fontWeight(.medium)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
             }
-
-            Spacer()
+            
         }
-        .padding(EdgeInsets(top: 16 , leading: 16, bottom: 0, trailing: 16))
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .padding(showsWidgetContainerBackground ? 0 : 6)
+        .backport.containerBackground(.clear)
+    }
+}
+
+struct ConfigurationView_Previews: PreviewProvider {
+    static var previews: some View {
+        ConfigurationView(baselineOffset: 5.0)
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

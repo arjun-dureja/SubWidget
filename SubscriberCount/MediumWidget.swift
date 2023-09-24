@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct MediumWidget: View {
     var entry: YouTubeChannel?
@@ -57,10 +58,18 @@ struct MediumWidget: View {
                         .frame(maxHeight: .infinity, alignment: .top)
                 }
                 .minimumScaleFactor(0.3)
-                .padding()
+                .backport.containerBackground(entry.bgColor)
             } else {
                 ConfigurationView(baselineOffset: 0.0)
+                    .backport.containerBackground(entry?.bgColor)
             }
         }
+    }
+}
+
+struct MediumWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        MediumWidget(entry: YouTubeChannel(channelName: "Test Channel", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "10000", channelId: ""))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

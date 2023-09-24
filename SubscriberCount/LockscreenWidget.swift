@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct LockscreenWidget: View {
     var entry: YouTubeChannel?
@@ -37,6 +38,7 @@ struct LockscreenWidget: View {
                         .lineLimit(1)
                 }
             }
+            .backport.containerBackground(UIColor.clear)
         } else {
             // Configuration View
             VStack(alignment: .leading) {
@@ -47,7 +49,14 @@ struct LockscreenWidget: View {
                     .font(.system(size: 11))
                     .fontWeight(.medium)
             }
+            .backport.containerBackground(UIColor.clear)
         }
     }
 }
 
+struct LockscreenWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        LockscreenWidget(entry: YouTubeChannel(channelName: "Test Channel", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "10000", channelId: ""))
+            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+    }
+}

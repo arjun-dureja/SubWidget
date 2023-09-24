@@ -20,7 +20,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     
     typealias Entry = SimpleEntry
     typealias Intent = SelectChannelIntent
-
+    
     func placeholder(in context: Context) -> SimpleEntry {
         // Arbitrary channel for placeholder - will show as redacted
         return SimpleEntry(
@@ -48,7 +48,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                         configuration: ConfigurationIntent(),
                         channel: channels[0]
                     )
-
+                    
                     completion(entry)
                 }
             } else {
@@ -65,12 +65,12 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 entries: [SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)],
                 policy: .never
             )
-
+            
             completion(timeline)
         } else {
             Task {
                 let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
-
+                
                 let viewModel = await ViewModel()
                 let refreshFrequency: Double
                 switch await viewModel.refreshFrequency {
@@ -83,12 +83,12 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 case .TWELVE_HR:
                     refreshFrequency = 720
                 }
-
+                
                 let timeline = Timeline(
                     entries: [result],
                     policy: .after(.now.advanced(by: refreshFrequency * 60))
                 )
-
+                
                 completion(timeline)
             }
         }
@@ -98,7 +98,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         guard let id = param.identifier else {
             throw SubWidgetError.invalidIdentifer
         }
-
+        
         let viewModel = await ViewModel()
         let channels = try await viewModel.fetchChannels()
         if let channel = channels.first(where: { $0.id == id }) {
@@ -106,7 +106,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             updatedChannel.bgColor = channel.bgColor
             return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: updatedChannel)
         }
-
+        
         return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)
     }
 }
@@ -114,7 +114,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
 struct SubscriberCountEntryView : View {
     var entry: SubWidgetIntentTimelineProvider.Entry
     @Environment(\.widgetFamily) private var widgetFamily
-
+    
     var body: some View {
         switch widgetFamily {
         case .systemSmall:
@@ -130,22 +130,13 @@ struct SubscriberCountEntryView : View {
 @main
 struct SubscriberCount: Widget {
     let kind: String = "SubscriberCount"
-
+    
     var body: some WidgetConfiguration {
-        if #available(iOSApplicationExtension 16.0, *) {
-            return IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
-                SubscriberCountEntryView(entry: entry)
-            })
-            .configurationDisplayName("Subscriber Count")
-            .description("View your YouTube subscriber count in realtime")
-            .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
-        } else {
-            return IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
-                SubscriberCountEntryView(entry: entry)
-            })
-            .configurationDisplayName("Subscriber Count")
-            .description("View your YouTube subscriber count in realtime")
-            .supportedFamilies([.systemSmall, .systemMedium])
-        }
+        return IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
+            SubscriberCountEntryView(entry: entry)
+        })
+        .configurationDisplayName("Subscriber Count")
+        .description("View your YouTube subscriber count in realtime")
+        .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
     }
 }
