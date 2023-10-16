@@ -64,6 +64,7 @@ struct SmallWidget: View {
                     .minimumScaleFactor(0.3)
                 }
                 .padding(showsWidgetContainerBackground ? 0 : 4)
+                .forwardport.padding()
                 .backport.containerBackground(entry.bgColor)
             } else {
                 ConfigurationView(baselineOffset: 5.0)
@@ -100,6 +101,28 @@ extension Backport where Content: View {
                     Color(bgColor)
                 }
             }
+        } else {
+            content
+        }
+    }
+}
+
+struct Forwardport<Content> {
+    let content: Content
+
+    init(_ content: Content) {
+        self.content = content
+    }
+}
+
+extension View {
+    var forwardport: Forwardport<Self> { Forwardport(self) }
+}
+
+extension Forwardport where Content: View {
+    @ViewBuilder func padding() -> some View {
+        if #unavailable(iOS 17) {
+            content.padding()
         } else {
             content
         }

@@ -58,6 +58,7 @@ struct MediumWidget: View {
                         .frame(maxHeight: .infinity, alignment: .top)
                 }
                 .minimumScaleFactor(0.3)
+                .forwardport.padding()
                 .backport.containerBackground(entry.bgColor)
             } else {
                 ConfigurationView(baselineOffset: 0.0)
