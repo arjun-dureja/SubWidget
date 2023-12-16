@@ -26,13 +26,13 @@ struct WidgetPreview: View {
                 .shadow(radius: 16)
             
             SmallWidget(entry: channel)
-                .padding()
+                .backport.padding()
                 .frame(width: 160, height: 160, alignment: .leading)
                 .cornerRadius(25)
                 .opacity(self.animate ? 0 : 1)
             
             MediumWidget(entry: channel)
-                .padding()
+                .backport.padding()
                 .frame(width: 329, height: 155, alignment: .leading)
                 .cornerRadius(25)
                 .opacity(self.animate ? 1 : 0)

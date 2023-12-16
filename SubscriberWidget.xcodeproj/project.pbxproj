@@ -96,6 +96,7 @@
 		72EFF4A425201712007E1FA6 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE20C251D4607004B2907 /* Response.swift */; };
 		72EFF4AB25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EFF4AA25201B3B007E1FA6 /* YouTubeChannel.swift */; };
 		72EFF4AC25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EFF4AA25201B3B007E1FA6 /* YouTubeChannel.swift */; };
+		72F2EE222B2D6128002AFCEA /* WishKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72F2EE212B2D6128002AFCEA /* WishKit */; };
 		72FD5204289CB598001F9F48 /* SubscriberCount.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 72FD5207289CB598001F9F48 /* SubscriberCount.intentdefinition */; };
 		72FD5205289CB598001F9F48 /* SubscriberCount.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 72FD5207289CB598001F9F48 /* SubscriberCount.intentdefinition */; };
 		72FD5208289CB59C001F9F48 /* WidgetIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 72FD520C289CB59C001F9F48 /* WidgetIntents.intentdefinition */; };
@@ -227,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F2EE222B2D6128002AFCEA /* WishKit in Frameworks */,
 				724BD92A2AB4063A008C1DB2 /* Cache in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +472,7 @@
 			name = SubscriberWidget;
 			packageProductDependencies = (
 				724BD9292AB4063A008C1DB2 /* Cache */,
+				72F2EE212B2D6128002AFCEA /* WishKit */,
 			);
 			productName = SubscriberWidget;
 			productReference = 72920002251D1F3D0050194B /* SubWidget.app */;
@@ -507,6 +510,7 @@
 			mainGroup = 7292FFF9251D1F3D0050194B;
 			packageReferences = (
 				724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */,
+				72F2EE202B2D605A002AFCEA /* XCRemoteSwiftPackageReference "wishkit-ios" */,
 			);
 			productRefGroup = 72920003251D1F3D0050194B /* Products */;
 			projectDirPath = "";
@@ -919,7 +923,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -931,7 +935,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.1;
+				MARKETING_VERSION = 9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -949,7 +953,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -961,7 +965,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.1;
+				MARKETING_VERSION = 9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1022,6 +1026,14 @@
 				revision = d048bf404a5c8362c6cf840c2096d5777975cd27;
 			};
 		};
+		72F2EE202B2D605A002AFCEA /* XCRemoteSwiftPackageReference "wishkit-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wishkit/wishkit-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1039,6 +1051,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */;
 			productName = Cache;
+		};
+		72F2EE212B2D6128002AFCEA /* WishKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72F2EE202B2D605A002AFCEA /* XCRemoteSwiftPackageReference "wishkit-ios" */;
+			productName = WishKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

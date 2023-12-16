@@ -105,6 +105,14 @@ extension Backport where Content: View {
             content
         }
     }
+    
+    @ViewBuilder func padding() -> some View {
+        if #available(iOS 17, *) {
+            content.padding()
+        } else {
+            content
+        }
+    }
 }
 
 struct Forwardport<Content> {

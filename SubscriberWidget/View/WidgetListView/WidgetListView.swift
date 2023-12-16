@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import WishKit
 
 struct WidgetListView: View {
     @State private var newWidget = false
@@ -107,6 +108,10 @@ struct WidgetListView: View {
         .onAppear {
             if viewModel.shouldShowWhatsNew() {
                 showWhatsNew = true
+            }
+            
+            if let name = viewModel.channels.first?.channelName, name != "PewDiePie" {
+                WishKit.updateUser(name: name)
             }
         }
     }

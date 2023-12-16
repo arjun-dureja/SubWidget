@@ -7,15 +7,32 @@
 //
 
 import SwiftUI
+import WishKit
 
 struct MainView: View {
     @StateObject var viewModel: ViewModel = ViewModel()
+    
+    init() {
+        WishKit.configure(with: Constants.wishKitApiKey)
+        WishKit.config.statusBadge = .hide
+        WishKit.config.commentSection = .hide
+        WishKit.config.buttons.addButton.bottomPadding = .large
+        WishKit.config.buttons.segmentedControl.display = .hide
+
+        WishKit.theme.primaryColor = .youtubeRed
+        WishKit.theme.secondaryColor = .set(light: .white, dark: .black)
+    }
 
     var body: some View {
         TabView {
             WidgetListView(viewModel: viewModel)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
+                }
+            
+            WishKit.view.withNavigation()
+                .tabItem {
+                    Label("Wishlist", systemImage: "lightbulb.fill")
                 }
             
             SettingsView(viewModel: viewModel)
