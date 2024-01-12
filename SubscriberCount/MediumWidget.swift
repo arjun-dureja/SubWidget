@@ -9,9 +9,12 @@
 import SwiftUI
 import WidgetKit
 
+
 struct MediumWidget: View {
     var entry: YouTubeChannel?
     @Environment(\.colorScheme) var colorScheme
+    
+    let lastUpdatedTime: String = .currentTime
     
     var body: some View {
         ZStack {
@@ -47,15 +50,23 @@ struct MediumWidget: View {
                             .lineLimit(1)
                             .foregroundColor(.youtubeRed)
                         Text("Total subscribers")
-                            .font(.system(size: 16))
+                            .font(.system(size: 15))
+                            .lineLimit(1)
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                     }
                     .minimumScaleFactor(0.3)
                     
                     Spacer()
                     
-                    YouTubeLogo()
-                        .frame(maxHeight: .infinity, alignment: .top)
+                    VStack(alignment: .trailing) {
+                        YouTubeLogo()
+                            .frame(maxHeight: .infinity, alignment: .top)
+                        
+                        Text(lastUpdatedTime)
+                            .font(.system(size: 11))
+                            .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                            .frame(maxHeight: .infinity, alignment: .bottom)
+                    }
                 }
                 .minimumScaleFactor(0.3)
                 .forwardport.padding()
@@ -65,6 +76,7 @@ struct MediumWidget: View {
                     .backport.containerBackground(entry?.bgColor)
             }
         }
+        .widgetURL(entry?.deeplinkUrl)
     }
 }
 

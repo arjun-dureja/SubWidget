@@ -64,3 +64,12 @@ extension YouTubeChannelParam {
         YouTubeChannelParam(channel: .init(channelName: "", profileImage: "", subCount: "0", channelId: ""))
     }
 }
+
+extension String {
+    static var currentTime: String {
+        let formatter = DateFormatter()
+        formatter.locale = .current
+        formatter.timeStyle = .short
+        return formatter.string(from: .now)
+    }
+}

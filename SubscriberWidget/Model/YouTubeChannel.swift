@@ -20,6 +20,10 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
     var bgColor: UIColor?
     var id = UUID().uuidString
     
+    var deeplinkUrl: URL? {
+        return URL(string: "subwidget://\(channelId)")
+    }
+    
     init(channelName: String, profileImage: String, subCount : String, channelId: String, bgColor: UIColor? = nil) {
         self.channelName = channelName
         self.profileImage = profileImage

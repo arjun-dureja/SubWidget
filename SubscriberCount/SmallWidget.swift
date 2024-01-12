@@ -18,7 +18,9 @@ struct SmallWidget: View {
     var isVibrant: Bool {
         return widgetRenderingMode == .vibrant
     }
-
+    
+    let lastUpdatedTime: String = .currentTime
+    
     var body: some View {
         ZStack {
             if let entry = entry {
@@ -42,8 +44,13 @@ struct SmallWidget: View {
                         
                         Spacer()
                         
-                        YouTubeLogo()
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 45, trailing: 0))
+                        VStack(alignment: .trailing, spacing: 6) {
+                            YouTubeLogo()
+                            Text(lastUpdatedTime)
+                                .font(.system(size: 10))
+                                .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                        }
+                        .frame(maxHeight: .infinity, alignment: .top)                            
                     }
                     
                     Spacer()
@@ -71,6 +78,7 @@ struct SmallWidget: View {
                     .backport.containerBackground(entry?.bgColor)
             }
         }
+        .widgetURL(entry?.deeplinkUrl)
     }
 }
 

@@ -28,6 +28,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        
+        if let channelId = connectionOptions.urlContexts.first?.url.host() {
+            self.openYoutubeChannel(channelId)
+        }
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let channelId = URLContexts.first?.url.host() {
+            self.openYoutubeChannel(channelId)
+        }
+    }
+    
+    func openYoutubeChannel(_ channelId: String) {
+        UIApplication.shared.open(URL(string: "https://youtube.com/channel/\(channelId)")!, options: [:], completionHandler: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
