@@ -14,6 +14,14 @@ struct ConfigurationView: View {
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
     
     var baselineOffset: CGFloat
+    
+    var editInstructions: String {
+        #if targetEnvironment(macCatalyst)
+        return "Right click and select \"Edit SubWidget\""
+        #else
+        return "Hold and tap 'Edit Widget'"
+        #endif
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -43,7 +51,7 @@ struct ConfigurationView: View {
                 Text(Image(systemName: "2.circle.fill"))
                     .foregroundColor(.youtubeRed)
                     .baselineOffset(baselineOffset)
-                Text("Hold and tap 'Edit Widget'")
+                Text(editInstructions)
                     .font(.system(size: 13))
                     .fontWeight(.medium)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
