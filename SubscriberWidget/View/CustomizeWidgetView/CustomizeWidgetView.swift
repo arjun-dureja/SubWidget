@@ -50,9 +50,15 @@ struct CustomizeWidgetView: View {
                     }
                 } else {
                     Spacer()
+                        .frame(height: 8)
                 }
                 
-
+                WidgetPreview(
+                    channel: $channel,
+                    animate: $animate,
+                    bgColor: $bgColor
+                )
+                
                 VStack {
                     WidgetColorPicker(
                         viewModel: viewModel,
@@ -68,18 +74,7 @@ struct CustomizeWidgetView: View {
                 }
                 
                 Spacer()
-
-
-                WidgetPreview(
-                    channel: $channel,
-                    animate: $animate,
-                    bgColor: $bgColor
-                )
-                
-                Spacer()
             }
-            .background(colorScheme == .light ? Color(UIColor.systemGray6) : .black)
-            .edgesIgnoringSafeArea(.all)
             .navigationBarTitle(self.channel.channelName, displayMode: .inline)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                 updateColorIfNeeded()
@@ -89,6 +84,7 @@ struct CustomizeWidgetView: View {
                 height: geometry.frame(in: .global).height
             )
         }
+        .background(colorScheme == .light ? Color(UIColor.systemGray6) : .black)
         .ignoresSafeArea(.keyboard, edges: .all)
         .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
             Button("OK", role: .cancel) { }
