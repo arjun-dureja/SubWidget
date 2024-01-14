@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         segmentedControlAppearance.selectedSegmentTintColor = UIColor(Color.youtubeRed)
         segmentedControlAppearance.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segmentedControlAppearance.setTitleTextAttributes([.foregroundColor: UIColor.label], for: .normal)
+        
+        let pageControlAppearance = UIPageControl.appearance()
+        pageControlAppearance.currentPageIndicatorTintColor = UIColor(Color.youtubeRed)
+        pageControlAppearance.pageIndicatorTintColor = .systemGray
         return true
     }
 

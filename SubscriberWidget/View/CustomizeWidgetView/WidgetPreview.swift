@@ -12,40 +12,66 @@ struct WidgetPreview: View {
     @Environment(\.colorScheme) var colorScheme
     
     @Binding var channel: YouTubeChannel
-    
-    @State private var rotateIn3D = false
-    
     @Binding var animate: Bool
     @Binding var bgColor: CGColor?
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 25)
-                .frame(width: self.animate ? 329 : 155, height: 155, alignment: .leading)
-                .foregroundColor(Color((channel.bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
-                .shadow(radius: 16)
-            
-            SmallWidget(entry: channel)
-                .backport.padding()
-                .frame(width: 160, height: 160, alignment: .leading)
-                .cornerRadius(25)
-                .opacity(self.animate ? 0 : 1)
-            
-            MediumWidget(entry: channel)
-                .backport.padding()
-                .frame(width: 329, height: 155, alignment: .leading)
-                .cornerRadius(25)
-                .opacity(self.animate ? 1 : 0)
-        }
-        #if !targetEnvironment(macCatalyst)
-        .rotation3DEffect(
-            .degrees(rotateIn3D ? 12 : -12),
-            axis: (x: rotateIn3D ? 90 : -45, y: rotateIn3D ? -45 : -90, z: 0))
-        .onAppear() {
-            withAnimation(.easeInOut(duration: 8).repeatForever(autoreverses: true)) {
-                rotateIn3D = true
+        VStack(spacing: 12) {
+            ZStack {
+                Rectangle()
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 35, alignment: .center)
+                    .foregroundColor(colorScheme == .light ? Color(UIColor.systemGray6) : .black)
+                    .cornerRadius(14, corners: [.topLeft, .topRight])
+                
+                Text("Preview")
+                    .foregroundColor(Color(UIColor.label))
+                    .font(.subheadline)
+                    .bold()
             }
+            .padding(.horizontal, 7)
+            .padding(.top, 7)
+            
+            
+            TabView {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: 155, height: 155, alignment: .leading)
+                        .foregroundColor(Color((channel.bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
+                        .shadow(color: colorScheme == .dark ? .white.opacity(0.20) : .black.opacity(0.33), radius: 8)
+                    
+                    SmallWidget(entry: channel)
+                        .backport.padding()
+                        .frame(width: 160, height: 160, alignment: .leading)
+                        .cornerRadius(25)
+                }
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: 329, height: 155, alignment: .leading)
+                        .foregroundColor(Color((channel.bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
+                        .shadow(color: colorScheme == .dark ? .white.opacity(0.33) : .black.opacity(0.33), radius: 8)
+                    
+                    MediumWidget(entry: channel)
+                        .backport.padding()
+                        .frame(width: 329, height: 155, alignment: .leading)
+                        .cornerRadius(25)
+                }
+            }
+            .padding(.top, -40)
+            .padding(.bottom, -8)
+            .tabViewStyle(.page)
         }
-        #endif
+        .frame(height: 260)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .foregroundColor(colorScheme == .light ? .white : Color(UIColor.systemGray6))
+        )
+        .padding(.horizontal, 16)
     }
+}
+
+#Preview {
+    @State var channel: YouTubeChannel = .preview
+    return WidgetPreview(channel: $channel, animate: .constant(false), bgColor: .constant(nil))
 }

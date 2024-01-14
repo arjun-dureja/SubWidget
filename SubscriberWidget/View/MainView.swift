@@ -20,7 +20,8 @@ struct MainView: View {
         WishKit.config.buttons.segmentedControl.display = .hide
 
         WishKit.theme.primaryColor = .youtubeRed
-        WishKit.theme.secondaryColor = .set(light: .white, dark: .black)
+        WishKit.theme.secondaryColor = .set(light: .white, dark: Color(UIColor.systemGray6))
+        WishKit.theme.tertiaryColor = .set(light: Color(UIColor.systemGray6), dark: .black)
     }
 
     var body: some View {

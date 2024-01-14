@@ -51,6 +51,7 @@ struct CustomizeWidgetView: View {
                 } else {
                     Spacer()
                 }
+                
 
                 VStack {
                     WidgetColorPicker(
@@ -65,20 +66,19 @@ struct CustomizeWidgetView: View {
                         colorChanged: $colorChanged
                     )
                 }
-
+                
                 Spacer()
+
 
                 WidgetPreview(
                     channel: $channel,
                     animate: $animate,
                     bgColor: $bgColor
                 )
-
-                Spacer()
-                WidgetSizePicker(animate: $animate)
+                
                 Spacer()
             }
-            .background(Color(UIColor.systemGray6))
+            .background(colorScheme == .light ? Color(UIColor.systemGray6) : .black)
             .edgesIgnoringSafeArea(.all)
             .navigationBarTitle(self.channel.channelName, displayMode: .inline)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
@@ -126,12 +126,7 @@ struct CustomizeWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         CustomizeWidgetView(
             viewModel: ViewModel(),
-            channel: YouTubeChannel(
-                channelName: "PreviewChannel",
-                profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj",
-                subCount: "10000",
-                channelId: ""
-            ),
+            channel: .preview,
             isNewWidget: false
         )
     }

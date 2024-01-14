@@ -51,6 +51,15 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         try container.encode(bgColor != nil ? BGColor(uiColor: bgColor) : nil, forKey: .bgColor)
         try container.encode(id, forKey: .id)
     }
+    
+    static var preview: YouTubeChannel {
+        YouTubeChannel(
+            channelName: "PewDiePie",
+            profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj",
+            subCount: "1000000",
+            channelId: ""
+        )
+    }
 }
 
 struct BGColor : Codable {

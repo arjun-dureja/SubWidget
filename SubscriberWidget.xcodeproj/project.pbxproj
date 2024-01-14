@@ -81,7 +81,6 @@
 		72D12C8428DC1057002617E4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8328DC1057002617E4 /* Utils.swift */; };
 		72D12C8528DC1057002617E4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8328DC1057002617E4 /* Utils.swift */; };
 		72D820A125D74613008240B2 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A025D74613008240B2 /* ResetButton.swift */; };
-		72D820A525D74DBE008240B2 /* WidgetSizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */; };
 		72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820AA25D75440008240B2 /* WidgetPreview.swift */; };
 		72DF862D28C3D61400452E3B /* LockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF862C28C3D61400452E3B /* LockscreenWidget.swift */; };
 		72DF862E28C3D61400452E3B /* LockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF862C28C3D61400452E3B /* LockscreenWidget.swift */; };
@@ -190,7 +189,6 @@
 		72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		72D12C8328DC1057002617E4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		72D820A025D74613008240B2 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
-		72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizePicker.swift; sourceTree = "<group>"; };
 		72D820AA25D75440008240B2 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
 		72DF862C28C3D61400452E3B /* LockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidget.swift; sourceTree = "<group>"; };
 		72E319192841DA2900F1C1AE /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
@@ -403,7 +401,6 @@
 				7207540B25D73504003411CE /* SubmitButton.swift */,
 				7207540F25D739CC003411CE /* HelpButton.swift */,
 				72D820A025D74613008240B2 /* ResetButton.swift */,
-				72D820A425D74DBE008240B2 /* WidgetSizePicker.swift */,
 				72D820AA25D75440008240B2 /* WidgetPreview.swift */,
 				728E246B25D7757400D4BB6E /* SafariView.swift */,
 				72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */,
@@ -612,7 +609,6 @@
 				7234592B2869581B000C7DA5 /* RefreshFrequency.swift in Sources */,
 				725059F625D881F20064A451 /* MainView.swift in Sources */,
 				72FD5204289CB598001F9F48 /* SubscriberCount.intentdefinition in Sources */,
-				72D820A525D74DBE008240B2 /* WidgetSizePicker.swift in Sources */,
 				72D12C8428DC1057002617E4 /* Utils.swift in Sources */,
 				7295DABF252909BC005FA093 /* Constants.swift in Sources */,
 				7207540825D732D7003411CE /* ChannelTextField.swift in Sources */,

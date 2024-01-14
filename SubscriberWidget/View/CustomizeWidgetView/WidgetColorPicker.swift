@@ -18,7 +18,7 @@ struct WidgetColorPicker: View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .frame(width: 215, height: 50, alignment: .leading)
-                .foregroundColor(colorScheme == .dark ? .black : .white)
+                .foregroundColor(colorScheme == .light ? .white : Color(UIColor.systemGray6))
             
             ColorPicker("Background Color", selection: Binding(get: {
                 channel.bgColor?.cgColor ?? (colorScheme == .dark ? UIColor.black.cgColor : UIColor.white.cgColor)

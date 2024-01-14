@@ -84,6 +84,7 @@ struct WidgetListView: View {
                     channel: viewModel.channels.last!,
                     isNewWidget: true
                 )
+                .background(Color(UIColor.systemBackground))
             })
             .sheet(isPresented: $showWhatsNew, onDismiss: {
                 if viewModel.isMigratedUser {
