@@ -34,29 +34,10 @@ struct WidgetPreview: View {
             
             
             TabView {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .frame(width: 155, height: 155, alignment: .leading)
-                        .foregroundColor(Color((channel.bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
-                        .shadow(color: colorScheme == .dark ? .white.opacity(0.20) : .black.opacity(0.33), radius: 8)
-                    
-                    SmallWidget(entry: channel)
-                        .backport.padding()
-                        .frame(width: 160, height: 160, alignment: .leading)
-                        .cornerRadius(25)
-                }
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .frame(width: 329, height: 155, alignment: .leading)
-                        .foregroundColor(Color((channel.bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
-                        .shadow(color: colorScheme == .dark ? .white.opacity(0.33) : .black.opacity(0.33), radius: 8)
-                    
-                    MediumWidget(entry: channel)
-                        .backport.padding()
-                        .frame(width: 329, height: 155, alignment: .leading)
-                        .cornerRadius(25)
-                }
+                SmallWidget(entry: channel)
+                    .widgetBackground(bgColor: channel.bgColor, size: .small)
+                MediumWidget(entry: channel)
+                    .widgetBackground(bgColor: channel.bgColor, size: .medium)
             }
             .padding(.top, -40)
             .padding(.bottom, -8)

@@ -80,6 +80,7 @@
 		72D12C8228DC0F8C002617E4 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */; };
 		72D12C8428DC1057002617E4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8328DC1057002617E4 /* Utils.swift */; };
 		72D12C8528DC1057002617E4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8328DC1057002617E4 /* Utils.swift */; };
+		72D68C1B2B537A4600DC4393 /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */; };
 		72D820A125D74613008240B2 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A025D74613008240B2 /* ResetButton.swift */; };
 		72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820AA25D75440008240B2 /* WidgetPreview.swift */; };
 		72DF862D28C3D61400452E3B /* LockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF862C28C3D61400452E3B /* LockscreenWidget.swift */; };
@@ -188,6 +189,7 @@
 		72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		72D12C8328DC1057002617E4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
 		72D820A025D74613008240B2 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
 		72D820AA25D75440008240B2 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
 		72DF862C28C3D61400452E3B /* LockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidget.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				72D820AA25D75440008240B2 /* WidgetPreview.swift */,
 				728E246B25D7757400D4BB6E /* SafariView.swift */,
 				72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */,
+				72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */,
 			);
 			path = CustomizeWidgetView;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				7207540825D732D7003411CE /* ChannelTextField.swift in Sources */,
 				723459312877528D000C7DA5 /* WhatsNewView.swift in Sources */,
 				72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */,
+				72D68C1B2B537A4600DC4393 /* WidgetBackground.swift in Sources */,
 				7234592D28695D96000C7DA5 /* SafariSheet.swift in Sources */,
 				7207541025D739CC003411CE /* HelpButton.swift in Sources */,
 				72345923286025B9000C7DA5 /* FAQItem.swift in Sources */,
