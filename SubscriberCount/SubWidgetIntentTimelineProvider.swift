@@ -41,7 +41,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             if configuration.channel == nil {
                 // Show first channel in add widget screen if exists
                 let viewModel = await ViewModel()
-                let channels = try await viewModel.fetchChannels()
+                let channels = try await viewModel.getChannels()
                 if !channels.isEmpty {
                     let entry = SimpleEntry(
                         date: Date(),
@@ -100,9 +100,9 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         }
         
         let viewModel = await ViewModel()
-        let channels = try await viewModel.fetchChannels()
+        let channels = try await viewModel.getChannels()
         if let channel = channels.first(where: { $0.id == id }) {
-            var updatedChannel = try await viewModel.getChannelDetailsFromId(for: channel.channelId)
+            var updatedChannel = try await YouTubeService.shared.getChannelDetailsFromId(for: channel.channelId)
             updatedChannel.bgColor = channel.bgColor
             return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: updatedChannel)
         }

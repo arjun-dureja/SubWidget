@@ -83,6 +83,9 @@
 		72D68C1B2B537A4600DC4393 /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */; };
 		72D820A125D74613008240B2 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820A025D74613008240B2 /* ResetButton.swift */; };
 		72D820AB25D75440008240B2 /* WidgetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D820AA25D75440008240B2 /* WidgetPreview.swift */; };
+		72DB77E02B56305400F8CFAB /* YouTubeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB77DF2B56305400F8CFAB /* YouTubeService.swift */; };
+		72DB77E12B5635F600F8CFAB /* YouTubeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB77DF2B56305400F8CFAB /* YouTubeService.swift */; };
+		72DB77E22B5635F700F8CFAB /* YouTubeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB77DF2B56305400F8CFAB /* YouTubeService.swift */; };
 		72DF862D28C3D61400452E3B /* LockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF862C28C3D61400452E3B /* LockscreenWidget.swift */; };
 		72DF862E28C3D61400452E3B /* LockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF862C28C3D61400452E3B /* LockscreenWidget.swift */; };
 		72E3191A2841DA2900F1C1AE /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E319192841DA2900F1C1AE /* ConfigurationView.swift */; };
@@ -192,6 +195,7 @@
 		72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
 		72D820A025D74613008240B2 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
 		72D820AA25D75440008240B2 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
+		72DB77DF2B56305400F8CFAB /* YouTubeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeService.swift; sourceTree = "<group>"; };
 		72DF862C28C3D61400452E3B /* LockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidget.swift; sourceTree = "<group>"; };
 		72E319192841DA2900F1C1AE /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		72E3191C2844683F00F1C1AE /* FAQCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCell.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 		72920004251D1F3D0050194B /* SubscriberWidget */ = {
 			isa = PBXGroup;
 			children = (
+				72DB77DE2B56304900F8CFAB /* Services */,
 				72A3B467252E292000891D69 /* Model */,
 				72A3B462252E290C00891D69 /* View */,
 				72A3B461252E28FF00891D69 /* View Model */,
@@ -409,6 +414,14 @@
 				72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */,
 			);
 			path = CustomizeWidgetView;
+			sourceTree = "<group>";
+		};
+		72DB77DE2B56304900F8CFAB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				72DB77DF2B56305400F8CFAB /* YouTubeService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72FD5205289CB598001F9F48 /* SubscriberCount.intentdefinition in Sources */,
+				72DB77E12B5635F600F8CFAB /* YouTubeService.swift in Sources */,
 				72EFF49B252015D1007E1FA6 /* Channel.swift in Sources */,
 				7295DACF25294C50005FA093 /* SmallWidget.swift in Sources */,
 				72D12C8228DC0F8C002617E4 /* AsyncImageView.swift in Sources */,
@@ -597,6 +611,7 @@
 				72345924286025DF000C7DA5 /* FAQItem.swift in Sources */,
 				721AC2CA25DA4C3200C6100C /* YouTubeChannel.swift in Sources */,
 				72FD520A289CB59C001F9F48 /* WidgetIntents.intentdefinition in Sources */,
+				72DB77E22B5635F700F8CFAB /* YouTubeService.swift in Sources */,
 				728683C525DA44AE00568034 /* IntentHandler.swift in Sources */,
 				721AC2DB25DA4FAF00C6100C /* Constants.swift in Sources */,
 			);
@@ -610,6 +625,7 @@
 				72E3191D2844683F00F1C1AE /* FAQCell.swift in Sources */,
 				728E247C25D7978600D4BB6E /* ChannelListRow.swift in Sources */,
 				7234592B2869581B000C7DA5 /* RefreshFrequency.swift in Sources */,
+				72DB77E02B56305400F8CFAB /* YouTubeService.swift in Sources */,
 				725059F625D881F20064A451 /* MainView.swift in Sources */,
 				72FD5204289CB598001F9F48 /* SubscriberCount.intentdefinition in Sources */,
 				72D12C8428DC1057002617E4 /* Utils.swift in Sources */,

@@ -7,3 +7,89 @@
 //
 
 import Foundation
+import Cache
+
+
+class YouTubeService {
+    static let shared = YouTubeService()
+    
+    let baseUrl = "https://www.googleapis.com/youtube/v3/"
+    let storage: Storage<String, YouTubeChannel>?
+
+    init() {
+        let diskConfig = DiskConfig(name: "SubWidget", expiry: .seconds(600))
+        let memoryConfig = MemoryConfig(expiry: .seconds(600))
+        
+        self.storage = try? Storage(
+            diskConfig: diskConfig,
+            memoryConfig: memoryConfig,
+            transformer: TransformerFactory.forCodable(ofType: YouTubeChannel.self)
+        )
+    }
+    
+    func makeUrl(query: String) throws -> URL {
+        guard let url = URL(string: "\(baseUrl)\(query)&key=\(Constants.apiKey)") else {
+            throw SubWidgetError.invalidURL
+        }
+        
+        return url
+    }
+    
+    func makeRequest<T: Decodable>(with query: String) async throws -> T {
+        let url = try makeUrl(query: query)
+  
+        var request = URLRequest(url: url)
+        request.setValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 400 {
+            throw SubWidgetError.serverError
+        }
+        
+        let jsonData = try JSONDecoder().decode(Response<T>.self, from: data)
+        guard let items = jsonData.items, items.count > 0 else {
+            throw SubWidgetError.channelNotfound
+        }
+
+        return items[0]
+    }
+    
+    func getChannelDetailsFromChannelName(for name: String) async throws -> YouTubeChannel {
+        let channelNameWithoutSpaces = name.replacingOccurrences(of: " ", with: "%20")
+        let query = "search?part=snippet&q=\(channelNameWithoutSpaces)&type=channel"
+        let channel: Channel = try await makeRequest(with: query)
+        return try await getChannelDetailsFromId(for: channel.channelId)
+    }
+
+
+    func getChannelDetailsFromId(for id: String) async throws -> YouTubeChannel {
+        try? storage?.removeExpiredObjects()
+        
+        let idWithoutSpaces = id.replacingOccurrences(of: " ", with: "")
+        
+        if let cachedChannel = try? storage?.object(forKey: idWithoutSpaces) {
+            return cachedChannel
+        }
+        
+        let query = "channels?part=snippet&id=\(idWithoutSpaces)"
+        let channelData: ChannelID = try await makeRequest(with: query)
+        let subCount = try await getSubCount(channelId: channelData.channelId)
+        let channelFromGoogle = YouTubeChannel(
+            channelName: channelData.channelName,
+            profileImage: channelData.profileImage,
+            subCount: subCount,
+            channelId: channelData.channelId
+        )
+        
+        try storage?.setObject(channelFromGoogle, forKey: idWithoutSpaces)
+        return channelFromGoogle
+    }
+    
+    private func getSubCount(channelId: String) async throws -> String {
+        let query = "channels?part=statistics&id=\(channelId)"
+        let subData: Subscribers = try await makeRequest(with: query)
+        return subData.subscriberCount
+    }
+    
+}

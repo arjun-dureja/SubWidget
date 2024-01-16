@@ -14,7 +14,7 @@ class IntentHandler: INExtension, SelectChannelIntentHandling {
         Task {
             do {
                 let viewModel = await ViewModel()
-                let channels = try await viewModel.fetchChannels()
+                let channels = try await viewModel.getChannels()
                 let channelParams = channels.map { YouTubeChannelParam(channel: $0) }
                 completion(INObjectCollection(items: channelParams), nil)
             } catch {
