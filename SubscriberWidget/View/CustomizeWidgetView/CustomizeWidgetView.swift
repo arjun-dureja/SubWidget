@@ -20,7 +20,6 @@ struct CustomizeWidgetView: View {
     
     @State private var name: String = ""
     @State private var showingAlert = false
-    @State private var animate = false
     @State private var helpAlert = false
     @State private var bgColor: CGColor?
     @State private var colorChanged = false
@@ -55,7 +54,6 @@ struct CustomizeWidgetView: View {
                 
                 WidgetPreview(
                     channel: $channel,
-                    animate: $animate,
                     bgColor: $bgColor
                 )
                 
