@@ -70,20 +70,8 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         } else {
             Task {
                 let result = try await fetchChannel(for: configuration.channel ?? YouTubeChannelParam.global)
-                
                 let viewModel = await ViewModel()
-                let refreshFrequency: Double
-                switch await viewModel.refreshFrequency {
-                case .THIRTY_MIN:
-                    refreshFrequency = 30
-                case .ONE_HR:
-                    refreshFrequency = 60
-                case .SIX_HR:
-                    refreshFrequency = 180
-                case .TWELVE_HR:
-                    refreshFrequency = 720
-                }
-                
+                let refreshFrequency = await viewModel.refreshFrequency.rawValue
                 let timeline = Timeline(
                     entries: [result],
                     policy: .after(.now.advanced(by: refreshFrequency * 60))

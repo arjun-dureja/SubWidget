@@ -86,17 +86,8 @@ struct WidgetListView: View {
                 )
                 .background(Color(UIColor.systemBackground))
             })
-            .sheet(isPresented: $showWhatsNew, onDismiss: {
-                if viewModel.isMigratedUser {
-                    showUpdateAlert = true
-                }
-            }, content: {
+            .sheet(isPresented: $showWhatsNew, content: {
                 WhatsNewView(isPresented: $showWhatsNew)
-            })
-            .alert("Can't see your widgets?", isPresented: $showUpdateAlert, actions: {
-                Button("OK", role: .cancel) { }
-            }, message: {
-                Text("Please remove them from your homescreen and add them back.")
             })
             .alert("You can only add 10 channels. Swipe left on a channel to delete it.", isPresented: $tooManyChannels) {
                 Button("OK", role: .cancel) { }

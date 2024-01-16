@@ -37,7 +37,7 @@ class YouTubeService {
     
     func makeRequest<T: Decodable>(with query: String) async throws -> T {
         let url = try makeUrl(query: query)
-  
+
         var request = URLRequest(url: url)
         request.setValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
         

@@ -14,8 +14,6 @@ import Cache
 @MainActor
 class ViewModel: ObservableObject {
     @AppStorage("channels", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
-    @AppStorage("channel", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var singleChannelData: Data = Data()
-    @AppStorage("backgroundColor", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var backgroundColor: Data = Data()
     @AppStorage("refreshFrequency", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var refreshFrequencyData: Data = Data()
     @AppStorage("storedVersion", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var storedVersion = ""
 
@@ -35,19 +33,10 @@ class ViewModel: ObservableObject {
     }
 
     @Published var isLoading = true
-    @Published var isMigratedUser = false
     @Published var networkError = false
-
-    var appVersion: String {
-        Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-    }
-
-    var color: UIColor? {
-        try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: backgroundColor)
-    }
     
     init() {
-        Task { try? await self.fetchAndUpdateChannelData() }
+        Task { await self.fetchAndUpdateChannelData() }
     }
     
     func tryInitAgain() {
@@ -59,41 +48,22 @@ class ViewModel: ObservableObject {
         isLoading = true
         // Wait one second to avoid spamming retries
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            Task {
-                try await self.fetchAndUpdateChannelData()
-            }
+            Task { await self.fetchAndUpdateChannelData() }
         }
     }
     
-    private func fetchAndUpdateChannelData() async throws {
+    private func fetchAndUpdateChannelData() async {
+        // Only fetch all channels when inside the app
+        guard Utils.isInApp() else { return }
+        
+        
         do {
-            // Only fetch all channels when inside the app
-            guard Utils.isInApp() else {
-                return
-            }
-            
-            guard
-                var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData),
-                !decodedChannels.isEmpty
-            else {
-                    guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
-                    isLoading = false
-                    return
-                }
-                
-                var channel = try await YouTubeService.shared.getChannelDetailsFromId(for: channelId)
-                if let color = color {
-                    channel.bgColor = color
-                }
-                
-                withAnimation { self.channels.append(channel) }
+            refreshFrequency = (try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData)) ?? .ONE_HR
+
+            var decodedChannels = try JSONDecoder().decode([YouTubeChannel].self, from: channelData)
+            guard !decodedChannels.isEmpty else {
                 isLoading = false
-                isMigratedUser = true
                 return
-            }
-            
-            if let frequency = try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData) {
-                refreshFrequency = frequency
             }
             
             for i in 0..<decodedChannels.count {
@@ -102,27 +72,15 @@ class ViewModel: ObservableObject {
             }
             
             withAnimation { self.channels = decodedChannels }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                self.isLoading = false
-            }
         } catch {
-            isLoading = false
             networkError = true
         }
+        
+        isLoading = false
     }
     
     func getChannels() async throws -> [YouTubeChannel] {
-        guard let decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData) else {
-            guard let channelId = try? JSONDecoder().decode(String.self, from: singleChannelData) else {
-                return []
-            }
-
-            var channel = try await YouTubeService.shared.getChannelDetailsFromId(for: channelId)
-            if let color = color { channel.bgColor = color }
-            return [channel]
-        }
-
-        return decodedChannels
+        return (try? JSONDecoder().decode([YouTubeChannel].self, from: channelData)) ?? []
     }
 
     func addNewChannel() async throws {

@@ -25,7 +25,7 @@ struct RefreshFrequency: View {
             )
         ) {
             ForEach(RefreshFrequencies.allCases, id: \.self) { freq in
-                Text(freq.rawValue).tag(freq)
+                Text(freq.toString()).tag(freq)
             }
         }
     }
