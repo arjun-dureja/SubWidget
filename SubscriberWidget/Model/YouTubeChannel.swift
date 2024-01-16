@@ -57,7 +57,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
             channelName: "PewDiePie",
             profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj",
             subCount: "1000000",
-            channelId: ""
+            channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw"
         )
     }
 }

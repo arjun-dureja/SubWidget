@@ -53,13 +53,12 @@ class ViewModel: ObservableObject {
     }
     
     private func fetchAndUpdateChannelData() async {
-        // Only fetch all channels when inside the app
-        guard Utils.isInApp() else { return }
-        
+        refreshFrequency = (try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData)) ?? .ONE_HR
         
         do {
-            refreshFrequency = (try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData)) ?? .ONE_HR
-
+            // Only fetch all channels when inside the app
+            guard Utils.isInApp() else { return }
+            
             var decodedChannels = try JSONDecoder().decode([YouTubeChannel].self, from: channelData)
             guard !decodedChannels.isEmpty else {
                 isLoading = false
@@ -79,7 +78,7 @@ class ViewModel: ObservableObject {
         isLoading = false
     }
     
-    func getChannels() async throws -> [YouTubeChannel] {
+    func getChannels() -> [YouTubeChannel] {
         return (try? JSONDecoder().decode([YouTubeChannel].self, from: channelData)) ?? []
     }
 
