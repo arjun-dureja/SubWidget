@@ -10,7 +10,7 @@ import SwiftUI
 import StoreKit
 
 struct SettingsView: View {
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {

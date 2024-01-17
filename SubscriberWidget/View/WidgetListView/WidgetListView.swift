@@ -15,7 +15,7 @@ struct WidgetListView: View {
     @State private var showWhatsNew = false
     @State private var showUpdateAlert = false
     @State private var showNetworkError = false
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
@@ -97,7 +97,9 @@ struct WidgetListView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear {
+        .task {
+            await viewModel.loadChannels()
+            
             if viewModel.shouldShowWhatsNew() {
                 showWhatsNew = true
             }
@@ -109,7 +111,9 @@ struct WidgetListView: View {
     }
     
     func tryAgainTapped() {
-        viewModel.tryInitAgain()
+        Task {
+            await viewModel.loadChannels()
+        }
     }
     
     func addWidgetTapped() {
@@ -135,7 +139,7 @@ struct WidgetListView: View {
     }
 }
 
-struct AddWidgetView_Previews: PreviewProvider {
+struct WidgetListView_Previews: PreviewProvider {
     static var previews: some View {
         WidgetListView(viewModel: ViewModel())
     }

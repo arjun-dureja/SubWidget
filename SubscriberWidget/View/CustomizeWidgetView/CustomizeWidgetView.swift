@@ -11,7 +11,7 @@ import UIKit
 import WidgetKit
 
 struct CustomizeWidgetView: View {
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @State var channel: YouTubeChannel
     @State var isNewWidget: Bool
     

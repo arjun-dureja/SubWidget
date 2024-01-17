@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RefreshFrequency: View {
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         Picker(
@@ -27,6 +27,9 @@ struct RefreshFrequency: View {
             ForEach(RefreshFrequencies.allCases, id: \.self) { freq in
                 Text(freq.toString()).tag(freq)
             }
+        }
+        .onAppear {
+            viewModel.loadRefreshFrequency()
         }
     }
 }

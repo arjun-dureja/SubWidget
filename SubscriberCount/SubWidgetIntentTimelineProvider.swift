@@ -70,6 +70,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         } else {
             Task {
                 let viewModel = await ViewModel()
+                await viewModel.loadRefreshFrequency()
                 let refreshFrequency = await viewModel.refreshFrequency.rawValue
                 let result = try await fetchChannel(
                     for: configuration.channel ?? YouTubeChannelParam.global,

@@ -32,12 +32,8 @@ class ViewModel: ObservableObject {
         }
     }
 
-    @Published var isLoading = true
+    @Published var isLoading = false
     @Published var networkError = false
-    
-    init() {
-        Task { await self.fetchAndUpdateChannelData() }
-    }
     
     func tryInitAgain() {
         if isLoading {
@@ -48,16 +44,16 @@ class ViewModel: ObservableObject {
         isLoading = true
         // Wait one second to avoid spamming retries
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            Task { await self.fetchAndUpdateChannelData() }
+            Task { await self.loadChannels() }
         }
     }
     
-    private func fetchAndUpdateChannelData() async {
-        refreshFrequency = (try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData)) ?? .ONE_HR
+    func loadChannels() async {
+        guard channels.isEmpty else { return }
         
         do {
-            // Only fetch all channels when inside the app
-            guard Utils.isInApp() else { return }
+            isLoading = true
+            networkError = false
             
             var decodedChannels = try JSONDecoder().decode([YouTubeChannel].self, from: channelData)
             guard !decodedChannels.isEmpty else {
@@ -76,6 +72,10 @@ class ViewModel: ObservableObject {
         }
         
         isLoading = false
+    }
+    
+    func loadRefreshFrequency() {
+        refreshFrequency = (try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData)) ?? .ONE_HR
     }
     
     func getChannels() -> [YouTubeChannel] {

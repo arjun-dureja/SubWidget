@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CustomizeWidgetHeader: View {
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {

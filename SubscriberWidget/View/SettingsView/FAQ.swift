@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FAQ: View {
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @State var faqData: [FAQItem] = []
     @State var loading = true
     @Environment(\.colorScheme) var colorScheme
