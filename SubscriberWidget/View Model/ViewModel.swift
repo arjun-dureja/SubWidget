@@ -56,11 +56,6 @@ class ViewModel: ObservableObject {
             networkError = false
             
             var decodedChannels = try JSONDecoder().decode([YouTubeChannel].self, from: channelData)
-            guard !decodedChannels.isEmpty else {
-                isLoading = false
-                return
-            }
-            
             for i in 0..<decodedChannels.count {
                 let channel = try await YouTubeService.shared.getChannelDetailsFromId(for: decodedChannels[i].channelId)
                 decodedChannels[i].subCount = channel.subCount
