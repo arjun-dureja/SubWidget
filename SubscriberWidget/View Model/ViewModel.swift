@@ -40,8 +40,6 @@ class ViewModel: ObservableObject {
             return
         }
         
-        networkError = false
-        isLoading = true
         // Wait one second to avoid spamming retries
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             Task { await self.loadChannels() }
