@@ -947,7 +947,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -959,7 +959,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.3;
+				MARKETING_VERSION = 9.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -977,7 +977,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				ENABLE_PREVIEWS = YES;
@@ -989,7 +989,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.3;
+				MARKETING_VERSION = 9.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
