@@ -10,73 +10,52 @@ import SwiftUI
 import WishKit
 
 struct WidgetListView: View {
+    @ObservedObject var viewModel: ViewModel
+
     @State private var newWidget = false
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
     @State private var showUpdateAlert = false
     @State private var showNetworkError = false
-    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
             ZStack {
-                List {
-                    Section(header: Text("Channels"))
-                    {
-                        ForEach(viewModel.channels, id: \.id) { channel in
-                            NavigationLink(
-                                destination: CustomizeWidgetView(
-                                    viewModel: viewModel,
-                                    channel: channel,
-                                    isNewWidget: false
-                                ),
-                                label: {
-                                    ChannelListRow(channel: channel)
-                                        .redacted(reason: viewModel.isLoading ? .placeholder : [])
-                                })
-                        }
-                        .onDelete(perform: delete)
-                    }
-                }
-                .listStyle(InsetGroupedListStyle())
-                
-                if viewModel.networkError {
-                    VStack {
-                        Text("Network error. Please try again.")
-                        Button(
-                            action: tryAgainTapped,
-                            label: {
-                                Text("Try Again")
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .frame(width: 250, height: 15)
-                                    .padding()
-                                    .foregroundColor(.white)
-                                    .background(Color.youtubeRed)
-                                    .cornerRadius(16)
-                            }
-                        )
-                        .padding(.top, 16)
-                    }
-                } else if viewModel.isLoading && viewModel.channels.isEmpty {
+                switch viewModel.state {
+                case .loading:
                     ProgressView()
                         .scaleEffect(1.5, anchor: .center)
-                } else if viewModel.channels.isEmpty {
-                    EmptyState(addWidgetTapped: addWidgetTapped)
+                case .error:
+                    NetworkError(retryHandler: tryAgainTapped)
+                case .loaded:
+                    if viewModel.channels.isEmpty {
+                        EmptyState(addWidgetTapped: addWidgetTapped)
+                    } else {
+                        List {
+                            Section(header: Text("Channels"))
+                            {
+                                ForEach(viewModel.channels, id: \.id) { channel in
+                                    NavigationLink(
+                                        destination: CustomizeWidgetView(
+                                            viewModel: viewModel,
+                                            channel: channel,
+                                            isNewWidget: false
+                                        ),
+                                        label: {
+                                            ChannelListRow(channel: channel)
+                                                .redacted(reason: viewModel.state == .loading ? .placeholder : [])
+                                        })
+                                }
+                                .onDelete(perform: deleteChannel)
+                            }
+                        }
+                        .listStyle(InsetGroupedListStyle())
+                    }
                 }
             }
             .navigationBarTitle("SubWidget")
             .if(viewModel.channels.count > 0) { view in
-                view.navigationBarItems(
-                    trailing:
-                        Button(
-                            action: addWidgetTapped,
-                            label: {
-                                Image(systemName: "plus.circle.fill")
-                                    .font(.system(size: 28))
-                                    .foregroundStyle(.white, Color.youtubeRed)
-                            }
-                        )
-                )
+                view.navigationBarItems(trailing: AddWidgetButton(action: addWidgetTapped))
             }
             .sheet(isPresented: $newWidget, content: {
                 CustomizeWidgetView(
@@ -104,16 +83,14 @@ struct WidgetListView: View {
                 showWhatsNew = true
             }
             
-            if let name = viewModel.channels.first?.channelName, name != "PewDiePie" {
+            if let name = viewModel.channels.first?.channelName, name != YouTubeChannel.preview.channelName {
                 WishKit.updateUser(name: name)
             }
         }
     }
     
     func tryAgainTapped() {
-        Task {
-            await viewModel.loadChannels()
-        }
+        viewModel.retryLoadChannels()
     }
     
     func addWidgetTapped() {
@@ -132,7 +109,7 @@ struct WidgetListView: View {
         }
     }
     
-    func delete(at offsets: IndexSet) {
+    func deleteChannel(at offsets: IndexSet) {
         if let index = offsets.first {
             viewModel.deleteChannel(at: index)
         }
@@ -145,17 +122,3 @@ struct WidgetListView_Previews: PreviewProvider {
     }
 }
 
-extension View {
-    /// Applies the given transform if the given condition evaluates to `true`.
-    /// - Parameters:
-    ///   - condition: The condition to evaluate.
-    ///   - transform: The transform to apply to the source `View`.
-    /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
-    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
-        if condition {
-            transform(self)
-        } else {
-            self
-        }
-    }
-}

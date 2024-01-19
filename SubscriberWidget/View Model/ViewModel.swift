@@ -11,19 +11,25 @@ import SwiftUI
 import WidgetKit
 import Cache
 
+enum LoadingState {
+    case loading
+    case loaded
+    case error
+}
+
 @MainActor
 class ViewModel: ObservableObject {
     @AppStorage("channels", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
     @AppStorage("refreshFrequency", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var refreshFrequencyData: Data = Data()
     @AppStorage("storedVersion", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var storedVersion = ""
-
+    
     @Published var channels: [YouTubeChannel] = [] {
         didSet {
             guard let encodedChannels = try? JSONEncoder().encode(channels) else { return }
             channelData = encodedChannels
         }
     }
-
+    
     @Published var refreshFrequency: RefreshFrequencies = .ONE_HR {
         didSet {
             guard let encodedFrequency = try? JSONEncoder().encode(refreshFrequency) else { return }
@@ -31,27 +37,14 @@ class ViewModel: ObservableObject {
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
-
-    @Published var isLoading = false
-    @Published var networkError = false
     
-    func tryInitAgain() {
-        if isLoading {
-            return
-        }
-        
-        // Wait one second to avoid spamming retries
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            Task { await self.loadChannels() }
-        }
-    }
+    @Published private(set) var state: LoadingState = .loading
     
     func loadChannels() async {
-        guard channels.isEmpty else { return }
+        guard state != .loaded else { return }
         
         do {
-            isLoading = true
-            networkError = false
+            state = .loading
             
             var decodedChannels = try JSONDecoder().decode([YouTubeChannel].self, from: channelData)
             for i in 0..<decodedChannels.count {
@@ -59,12 +52,25 @@ class ViewModel: ObservableObject {
                 decodedChannels[i].subCount = channel.subCount
             }
             
-            withAnimation { self.channels = decodedChannels }
+            withAnimation { 
+                self.channels = decodedChannels
+                self.state = .loaded
+            }
+            
         } catch {
-            networkError = true
+            state = .error
         }
+    }
+    
+    func retryLoadChannels() {
+        state = .loading
         
-        isLoading = false
+        // Wait one second to avoid spamming retries
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            Task {
+                await self.loadChannels()
+            }
+        }
     }
     
     func loadRefreshFrequency() {
@@ -74,7 +80,7 @@ class ViewModel: ObservableObject {
     func getChannels() -> [YouTubeChannel] {
         return (try? JSONDecoder().decode([YouTubeChannel].self, from: channelData)) ?? []
     }
-
+    
     func addNewChannel() async throws {
         let channel = try await YouTubeService.shared.getChannelDetailsFromId(for: "UC-lHJZR3Gqxm24_Vd_AJ5Yw")
         withAnimation { channels.append(channel) }
@@ -92,32 +98,32 @@ class ViewModel: ObservableObject {
             channels[index] = channel
             return channels[index]
         }
-
+        
         throw SubWidgetError.channelNotfound
     }
     
     func deleteChannel(at index: Int) {
         channels.remove(at: index)
     }
-
+    
     func getFaq() async throws -> [FAQItem] {
         guard let faqUrl = URL(string: "https://arjundureja.com/subwidget/faq.json") else { throw SubWidgetError.invalidURL }
         let (data, _) = try await URLSession.shared.data(from: faqUrl)
         let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
         return jsonData
     }
-
+    
     func shouldShowWhatsNew() -> Bool {
         // Version 2.1.1 - No whats new view
         return false
-
+        
         // Lockscreen widgets are only available on iPhone
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-//            if storedVersion != appVersion {
-//                storedVersion = appVersion
-//                return true
-//            }
-//        }
-//        return false
+        //        if UIDevice.current.userInterfaceIdiom == .phone {
+        //            if storedVersion != appVersion {
+        //                storedVersion = appVersion
+        //                return true
+        //            }
+        //        }
+        //        return false
     }
 }

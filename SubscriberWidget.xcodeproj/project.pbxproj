@@ -13,6 +13,8 @@
 		7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541325D73B4D003411CE /* WidgetColorPicker.swift */; };
 		7207541825D73C8F003411CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
 		7207541D25D73CD7003411CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207541725D73C8F003411CE /* Extensions.swift */; };
+		7211034F2B5A2DB700D4D7B5 /* AddWidgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211034E2B5A2DB700D4D7B5 /* AddWidgetButton.swift */; };
+		721103512B5A2E4100D4D7B5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721103502B5A2E4100D4D7B5 /* NetworkError.swift */; };
 		7211EB68282CB7BD00E3CDA9 /* SubWidgetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */; };
 		721AC2C925DA4C3200C6100C /* ChannelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7277197A2555E05000358EEB /* ChannelID.swift */; };
 		721AC2CA25DA4C3200C6100C /* YouTubeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EFF4AA25201B3B007E1FA6 /* YouTubeChannel.swift */; };
@@ -145,6 +147,8 @@
 		7207540F25D739CC003411CE /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
 		7207541325D73B4D003411CE /* WidgetColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetColorPicker.swift; sourceTree = "<group>"; };
 		7207541725D73C8F003411CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7211034E2B5A2DB700D4D7B5 /* AddWidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWidgetButton.swift; sourceTree = "<group>"; };
+		721103502B5A2E4100D4D7B5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7211EB67282CB7BD00E3CDA9 /* SubWidgetError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWidgetError.swift; sourceTree = "<group>"; };
 		721AC2AB25DA473000C6100C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		721AC2E625DA505700C6100C /* SubWidgetIntentTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWidgetIntentTimelineProvider.swift; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 				728E247725D781E300D4BB6E /* WidgetListView.swift */,
 				728E247B25D7978600D4BB6E /* ChannelListRow.swift */,
 				72B5BB372897033B005D4897 /* EmptyState.swift */,
+				7211034E2B5A2DB700D4D7B5 /* AddWidgetButton.swift */,
+				721103502B5A2E4100D4D7B5 /* NetworkError.swift */,
 			);
 			path = WidgetListView;
 			sourceTree = "<group>";
@@ -643,9 +649,11 @@
 				7295DAD325294CB6005FA093 /* MediumWidget.swift in Sources */,
 				72EFF4AB25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
 				7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */,
+				721103512B5A2E4100D4D7B5 /* NetworkError.swift in Sources */,
 				72871554285EB8FC000C68D9 /* FAQ.swift in Sources */,
 				7234592F286960C0000C7DA5 /* FormLabel.swift in Sources */,
 				7277197B2555E05000358EEB /* ChannelID.swift in Sources */,
+				7211034F2B5A2DB700D4D7B5 /* AddWidgetButton.swift in Sources */,
 				725FE213251D4905004B2907 /* Channel.swift in Sources */,
 				725FE209251D44B1004B2907 /* Subscribers.swift in Sources */,
 				72B5BB382897033B005D4897 /* EmptyState.swift in Sources */,

@@ -27,16 +27,19 @@ struct MainView: View {
     var body: some View {
         TabView {
             WidgetListView(viewModel: viewModel)
+                .tag(0)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
             
             WishKit.view.withNavigation()
+                .tag(1)
                 .tabItem {
                     Label("Wishlist", systemImage: "lightbulb.fill")
                 }
             
             SettingsView(viewModel: viewModel)
+                .tag(2)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
