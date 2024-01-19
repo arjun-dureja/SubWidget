@@ -28,8 +28,7 @@ struct MediumWidget: View {
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
                             .shadow(radius: 3)
-                            .padding(.leading, 8)
-                            .padding(.trailing)
+                            .padding(.horizontal, 8)
                     } else {
                         AsyncImageView(url: URL(string: entry.profileImage))
                             .frame(width: 100, height: 100)
@@ -82,7 +81,7 @@ struct MediumWidget: View {
 
 struct MediumWidget_Previews: PreviewProvider {
     static var previews: some View {
-        MediumWidget(entry: YouTubeChannel(channelName: "Test Channel", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "10000", channelId: ""))
+        MediumWidget(entry: .preview)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

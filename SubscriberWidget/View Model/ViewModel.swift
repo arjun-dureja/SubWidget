@@ -46,7 +46,11 @@ class ViewModel: ObservableObject {
         do {
             state = .loading
             
-            var decodedChannels = try JSONDecoder().decode([YouTubeChannel].self, from: channelData)
+            guard var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData) else {
+                state = .loaded
+                return
+            }
+            
             for i in 0..<decodedChannels.count {
                 let channel = try await YouTubeService.shared.getChannelDetailsFromId(for: decodedChannels[i].channelId)
                 decodedChannels[i].subCount = channel.subCount
