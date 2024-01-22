@@ -55,13 +55,13 @@ class YouTubeService: YouTubeServiceProtocol {
         return channelFromGoogle
     }
     
-    internal func getSubCount(channelId: String) async throws -> String {
+    private func getSubCount(channelId: String) async throws -> String {
         let query = "channels?part=statistics&id=\(channelId)"
         let subData: Subscribers = try await makeRequest(with: query)
         return subData.subscriberCount
     }
     
-    internal func makeUrl(query: String) throws -> URL {
+    private func makeUrl(query: String) throws -> URL {
         guard let url = URL(string: "\(baseUrl)\(query)&key=\(Constants.apiKey)") else {
             throw SubWidgetError.invalidURL
         }
@@ -69,7 +69,7 @@ class YouTubeService: YouTubeServiceProtocol {
         return url
     }
     
-    internal func makeRequest<T: Decodable>(with query: String) async throws -> T {
+    private func makeRequest<T: Decodable>(with query: String) async throws -> T {
         let url = try makeUrl(query: query)
 
         var request = URLRequest(url: url)

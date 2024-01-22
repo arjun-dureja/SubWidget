@@ -346,7 +346,7 @@
 				72DB77DE2B56304900F8CFAB /* Services */,
 				72A3B467252E292000891D69 /* Model */,
 				72A3B462252E290C00891D69 /* View */,
-				72A3B461252E28FF00891D69 /* View Model */,
+				72A3B461252E28FF00891D69 /* ViewModel */,
 				72EFF4A725201AAD007E1FA6 /* SubscriberWidget.entitlements */,
 				72FD520C289CB59C001F9F48 /* WidgetIntents.intentdefinition */,
 				7295DABE252909BC005FA093 /* Constants.swift */,
@@ -380,12 +380,12 @@
 			);
 			sourceTree = "<group>";
 		};
-		72A3B461252E28FF00891D69 /* View Model */ = {
+		72A3B461252E28FF00891D69 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				725FE204251D3E75004B2907 /* ViewModel.swift */,
 			);
-			path = "View Model";
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		72A3B462252E290C00891D69 /* View */ = {
