@@ -12,8 +12,8 @@ import Foundation
 class IntentHandler: INExtension, SelectChannelIntentHandling {
     func provideChannelOptionsCollection(for intent: SelectChannelIntent, with completion: @escaping (INObjectCollection<YouTubeChannelParam>?, Error?) -> Void) {
         Task {
-            let viewModel = await ViewModel()
-            let channels = await viewModel.getChannels()
+            let channelStorageService = ChannelStorageService()
+            let channels = channelStorageService.getChannels()
             let channelParams = channels.map { YouTubeChannelParam(channel: $0) }
             completion(INObjectCollection(items: channelParams), nil)
         }

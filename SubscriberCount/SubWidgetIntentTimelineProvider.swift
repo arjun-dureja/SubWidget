@@ -32,12 +32,12 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     
     func getSnapshot(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         Task {
-            let viewModel = await ViewModel()
+            let channelStorageService = ChannelStorageService()
             
             // Determine if caller is from add widget screen or home screen
             if configuration.channel == nil {
                 // Show first channel in add widget screen if exists
-                let channels = await viewModel.getChannels()
+                let channels = channelStorageService.getChannels()
                 if !channels.isEmpty {
                     let entry = SimpleEntry(
                         date: Date(),
@@ -50,7 +50,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             } else {
                 let result = try await fetchChannel(
                     for: configuration.channel ?? YouTubeChannelParam.global,
-                    viewModel: viewModel
+                    channelStorageService: channelStorageService
                 )
                 
                 completion(result)
@@ -69,12 +69,11 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             completion(timeline)
         } else {
             Task {
-                let viewModel = await ViewModel()
-                await viewModel.loadRefreshFrequency()
-                let refreshFrequency = await viewModel.refreshFrequency.rawValue
+                let channelStorageService = ChannelStorageService()
+                let refreshFrequency = channelStorageService.getRefreshFrequency().rawValue
                 let result = try await fetchChannel(
                     for: configuration.channel ?? YouTubeChannelParam.global,
-                    viewModel: viewModel
+                    channelStorageService: channelStorageService
                 )
                 
                 let timeline = Timeline(
@@ -87,14 +86,15 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         }
     }
     
-    private func fetchChannel(for param: YouTubeChannelParam, viewModel: ViewModel) async throws -> SimpleEntry {
+    private func fetchChannel(for param: YouTubeChannelParam, channelStorageService: ChannelStorageService) async throws -> SimpleEntry {
         guard let id = param.identifier else {
             throw SubWidgetError.invalidIdentifer
         }
         
-        let channels = await viewModel.getChannels()
+        let channels = channelStorageService.getChannels()
         if let channel = channels.first(where: { $0.id == id }) {
-            var updatedChannel = try await YouTubeService.shared.getChannelDetailsFromId(for: channel.channelId)
+            let youtubeService = YouTubeService()
+            var updatedChannel = try await youtubeService.getChannelDetailsFromId(for: channel.channelId)
             updatedChannel.bgColor = channel.bgColor
             return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: updatedChannel)
         }

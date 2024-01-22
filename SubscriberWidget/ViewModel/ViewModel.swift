@@ -6,10 +6,7 @@
 //  Copyright © 2020 Arjun Dureja. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
-import WidgetKit
-import Cache
 
 enum LoadingState {
     case loading
@@ -19,48 +16,44 @@ enum LoadingState {
 
 @MainActor
 class ViewModel: ObservableObject {
-    @AppStorage("channels", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
-    @AppStorage("refreshFrequency", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var refreshFrequencyData: Data = Data()
-    @AppStorage("storedVersion", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var storedVersion = ""
+    let youtubeService: YouTubeServiceProtocol
+    let channelStorageService: ChannelStorageServiceProtocol
     
     @Published var channels: [YouTubeChannel] = [] {
         didSet {
-            guard let encodedChannels = try? JSONEncoder().encode(channels) else { return }
-            channelData = encodedChannels
+            channelStorageService.saveChannels(channels)
         }
     }
     
     @Published var refreshFrequency: RefreshFrequencies = .ONE_HR {
         didSet {
-            guard let encodedFrequency = try? JSONEncoder().encode(refreshFrequency) else { return }
-            refreshFrequencyData = encodedFrequency
-            WidgetCenter.shared.reloadAllTimelines()
+            channelStorageService.saveRefreshFrequency(refreshFrequency)
         }
     }
     
     @Published private(set) var state: LoadingState = .loading
+    
+    init(
+        youtubeService: YouTubeServiceProtocol = YouTubeService(),
+        channelStorageService: ChannelStorageServiceProtocol = ChannelStorageService()
+    ) {
+        self.youtubeService = youtubeService
+        self.channelStorageService = channelStorageService
+    }
     
     func loadChannels() async {
         guard state != .loaded else { return }
         
         do {
             state = .loading
-            
-            guard var decodedChannels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData) else {
-                state = .loaded
-                return
-            }
-            
+            var decodedChannels = channelStorageService.getChannels()
             for i in 0..<decodedChannels.count {
-                let channel = try await YouTubeService.shared.getChannelDetailsFromId(for: decodedChannels[i].channelId)
+                let channel = try await youtubeService.getChannelDetailsFromId(for: decodedChannels[i].channelId)
                 decodedChannels[i].subCount = channel.subCount
             }
             
-            withAnimation { 
-                self.channels = decodedChannels
-                self.state = .loaded
-            }
-            
+            channels = decodedChannels
+            state = .loaded
         } catch {
             state = .error
         }
@@ -78,16 +71,12 @@ class ViewModel: ObservableObject {
     }
     
     func loadRefreshFrequency() {
-        refreshFrequency = (try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData)) ?? .ONE_HR
-    }
-    
-    func getChannels() -> [YouTubeChannel] {
-        return (try? JSONDecoder().decode([YouTubeChannel].self, from: channelData)) ?? []
+        refreshFrequency = channelStorageService.getRefreshFrequency()
     }
     
     func addNewChannel() async throws {
-        let channel = try await YouTubeService.shared.getChannelDetailsFromId(for: "UC-lHJZR3Gqxm24_Vd_AJ5Yw")
-        withAnimation { channels.append(channel) }
+        let channel = try await youtubeService.getChannelDetailsFromId(for: "UC-lHJZR3Gqxm24_Vd_AJ5Yw")
+        channels.append(channel)
     }
     
     func updateColorForChannel(id: String, color: UIColor?) {
@@ -98,7 +87,7 @@ class ViewModel: ObservableObject {
     
     func updateChannel(id: String, name: String) async throws -> YouTubeChannel {
         if let index = channels.firstIndex(where: { $0.id == id }) {
-            let channel = try await YouTubeService.shared.getChannelDetailsFromChannelName(for: name)
+            let channel = try await youtubeService.getChannelDetailsFromChannelName(for: name)
             channels[index] = channel
             return channels[index]
         }

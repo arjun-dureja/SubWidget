@@ -9,10 +9,7 @@
 import Foundation
 import Cache
 
-
-class YouTubeService {
-    static let shared = YouTubeService()
-    
+class YouTubeService: YouTubeServiceProtocol {   
     let baseUrl = "https://www.googleapis.com/youtube/v3/"
     let storage: Storage<String, YouTubeChannel>?
 
@@ -26,35 +23,7 @@ class YouTubeService {
             transformer: TransformerFactory.forCodable(ofType: YouTubeChannel.self)
         )
     }
-    
-    func makeUrl(query: String) throws -> URL {
-        guard let url = URL(string: "\(baseUrl)\(query)&key=\(Constants.apiKey)") else {
-            throw SubWidgetError.invalidURL
-        }
         
-        return url
-    }
-    
-    func makeRequest<T: Decodable>(with query: String) async throws -> T {
-        let url = try makeUrl(query: query)
-
-        var request = URLRequest(url: url)
-        request.setValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
-        
-        let (data, response) = try await URLSession.shared.data(for: request)
-        
-        if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 400 {
-            throw SubWidgetError.serverError
-        }
-        
-        let jsonData = try JSONDecoder().decode(Response<T>.self, from: data)
-        guard let items = jsonData.items, items.count > 0 else {
-            throw SubWidgetError.channelNotfound
-        }
-
-        return items[0]
-    }
-    
     func getChannelDetailsFromChannelName(for name: String) async throws -> YouTubeChannel {
         let channelNameWithoutSpaces = name.replacingOccurrences(of: " ", with: "%20")
         let query = "search?part=snippet&q=\(channelNameWithoutSpaces)&type=channel"
@@ -86,10 +55,38 @@ class YouTubeService {
         return channelFromGoogle
     }
     
-    private func getSubCount(channelId: String) async throws -> String {
+    internal func getSubCount(channelId: String) async throws -> String {
         let query = "channels?part=statistics&id=\(channelId)"
         let subData: Subscribers = try await makeRequest(with: query)
         return subData.subscriberCount
+    }
+    
+    internal func makeUrl(query: String) throws -> URL {
+        guard let url = URL(string: "\(baseUrl)\(query)&key=\(Constants.apiKey)") else {
+            throw SubWidgetError.invalidURL
+        }
+        
+        return url
+    }
+    
+    internal func makeRequest<T: Decodable>(with query: String) async throws -> T {
+        let url = try makeUrl(query: query)
+
+        var request = URLRequest(url: url)
+        request.setValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 400 {
+            throw SubWidgetError.serverError
+        }
+        
+        let jsonData = try JSONDecoder().decode(Response<T>.self, from: data)
+        guard let items = jsonData.items, items.count > 0 else {
+            throw SubWidgetError.channelNotfound
+        }
+
+        return items[0]
     }
     
 }

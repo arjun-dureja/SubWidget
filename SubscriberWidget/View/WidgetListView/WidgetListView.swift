@@ -11,7 +11,7 @@ import WishKit
 
 struct WidgetListView: View {
     @ObservedObject var viewModel: ViewModel
-
+    
     @State private var newWidget = false
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
@@ -83,7 +83,8 @@ struct WidgetListView: View {
                 showWhatsNew = true
             }
             
-            if let name = viewModel.channels.first?.channelName, name != YouTubeChannel.preview.channelName {
+            if let name = viewModel.channels.first?.channelName, 
+                name != YouTubeChannel.preview.channelName {
                 WishKit.updateUser(name: name)
             }
         }
@@ -101,8 +102,7 @@ struct WidgetListView: View {
                 do {
                     try await viewModel.addNewChannel()
                     newWidget = true
-                } catch let error {
-                    print(error.localizedDescription)
+                } catch {
                     showNetworkError = true
                 }
             }
