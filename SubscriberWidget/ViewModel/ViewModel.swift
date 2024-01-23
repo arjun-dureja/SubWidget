@@ -46,13 +46,7 @@ class ViewModel: ObservableObject {
         
         do {
             state = .loading
-            var decodedChannels = channelStorageService.getChannels()
-            for i in 0..<decodedChannels.count {
-                let channel = try await youtubeService.getChannelDetailsFromId(for: decodedChannels[i].channelId)
-                decodedChannels[i].subCount = channel.subCount
-            }
-            
-            channels = decodedChannels
+            channels = try await getChannelsWithUpdatedSubCounts()
             state = .loaded
         } catch {
             state = .error
@@ -75,7 +69,10 @@ class ViewModel: ObservableObject {
     }
     
     func addNewChannel() async throws {
-        let channel = try await youtubeService.getChannelDetailsFromId(for: "UC-lHJZR3Gqxm24_Vd_AJ5Yw")
+        let channel = try await youtubeService.getChannelDetailsFromId(
+            for: YouTubeChannel.preview.channelId
+        )
+        
         channels.append(channel)
     }
     
@@ -118,5 +115,14 @@ class ViewModel: ObservableObject {
         //            }
         //        }
         //        return false
+    }
+    
+    private func getChannelsWithUpdatedSubCounts() async throws -> [YouTubeChannel] {
+        var decodedChannels = channelStorageService.getChannels()
+        for i in 0..<decodedChannels.count {
+            let channel = try await youtubeService.getChannelDetailsFromId(for: decodedChannels[i].channelId)
+            decodedChannels[i].subCount = channel.subCount
+        }
+        return decodedChannels
     }
 }
