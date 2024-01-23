@@ -118,11 +118,21 @@ class ViewModel: ObservableObject {
     }
     
     private func getChannelsWithUpdatedSubCounts() async throws -> [YouTubeChannel] {
-        var decodedChannels = channelStorageService.getChannels()
-        for i in 0..<decodedChannels.count {
-            let channel = try await youtubeService.getChannelDetailsFromId(for: decodedChannels[i].channelId)
-            decodedChannels[i].subCount = channel.subCount
+        try await withThrowingTaskGroup(of: (Int, YouTubeChannel).self) { group in
+            var decodedChannels = channelStorageService.getChannels()
+
+            for (index, channel) in decodedChannels.enumerated() {
+                group.addTask {
+                    let updatedChannel = try await self.youtubeService.getChannelDetailsFromId(for: channel.channelId)
+                    return (index, updatedChannel)
+                }
+            }
+            
+            for try await (index, updatedChannel) in group {
+                decodedChannels[index].subCount = updatedChannel.subCount
+            }
+            
+            return decodedChannels
         }
-        return decodedChannels
     }
 }
