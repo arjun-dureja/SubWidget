@@ -16,6 +16,7 @@ struct SubmitButton: View {
     @Binding var name: String
     @Binding var showingAlert: Bool
     @Binding var channel: YouTubeChannel
+    @Binding var loading: Bool
     
     @State private var showSafari = false
 
@@ -23,9 +24,17 @@ struct SubmitButton: View {
     
     var body: some View {
         Button(action: submitButtonTapped, label: {
-            Text("Submit")
-                .foregroundColor(.white)
-                .bold()
+            ZStack {
+                if loading {
+                    ProgressView()
+                }
+                
+                Text("Submit")
+                    .foregroundColor(.white)
+                    .bold()
+                    .opacity(loading ? 0 : 1)
+            }
+            
         })
         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
         .foregroundColor(.white)

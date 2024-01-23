@@ -24,6 +24,7 @@ struct CustomizeWidgetView: View {
     @State private var bgColor: CGColor?
     @State private var colorChanged = false
     @State private var showNetworkError = false
+    @State private var loadingChannel = false
     
     var body: some View {
         GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
@@ -42,6 +43,7 @@ struct CustomizeWidgetView: View {
                             name: $name,
                             showingAlert: $showingAlert,
                             channel: $channel,
+                            loading: $loadingChannel,
                             submitButtonTapped: submitButtonTapped
                         )
 
@@ -103,6 +105,7 @@ struct CustomizeWidgetView: View {
 
         Task {
             do {
+                loadingChannel = true
                 let channel = try await viewModel.updateChannel(id: channel.id, name: name)
                 UIApplication.shared.endEditing()
                 name.removeAll()
@@ -112,6 +115,8 @@ struct CustomizeWidgetView: View {
             } catch {
                 showingAlert = true
             }
+            
+            loadingChannel = false
         }
     }
 }
