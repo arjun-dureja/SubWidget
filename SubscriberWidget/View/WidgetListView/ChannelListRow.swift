@@ -20,12 +20,11 @@ struct ChannelListRow: View {
                 .shadow(radius: 2)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(channel.channelName)")
+                Text(channel.channelName)
                     .fontWeight(.bold)
                     .font(.system(size: 18))
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
-                Text("\(Int(channel.subCount) ?? 0)")
-                    .fontWeight(.bold)
+                FormattedSubCount(count: channel.subCount)
                     .font(.system(size: 23))
                     .foregroundColor(.youtubeRed)
                 Text("Total subscribers")

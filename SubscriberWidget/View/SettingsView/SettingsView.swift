@@ -8,11 +8,13 @@
 
 import SwiftUI
 import StoreKit
+import WidgetKit
 
 struct SettingsView: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
-
+    @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
+    
     var body: some View {
         NavigationView {
             Form {
@@ -22,7 +24,7 @@ struct SettingsView: View {
                         AppIcon()
                             .cornerRadius(16)
                             .frame(width: 60, height: 60)
-
+                        
                         VStack(alignment: .leading, spacing: 2) {
                             Text("SubWidget \(Bundle.main.appVersion)")
                                 .font(.system(size: 16, weight: .medium))
@@ -35,23 +37,38 @@ struct SettingsView: View {
                 }
                 .padding(.top, 24)
                 .listRowBackground(Color.clear)
-
+                
                 Section(footer: Text("Choose how often the subscriber count should update")) {
                     RefreshFrequency(viewModel: viewModel)
                 }
-
+                
+                Section(footer: Text("Display large numbers in a compact, simplified format")) {
+                    Toggle(isOn: $simplifyNumbers) {
+                        Label {
+                            Text("Simplify Numbers")
+                        } icon: {
+                            Image(systemName: "number.circle.fill")
+                                .foregroundStyle(.white, Color.youtubeRed)
+                        }
+                    }
+                    .tint(.youtubeRed)
+                    .onChange(of: simplifyNumbers) { _ in
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                }
+                
                 Section {
                     NavigationLink {
                         FAQ(viewModel: viewModel)
                     } label: {
-                        HStack(spacing: 24) {
+                        Label {
+                            Text("FAQ")
+                        } icon: {
                             Image(systemName: "questionmark.circle.fill")
                                 .foregroundStyle(.white, Color.youtubeRed)
-                            Text("FAQ")
                         }
-                        .padding(.leading, 4)
                     }
-
+                    
                     Button {
                         EmailHelper.shared.send(
                             subject: "SubWidget Feedback",
@@ -60,13 +77,13 @@ struct SettingsView: View {
                     } label: {
                         FormLabel(text: "Contact", icon: "envelope.circle.fill")
                     }
-
+                    
                     Button {
                         SKStoreReviewController.requestReviewInCurrentScene()
                     } label: {
                         FormLabel(text: "Rate", icon: "star.circle.fill")
                     }
-
+                    
                     SafariSheet(
                         text: "Privacy Policy",
                         icon: "lock.circle.fill",

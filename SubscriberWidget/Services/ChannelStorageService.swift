@@ -10,8 +10,8 @@ import SwiftUI
 import WidgetKit
 
 class ChannelStorageService: ChannelStorageServiceProtocol {
-    @AppStorage("channels", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var channelData: Data = Data()
-    @AppStorage("refreshFrequency", store: UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")) var refreshFrequencyData: Data = Data()
+    @AppStorage("channels", store: .shared) var channelData: Data = Data()
+    @AppStorage("refreshFrequency", store: .shared) var refreshFrequencyData: Data = Data()
     
     func getChannels() -> [YouTubeChannel] {
         guard let channels = try? JSONDecoder().decode([YouTubeChannel].self, from: channelData) else {

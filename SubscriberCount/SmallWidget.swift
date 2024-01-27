@@ -56,12 +56,11 @@ struct SmallWidget: View {
                     Spacer()
                     
                     VStack(alignment: .leading) {
-                        Text("\(entry.channelName)")
+                        Text(entry.channelName)
                             .fontWeight(.bold)
                             .font(.system(size: 14))
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
-                        Text("\(Int(entry.subCount) ?? 0)")
-                            .fontWeight(.bold)
+                        FormattedSubCount(count: entry.subCount)
                             .font(.system(size: showsWidgetContainerBackground ? 20 : 40))
                             .foregroundColor(isVibrant ? .white : .youtubeRed)
                         Text("Total subscribers")

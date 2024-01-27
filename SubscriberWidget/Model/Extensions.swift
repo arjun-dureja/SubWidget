@@ -80,6 +80,16 @@ extension YouTubeChannelParam {
     }
 }
 
+extension Double {
+    func reduceScale(to places: Int) -> Double {
+        let multiplier = pow(10, Double(places))
+        let newDecimal = multiplier * self
+        let truncated = Double(Int(newDecimal))
+        let originalDecimal = truncated / multiplier
+        return originalDecimal
+    }
+}
+
 extension String {
     static var currentTime: String {
         let formatter = DateFormatter()
@@ -87,4 +97,41 @@ extension String {
         formatter.timeStyle = .short
         return formatter.string(from: .now)
     }
+    
+    func formattedWithSeparator() -> String {
+        guard let number = Int(self) else {
+            return self
+        }
+
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let formattedNumber = numberFormatter.string(from: NSNumber(value: number)) else {
+            return self
+        }
+
+        return formattedNumber
+    }
+    
+    func simplified() -> String {
+        guard let asDouble = Double(self) else {
+            return self
+        }
+
+        let num = abs(asDouble)
+        switch num {
+        case 1_000_000_000...:
+            return "\(String(format: "%g", (num / 1_000_000_000).reduceScale(to: 1)))B"
+        case 1_000_000...:
+            return "\(String(format: "%g", (num / 1_000_000).reduceScale(to: 1)))M"
+        case 1_000...:
+            return "\(String(format: "%g", (num / 1_000).reduceScale(to: 1)))K"
+        default:
+            return self
+        }
+    }
+}
+
+extension UserDefaults {
+    static let shared = UserDefaults(suiteName: "group.com.arjundureja.SubscriberWidget")
 }

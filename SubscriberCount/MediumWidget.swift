@@ -38,13 +38,12 @@ struct MediumWidget: View {
                     }
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("\(entry.channelName)")
+                        Text(entry.channelName)
                             .fontWeight(.bold)
                             .font(.system(size: 24))
                             .lineLimit(entry.channelName.firstIndex(of: " ") != nil && entry.channelName.count > 15 ? .max : 1)
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
-                        Text("\(Int(entry.subCount) ?? 0)")
-                            .fontWeight(.bold)
+                        FormattedSubCount(count: entry.subCount)
                             .font(.system(size: 32))
                             .lineLimit(1)
                             .foregroundColor(.youtubeRed)
