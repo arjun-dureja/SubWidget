@@ -80,6 +80,7 @@ struct SettingsView: View {
                     }
                     
                     Button {
+                        AnalyticsService.shared.logRateButtontapped()
                         SKStoreReviewController.requestReviewInCurrentScene()
                     } label: {
                         FormLabel(text: "Rate", icon: "star.circle.fill")

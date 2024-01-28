@@ -43,6 +43,10 @@ struct FAQCell: View {
         }
         .background(colorScheme == . dark ? Color(UIColor.systemGray6) : .white).edgesIgnoringSafeArea(.all)
         .onTapGesture {
+            if (!tapped) {
+                AnalyticsService.shared.logFaqCellTapped(question)
+            }
+            
             withAnimation {
                 tapped.toggle()
             }

@@ -35,6 +35,10 @@ class ChannelStorageService: ChannelStorageServiceProtocol {
     }
     
     func saveRefreshFrequency(_ frequency: RefreshFrequencies) {
+        guard frequency != getRefreshFrequency() else {
+            return
+        }
+        
         AnalyticsService.shared.logRefreshFrequencyUpdated(frequency.toString())
         guard let encodedFrequency = try? JSONEncoder().encode(frequency) else { return }
         refreshFrequencyData = encodedFrequency

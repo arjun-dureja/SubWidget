@@ -36,6 +36,7 @@ struct FAQ: View {
         .background(colorScheme == .dark ? .black : Color(UIColor.systemGray6))
         .onAppear {
             Task {
+                AnalyticsService.shared.logFaqScreenViewed()
                 faqData = try await viewModel.getFaq()
                 loading = false
             }

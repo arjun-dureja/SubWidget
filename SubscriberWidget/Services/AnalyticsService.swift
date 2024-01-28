@@ -67,4 +67,18 @@ class AnalyticsService {
             "isToggled": isToggled
         ])
     }
+    
+    func logFaqScreenViewed() {
+        logEvent("faq_screen.viewed")
+    }
+    
+    func logFaqCellTapped(_ question: String) {
+        logEvent("faq_cell.tapped", properties: [
+            "question": question
+        ])
+    }
+    
+    func logRateButtontapped() {
+        logEvent("rate_button.tapped")
+    }
 }
