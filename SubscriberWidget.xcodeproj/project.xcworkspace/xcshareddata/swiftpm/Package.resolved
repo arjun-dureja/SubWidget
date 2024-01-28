@@ -9,6 +9,15 @@
       }
     },
     {
+      "identity" : "mixpanel-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mixpanel/mixpanel-swift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ffd0d35510b81d64761ce9f15109670d0bb90f71"
+      }
+    },
+    {
       "identity" : "wishkit-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/wishkit/wishkit-ios.git",

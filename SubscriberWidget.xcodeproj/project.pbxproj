@@ -37,6 +37,12 @@
 		722E2E7E2B5E2E1000E4832E /* ChannelStorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E772B5E2C5600E4832E /* ChannelStorageServiceProtocol.swift */; };
 		722E2E802B64D0F500E4832E /* FormattedSubCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E7F2B64D0F400E4832E /* FormattedSubCount.swift */; };
 		722E2E812B64D0F500E4832E /* FormattedSubCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E7F2B64D0F400E4832E /* FormattedSubCount.swift */; };
+		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
+		722E2E872B65FAE900E4832E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E862B65FAE900E4832E /* AnalyticsService.swift */; };
+		722E2E892B65FDF200E4832E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E862B65FAE900E4832E /* AnalyticsService.swift */; };
+		722E2E8A2B65FDF300E4832E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E862B65FAE900E4832E /* AnalyticsService.swift */; };
+		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
+		722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8D2B65FE0400E4832E /* Mixpanel */; };
 		72345923286025B9000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
 		72345924286025DF000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
 		72345925286025DF000C7DA5 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72345922286025B8000C7DA5 /* FAQItem.swift */; };
@@ -169,6 +175,7 @@
 		722E2E772B5E2C5600E4832E /* ChannelStorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStorageServiceProtocol.swift; sourceTree = "<group>"; };
 		722E2E792B5E2D2800E4832E /* ChannelStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStorageService.swift; sourceTree = "<group>"; };
 		722E2E7F2B64D0F400E4832E /* FormattedSubCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedSubCount.swift; sourceTree = "<group>"; };
+		722E2E862B65FAE900E4832E /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		72345922286025B8000C7DA5 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		723459262868D8A4000C7DA5 /* RefreshFrequencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFrequencies.swift; sourceTree = "<group>"; };
 		7234592A2869581B000C7DA5 /* RefreshFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFrequency.swift; sourceTree = "<group>"; };
@@ -234,6 +241,7 @@
 			files = (
 				72B936FA2AB40BC900997D20 /* Cache in Frameworks */,
 				725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */,
+				722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */,
 				725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */,
 				728683C225DA44AE00568034 /* Intents.framework in Frameworks */,
 				72B936F82AB40BC500997D20 /* Cache in Frameworks */,
 			);
@@ -251,6 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */,
 				72F2EE222B2D6128002AFCEA /* WishKit in Frameworks */,
 				724BD92A2AB4063A008C1DB2 /* Cache in Frameworks */,
 			);
@@ -445,6 +455,7 @@
 				722E2E732B5E280C00E4832E /* YouTubeServiceProtocol.swift */,
 				722E2E772B5E2C5600E4832E /* ChannelStorageServiceProtocol.swift */,
 				722E2E792B5E2D2800E4832E /* ChannelStorageService.swift */,
+				722E2E862B65FAE900E4832E /* AnalyticsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -467,6 +478,7 @@
 			name = SubscriberCountExtension;
 			packageProductDependencies = (
 				72B936F92AB40BC900997D20 /* Cache */,
+				722E2E8B2B65FDFC00E4832E /* Mixpanel */,
 			);
 			productName = SubscriberCountExtension;
 			productReference = 725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */;
@@ -487,6 +499,7 @@
 			name = SubWidgetIntents;
 			packageProductDependencies = (
 				72B936F72AB40BC500997D20 /* Cache */,
+				722E2E8D2B65FE0400E4832E /* Mixpanel */,
 			);
 			productName = SubWidgetIntents;
 			productReference = 728683C025DA44AE00568034 /* SubWidgetIntents.appex */;
@@ -511,6 +524,7 @@
 			packageProductDependencies = (
 				724BD9292AB4063A008C1DB2 /* Cache */,
 				72F2EE212B2D6128002AFCEA /* WishKit */,
+				722E2E842B65F86B00E4832E /* Mixpanel */,
 			);
 			productName = SubscriberWidget;
 			productReference = 72920002251D1F3D0050194B /* SubWidget.app */;
@@ -549,6 +563,7 @@
 			packageReferences = (
 				724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */,
 				72F2EE202B2D605A002AFCEA /* XCRemoteSwiftPackageReference "wishkit-ios" */,
+				722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = 72920003251D1F3D0050194B /* Products */;
 			projectDirPath = "";
@@ -620,6 +635,7 @@
 				721AC2E825DA505700C6100C /* SubWidgetIntentTimelineProvider.swift in Sources */,
 				7295DAD425294CB6005FA093 /* MediumWidget.swift in Sources */,
 				72EFF4A425201712007E1FA6 /* Response.swift in Sources */,
+				722E2E892B65FDF200E4832E /* AnalyticsService.swift in Sources */,
 				722E2E752B5E286D00E4832E /* YouTubeServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +647,7 @@
 				721AC2CE25DA4C3200C6100C /* Response.swift in Sources */,
 				721AC2CD25DA4C3200C6100C /* Subscribers.swift in Sources */,
 				7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */,
+				722E2E8A2B65FDF300E4832E /* AnalyticsService.swift in Sources */,
 				72B936FB2AB40FB300997D20 /* Utils.swift in Sources */,
 				721AC2CB25DA4C3200C6100C /* ViewModel.swift in Sources */,
 				721AC2CC25DA4C3200C6100C /* Channel.swift in Sources */,
@@ -673,6 +690,7 @@
 				72EDBB5528EA3B480054ECD0 /* YouTubeLogo.swift in Sources */,
 				7295DACE25294C50005FA093 /* SmallWidget.swift in Sources */,
 				72FD5208289CB59C001F9F48 /* WidgetIntents.intentdefinition in Sources */,
+				722E2E872B65FAE900E4832E /* AnalyticsService.swift in Sources */,
 				7295DAD325294CB6005FA093 /* MediumWidget.swift in Sources */,
 				72EFF4AB25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
 				7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */,
@@ -1072,6 +1090,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hyperoslo/Cache";
@@ -1091,6 +1117,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		722E2E842B65F86B00E4832E /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
+		722E2E8B2B65FDFC00E4832E /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
+		722E2E8D2B65FE0400E4832E /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
 		724BD9292AB4063A008C1DB2 /* Cache */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */;

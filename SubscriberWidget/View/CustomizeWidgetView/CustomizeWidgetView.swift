@@ -113,6 +113,7 @@ struct CustomizeWidgetView: View {
             } catch SubWidgetError.serverError {
                 showNetworkError = true
             } catch {
+                AnalyticsService.shared.logChannelSearchFailed(name)
                 showingAlert = true
             }
             

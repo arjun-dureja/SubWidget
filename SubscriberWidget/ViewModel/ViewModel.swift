@@ -47,8 +47,10 @@ class ViewModel: ObservableObject {
         do {
             state = .loading
             channels = try await getChannelsWithUpdatedSubCounts()
+            AnalyticsService.shared.logChannelsLoaded(channels.count)
             state = .loaded
         } catch {
+            AnalyticsService.shared.logLoadChannelsFailed(error.localizedDescription)
             state = .error
         }
     }
@@ -69,6 +71,7 @@ class ViewModel: ObservableObject {
     }
     
     func addNewChannel() async throws {
+        AnalyticsService.shared.logAddNewChannelTapped()
         let channel = try await youtubeService.getChannelDetailsFromId(
             for: YouTubeChannel.preview.channelId
         )
@@ -86,6 +89,7 @@ class ViewModel: ObservableObject {
         if let index = channels.firstIndex(where: { $0.id == id }) {
             let channel = try await youtubeService.getChannelDetailsFromChannelName(for: name)
             channels[index] = channel
+            AnalyticsService.shared.logChannelSearched(name)
             return channels[index]
         }
         
@@ -93,6 +97,7 @@ class ViewModel: ObservableObject {
     }
     
     func deleteChannel(at index: Int) {
+        AnalyticsService.shared.logChannelDeleted()
         channels.remove(at: index)
     }
     
@@ -120,7 +125,6 @@ class ViewModel: ObservableObject {
     private func getChannelsWithUpdatedSubCounts() async throws -> [YouTubeChannel] {
         try await withThrowingTaskGroup(of: (Int, YouTubeChannel).self) { group in
             var decodedChannels = channelStorageService.getChannels()
-
             for (index, channel) in decodedChannels.enumerated() {
                 group.addTask {
                     let updatedChannel = try await self.youtubeService.getChannelDetailsFromId(for: channel.channelId)

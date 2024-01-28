@@ -52,7 +52,8 @@ struct SettingsView: View {
                         }
                     }
                     .tint(.youtubeRed)
-                    .onChange(of: simplifyNumbers) { _ in
+                    .onChange(of: simplifyNumbers) { newValue in
+                        AnalyticsService.shared.logSimplifyNumbersToggled(newValue)
                         WidgetCenter.shared.reloadAllTimelines()
                     }
                 }

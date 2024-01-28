@@ -103,6 +103,7 @@ struct WidgetListView: View {
                     try await viewModel.addNewChannel()
                     newWidget = true
                 } catch {
+                    AnalyticsService.shared.logNetworkError(error.localizedDescription)
                     showNetworkError = true
                 }
             }
