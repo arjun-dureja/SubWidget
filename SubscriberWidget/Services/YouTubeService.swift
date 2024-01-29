@@ -81,7 +81,7 @@ class YouTubeService: YouTubeServiceProtocol {
         }
 
         let jsonData = try JSONDecoder().decode(Response<T>.self, from: data)
-        guard let items = jsonData.items, items.count > 0 else {
+        guard let items = jsonData.items, !items.isEmpty else {
             throw SubWidgetError.channelNotfound
         }
 

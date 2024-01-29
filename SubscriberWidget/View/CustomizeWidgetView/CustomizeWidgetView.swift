@@ -101,7 +101,7 @@ struct CustomizeWidgetView: View {
     }
 
     func submitButtonTapped() {
-        guard name.count > 0 else { return }
+        guard !name.isEmpty else { return }
 
         Task {
             do {

@@ -42,7 +42,9 @@ struct WidgetListView: View {
                                         ),
                                         label: {
                                             ChannelListRow(channel: channel)
-                                                .redacted(reason: viewModel.state == .loading ? .placeholder : [])
+                                                .redacted(
+                                                    reason: viewModel.state == .loading ? .placeholder : []
+                                                )
                                         })
                                 }
                                 .onDelete(perform: deleteChannel)
@@ -53,7 +55,7 @@ struct WidgetListView: View {
                 }
             }
             .navigationBarTitle("SubWidget")
-            .if(viewModel.channels.count > 0) { view in
+            .if(!viewModel.channels.isEmpty) { view in
                 view.navigationBarItems(trailing: AddWidgetButton(action: addWidgetTapped))
             }
             .sheet(isPresented: $newWidget, content: {
@@ -67,10 +69,16 @@ struct WidgetListView: View {
             .sheet(isPresented: $showWhatsNew, content: {
                 WhatsNewView(isPresented: $showWhatsNew)
             })
-            .alert("You can only add 10 channels. Swipe left on a channel to delete it.", isPresented: $tooManyChannels) {
+            .alert(
+                "You can only add 10 channels. Swipe left on a channel to delete it.",
+                isPresented: $tooManyChannels
+            ) {
                 Button("OK", role: .cancel) { }
             }
-            .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
+            .alert(
+                "Network error. Please try again later.",
+                isPresented: $showNetworkError
+            ) {
                 Button("OK", role: .cancel) { }
             }
         }

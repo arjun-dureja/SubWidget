@@ -26,12 +26,18 @@ extension EmailHelper {
         if !MFMailComposeViewController.canSendMail() {
             let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
-            if let url = createEmailUrl(to: email, subject: subjectEncoded), UIApplication.shared.canOpenURL(url) {
+            if let url = createEmailUrl(to: email, subject: subjectEncoded),
+                UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
                 return
             }
 
-            let alert = UIAlertController(title: "Cannot open mail", message: "Please install a mail app to continue", preferredStyle: .alert)
+            let alert = UIAlertController(
+                title: "Cannot open mail",
+                message: "Please install a mail app to continue",
+                preferredStyle: .alert
+            )
+
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             viewController.present(alert, animated: true)
             return
@@ -45,11 +51,11 @@ extension EmailHelper {
         viewController.present(mailCompose, animated: true, completion: nil)
     }
 
-    private func createEmailUrl(to: String, subject: String) -> URL? {
-        let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subject)")
-        let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subject)")
-        let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subject)")
-        let defaultUrl = URL(string: "mailto:\(to)?subject=\(subject)")
+    private func createEmailUrl(to email: String, subject: String) -> URL? {
+        let gmailUrl = URL(string: "googlegmail://co?to=\(email)&subject=\(subject)")
+        let outlookUrl = URL(string: "ms-outlook://compose?to=\(email)&subject=\(subject)")
+        let yahooMail = URL(string: "ymail://mail/compose?to=\(email)&subject=\(subject)")
+        let defaultUrl = URL(string: "mailto:\(email)?subject=\(subject)")
 
         if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
             return gmailUrl
