@@ -14,10 +14,10 @@ struct CustomizeWidgetView: View {
     @ObservedObject var viewModel: ViewModel
     @State var channel: YouTubeChannel
     @State var isNewWidget: Bool
-    
+
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
-    
+
     @State private var name: String = ""
     @State private var showingAlert = false
     @State private var helpAlert = false
@@ -25,7 +25,7 @@ struct CustomizeWidgetView: View {
     @State private var colorChanged = false
     @State private var showNetworkError = false
     @State private var loadingChannel = false
-    
+
     var body: some View {
         GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
             VStack(spacing: 16) {
@@ -53,12 +53,12 @@ struct CustomizeWidgetView: View {
                     Spacer()
                         .frame(height: 8)
                 }
-                
+
                 WidgetPreview(
                     channel: $channel,
                     bgColor: $bgColor
                 )
-                
+
                 VStack {
                     WidgetColorPicker(
                         viewModel: viewModel,
@@ -72,7 +72,7 @@ struct CustomizeWidgetView: View {
                         colorChanged: $colorChanged
                     )
                 }
-                
+
                 Spacer()
             }
             .navigationBarTitle(self.channel.channelName, displayMode: .inline)
@@ -90,7 +90,7 @@ struct CustomizeWidgetView: View {
             Button("OK", role: .cancel) { }
         }
     }
-    
+
     func updateColorIfNeeded() {
         // Only reload timelines if the color was changed
         if colorChanged {
@@ -116,7 +116,7 @@ struct CustomizeWidgetView: View {
                 AnalyticsService.shared.logChannelSearchFailed(name)
                 showingAlert = true
             }
-            
+
             loadingChannel = false
         }
     }

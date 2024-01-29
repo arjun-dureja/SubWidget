@@ -19,8 +19,7 @@ struct NetworkImage: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-        }
-        else {
+        } else {
             ProgressView()
                 .scaleEffect(1.5, anchor: .center)
         }

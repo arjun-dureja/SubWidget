@@ -12,7 +12,7 @@ struct ResetButton: View {
     @ObservedObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
     @Binding var colorChanged: Bool
-    
+
     var body: some View {
         Button(action: resetTapped, label: {
             Text("Reset")
@@ -21,7 +21,7 @@ struct ResetButton: View {
         })
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
     }
-    
+
     func resetTapped() {
         viewModel.updateColorForChannel(id: channel.id, color: nil)
         channel.bgColor = nil

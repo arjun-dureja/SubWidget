@@ -18,14 +18,14 @@ extension EmailHelper {
     func send(subject: String, to email: String) {
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
-        
+
         guard let viewController = windowScene?.windows.first?.rootViewController else {
             return
         }
-        
+
         if !MFMailComposeViewController.canSendMail() {
             let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            
+
             if let url = createEmailUrl(to: email, subject: subjectEncoded), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
                 return
@@ -36,21 +36,21 @@ extension EmailHelper {
             viewController.present(alert, animated: true)
             return
         }
-        
+
         let mailCompose = MFMailComposeViewController()
         mailCompose.setSubject(subject)
         mailCompose.setToRecipients([email])
         mailCompose.mailComposeDelegate = self
-        
+
         viewController.present(mailCompose, animated: true, completion: nil)
     }
-    
+
     private func createEmailUrl(to: String, subject: String) -> URL? {
         let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subject)")
         let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subject)")
         let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subject)")
         let defaultUrl = URL(string: "mailto:\(to)?subject=\(subject)")
-        
+
         if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
             return gmailUrl
         } else if let outlookUrl = outlookUrl, UIApplication.shared.canOpenURL(outlookUrl) {
@@ -58,10 +58,10 @@ extension EmailHelper {
         } else if let yahooMail = yahooMail, UIApplication.shared.canOpenURL(yahooMail) {
             return yahooMail
         }
-        
+
         return defaultUrl
     }
-    
+
 }
 
 extension EmailHelper: MFMailComposeViewControllerDelegate {

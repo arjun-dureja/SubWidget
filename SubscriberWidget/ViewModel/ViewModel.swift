@@ -18,21 +18,21 @@ enum LoadingState {
 class ViewModel: ObservableObject {
     let youtubeService: YouTubeServiceProtocol
     let channelStorageService: ChannelStorageServiceProtocol
-    
+
     @Published var channels: [YouTubeChannel] = [] {
         didSet {
             channelStorageService.saveChannels(channels)
         }
     }
-    
+
     @Published var refreshFrequency: RefreshFrequencies = .ONE_HR {
         didSet {
             channelStorageService.saveRefreshFrequency(refreshFrequency)
         }
     }
-    
+
     @Published private(set) var state: LoadingState = .loading
-    
+
     init(
         youtubeService: YouTubeServiceProtocol = YouTubeService(),
         channelStorageService: ChannelStorageServiceProtocol = ChannelStorageService()
@@ -40,10 +40,10 @@ class ViewModel: ObservableObject {
         self.youtubeService = youtubeService
         self.channelStorageService = channelStorageService
     }
-    
+
     func loadChannels() async {
         guard state != .loaded else { return }
-        
+
         do {
             state = .loading
             channels = try await getChannelsWithUpdatedSubCounts()
@@ -54,10 +54,10 @@ class ViewModel: ObservableObject {
             state = .error
         }
     }
-    
+
     func retryLoadChannels() {
         state = .loading
-        
+
         // Wait one second to avoid spamming retries
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             Task {
@@ -65,26 +65,26 @@ class ViewModel: ObservableObject {
             }
         }
     }
-    
+
     func loadRefreshFrequency() {
         refreshFrequency = channelStorageService.getRefreshFrequency()
     }
-    
+
     func addNewChannel() async throws {
         AnalyticsService.shared.logAddNewChannelTapped()
         let channel = try await youtubeService.getChannelDetailsFromId(
             for: YouTubeChannel.preview.channelId
         )
-        
+
         channels.append(channel)
     }
-    
+
     func updateColorForChannel(id: String, color: UIColor?) {
         if let index = channels.firstIndex(where: { $0.id == id }) {
             channels[index].bgColor = color
         }
     }
-    
+
     func updateChannel(id: String, name: String) async throws -> YouTubeChannel {
         if let index = channels.firstIndex(where: { $0.id == id }) {
             let channel = try await youtubeService.getChannelDetailsFromChannelName(for: name)
@@ -92,26 +92,26 @@ class ViewModel: ObservableObject {
             AnalyticsService.shared.logChannelSearched(name)
             return channels[index]
         }
-        
+
         throw SubWidgetError.channelNotfound
     }
-    
+
     func deleteChannel(at index: Int) {
         AnalyticsService.shared.logChannelDeleted()
         channels.remove(at: index)
     }
-    
+
     func getFaq() async throws -> [FAQItem] {
         guard let faqUrl = URL(string: "https://arjundureja.com/subwidget/faq.json") else { throw SubWidgetError.invalidURL }
         let (data, _) = try await URLSession.shared.data(from: faqUrl)
         let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
         return jsonData
     }
-    
+
     func shouldShowWhatsNew() -> Bool {
         // Version 2.1.1 - No whats new view
         return false
-        
+
         // Lockscreen widgets are only available on iPhone
         //        if UIDevice.current.userInterfaceIdiom == .phone {
         //            if storedVersion != appVersion {
@@ -121,7 +121,7 @@ class ViewModel: ObservableObject {
         //        }
         //        return false
     }
-    
+
     private func getChannelsWithUpdatedSubCounts() async throws -> [YouTubeChannel] {
         try await withThrowingTaskGroup(of: (Int, YouTubeChannel).self) { group in
             var decodedChannels = channelStorageService.getChannels()
@@ -131,11 +131,11 @@ class ViewModel: ObservableObject {
                     return (index, updatedChannel)
                 }
             }
-            
+
             for try await (index, updatedChannel) in group {
                 decodedChannels[index].subCount = updatedChannel.subCount
             }
-            
+
             return decodedChannels
         }
     }

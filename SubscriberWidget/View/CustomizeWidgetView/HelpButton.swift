@@ -11,9 +11,9 @@ import SwiftUI
 struct HelpButton: View {
     @Binding var helpAlert: Bool
     @Environment(\.openURL) var openURL
-    
+
     @State private var showSafari = false
-    
+
     var body: some View {
         Button(action: {
             self.helpAlert = true

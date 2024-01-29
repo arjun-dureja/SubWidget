@@ -10,10 +10,10 @@ import SwiftUI
 
 struct WidgetPreview: View {
     @Environment(\.colorScheme) var colorScheme
-    
+
     @Binding var channel: YouTubeChannel
     @Binding var bgColor: CGColor?
-    
+
     var body: some View {
         VStack(spacing: 12) {
             ZStack {
@@ -22,7 +22,7 @@ struct WidgetPreview: View {
                     .frame(height: 35, alignment: .center)
                     .foregroundColor(colorScheme == .light ? Color(UIColor.systemGray6) : .black)
                     .cornerRadius(14, corners: [.topLeft, .topRight])
-                
+
                 Text("Preview")
                     .foregroundColor(Color(UIColor.label))
                     .font(.subheadline)
@@ -30,8 +30,7 @@ struct WidgetPreview: View {
             }
             .padding(.horizontal, 7)
             .padding(.top, 7)
-            
-            
+
             TabView {
                 SmallWidget(entry: channel)
                     .widgetBackground(bgColor: channel.bgColor, size: .small)

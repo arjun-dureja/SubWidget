@@ -54,7 +54,6 @@ struct WhatsNewView_Previews: PreviewProvider {
     }
 }
 
-
 struct GifImage: UIViewRepresentable {
     private let name: String
 

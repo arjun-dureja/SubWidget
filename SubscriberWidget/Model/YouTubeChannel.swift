@@ -10,28 +10,28 @@ import Foundation
 import UIKit
 
 struct YouTubeChannel: Identifiable, Codable, Hashable {
-    
+
     private enum CodingKeys: String, CodingKey { case channelName, profileImage, subCount, channelId, bgColor, id }
-    
+
     var channelName: String
     var profileImage: String
     var subCount: String
     var channelId: String
     var bgColor: UIColor?
     var id = UUID().uuidString
-    
+
     var deeplinkUrl: URL? {
         return URL(string: "subwidget://\(channelId)")
     }
-    
-    init(channelName: String, profileImage: String, subCount : String, channelId: String, bgColor: UIColor? = nil) {
+
+    init(channelName: String, profileImage: String, subCount: String, channelId: String, bgColor: UIColor? = nil) {
         self.channelName = channelName
         self.profileImage = profileImage
         self.subCount = subCount
         self.channelId = channelId
         self.bgColor = bgColor
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         channelName = try container.decode(String.self, forKey: .channelName)
@@ -41,7 +41,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         bgColor = try? container.decode(BGColor.self, forKey: .bgColor).uiColor
         id = try container.decode(String.self, forKey: .id)
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(channelName, forKey: .channelName)
@@ -51,7 +51,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         try container.encode(bgColor != nil ? BGColor(uiColor: bgColor) : nil, forKey: .bgColor)
         try container.encode(id, forKey: .id)
     }
-    
+
     static var preview: YouTubeChannel {
         YouTubeChannel(
             channelName: "PewDiePie",
@@ -62,14 +62,14 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
     }
 }
 
-struct BGColor : Codable {
-    var red : CGFloat = 0.0, green: CGFloat = 0.0, blue: CGFloat = 0.0, alpha: CGFloat = 0.0
-    
-    var uiColor : UIColor {
+struct BGColor: Codable {
+    var red: CGFloat = 0.0, green: CGFloat = 0.0, blue: CGFloat = 0.0, alpha: CGFloat = 0.0
+
+    var uiColor: UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 
-    init(uiColor : UIColor?) {
+    init(uiColor: UIColor?) {
         uiColor!.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
     }
 }

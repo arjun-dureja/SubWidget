@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomizeWidgetHeader: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.presentationMode) var presentationMode
-    
+
     var body: some View {
         HStack {
             Button("Cancel") {
@@ -19,7 +19,7 @@ struct CustomizeWidgetHeader: View {
                 presentationMode.wrappedValue.dismiss()
             }
             .foregroundColor(.youtubeRed)
-            
+
             Spacer()
 
             Button("Done") {
@@ -30,4 +30,3 @@ struct CustomizeWidgetHeader: View {
         .padding()
     }
 }
-

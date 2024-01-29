@@ -11,7 +11,7 @@ import WishKit
 
 struct MainView: View {
     @StateObject var viewModel: ViewModel = ViewModel()
-    
+
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
         WishKit.config.statusBadge = .hide
@@ -31,13 +31,13 @@ struct MainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-            
+
             WishKit.view.withNavigation()
                 .tag(1)
                 .tabItem {
                     Label("Wishlist", systemImage: "lightbulb.fill")
                 }
-            
+
             SettingsView(viewModel: viewModel)
                 .tag(2)
                 .tabItem {

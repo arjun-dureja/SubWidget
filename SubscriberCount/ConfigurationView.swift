@@ -12,9 +12,9 @@ import WidgetKit
 struct ConfigurationView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
-    
+
     var baselineOffset: CGFloat
-    
+
     var editInstructions: String {
         #if targetEnvironment(macCatalyst)
         return "Right click and select \"Edit SubWidget\""
@@ -36,7 +36,7 @@ struct ConfigurationView: View {
                 YouTubeLogo()
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 16, trailing: 0))
             }
-            
+
             HStack {
                 Text(Image(systemName: "1.circle.fill"))
                     .foregroundColor(.youtubeRed)
@@ -56,7 +56,7 @@ struct ConfigurationView: View {
                     .fontWeight(.medium)
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
             }
-            
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(showsWidgetContainerBackground ? 0 : 6)

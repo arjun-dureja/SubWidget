@@ -10,17 +10,17 @@ import SwiftUI
 
 struct FormattedSubCount: View {
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
-    
+
     var count: String
-    
+
     var formatted: String {
         if simplifyNumbers {
             return count.simplified()
         }
-        
+
         return count.formattedWithSeparator()
     }
-    
+
     var body: some View {
         Text(formatted)
             .fontWeight(.bold)

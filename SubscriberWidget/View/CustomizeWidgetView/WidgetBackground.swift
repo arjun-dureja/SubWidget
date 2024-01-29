@@ -22,7 +22,7 @@ enum WidgetSize {
 
 struct WidgetBackgroundModifier: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
-    
+
     var bgColor: UIColor?
     var size: WidgetSize
 
@@ -32,7 +32,7 @@ struct WidgetBackgroundModifier: ViewModifier {
                 .frame(width: size.width, height: 155)
                 .foregroundColor(Color((bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
                 .shadow(color: colorScheme == .dark ? .white.opacity(0.20) : .black.opacity(0.33), radius: 8)
-            
+
             content
                 .padding()
                 .frame(width: size.width, height: 155)

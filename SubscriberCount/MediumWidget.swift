@@ -9,13 +9,12 @@
 import SwiftUI
 import WidgetKit
 
-
 struct MediumWidget: View {
     var entry: YouTubeChannel?
     @Environment(\.colorScheme) var colorScheme
-    
+
     let lastUpdatedTime: String = .currentTime
-    
+
     var body: some View {
         ZStack {
             if let entry = entry {
@@ -53,13 +52,13 @@ struct MediumWidget: View {
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                     }
                     .minimumScaleFactor(0.3)
-                    
+
                     Spacer()
-                    
+
                     VStack(alignment: .trailing) {
                         YouTubeLogo()
                             .frame(maxHeight: .infinity, alignment: .top)
-                        
+
                         Text(lastUpdatedTime)
                             .font(.system(size: 11))
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)

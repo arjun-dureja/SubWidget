@@ -12,7 +12,7 @@ extension Color {
     // Custom colors
     static let youtubeRed = Color(.sRGB, red: 212/255, green: 35/255, blue: 34/255, opacity: 1)
     static let titleGray = Color(.sRGB, red: 96/255, green: 96/255, blue: 96/255, opacity: 1)
-    
+
     static let darkModeTitleGray = Color(.sRGB, red: 229/255, green: 229/255, blue: 229/255, opacity: 1)
     static let darkModeTitleGray2 = Color(.sRGB, red: 200/255, green: 200/255, blue: 200/255, opacity: 1)
     static let darkModeBG = Color(.sRGB, red: 41/255, green: 20/255, blue: 20/255, opacity: 1)
@@ -74,7 +74,7 @@ extension YouTubeChannelParam {
     convenience init(channel: YouTubeChannel) {
         self.init(identifier: channel.id, display: channel.channelName)
     }
-    
+
     static var global: YouTubeChannelParam {
         YouTubeChannelParam(channel: .init(channelName: "", profileImage: "", subCount: "0", channelId: ""))
     }
@@ -97,7 +97,7 @@ extension String {
         formatter.timeStyle = .short
         return formatter.string(from: .now)
     }
-    
+
     func formattedWithSeparator() -> String {
         guard let number = Int(self) else {
             return self
@@ -105,14 +105,14 @@ extension String {
 
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        
+
         guard let formattedNumber = numberFormatter.string(from: NSNumber(value: number)) else {
             return self
         }
 
         return formattedNumber
     }
-    
+
     func simplified() -> String {
         guard let asDouble = Double(self) else {
             return self

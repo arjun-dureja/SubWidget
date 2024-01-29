@@ -11,7 +11,7 @@ import WidgetKit
 
 struct LockscreenWidget: View {
     var entry: YouTubeChannel?
-    
+
     var body: some View {
         if let entry = entry {
             HStack {

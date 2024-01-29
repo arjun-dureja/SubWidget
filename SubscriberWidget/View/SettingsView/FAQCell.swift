@@ -19,7 +19,7 @@ struct FAQCell: View {
             HStack {
                 Text(question)
                     .foregroundColor(tapped ? .youtubeRed : .primary)
-                
+
                 Spacer()
 
                 Image(systemName: "chevron.right")
@@ -43,10 +43,10 @@ struct FAQCell: View {
         }
         .background(colorScheme == . dark ? Color(UIColor.systemGray6) : .white).edgesIgnoringSafeArea(.all)
         .onTapGesture {
-            if (!tapped) {
+            if !tapped {
                 AnalyticsService.shared.logFaqCellTapped(question)
             }
-            
+
             withAnimation {
                 tapped.toggle()
             }

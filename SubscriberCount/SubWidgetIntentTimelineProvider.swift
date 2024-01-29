@@ -17,10 +17,10 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
-    
+
     typealias Entry = SimpleEntry
     typealias Intent = SelectChannelIntent
-    
+
     func placeholder(in context: Context) -> SimpleEntry {
         // Arbitrary channel for placeholder - will show as redacted
         return SimpleEntry(
@@ -29,11 +29,11 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             channel: .preview
         )
     }
-    
+
     func getSnapshot(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         Task {
             let channelStorageService = ChannelStorageService()
-            
+
             // Determine if caller is from add widget screen or home screen
             if configuration.channel == nil {
                 // Show first channel in add widget screen if exists
@@ -44,7 +44,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                         configuration: ConfigurationIntent(),
                         channel: channels[0]
                     )
-                    
+
                     completion(entry)
                 }
             } else {
@@ -52,12 +52,12 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                     for: configuration.channel ?? YouTubeChannelParam.global,
                     channelStorageService: channelStorageService
                 )
-                
+
                 completion(result)
             }
         }
     }
-    
+
     func getTimeline(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
         // Determine if user has already selected a channel or not
         if configuration.channel == nil {
@@ -65,7 +65,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 entries: [SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)],
                 policy: .never
             )
-            
+
             completion(timeline)
         } else {
             Task {
@@ -75,22 +75,22 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                     for: configuration.channel ?? YouTubeChannelParam.global,
                     channelStorageService: channelStorageService
                 )
-                
+
                 let timeline = Timeline(
                     entries: [result],
                     policy: .after(.now.advanced(by: refreshFrequency * 60))
                 )
-                
+
                 completion(timeline)
             }
         }
     }
-    
+
     private func fetchChannel(for param: YouTubeChannelParam, channelStorageService: ChannelStorageService) async throws -> SimpleEntry {
         guard let id = param.identifier else {
             throw SubWidgetError.invalidIdentifer
         }
-        
+
         let channels = channelStorageService.getChannels()
         if let channel = channels.first(where: { $0.id == id }) {
             let youtubeService = YouTubeService()
@@ -98,15 +98,15 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             updatedChannel.bgColor = channel.bgColor
             return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: updatedChannel)
         }
-        
+
         return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)
     }
 }
 
-struct SubscriberCountEntryView : View {
+struct SubscriberCountEntryView: View {
     var entry: SubWidgetIntentTimelineProvider.Entry
     @Environment(\.widgetFamily) private var widgetFamily
-    
+
     var body: some View {
         switch widgetFamily {
         case .systemSmall:
@@ -122,7 +122,7 @@ struct SubscriberCountEntryView : View {
 @main
 struct SubscriberCount: Widget {
     let kind: String = "SubscriberCount"
-    
+
     var body: some WidgetConfiguration {
         return IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
             SubscriberCountEntryView(entry: entry)

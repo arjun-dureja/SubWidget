@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NetworkError: View {
     var retryHandler: () -> Void
-    
+
     var body: some View {
         VStack {
             Text("Network error. Please try again.")

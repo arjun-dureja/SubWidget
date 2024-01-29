@@ -13,13 +13,13 @@ struct WidgetColorPicker: View {
     @ObservedObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
     @Binding var colorChanged: Bool
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .frame(width: 215, height: 50, alignment: .leading)
                 .foregroundColor(colorScheme == .light ? .white : Color(UIColor.systemGray6))
-            
+
             ColorPicker("Background Color", selection: Binding(get: {
                 channel.bgColor?.cgColor ?? (colorScheme == .dark ? UIColor.black.cgColor : UIColor.white.cgColor)
             }, set: { newValue in
@@ -32,7 +32,7 @@ struct WidgetColorPicker: View {
         }
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
     }
-    
+
     func updateBackgroundColor(with color: CGColor) {
         viewModel.updateColorForChannel(id: channel.id, color: UIColor(cgColor: color))
         channel.bgColor = UIColor(cgColor: color)

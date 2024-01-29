@@ -10,7 +10,7 @@ import SwiftUI
 
 struct WhatsNewListItem: View {
     @Environment(\.colorScheme) var colorScheme
-    
+
     var iconName: String
     var heading: String
     var description: String

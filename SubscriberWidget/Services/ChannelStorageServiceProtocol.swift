@@ -10,8 +10,8 @@ protocol ChannelStorageServiceProtocol {
     func getChannels() -> [YouTubeChannel]
 
     func saveChannels(_ channels: [YouTubeChannel])
-        
+
     func getRefreshFrequency() -> RefreshFrequencies
-    
+
     func saveRefreshFrequency(_ frequency: RefreshFrequencies)
 }

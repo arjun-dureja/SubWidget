@@ -11,14 +11,14 @@ import SwiftUI
 struct ChannelListRow: View {
     @Environment(\.colorScheme) var colorScheme
     @State var channel: YouTubeChannel
-    
+
     var body: some View {
         HStack(spacing: 15) {
             AsyncImageView(url: URL(string: channel.profileImage))
                 .frame(width: 70, height: 70)
                 .clipShape(Circle())
                 .shadow(radius: 2)
-            
+
             VStack(alignment: .leading, spacing: 2) {
                 Text(channel.channelName)
                     .fontWeight(.bold)

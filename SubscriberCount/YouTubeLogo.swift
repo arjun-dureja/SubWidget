@@ -10,7 +10,7 @@ import SwiftUI
 
 struct YouTubeLogo: View {
     let youtubeLogo = UIImage(named: "youtube-logo")!
-    
+
     var body: some View {
         Image(uiImage: (youtubeLogo.resized(toWidth: 800)!))
             .resizable()

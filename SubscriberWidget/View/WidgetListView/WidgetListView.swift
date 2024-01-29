@@ -11,13 +11,13 @@ import WishKit
 
 struct WidgetListView: View {
     @ObservedObject var viewModel: ViewModel
-    
+
     @State private var newWidget = false
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
     @State private var showUpdateAlert = false
     @State private var showNetworkError = false
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -32,8 +32,7 @@ struct WidgetListView: View {
                         EmptyState(addWidgetTapped: addWidgetTapped)
                     } else {
                         List {
-                            Section(header: Text("Channels"))
-                            {
+                            Section(header: Text("Channels")) {
                                 ForEach(viewModel.channels, id: \.id) { channel in
                                     NavigationLink(
                                         destination: CustomizeWidgetView(
@@ -78,22 +77,22 @@ struct WidgetListView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .task {
             await viewModel.loadChannels()
-            
+
             if viewModel.shouldShowWhatsNew() {
                 showWhatsNew = true
             }
-            
-            if let name = viewModel.channels.first?.channelName, 
+
+            if let name = viewModel.channels.first?.channelName,
                 name != YouTubeChannel.preview.channelName {
                 WishKit.updateUser(name: name)
             }
         }
     }
-    
+
     func tryAgainTapped() {
         viewModel.retryLoadChannels()
     }
-    
+
     func addWidgetTapped() {
         if viewModel.channels.count >= 10 {
             tooManyChannels = true
@@ -109,7 +108,7 @@ struct WidgetListView: View {
             }
         }
     }
-    
+
     func deleteChannel(at offsets: IndexSet) {
         if let index = offsets.first {
             viewModel.deleteChannel(at: index)
@@ -122,4 +121,3 @@ struct WidgetListView_Previews: PreviewProvider {
         WidgetListView(viewModel: ViewModel())
     }
 }
-

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddWidgetButton: View {
     var action: () -> Void
-    
+
     var body: some View {
         Button(
             action: action,

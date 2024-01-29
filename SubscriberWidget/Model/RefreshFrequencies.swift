@@ -13,7 +13,7 @@ enum RefreshFrequencies: Double, CaseIterable, Codable {
     case ONE_HR = 60
     case SIX_HR = 180
     case TWELVE_HR = 720
-    
+
     func toString() -> String {
         switch self {
         case .THIRTY_MIN:

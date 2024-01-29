@@ -14,20 +14,20 @@ struct SmallWidget: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
-    
+
     var isVibrant: Bool {
         return widgetRenderingMode == .vibrant
     }
-    
+
     let lastUpdatedTime: String = .currentTime
-    
+
     var body: some View {
         ZStack {
             if let entry = entry {
                 if #unavailable(iOS 17), let bgColor = entry.bgColor {
                     Color(bgColor)
                 }
-                
+
                 VStack(alignment: .leading) {
                     HStack {
                         if Utils.isInWidget() {
@@ -41,20 +41,20 @@ struct SmallWidget: View {
                                 .clipShape(Circle())
                                 .shadow(radius: 2)
                         }
-                        
+
                         Spacer()
-                        
+
                         VStack(alignment: .trailing, spacing: 6) {
                             YouTubeLogo()
                             Text(lastUpdatedTime)
                                 .font(.system(size: 10))
                                 .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                         }
-                        .frame(maxHeight: .infinity, alignment: .top)                            
+                        .frame(maxHeight: .infinity, alignment: .top)
                     }
-                    
+
                     Spacer()
-                    
+
                     VStack(alignment: .leading) {
                         Text(entry.channelName)
                             .fontWeight(.bold)
@@ -112,7 +112,7 @@ extension Backport where Content: View {
             content
         }
     }
-    
+
     @ViewBuilder func padding() -> some View {
         if #available(iOS 17, *) {
             content.padding()

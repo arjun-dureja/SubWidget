@@ -14,13 +14,13 @@ struct ChannelTextField: View {
     @Environment(\.colorScheme) var colorScheme
 
     var submitButtonTapped: () -> Void
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 200, height: 42, alignment: .center)
                 .foregroundColor(colorScheme == .light ? .white : Color(UIColor.systemGray6))
-            
+
             HStack {
                 if name.isEmpty {
                     Text("Channel Name or ID")
