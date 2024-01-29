@@ -15,7 +15,9 @@ analyzer_rules: # rules run by `swiftlint analyze`
   - explicit_self
 
 included: # case-sensitive paths to include during linting. `--path` is ignored if present
-  - Sources
+  - SubscriberWidget
+  - SubscriberCount
+  - SubWidgetIntents
 excluded: # case-sensitive paths to ignore during linting. Takes precedence over `included`
   - Carthage
   - Pods
