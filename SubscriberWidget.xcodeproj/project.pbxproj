@@ -537,8 +537,9 @@
 		7292FFFA251D1F3D0050194B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = "Arjun Dureja";
 				TargetAttributes = {
 					725FE1EB251D3983004B2907 = {
@@ -608,6 +609,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		72C006492B6727950084B47B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -799,7 +801,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -808,7 +810,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.4;
+				MARKETING_VERSION = 9.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -826,7 +828,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -835,7 +837,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.4;
+				MARKETING_VERSION = 9.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -850,7 +852,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SubWidgetIntents/SubWidgetIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -859,7 +861,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.4;
+				MARKETING_VERSION = 9.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubWidgetIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -874,7 +876,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SubWidgetIntents/SubWidgetIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -883,7 +885,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 8.4;
+				MARKETING_VERSION = 9.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubWidgetIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

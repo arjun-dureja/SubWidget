@@ -56,7 +56,7 @@ struct LockscreenWidget: View {
 
 struct LockscreenWidget_Previews: PreviewProvider {
     static var previews: some View {
-        LockscreenWidget(entry: YouTubeChannel(channelName: "Test Channel", profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj", subCount: "10000", channelId: ""))
+        LockscreenWidget(entry: .preview)
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }
