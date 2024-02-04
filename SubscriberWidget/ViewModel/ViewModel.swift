@@ -72,10 +72,12 @@ class ViewModel: ObservableObject {
 
     func addNewChannel() async throws {
         AnalyticsService.shared.logAddNewChannelTapped()
-        let channel = try await youtubeService.getChannelDetailsFromId(
+        var channel = try await youtubeService.getChannelDetailsFromId(
             for: YouTubeChannel.preview.channelId
         )
 
+        // Generate a new ID in case an existing channel was returned
+        channel.id = UUID().uuidString
         channels.append(channel)
     }
 
@@ -87,7 +89,9 @@ class ViewModel: ObservableObject {
 
     func updateChannel(id: String, name: String) async throws -> YouTubeChannel {
         if let index = channels.firstIndex(where: { $0.id == id }) {
-            let channel = try await youtubeService.getChannelDetailsFromChannelName(for: name)
+            var channel = try await youtubeService.getChannelDetailsFromChannelName(for: name)
+            // Generate a new ID in case an existing channel was returned
+            channel.id = UUID().uuidString
             channels[index] = channel
             AnalyticsService.shared.logChannelSearched(name)
             return channels[index]
