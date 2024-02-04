@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct CustomizeWidgetHeader: View {
     @ObservedObject var viewModel: ViewModel
@@ -24,6 +25,7 @@ struct CustomizeWidgetHeader: View {
 
             Button("Done") {
                 presentationMode.wrappedValue.dismiss()
+                SKStoreReviewController.requestReviewInCurrentScene()
             }
             .foregroundColor(.youtubeRed)
         }
