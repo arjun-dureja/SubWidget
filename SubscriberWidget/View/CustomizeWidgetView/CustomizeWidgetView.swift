@@ -89,6 +89,9 @@ struct CustomizeWidgetView: View {
         .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
             Button("OK", role: .cancel) { }
         }
+        .onAppear {
+            AnalyticsService.shared.logCustomizeWidgetScreenOpened(channel.channelName)
+        }
     }
 
     func updateColorIfNeeded() {

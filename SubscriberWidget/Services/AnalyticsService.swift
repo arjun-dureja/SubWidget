@@ -18,12 +18,18 @@ class AnalyticsService {
         Mixpanel.mainInstance().track(event: eventName, properties: properties)
     }
 
+    func logAppOpened() {
+        logEvent("app.opened")
+    }
+
     func logAddNewChannelTapped() {
         logEvent("add_new_channel.tapped")
     }
 
-    func logChannelDeleted() {
-        logEvent("channel.deleted")
+    func logChannelDeleted(_ channelName: String) {
+        logEvent("channel.deleted", properties: [
+            "channelName": channelName
+        ])
     }
 
     func logChannelsLoaded(_ numChannels: Int) {
@@ -84,5 +90,15 @@ class AnalyticsService {
 
     func logReviewRequested() {
         logEvent("review.requested")
+    }
+
+    func logChannelDeepLinkOpened() {
+        logEvent("channel_deeplink.opened")
+    }
+
+    func logCustomizeWidgetScreenOpened(_ channelName: String) {
+        logEvent("customize_widget_screen.opened", properties: [
+            "channelName": channelName
+        ])
     }
 }

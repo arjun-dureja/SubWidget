@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         // Override point for customization after application launch.
         Mixpanel.initialize(token: Constants.mixpanelToken, trackAutomaticEvents: true)
+        AnalyticsService.shared.logAppOpened()
 
         let navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.barTintColor = .systemGray6

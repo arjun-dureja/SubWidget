@@ -97,8 +97,8 @@ class ViewModel: ObservableObject {
     }
 
     func deleteChannel(at index: Int) {
-        AnalyticsService.shared.logChannelDeleted()
-        channels.remove(at: index)
+        let deletedChannel = channels.remove(at: index)
+        AnalyticsService.shared.logChannelDeleted(deletedChannel.channelName)
     }
 
     func getFaq() async throws -> [FAQItem] {
