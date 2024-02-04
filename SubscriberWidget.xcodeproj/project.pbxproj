@@ -35,8 +35,8 @@
 		722E2E7C2B5E2DE200E4832E /* ChannelStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E792B5E2D2800E4832E /* ChannelStorageService.swift */; };
 		722E2E7D2B5E2E1000E4832E /* ChannelStorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E772B5E2C5600E4832E /* ChannelStorageServiceProtocol.swift */; };
 		722E2E7E2B5E2E1000E4832E /* ChannelStorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E772B5E2C5600E4832E /* ChannelStorageServiceProtocol.swift */; };
-		722E2E802B64D0F500E4832E /* FormattedSubCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E7F2B64D0F400E4832E /* FormattedSubCount.swift */; };
-		722E2E812B64D0F500E4832E /* FormattedSubCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E7F2B64D0F400E4832E /* FormattedSubCount.swift */; };
+		722E2E802B64D0F500E4832E /* FormattedCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E7F2B64D0F400E4832E /* FormattedCount.swift */; };
+		722E2E812B64D0F500E4832E /* FormattedCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E7F2B64D0F400E4832E /* FormattedCount.swift */; };
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E872B65FAE900E4832E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E862B65FAE900E4832E /* AnalyticsService.swift */; };
 		722E2E892B65FDF200E4832E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E2E862B65FAE900E4832E /* AnalyticsService.swift */; };
@@ -71,6 +71,8 @@
 		725FE209251D44B1004B2907 /* Subscribers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE208251D44B1004B2907 /* Subscribers.swift */; };
 		725FE20D251D4607004B2907 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE20C251D4607004B2907 /* Response.swift */; };
 		725FE213251D4905004B2907 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE212251D4905004B2907 /* Channel.swift */; };
+		7274F54C2B7050CB000154EA /* FormattedCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274F54B2B7050CB000154EA /* FormattedCaption.swift */; };
+		7274F54D2B7050CB000154EA /* FormattedCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274F54B2B7050CB000154EA /* FormattedCaption.swift */; };
 		7277197B2555E05000358EEB /* ChannelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7277197A2555E05000358EEB /* ChannelID.swift */; };
 		7277197E2555E07A00358EEB /* ChannelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7277197A2555E05000358EEB /* ChannelID.swift */; };
 		728683C225DA44AE00568034 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728683C125DA44AE00568034 /* Intents.framework */; };
@@ -178,7 +180,7 @@
 		722E2E732B5E280C00E4832E /* YouTubeServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeServiceProtocol.swift; sourceTree = "<group>"; };
 		722E2E772B5E2C5600E4832E /* ChannelStorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStorageServiceProtocol.swift; sourceTree = "<group>"; };
 		722E2E792B5E2D2800E4832E /* ChannelStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStorageService.swift; sourceTree = "<group>"; };
-		722E2E7F2B64D0F400E4832E /* FormattedSubCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedSubCount.swift; sourceTree = "<group>"; };
+		722E2E7F2B64D0F400E4832E /* FormattedCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedCount.swift; sourceTree = "<group>"; };
 		722E2E862B65FAE900E4832E /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		72345922286025B8000C7DA5 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		723459262868D8A4000C7DA5 /* RefreshFrequencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFrequencies.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		725FE208251D44B1004B2907 /* Subscribers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribers.swift; sourceTree = "<group>"; };
 		725FE20C251D4607004B2907 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		725FE212251D4905004B2907 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		7274F54B2B7050CB000154EA /* FormattedCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedCaption.swift; sourceTree = "<group>"; };
 		7277197A2555E05000358EEB /* ChannelID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelID.swift; sourceTree = "<group>"; };
 		728683C025DA44AE00568034 /* SubWidgetIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubWidgetIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		728683C125DA44AE00568034 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
@@ -289,7 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				72EDBB5428EA3B480054ECD0 /* YouTubeLogo.swift */,
-				722E2E7F2B64D0F400E4832E /* FormattedSubCount.swift */,
+				722E2E7F2B64D0F400E4832E /* FormattedCount.swift */,
+				7274F54B2B7050CB000154EA /* FormattedCaption.swift */,
 				7295DACD25294C50005FA093 /* SmallWidget.swift */,
 				7295DAD225294CB6005FA093 /* MediumWidget.swift */,
 				72E319192841DA2900F1C1AE /* ConfigurationView.swift */,
@@ -655,6 +659,7 @@
 				725F3BDE2B6F120B00E0B44A /* ViewCountWidget.swift in Sources */,
 				72EFF49B252015D1007E1FA6 /* Channel.swift in Sources */,
 				7295DACF25294C50005FA093 /* SmallWidget.swift in Sources */,
+				7274F54D2B7050CB000154EA /* FormattedCaption.swift in Sources */,
 				72D12C8228DC0F8C002617E4 /* AsyncImageView.swift in Sources */,
 				72EFF4A1252016FF007E1FA6 /* ViewModel.swift in Sources */,
 				723459282868DB35000C7DA5 /* RefreshFrequencies.swift in Sources */,
@@ -672,7 +677,7 @@
 				722E2E7D2B5E2E1000E4832E /* ChannelStorageServiceProtocol.swift in Sources */,
 				72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */,
 				7207541D25D73CD7003411CE /* Extensions.swift in Sources */,
-				722E2E812B64D0F500E4832E /* FormattedSubCount.swift in Sources */,
+				722E2E812B64D0F500E4832E /* FormattedCount.swift in Sources */,
 				7277197E2555E07A00358EEB /* ChannelID.swift in Sources */,
 				72D12C8528DC1057002617E4 /* Utils.swift in Sources */,
 				725F3BE12B6F124000E0B44A /* WidgetBundle.swift in Sources */,
@@ -718,7 +723,7 @@
 				72E3191D2844683F00F1C1AE /* FAQCell.swift in Sources */,
 				728E247C25D7978600D4BB6E /* ChannelListRow.swift in Sources */,
 				7234592B2869581B000C7DA5 /* RefreshFrequency.swift in Sources */,
-				722E2E802B64D0F500E4832E /* FormattedSubCount.swift in Sources */,
+				722E2E802B64D0F500E4832E /* FormattedCount.swift in Sources */,
 				72DB77E02B56305400F8CFAB /* YouTubeService.swift in Sources */,
 				725059F625D881F20064A451 /* MainView.swift in Sources */,
 				72FD5204289CB598001F9F48 /* SubscriberCount.intentdefinition in Sources */,
@@ -743,6 +748,7 @@
 				72871554285EB8FC000C68D9 /* FAQ.swift in Sources */,
 				7234592F286960C0000C7DA5 /* FormLabel.swift in Sources */,
 				7277197B2555E05000358EEB /* ChannelID.swift in Sources */,
+				7274F54C2B7050CB000154EA /* FormattedCaption.swift in Sources */,
 				7211034F2B5A2DB700D4D7B5 /* AddWidgetButton.swift in Sources */,
 				725FE213251D4905004B2907 /* Channel.swift in Sources */,
 				725FE209251D44B1004B2907 /* Subscribers.swift in Sources */,

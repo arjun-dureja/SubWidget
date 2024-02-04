@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct FormattedSubCount: View {
+struct FormattedCount: View {
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
 
     var count: String

@@ -28,7 +28,8 @@ struct LockscreenWidget: View {
     }
 
     var body: some View {
-        if let channel = channel {
+        if let entry = entry,
+           let channel = channel {
             HStack {
                 NetworkImage(url: URL(string: channel.profileImage))
                     .frame(width: 40, height: 40)
@@ -41,12 +42,12 @@ struct LockscreenWidget: View {
                         .font(.system(size: 14))
                         .minimumScaleFactor(0.01)
                         .lineLimit(2)
-                    FormattedSubCount(count: count)
+                    FormattedCount(count: count)
                         .fontWeight(.bold)
                         .font(.system(size: 16))
                         .minimumScaleFactor(0.01)
                         .lineLimit(1)
-                    Text("Total \(entry?.widgetType.rawValue ?? "")")
+                    FormattedCaption(widgetType: entry.widgetType)
                         .fontWeight(.medium)
                         .font(.system(size: 11))
                         .minimumScaleFactor(0.01)

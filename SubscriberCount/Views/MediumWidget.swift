@@ -32,7 +32,8 @@ struct MediumWidget: View {
 
     var body: some View {
         ZStack {
-            if let channel = channel {
+            if let entry = entry,
+               let channel = channel {
                 if let bgColor = channel.bgColor {
                     Color(bgColor)
                 }
@@ -57,11 +58,11 @@ struct MediumWidget: View {
                             .font(.system(size: 24))
                             .lineLimit(channel.channelName.firstIndex(of: " ") != nil && channel.channelName.count > 15 ? .max : 1)
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
-                        FormattedSubCount(count: count)
+                        FormattedCount(count: count)
                             .font(.system(size: 32))
                             .lineLimit(1)
                             .foregroundColor(.youtubeRed)
-                        Text("Total \(entry?.widgetType.rawValue ?? "")")
+                        FormattedCaption(widgetType: entry.widgetType)
                             .font(.system(size: 15))
                             .lineLimit(1)
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)

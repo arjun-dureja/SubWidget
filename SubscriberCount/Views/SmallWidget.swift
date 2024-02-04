@@ -38,7 +38,8 @@ struct SmallWidget: View {
 
     var body: some View {
         ZStack {
-            if let channel = channel {
+            if let entry = entry,
+               let channel = channel {
                 if #unavailable(iOS 17), let bgColor = channel.bgColor {
                     Color(bgColor)
                 }
@@ -75,10 +76,10 @@ struct SmallWidget: View {
                             .fontWeight(.bold)
                             .font(.system(size: 14))
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
-                        FormattedSubCount(count: count)
+                        FormattedCount(count: count)
                             .font(.system(size: showsWidgetContainerBackground ? 20 : 40))
                             .foregroundColor(isVibrant ? .white : .youtubeRed)
-                        Text("Total \(entry?.widgetType.rawValue ?? "")")
+                        FormattedCaption(widgetType: entry.widgetType)
                             .font(.system(size: 12))
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                     }
