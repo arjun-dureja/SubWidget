@@ -81,4 +81,8 @@ class AnalyticsService {
     func logRateButtontapped() {
         logEvent("rate_button.tapped")
     }
+
+    func logReviewRequested() {
+        logEvent("review.requested")
+    }
 }
