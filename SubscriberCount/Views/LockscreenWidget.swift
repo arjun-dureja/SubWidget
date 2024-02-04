@@ -10,28 +10,43 @@ import SwiftUI
 import WidgetKit
 
 struct LockscreenWidget: View {
-    var entry: YouTubeChannel?
+    var entry: SimpleEntry?
+
+    var channel: YouTubeChannel? {
+        entry?.channel
+    }
+
+    var count: String {
+        switch entry?.widgetType {
+        case .subscribers:
+            channel?.subCount ?? "0"
+        case .views:
+            channel?.viewCount ?? "0"
+        case nil:
+            "0"
+        }
+    }
 
     var body: some View {
-        if let entry = entry {
+        if let channel = channel {
             HStack {
-                NetworkImage(url: URL(string: entry.profileImage))
+                NetworkImage(url: URL(string: channel.profileImage))
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .shadow(radius: 2)
 
                 VStack(alignment: .leading) {
-                    Text(entry.channelName)
+                    Text(channel.channelName)
                         .fontWeight(.bold)
                         .font(.system(size: 14))
                         .minimumScaleFactor(0.01)
                         .lineLimit(2)
-                    FormattedSubCount(count: entry.subCount)
+                    FormattedSubCount(count: count)
                         .fontWeight(.bold)
                         .font(.system(size: 16))
                         .minimumScaleFactor(0.01)
                         .lineLimit(1)
-                    Text("Total subscribers")
+                    Text("Total \(entry?.widgetType.rawValue ?? "")")
                         .fontWeight(.medium)
                         .font(.system(size: 11))
                         .minimumScaleFactor(0.01)
@@ -39,6 +54,7 @@ struct LockscreenWidget: View {
                 }
             }
             .backport.containerBackground(UIColor.clear)
+            .widgetURL(channel.deeplinkUrl)
         } else {
             // Configuration View
             VStack(alignment: .leading) {
@@ -56,7 +72,7 @@ struct LockscreenWidget: View {
 
 struct LockscreenWidget_Previews: PreviewProvider {
     static var previews: some View {
-        LockscreenWidget(entry: .preview)
+        LockscreenWidget(entry: SimpleEntry(channel: .preview, widgetType: .subscribers))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

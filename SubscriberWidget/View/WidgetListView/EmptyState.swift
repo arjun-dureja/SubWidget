@@ -14,16 +14,9 @@ struct EmptyState: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            MediumWidget(
-                entry: YouTubeChannel(
-                    channelName: "Redacted",
-                    profileImage: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png",
-                    subCount: "1000000",
-                    channelId: "Redacted"
-                )
-            )
-            .redacted(reason: .placeholder)
-            .frame(width: 329, height: 155, alignment: .leading)
+            MediumWidget(entry: SimpleEntry(channel: .preview, widgetType: .subscribers))
+                .redacted(reason: .placeholder)
+                .frame(width: 329, height: 155, alignment: .leading)
 
             Text("No channels added yet")
                 .font(.system(size: 16, weight: .bold, design: .default))

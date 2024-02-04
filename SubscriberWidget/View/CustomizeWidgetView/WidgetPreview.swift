@@ -32,9 +32,16 @@ struct WidgetPreview: View {
             .padding(.top, 7)
 
             TabView {
-                SmallWidget(entry: channel)
+                let subCountEntry = SimpleEntry(channel: channel, widgetType: .subscribers)
+                SmallWidget(entry:subCountEntry)
                     .widgetBackground(bgColor: channel.bgColor, size: .small)
-                MediumWidget(entry: channel)
+                MediumWidget(entry: subCountEntry)
+                    .widgetBackground(bgColor: channel.bgColor, size: .medium)
+
+                let viewCountEntry = SimpleEntry(channel: channel, widgetType: .views)
+                SmallWidget(entry: viewCountEntry)
+                    .widgetBackground(bgColor: channel.bgColor, size: .small)
+                MediumWidget(entry: viewCountEntry)
                     .widgetBackground(bgColor: channel.bgColor, size: .medium)
             }
             .padding(.top, -40)

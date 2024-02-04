@@ -82,7 +82,7 @@ extension YouTubeChannelParam {
     }
 
     static var global: YouTubeChannelParam {
-        YouTubeChannelParam(channel: .init(channelName: "", profileImage: "", subCount: "0", channelId: ""))
+        YouTubeChannelParam(channel: .init(channelName: "", profileImage: "", subCount: "0", viewCount: "0", channelId: ""))
     }
 }
 

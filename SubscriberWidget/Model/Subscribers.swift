@@ -8,22 +8,26 @@
 
 import Foundation
 
-struct Subscribers: Decodable, Identifiable {
+struct Statistics: Decodable, Identifiable {
     let id = UUID()
     var subscriberCount = ""
+    var viewCount = ""
 
     enum CodingKeys: String, CodingKey {
         case statistics
         case subscriberCount
+        case viewCount
     }
 
     init (from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let statisticsContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .statistics)
         self.subscriberCount = try statisticsContainer.decode(String.self, forKey: .subscriberCount)
+        self.viewCount = try statisticsContainer.decode(String.self, forKey: .viewCount)
     }
 
-    init (subCount: String) {
+    init (subCount: String, viewCount: String) {
         self.subscriberCount = subCount
+        self.viewCount = viewCount
     }
 }

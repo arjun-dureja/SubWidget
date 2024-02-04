@@ -10,23 +10,28 @@ import Foundation
 import WidgetKit
 import SwiftUI
 
+enum WidgetType: String {
+    case subscribers, views
+}
+
 struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationIntent
+    let date: Date = Date()
+    let configuration: ConfigurationIntent = ConfigurationIntent()
     let channel: YouTubeChannel?
+    let widgetType: WidgetType
 }
 
 struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
-
     typealias Entry = SimpleEntry
     typealias Intent = SelectChannelIntent
+
+    let widgetType: WidgetType
 
     func placeholder(in context: Context) -> SimpleEntry {
         // Arbitrary channel for placeholder - will show as redacted
         return SimpleEntry(
-            date: Date(),
-            configuration: ConfigurationIntent(),
-            channel: .preview
+            channel: .preview,
+            widgetType: widgetType
         )
     }
 
@@ -40,9 +45,8 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 let channels = channelStorageService.getChannels()
                 if !channels.isEmpty {
                     let entry = SimpleEntry(
-                        date: Date(),
-                        configuration: ConfigurationIntent(),
-                        channel: channels[0]
+                        channel: channels[0],
+                        widgetType: widgetType
                     )
 
                     completion(entry)
@@ -62,7 +66,12 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         // Determine if user has already selected a channel or not
         if configuration.channel == nil {
             let timeline = Timeline(
-                entries: [SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)],
+                entries: [
+                    SimpleEntry(
+                        channel: nil,
+                        widgetType: widgetType
+                    )
+                ],
                 policy: .never
             )
 
@@ -96,10 +105,16 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             let youtubeService = YouTubeService()
             var updatedChannel = try await youtubeService.getChannelDetailsFromId(for: channel.channelId)
             updatedChannel.bgColor = channel.bgColor
-            return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: updatedChannel)
+            return SimpleEntry(
+                channel: updatedChannel,
+                widgetType: widgetType
+            )
         }
 
-        return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), channel: nil)
+        return SimpleEntry(
+            channel: nil,
+            widgetType: widgetType
+        )
     }
 }
 
@@ -110,25 +125,11 @@ struct SubscriberCountEntryView: View {
     var body: some View {
         switch widgetFamily {
         case .systemSmall:
-            SmallWidget(entry: entry.channel)
+            SmallWidget(entry: entry)
         case .accessoryRectangular:
-            LockscreenWidget(entry: entry.channel)
+            LockscreenWidget(entry: entry)
         default:
-            MediumWidget(entry: entry.channel)
+            MediumWidget(entry: entry)
         }
-    }
-}
-
-@main
-struct SubscriberCount: Widget {
-    let kind: String = "SubscriberCount"
-
-    var body: some WidgetConfiguration {
-        return IntentConfiguration(kind: kind, intent: SelectChannelIntent.self, provider: SubWidgetIntentTimelineProvider(), content: { (entry) in
-            SubscriberCountEntryView(entry: entry)
-        })
-        .configurationDisplayName("Subscriber Count")
-        .description("View your YouTube subscriber count in realtime")
-        .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
     }
 }

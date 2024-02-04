@@ -11,11 +11,14 @@ import UIKit
 
 struct YouTubeChannel: Identifiable, Codable, Hashable {
 
-    private enum CodingKeys: String, CodingKey { case channelName, profileImage, subCount, channelId, bgColor, id }
+    private enum CodingKeys: String, CodingKey {
+        case channelName, profileImage, subCount, viewCount, channelId, bgColor, id
+    }
 
     var channelName: String
     var profileImage: String
     var subCount: String
+    var viewCount: String?
     var channelId: String
     var bgColor: UIColor?
     var id = UUID().uuidString
@@ -24,10 +27,18 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         return URL(string: "subwidget://\(channelId)")
     }
 
-    init(channelName: String, profileImage: String, subCount: String, channelId: String, bgColor: UIColor? = nil) {
+    init(
+        channelName: String,
+        profileImage: String,
+        subCount: String,
+        viewCount: String? = "0",
+        channelId: String,
+        bgColor: UIColor? = nil
+    ) {
         self.channelName = channelName
         self.profileImage = profileImage
         self.subCount = subCount
+        self.viewCount = viewCount
         self.channelId = channelId
         self.bgColor = bgColor
     }
@@ -37,6 +48,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         channelName = try container.decode(String.self, forKey: .channelName)
         profileImage = try container.decode(String.self, forKey: .profileImage)
         subCount = try container.decode(String.self, forKey: .subCount)
+        viewCount = try? container.decode(String.self, forKey: .viewCount)
         channelId = try container.decode(String.self, forKey: .channelId)
         bgColor = try? container.decode(BGColor.self, forKey: .bgColor).uiColor
         id = try container.decode(String.self, forKey: .id)
@@ -47,6 +59,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         try container.encode(channelName, forKey: .channelName)
         try container.encode(profileImage, forKey: .profileImage)
         try container.encode(subCount, forKey: .subCount)
+        try container.encode(viewCount, forKey: .viewCount)
         try container.encode(channelId, forKey: .channelId)
         try container.encode(bgColor != nil ? BGColor(uiColor: bgColor) : nil, forKey: .bgColor)
         try container.encode(id, forKey: .id)
@@ -57,6 +70,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
             channelName: "PewDiePie",
             profileImage: "https://yt3.ggpht.com/ytc/AAUvwnga3eXKkQgGU-3j1_jccZ0K9m6MbjepV0ksd7eBEw=s800-c-k-c0x00ffffff-no-rj",
             subCount: "1000000",
+            viewCount: "100000000000",
             channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw"
         )
     }

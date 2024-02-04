@@ -10,33 +10,48 @@ import SwiftUI
 import WidgetKit
 
 struct SmallWidget: View {
-    var entry: YouTubeChannel?
+    var entry: SimpleEntry?
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
+
+    let lastUpdatedTime: String = .currentTime
+
+    var channel: YouTubeChannel? {
+        entry?.channel
+    }
 
     var isVibrant: Bool {
         return widgetRenderingMode == .vibrant
     }
 
-    let lastUpdatedTime: String = .currentTime
+    var count: String {
+        switch entry?.widgetType {
+        case .subscribers:
+            channel?.subCount ?? "0"
+        case .views:
+            channel?.viewCount ?? "0"
+        case nil:
+            "0"
+        }
+    }
 
     var body: some View {
         ZStack {
-            if let entry = entry {
-                if #unavailable(iOS 17), let bgColor = entry.bgColor {
+            if let channel = channel {
+                if #unavailable(iOS 17), let bgColor = channel.bgColor {
                     Color(bgColor)
                 }
 
                 VStack(alignment: .leading) {
                     HStack {
                         if Utils.isInWidget() {
-                            NetworkImage(url: URL(string: entry.profileImage))
+                            NetworkImage(url: URL(string: channel.profileImage))
                                 .frame(width: showsWidgetContainerBackground ? 60 : 70, height: showsWidgetContainerBackground ? 60 : 70)
                                 .clipShape(Circle())
                                 .shadow(radius: 2)
                         } else {
-                            AsyncImageView(url: URL(string: entry.profileImage))
+                            AsyncImageView(url: URL(string: channel.profileImage))
                                 .frame(width: 60, height: 60)
                                 .clipShape(Circle())
                                 .shadow(radius: 2)
@@ -56,14 +71,14 @@ struct SmallWidget: View {
                     Spacer()
 
                     VStack(alignment: .leading) {
-                        Text(entry.channelName)
+                        Text(channel.channelName)
                             .fontWeight(.bold)
                             .font(.system(size: 14))
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
-                        FormattedSubCount(count: entry.subCount)
+                        FormattedSubCount(count: count)
                             .font(.system(size: showsWidgetContainerBackground ? 20 : 40))
                             .foregroundColor(isVibrant ? .white : .youtubeRed)
-                        Text("Total subscribers")
+                        Text("Total \(entry?.widgetType.rawValue ?? "")")
                             .font(.system(size: 12))
                             .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
                     }
@@ -71,19 +86,19 @@ struct SmallWidget: View {
                 }
                 .padding(showsWidgetContainerBackground ? 0 : 4)
                 .forwardport.padding()
-                .backport.containerBackground(entry.bgColor)
+                .backport.containerBackground(channel.bgColor)
             } else {
                 ConfigurationView(baselineOffset: 5.0)
-                    .backport.containerBackground(entry?.bgColor)
+                    .backport.containerBackground(channel?.bgColor)
             }
         }
-        .widgetURL(entry?.deeplinkUrl)
+        .widgetURL(channel?.deeplinkUrl)
     }
 }
 
 struct SmallWidget_Previews: PreviewProvider {
     static var previews: some View {
-        SmallWidget(entry: .preview)
+        SmallWidget(entry: SimpleEntry(channel: .preview, widgetType: .subscribers))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

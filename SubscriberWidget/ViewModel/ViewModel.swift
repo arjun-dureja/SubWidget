@@ -46,7 +46,7 @@ class ViewModel: ObservableObject {
 
         do {
             state = .loading
-            channels = try await getChannelsWithUpdatedSubCounts()
+            channels = try await getChannelsWithUpdatedStatistics()
             AnalyticsService.shared.logChannelsLoaded(channels.count)
             state = .loaded
         } catch {
@@ -122,7 +122,7 @@ class ViewModel: ObservableObject {
         //        return false
     }
 
-    private func getChannelsWithUpdatedSubCounts() async throws -> [YouTubeChannel] {
+    private func getChannelsWithUpdatedStatistics() async throws -> [YouTubeChannel] {
         try await withThrowingTaskGroup(of: (Int, YouTubeChannel).self) { group in
             var decodedChannels = channelStorageService.getChannels()
             for (index, channel) in decodedChannels.enumerated() {
@@ -134,6 +134,7 @@ class ViewModel: ObservableObject {
 
             for try await (index, updatedChannel) in group {
                 decodedChannels[index].subCount = updatedChannel.subCount
+                decodedChannels[index].viewCount = updatedChannel.viewCount
             }
 
             return decodedChannels

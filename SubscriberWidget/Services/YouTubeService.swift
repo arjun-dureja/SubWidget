@@ -42,11 +42,12 @@ class YouTubeService: YouTubeServiceProtocol {
 
         let query = "channels?part=snippet&id=\(idWithoutSpaces)"
         let channelData: ChannelID = try await makeRequest(with: query)
-        let subCount = try await getSubCount(channelId: channelData.channelId)
+        let (subCount, viewCount) = try await getStatistics(channelId: channelData.channelId)
         let channelFromGoogle = YouTubeChannel(
             channelName: channelData.channelName,
             profileImage: channelData.profileImage,
             subCount: subCount,
+            viewCount: viewCount,
             channelId: channelData.channelId
         )
 
@@ -54,10 +55,10 @@ class YouTubeService: YouTubeServiceProtocol {
         return channelFromGoogle
     }
 
-    private func getSubCount(channelId: String) async throws -> String {
+    private func getStatistics(channelId: String) async throws -> (String, String) {
         let query = "channels?part=statistics&id=\(channelId)"
-        let subData: Subscribers = try await makeRequest(with: query)
-        return subData.subscriberCount
+        let channelStatistics: Statistics = try await makeRequest(with: query)
+        return (channelStatistics.subscriberCount, channelStatistics.viewCount)
     }
 
     private func makeUrl(query: String) throws -> URL {
