@@ -24,7 +24,7 @@ struct ChannelListRow: View {
                     .fontWeight(.bold)
                     .font(.system(size: 18))
                     .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
-                FormattedSubCount(count: channel.subCount)
+                FormattedCount(count: channel.subCount)
                     .font(.system(size: 23))
                     .foregroundColor(.youtubeRed)
                 Text("Total subscribers")
