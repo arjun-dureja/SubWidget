@@ -36,7 +36,8 @@ class YouTubeService: YouTubeServiceProtocol {
 
         let idWithoutSpaces = id.replacingOccurrences(of: " ", with: "")
 
-        if let cachedChannel = try? storage?.object(forKey: idWithoutSpaces) {
+        if let cachedChannel = try? storage?.object(forKey: idWithoutSpaces),
+           cachedChannel.viewCount != nil {
             return cachedChannel
         }
 
