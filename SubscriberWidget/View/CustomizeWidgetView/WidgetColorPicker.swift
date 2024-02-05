@@ -12,7 +12,6 @@ struct WidgetColorPicker: View {
     @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
-    @Binding var colorChanged: Bool
 
     var body: some View {
         ZStack {
@@ -36,6 +35,5 @@ struct WidgetColorPicker: View {
     func updateBackgroundColor(with color: CGColor) {
         viewModel.updateColorForChannel(id: channel.id, color: UIColor(cgColor: color))
         channel.bgColor = UIColor(cgColor: color)
-        colorChanged = true
     }
 }

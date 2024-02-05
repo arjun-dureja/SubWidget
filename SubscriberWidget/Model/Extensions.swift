@@ -34,7 +34,6 @@ extension UIColor {
 
         return hexString
      }
-
 }
 
 extension View {

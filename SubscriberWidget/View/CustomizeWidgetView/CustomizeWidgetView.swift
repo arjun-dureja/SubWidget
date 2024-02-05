@@ -8,7 +8,6 @@
 
 import SwiftUI
 import UIKit
-import WidgetKit
 
 struct CustomizeWidgetView: View {
     @ObservedObject var viewModel: ViewModel
@@ -22,7 +21,6 @@ struct CustomizeWidgetView: View {
     @State private var showingAlert = false
     @State private var helpAlert = false
     @State private var bgColor: CGColor?
-    @State private var colorChanged = false
     @State private var showNetworkError = false
     @State private var loadingChannel = false
 
@@ -62,23 +60,18 @@ struct CustomizeWidgetView: View {
                 VStack {
                     WidgetColorPicker(
                         viewModel: viewModel,
-                        channel: $channel,
-                        colorChanged: $colorChanged
+                        channel: $channel
                     )
 
                     ResetButton(
                         viewModel: viewModel,
-                        channel: $channel,
-                        colorChanged: $colorChanged
+                        channel: $channel
                     )
                 }
 
                 Spacer()
             }
             .navigationBarTitle(self.channel.channelName, displayMode: .inline)
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                updateColorIfNeeded()
-            }
             .frame(
                 width: geometry.frame(in: .global).width,
                 height: geometry.frame(in: .global).height
@@ -91,15 +84,6 @@ struct CustomizeWidgetView: View {
         }
         .onAppear {
             AnalyticsService.shared.logCustomizeWidgetScreenOpened(channel.channelName)
-        }
-    }
-
-    func updateColorIfNeeded() {
-        // Only reload timelines if the color was changed
-        if colorChanged {
-            print("Color changed, reloading timelines")
-            WidgetCenter.shared.reloadAllTimelines()
-            colorChanged = false
         }
     }
 

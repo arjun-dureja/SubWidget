@@ -11,7 +11,6 @@ import SwiftUI
 struct ResetButton: View {
     @ObservedObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
-    @Binding var colorChanged: Bool
 
     var body: some View {
         Button(action: resetTapped, label: {
@@ -25,6 +24,5 @@ struct ResetButton: View {
     func resetTapped() {
         viewModel.updateColorForChannel(id: channel.id, color: nil)
         channel.bgColor = nil
-        colorChanged = true
     }
 }

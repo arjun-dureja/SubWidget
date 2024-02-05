@@ -8,6 +8,7 @@
 
 import SwiftUI
 import WishKit
+import WidgetKit
 
 struct MainView: View {
     @StateObject var viewModel: ViewModel = ViewModel()
@@ -45,6 +46,9 @@ struct MainView: View {
                 }
         }
         .accentColor(.youtubeRed)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 }
 
