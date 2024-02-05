@@ -101,4 +101,8 @@ class AnalyticsService {
             "channelName": channelName
         ])
     }
+
+    func logResetColorTapped() {
+        logEvent("reset_color.tapped")
+    }
 }

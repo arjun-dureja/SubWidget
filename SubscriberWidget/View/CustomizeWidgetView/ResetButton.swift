@@ -22,6 +22,7 @@ struct ResetButton: View {
     }
 
     func resetTapped() {
+        AnalyticsService.shared.logResetColorTapped()
         viewModel.updateColorForChannel(id: channel.id, color: nil)
         channel.bgColor = nil
     }
