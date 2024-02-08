@@ -25,11 +25,6 @@ struct CustomizeWidgetHeader: View {
 
             Button("Done") {
                 presentationMode.wrappedValue.dismiss()
-
-                if viewModel.channels.count > 1 {
-                    AnalyticsService.shared.logReviewRequested()
-                    SKStoreReviewController.requestReviewInCurrentScene()
-                }
             }
             .foregroundColor(.youtubeRed)
         }

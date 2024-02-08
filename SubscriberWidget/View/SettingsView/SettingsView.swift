@@ -13,6 +13,7 @@ import WidgetKit
 struct SettingsView: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.requestReview) private var requestReview
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
 
     var body: some View {
@@ -81,7 +82,9 @@ struct SettingsView: View {
 
                     Button {
                         AnalyticsService.shared.logRateButtontapped()
-                        SKStoreReviewController.requestReviewInCurrentScene()
+                        DispatchQueue.main.async {
+                            requestReview()
+                        }
                     } label: {
                         FormLabel(text: "Rate", icon: "star.circle.fill")
                     }
@@ -130,14 +133,4 @@ struct AppIcon: View {
 extension Bundle {
     public var appVersion: String { getInfo("CFBundleShortVersionString") }
     fileprivate func getInfo(_ str: String) -> String { infoDictionary?[str] as? String ?? "⚠️" }
-}
-
-extension SKStoreReviewController {
-    public static func requestReviewInCurrentScene() {
-        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-            DispatchQueue.main.async {
-                requestReview(in: scene)
-            }
-        }
-    }
 }

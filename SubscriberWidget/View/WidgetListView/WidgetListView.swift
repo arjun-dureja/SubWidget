@@ -11,6 +11,7 @@ import WishKit
 
 struct WidgetListView: View {
     @ObservedObject var viewModel: ViewModel
+    @Environment(\.requestReview) private var requestReview
 
     @State private var newWidget = false
     @State private var tooManyChannels = false
@@ -58,14 +59,25 @@ struct WidgetListView: View {
             .if(!viewModel.channels.isEmpty) { view in
                 view.navigationBarItems(trailing: AddWidgetButton(action: addWidgetTapped))
             }
-            .sheet(isPresented: $newWidget, content: {
-                CustomizeWidgetView(
-                    viewModel: viewModel,
-                    channel: viewModel.channels.last!,
-                    isNewWidget: true
-                )
-                .background(Color(UIColor.systemBackground))
-            })
+            .sheet(
+                isPresented: $newWidget,
+                onDismiss: {
+                    if viewModel.channels.count > 1 {
+                        AnalyticsService.shared.logReviewRequested()
+                        DispatchQueue.main.async {
+                            requestReview()
+                        }
+                    }
+                },
+                content: {
+                    CustomizeWidgetView(
+                        viewModel: viewModel,
+                        channel: viewModel.channels.last!,
+                        isNewWidget: true
+                    )
+                    .background(Color(UIColor.systemBackground))
+                }
+            )
             .sheet(isPresented: $showWhatsNew, content: {
                 WhatsNewView(isPresented: $showWhatsNew)
             })
@@ -91,7 +103,7 @@ struct WidgetListView: View {
             }
 
             if let name = viewModel.channels.first?.channelName,
-                name != YouTubeChannel.preview.channelName {
+               name != YouTubeChannel.preview.channelName {
                 WishKit.updateUser(name: name)
             }
         }
