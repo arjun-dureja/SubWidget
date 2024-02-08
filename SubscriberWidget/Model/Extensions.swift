@@ -10,7 +10,7 @@ import SwiftUI
 
 extension Color {
     // Custom colors
-    static let youtubeRed = Color(.sRGB, red: 212/255, green: 35/255, blue: 34/255, opacity: 1)
+    static let youtubeRed = Color(.sRGB, red: 236/255, green: 51/255, blue: 35/255, opacity: 1)
     static let titleGray = Color(.sRGB, red: 96/255, green: 96/255, blue: 96/255, opacity: 1)
 
     static let darkModeTitleGray = Color(.sRGB, red: 229/255, green: 229/255, blue: 229/255, opacity: 1)

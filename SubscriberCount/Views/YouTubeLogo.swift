@@ -9,23 +9,25 @@
 import SwiftUI
 
 struct YouTubeLogo: View {
-    let youtubeLogo = UIImage(named: "youtube-logo")!
-
     var body: some View {
-        Image(uiImage: (youtubeLogo.resized(toWidth: 800)!))
-            .resizable()
-            .frame(width: 20.5, height: 14.6)
-            .cornerRadius(4)
+        ZStack {
+            RoundedRectangle(cornerRadius: 4)
+                .foregroundStyle(Color.youtubeRed)
+                .frame(width: 21.3, height: 14.8)
+            Triangle()
+                .foregroundStyle(Color.white)
+                .frame(width: 6, height: 6)
+        }
     }
-}
 
-extension UIImage {
-  func resized(toWidth width: CGFloat, isOpaque: Bool = true) -> UIImage? {
-    let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
-    let format = imageRendererFormat
-    format.opaque = isOpaque
-    return UIGraphicsImageRenderer(size: canvas, format: format).image { _ in
-        draw(in: CGRect(origin: .zero, size: canvas))
+    struct Triangle: Shape {
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            path.move(to: CGPoint(x: rect.maxX, y: rect.midY))
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
+            path.addLine(to: CGPoint(x: rect.maxX, y: rect.midY))
+            return path
+        }
     }
-  }
 }
