@@ -50,7 +50,7 @@ class ViewModel: ObservableObject {
             AnalyticsService.shared.logChannelsLoaded(channels.count)
             state = .loaded
         } catch {
-            AnalyticsService.shared.logLoadChannelsFailed(error.localizedDescription)
+            AnalyticsService.shared.logLoadChannelsFailed("\(error)")
             state = .error
         }
     }
