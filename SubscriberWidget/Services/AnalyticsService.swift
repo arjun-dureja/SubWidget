@@ -105,4 +105,12 @@ class AnalyticsService {
     func logResetColorTapped() {
         logEvent("reset_color.tapped")
     }
+
+    func logContactButtonTapped() {
+        logEvent("contact_button.tapped")
+    }
+
+    func logSendEmailFailure() {
+        logEvent("send_email.failure")
+    }
 }

@@ -71,6 +71,7 @@ struct SettingsView: View {
                     }
 
                     Button {
+                        AnalyticsService.shared.logContactButtonTapped()
                         EmailHelper.shared.send(
                             subject: "SubWidget Feedback",
                             to: "arjun.dureja1000@gmail.com"

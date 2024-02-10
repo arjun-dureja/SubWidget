@@ -38,6 +38,7 @@ extension EmailHelper {
                 preferredStyle: .alert
             )
 
+            AnalyticsService.shared.logSendEmailFailure()
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             viewController.present(alert, animated: true)
             return
