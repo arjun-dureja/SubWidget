@@ -13,7 +13,6 @@ import WidgetKit
 struct SettingsView: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.requestReview) private var requestReview
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
 
     var body: some View {
@@ -82,9 +81,7 @@ struct SettingsView: View {
 
                     Button {
                         AnalyticsService.shared.logRateButtontapped()
-                        DispatchQueue.main.async {
-                            requestReview()
-                        }
+                        UIApplication.shared.open(URL(string: "https://itunes.apple.com/app/id1534958933?action=write-review")!)
                     } label: {
                         FormLabel(text: "Rate", icon: "star.circle.fill")
                     }
