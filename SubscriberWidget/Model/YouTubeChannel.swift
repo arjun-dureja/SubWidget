@@ -12,7 +12,7 @@ import UIKit
 struct YouTubeChannel: Identifiable, Codable, Hashable {
 
     private enum CodingKeys: String, CodingKey {
-        case channelName, profileImage, subCount, viewCount, channelId, bgColor, id
+        case channelName, profileImage, subCount, viewCount, channelId, bgColor, accentColor, numberColor, id
     }
 
     var channelName: String
@@ -21,6 +21,8 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
     var viewCount: String?
     var channelId: String
     var bgColor: UIColor?
+    var accentColor: UIColor?
+    var numberColor: UIColor?
     var id = UUID().uuidString
 
     var deeplinkUrl: URL? {
@@ -33,7 +35,9 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         subCount: String,
         viewCount: String? = "0",
         channelId: String,
-        bgColor: UIColor? = nil
+        bgColor: UIColor? = nil,
+        accentColor: UIColor? = nil,
+        numberColor: UIColor? = nil
     ) {
         self.channelName = channelName
         self.profileImage = profileImage
@@ -41,6 +45,8 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         self.viewCount = viewCount
         self.channelId = channelId
         self.bgColor = bgColor
+        self.accentColor = accentColor
+        self.numberColor = numberColor
     }
 
     init(from decoder: Decoder) throws {
@@ -50,7 +56,9 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         subCount = try container.decode(String.self, forKey: .subCount)
         viewCount = try? container.decode(String.self, forKey: .viewCount)
         channelId = try container.decode(String.self, forKey: .channelId)
-        bgColor = try? container.decode(BGColor.self, forKey: .bgColor).uiColor
+        bgColor = try? container.decode(CustomColor.self, forKey: .bgColor).uiColor
+        accentColor = try? container.decode(CustomColor.self, forKey: .accentColor).uiColor
+        numberColor = try? container.decode(CustomColor.self, forKey: .numberColor).uiColor
         id = try container.decode(String.self, forKey: .id)
     }
 
@@ -61,7 +69,9 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         try container.encode(subCount, forKey: .subCount)
         try container.encode(viewCount, forKey: .viewCount)
         try container.encode(channelId, forKey: .channelId)
-        try container.encode(bgColor != nil ? BGColor(uiColor: bgColor) : nil, forKey: .bgColor)
+        try container.encode(bgColor != nil ? CustomColor(uiColor: bgColor) : nil, forKey: .bgColor)
+        try container.encode(accentColor != nil ? CustomColor(uiColor: accentColor) : nil, forKey: .accentColor)
+        try container.encode(numberColor != nil ? CustomColor(uiColor: numberColor) : nil, forKey: .numberColor)
         try container.encode(id, forKey: .id)
     }
 
@@ -76,7 +86,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
     }
 }
 
-struct BGColor: Codable {
+struct CustomColor: Codable {
     var red: CGFloat = 0.0, green: CGFloat = 0.0, blue: CGFloat = 0.0, alpha: CGFloat = 0.0
 
     var uiColor: UIColor {

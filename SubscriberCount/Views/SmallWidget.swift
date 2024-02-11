@@ -36,6 +36,20 @@ struct SmallWidget: View {
         }
     }
 
+    var accentColor: Color {
+        if let color = channel?.accentColor {
+            return Color(color)
+        }
+        return Color("AccentColor")
+    }
+
+    var numberColor: Color {
+        if let color = channel?.numberColor {
+            return Color(color)
+        }
+        return .youtubeRed
+    }
+
     var body: some View {
         ZStack {
             if let entry = entry,
@@ -64,7 +78,7 @@ struct SmallWidget: View {
                             YouTubeLogo()
                             Text(lastUpdatedTime)
                                 .font(.system(size: 10))
-                                .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                                .foregroundColor(accentColor)
                         }
                         .frame(maxHeight: .infinity, alignment: .top)
                     }
@@ -75,13 +89,13 @@ struct SmallWidget: View {
                         Text(channel.channelName)
                             .fontWeight(.bold)
                             .font(.system(size: 14))
-                            .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                            .foregroundColor(accentColor)
                         FormattedCount(count: count)
                             .font(.system(size: showsWidgetContainerBackground ? 20 : 40))
-                            .foregroundColor(isVibrant ? .white : .youtubeRed)
+                            .foregroundColor(isVibrant ? .white : numberColor)
                         FormattedCaption(widgetType: entry.widgetType)
                             .font(.system(size: 12))
-                            .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                            .foregroundColor(accentColor)
                     }
                     .minimumScaleFactor(0.3)
                 }

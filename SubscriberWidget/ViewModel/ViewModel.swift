@@ -81,9 +81,29 @@ class ViewModel: ObservableObject {
         channels.append(channel)
     }
 
-    func updateColorForChannel(id: String, color: UIColor?) {
+    func updateBgColorForChannel(id: String, color: UIColor?) {
         if let index = channels.firstIndex(where: { $0.id == id }) {
             channels[index].bgColor = color
+        }
+    }
+
+    func updateAccentColorForChannel(id: String, color: UIColor?) {
+        if let index = channels.firstIndex(where: { $0.id == id }) {
+            channels[index].accentColor = color
+        }
+    }
+
+    func updateNumberColorForChannel(id: String, color: UIColor?) {
+        if let index = channels.firstIndex(where: { $0.id == id }) {
+            channels[index].numberColor = color
+        }
+    }
+
+    func resetAllColors(id: String) {
+        if let index = channels.firstIndex(where: { $0.id == id }) {
+            channels[index].bgColor = nil
+            channels[index].accentColor = nil
+            channels[index].numberColor = nil
         }
     }
 

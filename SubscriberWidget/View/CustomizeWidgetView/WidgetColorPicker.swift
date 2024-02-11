@@ -8,32 +8,54 @@
 
 import SwiftUI
 
+enum ColorType: String {
+    case background, accent, number
+
+    var title: String {
+        return self.rawValue.capitalized
+    }
+}
+
 struct WidgetColorPicker: View {
+    let colorType: ColorType
+
     @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
 
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 16)
-                .frame(width: 215, height: 50, alignment: .leading)
-                .foregroundColor(colorScheme == .light ? .white : Color(UIColor.systemGray6))
-
-            ColorPicker("Background Color", selection: Binding(get: {
-                channel.bgColor?.cgColor ?? (colorScheme == .dark ? UIColor.black.cgColor : UIColor.white.cgColor)
-            }, set: { newValue in
-                if UIColor(cgColor: newValue).hexStringFromColor() != channel.bgColor?.hexStringFromColor() {
-                    updateBackgroundColor(with: newValue)
-                }
-            }), supportsOpacity: false)
-            .frame(width: 190, height: 50)
-            .font(.headline)
+    var currentColor: UIColor {
+        switch colorType {
+        case .background:
+            channel.bgColor ?? UIColor(named: "Default")!
+        case .accent:
+            channel.accentColor ?? UIColor(named: "AccentColor")!
+        case .number:
+            channel.numberColor ?? UIColor(Color.youtubeRed)
         }
-        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
     }
 
-    func updateBackgroundColor(with color: CGColor) {
-        viewModel.updateColorForChannel(id: channel.id, color: UIColor(cgColor: color))
-        channel.bgColor = UIColor(cgColor: color)
+    var body: some View {
+        ColorPicker(colorType.title, selection: Binding(
+            get: {
+                currentColor.cgColor
+            },
+            set: { newValue in
+                updateColor(with: newValue)
+            }), supportsOpacity: false)
+    }
+
+    func updateColor(with color: CGColor) {
+        let updatedColor = UIColor(cgColor: color)
+        switch colorType {
+        case .background:
+            viewModel.updateBgColorForChannel(id: channel.id, color: updatedColor)
+            channel.bgColor = updatedColor
+        case .accent:
+            viewModel.updateAccentColorForChannel(id: channel.id, color: updatedColor)
+            channel.accentColor = updatedColor
+        case .number:
+            viewModel.updateNumberColorForChannel(id: channel.id, color: updatedColor)
+            channel.numberColor = updatedColor
+        }
     }
 }

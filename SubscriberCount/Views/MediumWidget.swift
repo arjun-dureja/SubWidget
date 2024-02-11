@@ -30,6 +30,20 @@ struct MediumWidget: View {
         }
     }
 
+    var accentColor: Color {
+        if let color = channel?.accentColor {
+            return Color(color)
+        }
+        return Color("AccentColor")
+    }
+
+    var numberColor: Color {
+        if let color = channel?.numberColor {
+            return Color(color)
+        }
+        return .youtubeRed
+    }
+
     var body: some View {
         ZStack {
             if let entry = entry,
@@ -57,15 +71,15 @@ struct MediumWidget: View {
                             .fontWeight(.bold)
                             .font(.system(size: 24))
                             .lineLimit(channel.channelName.firstIndex(of: " ") != nil && channel.channelName.count > 15 ? .max : 1)
-                            .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                            .foregroundColor(accentColor)
                         FormattedCount(count: count)
                             .font(.system(size: 32))
                             .lineLimit(1)
-                            .foregroundColor(.youtubeRed)
+                            .foregroundColor(numberColor)
                         FormattedCaption(widgetType: entry.widgetType)
                             .font(.system(size: 15))
                             .lineLimit(1)
-                            .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                            .foregroundColor(accentColor)
                     }
                     .minimumScaleFactor(0.3)
 
@@ -77,7 +91,7 @@ struct MediumWidget: View {
 
                         Text(lastUpdatedTime)
                             .font(.system(size: 11))
-                            .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                            .foregroundColor(accentColor)
                             .frame(maxHeight: .infinity, alignment: .bottom)
                     }
                 }

@@ -15,15 +15,16 @@ struct ResetButton: View {
     var body: some View {
         Button(action: resetTapped, label: {
             Text("Reset")
-                .font(.subheadline)
                 .bold()
+                .font(.footnote)
         })
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
     }
 
     func resetTapped() {
         AnalyticsService.shared.logResetColorTapped()
-        viewModel.updateColorForChannel(id: channel.id, color: nil)
+        viewModel.resetAllColors(id: channel.id)
         channel.bgColor = nil
+        channel.accentColor = nil
+        channel.numberColor = nil
     }
 }

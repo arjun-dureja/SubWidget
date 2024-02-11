@@ -10,7 +10,6 @@ import SwiftUI
 import WidgetKit
 
 struct ConfigurationView: View {
-    @Environment(\.colorScheme) var colorScheme
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
 
     var baselineOffset: CGFloat
@@ -29,7 +28,7 @@ struct ConfigurationView: View {
                 Text("Select Your Channel")
                     .fontWeight(.bold)
                     .font(.system(size: 14))
-                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                    .foregroundColor(Color("AccentColor"))
 
                 Spacer()
 
@@ -44,7 +43,7 @@ struct ConfigurationView: View {
                 Text("Add a channel in the app")
                     .font(.system(size: 13))
                     .fontWeight(.medium)
-                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                    .foregroundColor(Color("AccentColor"))
             }
 
             HStack {
@@ -54,7 +53,7 @@ struct ConfigurationView: View {
                 Text(editInstructions)
                     .font(.system(size: 13))
                     .fontWeight(.medium)
-                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                    .foregroundColor(Color("AccentColor"))
             }
 
         }

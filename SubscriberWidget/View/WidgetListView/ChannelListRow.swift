@@ -23,13 +23,13 @@ struct ChannelListRow: View {
                 Text(channel.channelName)
                     .fontWeight(.bold)
                     .font(.system(size: 18))
-                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                    .foregroundColor(Color("AccentColor"))
                 FormattedCount(count: channel.subCount)
                     .font(.system(size: 23))
                     .foregroundColor(.youtubeRed)
                 Text("Total subscribers")
                     .font(.system(size: 13))
-                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray : .titleGray)
+                    .foregroundColor(Color("AccentColor"))
             }
         }
         .padding(.vertical, 8)

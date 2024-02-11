@@ -105,6 +105,8 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             let youtubeService = YouTubeService()
             var updatedChannel = try await youtubeService.getChannelDetailsFromId(for: channel.channelId)
             updatedChannel.bgColor = channel.bgColor
+            updatedChannel.accentColor = channel.accentColor
+            updatedChannel.numberColor = channel.numberColor
             return SimpleEntry(
                 channel: updatedChannel,
                 widgetType: widgetType

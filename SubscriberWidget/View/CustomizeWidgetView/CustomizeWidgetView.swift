@@ -57,17 +57,37 @@ struct CustomizeWidgetView: View {
                     bgColor: $bgColor
                 )
 
-                VStack {
-                    WidgetColorPicker(
-                        viewModel: viewModel,
-                        channel: $channel
-                    )
+                Form {
+                    Section {
+                        WidgetColorPicker(
+                            colorType: .background,
+                            viewModel: viewModel,
+                            channel: $channel
 
-                    ResetButton(
-                        viewModel: viewModel,
-                        channel: $channel
-                    )
+                        )
+                        WidgetColorPicker(
+                            colorType: .accent,
+                            viewModel: viewModel,
+                            channel: $channel
+
+                        )
+                        WidgetColorPicker(
+                            colorType: .number,
+                            viewModel: viewModel,
+                            channel: $channel
+                        )
+                    } header: {
+                        HStack {
+                            Text("Colors")
+                            Spacer()
+                            ResetButton(
+                                viewModel: viewModel,
+                                channel: $channel
+                            )
+                        }
+                    }
                 }
+                .scrollContentBackground(.hidden)
 
                 Spacer()
             }
