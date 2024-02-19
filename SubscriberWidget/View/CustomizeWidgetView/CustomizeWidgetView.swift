@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UIKit
+import WidgetKit
 
 struct CustomizeWidgetView: View {
     @ObservedObject var viewModel: ViewModel
@@ -24,6 +25,10 @@ struct CustomizeWidgetView: View {
     @State private var showNetworkError = false
     @State private var loadingChannel = false
 
+    let columns = [
+        GridItem(.adaptive(minimum: 80))
+    ]
+
     var body: some View {
         GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
             VStack(spacing: 16) {
@@ -37,10 +42,7 @@ struct CustomizeWidgetView: View {
                         )
 
                         SubmitButton(
-                            viewModel: viewModel,
-                            name: $name,
                             showingAlert: $showingAlert,
-                            channel: $channel,
                             loading: $loadingChannel,
                             submitButtonTapped: submitButtonTapped
                         )
@@ -56,6 +58,7 @@ struct CustomizeWidgetView: View {
                     channel: $channel,
                     bgColor: $bgColor
                 )
+                .frame(maxWidth: 650)
 
                 Form {
                     Section {
@@ -86,8 +89,17 @@ struct CustomizeWidgetView: View {
                             )
                         }
                     }
+
+                    Section("Palettes") {
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(Palette.presets, id: \.name) { palette in
+                                ColorPalette(palette: palette, onPress: handlePressPalette)
+                            }
+                        }
+                    }
                 }
                 .scrollContentBackground(.hidden)
+                .frame(maxWidth: 650)
 
                 Spacer()
             }
@@ -103,7 +115,7 @@ struct CustomizeWidgetView: View {
             Button("OK", role: .cancel) { }
         }
         .onAppear {
-            AnalyticsService.shared.logCustomizeWidgetScreenOpened(channel.channelName)
+            AnalyticsService.shared.logCustomizeWidgetScreenOpened(channel.channelName, subCount: channel.subCount)
         }
     }
 
@@ -126,6 +138,24 @@ struct CustomizeWidgetView: View {
 
             loadingChannel = false
         }
+    }
+
+    func handlePressPalette(_ palette: Palette) {
+        AnalyticsService.shared.logColorPaletteTapped(palette.name)
+        let bgColor = UIColor(palette.background)
+        let accentColor = UIColor(palette.accent)
+        let numberColor = UIColor(palette.number)
+        viewModel.updateColorsForChannel(
+            id: channel.id,
+            bgColor: bgColor,
+            accentColor: accentColor,
+            numberColor: numberColor
+        )
+
+        channel.bgColor = bgColor
+        channel.accentColor = accentColor
+        channel.numberColor = numberColor
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 

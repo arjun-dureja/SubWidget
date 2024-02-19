@@ -92,13 +92,16 @@ class AnalyticsService {
         logEvent("review.requested")
     }
 
-    func logChannelDeepLinkOpened() {
-        logEvent("channel_deeplink.opened")
+    func logChannelDeepLinkOpened(_ channelId: String) {
+        logEvent("channel_deeplink.opened", properties: [
+            "channelId": channelId
+        ])
     }
 
-    func logCustomizeWidgetScreenOpened(_ channelName: String) {
+    func logCustomizeWidgetScreenOpened(_ channelName: String, subCount: String) {
         logEvent("customize_widget_screen.opened", properties: [
-            "channelName": channelName
+            "channelName": channelName,
+            "subCount": subCount
         ])
     }
 
@@ -112,5 +115,11 @@ class AnalyticsService {
 
     func logSendEmailFailure() {
         logEvent("send_email.failure")
+    }
+
+    func logColorPaletteTapped(_ paletteName: String) {
+        logEvent("color_palette.tapped", properties: [
+            "paletteName": paletteName
+        ])
     }
 }

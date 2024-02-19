@@ -99,6 +99,14 @@ class ViewModel: ObservableObject {
         }
     }
 
+    func updateColorsForChannel(id: String, bgColor: UIColor?, accentColor: UIColor?, numberColor: UIColor?) {
+        if let index = channels.firstIndex(where: { $0.id == id }) {
+            channels[index].bgColor = bgColor
+            channels[index].accentColor = accentColor
+            channels[index].numberColor = numberColor
+        }
+    }
+
     func resetAllColors(id: String) {
         if let index = channels.firstIndex(where: { $0.id == id }) {
             channels[index].bgColor = nil
