@@ -10,13 +10,14 @@ import SwiftUI
 import StoreKit
 
 struct CustomizeWidgetHeader: View {
-    @ObservedObject var viewModel: ViewModel
+    let onCancel: () -> Void
+
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         HStack {
             Button("Cancel") {
-                viewModel.deleteChannel(at: viewModel.channels.count-1)
+                onCancel()
                 presentationMode.wrappedValue.dismiss()
             }
             .foregroundColor(.youtubeRed)

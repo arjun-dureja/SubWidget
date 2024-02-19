@@ -20,7 +20,6 @@ struct CustomizeWidgetView: View {
 
     @State private var name: String = ""
     @State private var showingAlert = false
-    @State private var helpAlert = false
     @State private var bgColor: CGColor?
     @State private var showNetworkError = false
     @State private var loadingChannel = false
@@ -33,7 +32,7 @@ struct CustomizeWidgetView: View {
         GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
             VStack(spacing: 16) {
                 if isNewWidget {
-                    CustomizeWidgetHeader(viewModel: viewModel)
+                    CustomizeWidgetHeader(onCancel: handleCancelAddNewChannel)
 
                     HStack {
                         ChannelTextField(
@@ -47,36 +46,31 @@ struct CustomizeWidgetView: View {
                             submitButtonTapped: submitButtonTapped
                         )
 
-                        HelpButton(helpAlert: $helpAlert)
+                        HelpButton()
                     }
                 } else {
                     Spacer()
                         .frame(height: 8)
                 }
 
-                WidgetPreview(
-                    channel: $channel,
-                    bgColor: $bgColor
-                )
-                .frame(maxWidth: 650)
+                WidgetPreview(channel: $channel)
+                    .frame(maxWidth: 650)
 
                 Form {
                     Section {
                         WidgetColorPicker(
                             colorType: .background,
-                            viewModel: viewModel,
+                            onSelectColor: handleColorSelected,
                             channel: $channel
-
                         )
                         WidgetColorPicker(
                             colorType: .accent,
-                            viewModel: viewModel,
+                            onSelectColor: handleColorSelected,
                             channel: $channel
-
                         )
                         WidgetColorPicker(
                             colorType: .number,
-                            viewModel: viewModel,
+                            onSelectColor: handleColorSelected,
                             channel: $channel
                         )
                     } header: {
@@ -84,7 +78,7 @@ struct CustomizeWidgetView: View {
                             Text("Colors")
                             Spacer()
                             ResetButton(
-                                viewModel: viewModel,
+                                onReset: handleResetColors,
                                 channel: $channel
                             )
                         }
@@ -138,6 +132,33 @@ struct CustomizeWidgetView: View {
 
             loadingChannel = false
         }
+    }
+
+    func handleCancelAddNewChannel() {
+        viewModel.deleteChannel(at: viewModel.channels.count-1)
+    }
+
+    func handleColorSelected(_ color: CGColor, _ type: ColorType) {
+        let updatedColor = UIColor(cgColor: color)
+        switch type {
+        case .background:
+            viewModel.updateBgColorForChannel(id: channel.id, color: updatedColor)
+            channel.bgColor = updatedColor
+        case .accent:
+            viewModel.updateAccentColorForChannel(id: channel.id, color: updatedColor)
+            channel.accentColor = updatedColor
+        case .number:
+            viewModel.updateNumberColorForChannel(id: channel.id, color: updatedColor)
+            channel.numberColor = updatedColor
+        }
+    }
+
+    func handleResetColors() {
+        AnalyticsService.shared.logResetColorTapped()
+        viewModel.resetAllColors(id: channel.id)
+        channel.bgColor = nil
+        channel.accentColor = nil
+        channel.numberColor = nil
     }
 
     func handlePressPalette(_ palette: Palette) {

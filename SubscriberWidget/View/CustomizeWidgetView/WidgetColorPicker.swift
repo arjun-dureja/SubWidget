@@ -8,19 +8,11 @@
 
 import SwiftUI
 
-enum ColorType: String {
-    case background, accent, number
-
-    var title: String {
-        return self.rawValue.capitalized
-    }
-}
-
 struct WidgetColorPicker: View {
     let colorType: ColorType
+    let onSelectColor: (_ color: CGColor, _ type: ColorType) -> Void
 
     @Environment(\.colorScheme) var colorScheme
-    @ObservedObject var viewModel: ViewModel
     @Binding var channel: YouTubeChannel
 
     var currentColor: UIColor {
@@ -40,22 +32,7 @@ struct WidgetColorPicker: View {
                 currentColor.cgColor
             },
             set: { newValue in
-                updateColor(with: newValue)
+                onSelectColor(newValue, colorType)
             }), supportsOpacity: false)
-    }
-
-    func updateColor(with color: CGColor) {
-        let updatedColor = UIColor(cgColor: color)
-        switch colorType {
-        case .background:
-            viewModel.updateBgColorForChannel(id: channel.id, color: updatedColor)
-            channel.bgColor = updatedColor
-        case .accent:
-            viewModel.updateAccentColorForChannel(id: channel.id, color: updatedColor)
-            channel.accentColor = updatedColor
-        case .number:
-            viewModel.updateNumberColorForChannel(id: channel.id, color: updatedColor)
-            channel.numberColor = updatedColor
-        }
     }
 }

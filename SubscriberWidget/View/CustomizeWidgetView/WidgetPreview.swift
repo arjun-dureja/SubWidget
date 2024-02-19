@@ -12,7 +12,6 @@ struct WidgetPreview: View {
     @Environment(\.colorScheme) var colorScheme
 
     @Binding var channel: YouTubeChannel
-    @Binding var bgColor: CGColor?
 
     var body: some View {
         VStack(spacing: 12) {
@@ -59,5 +58,5 @@ struct WidgetPreview: View {
 
 #Preview {
     @State var channel: YouTubeChannel = .preview
-    return WidgetPreview(channel: $channel, bgColor: .constant(nil))
+    return WidgetPreview(channel: $channel)
 }

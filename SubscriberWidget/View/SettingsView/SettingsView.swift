@@ -95,6 +95,7 @@ struct SettingsView: View {
                 }
             }
             .navigationBarTitle("Settings")
+            .frame(maxWidth: 850)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

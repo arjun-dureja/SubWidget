@@ -9,22 +9,15 @@
 import SwiftUI
 
 struct ResetButton: View {
-    @ObservedObject var viewModel: ViewModel
+    let onReset: () -> Void
+
     @Binding var channel: YouTubeChannel
 
     var body: some View {
-        Button(action: resetTapped, label: {
+        Button(action: onReset, label: {
             Text("Reset")
                 .bold()
                 .font(.footnote)
         })
-    }
-
-    func resetTapped() {
-        AnalyticsService.shared.logResetColorTapped()
-        viewModel.resetAllColors(id: channel.id)
-        channel.bgColor = nil
-        channel.accentColor = nil
-        channel.numberColor = nil
     }
 }

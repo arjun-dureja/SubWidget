@@ -52,6 +52,7 @@ struct WidgetListView: View {
                             }
                         }
                         .listStyle(InsetGroupedListStyle())
+                        .frame(maxWidth: 850)
                     }
                 }
             }
