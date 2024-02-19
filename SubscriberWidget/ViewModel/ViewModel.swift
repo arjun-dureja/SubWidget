@@ -155,18 +155,33 @@ class ViewModel: ObservableObject {
     }
 
     private func getChannelsWithUpdatedStatistics() async throws -> [YouTubeChannel] {
-        try await withThrowingTaskGroup(of: (Int, YouTubeChannel).self) { group in
+        try await withThrowingTaskGroup(of: (Int, YouTubeChannel?).self) { group in
             var decodedChannels = channelStorageService.getChannels()
             for (index, channel) in decodedChannels.enumerated() {
                 group.addTask {
-                    let updatedChannel = try await self.youtubeService.getChannelDetailsFromId(for: channel.channelId)
-                    return (index, updatedChannel)
+                    do {
+                        let updatedChannel = try await self.youtubeService.getChannelDetailsFromId(for: channel.channelId)
+                        return (index, updatedChannel)
+                    } catch let DecodingError.keyNotFound(key, context) {
+                        // Skip any channels that failed to decode instead of showing an error message
+                        AnalyticsService.shared.logChannelDetailsKeyNotFound(
+                            "\(key)",
+                            context.debugDescription,
+                            channel.channelName,
+                            channel.channelId
+                        )
+                        return (index, nil)
+                    } catch {
+                        throw error
+                    }
                 }
             }
 
             for try await (index, updatedChannel) in group {
-                decodedChannels[index].subCount = updatedChannel.subCount
-                decodedChannels[index].viewCount = updatedChannel.viewCount
+                if let updatedChannel {
+                    decodedChannels[index].subCount = updatedChannel.subCount
+                    decodedChannels[index].viewCount = updatedChannel.viewCount
+                }
             }
 
             return decodedChannels

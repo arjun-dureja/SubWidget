@@ -44,6 +44,20 @@ class AnalyticsService {
         ])
     }
 
+    func logChannelDetailsKeyNotFound(
+        _ key: String,
+        _ debugDescription: String,
+        _ channelName: String,
+        _ channelId: String
+    ) {
+        logEvent("channel_details.key_not_found", properties: [
+            "key": key,
+            "debugDescription": debugDescription,
+            "channelName": channelName,
+            "channelId": channelId
+        ])
+    }
+
     func logChannelSearched(_ channelName: String) {
         logEvent("youtube_channel.searched", properties: [
             "channelName": channelName
