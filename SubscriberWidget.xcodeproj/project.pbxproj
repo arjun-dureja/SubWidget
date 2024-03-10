@@ -93,6 +93,7 @@
 		7295DACF25294C50005FA093 /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DACD25294C50005FA093 /* SmallWidget.swift */; };
 		7295DAD325294CB6005FA093 /* MediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAD225294CB6005FA093 /* MediumWidget.swift */; };
 		7295DAD425294CB6005FA093 /* MediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DAD225294CB6005FA093 /* MediumWidget.swift */; };
+		7295EC152B9D8FAA004E0EFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7295EC132B9D8FAA004E0EFB /* Localizable.strings */; };
 		7299DC652B958A1F00B85EF3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7299DC642B958A1F00B85EF3 /* Localizable.xcstrings */; };
 		72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE208251D44B1004B2907 /* Subscribers.swift */; };
 		72A3B472252E2CC300891D69 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DABE252909BC005FA093 /* Constants.swift */; };
@@ -232,6 +233,12 @@
 		7295DABE252909BC005FA093 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7295DACD25294C50005FA093 /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
 		7295DAD225294CB6005FA093 /* MediumWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidget.swift; sourceTree = "<group>"; };
+		7295EC0E2B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SubscriberCount.strings; sourceTree = "<group>"; };
+		7295EC0F2B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7295EC102B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WidgetIntents.strings; sourceTree = "<group>"; };
+		7295EC112B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7295EC122B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7295EC142B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7299DC642B958A1F00B85EF3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		72B5BB372897033B005D4897 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
@@ -356,6 +363,7 @@
 				721AC2EF25DB301F00C6100C /* SubWidgetIntents.entitlements */,
 				728683C425DA44AE00568034 /* IntentHandler.swift */,
 				721AC2AB25DA473000C6100C /* Info.plist */,
+				7295EC132B9D8FAA004E0EFB /* Localizable.strings */,
 				72EFB93C2B9D361A00609DC5 /* InfoPlist.strings */,
 			);
 			path = SubWidgetIntents;
@@ -609,6 +617,7 @@
 				en,
 				Base,
 				fr,
+				es,
 			);
 			mainGroup = 7292FFF9251D1F3D0050194B;
 			packageReferences = (
@@ -643,6 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72EFB93E2B9D361A00609DC5 /* InfoPlist.strings in Resources */,
+				7295EC152B9D8FAA004E0EFB /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,10 +847,19 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		7295EC132B9D8FAA004E0EFB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7295EC142B9D8FAA004E0EFB /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		72EFB9352B9D361A00609DC5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				72EFB9362B9D361A00609DC5 /* fr */,
+				7295EC0F2B9D8FAA004E0EFB /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -849,6 +868,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				72EFB93A2B9D361A00609DC5 /* fr */,
+				7295EC112B9D8FAA004E0EFB /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -857,6 +877,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				72EFB93D2B9D361A00609DC5 /* fr */,
+				7295EC122B9D8FAA004E0EFB /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -866,6 +887,7 @@
 			children = (
 				72FD5206289CB598001F9F48 /* Base */,
 				72EFB9342B9D361A00609DC5 /* fr */,
+				7295EC0E2B9D8FAA004E0EFB /* es */,
 			);
 			name = SubscriberCount.intentdefinition;
 			sourceTree = "<group>";
@@ -875,6 +897,7 @@
 			children = (
 				72FD520B289CB59C001F9F48 /* Base */,
 				72EFB9382B9D361A00609DC5 /* fr */,
+				7295EC102B9D8FAA004E0EFB /* es */,
 			);
 			name = WidgetIntents.intentdefinition;
 			sourceTree = "<group>";

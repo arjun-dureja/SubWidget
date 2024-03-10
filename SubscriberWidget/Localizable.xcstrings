@@ -3,6 +3,12 @@
   "strings" : {
     "" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13,6 +19,12 @@
     },
     "- Add a channel in the app, then tap this widget while editing" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Agrega un canal en la aplicación, luego toca este widget mientras lo editas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23,6 +35,12 @@
     },
     "1 Hour" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Hora"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -33,6 +51,12 @@
     },
     "6 Hours" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Horas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43,6 +67,12 @@
     },
     "12 Hours" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 Horas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -53,6 +83,12 @@
     },
     "30 Minutes" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Minutos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -63,6 +99,12 @@
     },
     "Accent" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acento"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -73,6 +115,12 @@
     },
     "Add a Channel" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregar un canal"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -83,6 +131,12 @@
     },
     "Add a channel in the app" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregar un canal en la aplicación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -93,6 +147,12 @@
     },
     "Add a channel to get started." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agrega un canal para comenzar."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -103,6 +163,12 @@
     },
     "Amethyst" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amatista"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -113,6 +179,12 @@
     },
     "Background" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fondo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -123,6 +195,12 @@
     },
     "by Arjun Dureja" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "por Arjun Dureja"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -133,6 +211,12 @@
     },
     "Can't find your channel?" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿No encuentras tu canal?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -143,6 +227,12 @@
     },
     "Cancel" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -153,6 +243,12 @@
     },
     "Cannot open mail" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se puede abrir el correo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -163,6 +259,12 @@
     },
     "Channel Name or ID" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre del canal o ID"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -180,6 +282,12 @@
             "value" : "Channels"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canales"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -190,6 +298,12 @@
     },
     "Channels" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canales"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -200,6 +314,12 @@
     },
     "Choose how often the subscriber count should update" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige con qué frecuencia se debe actualizar el contador de suscriptores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -210,6 +330,12 @@
     },
     "Colors" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -220,6 +346,12 @@
     },
     "Contact" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contacto"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -230,6 +362,12 @@
     },
     "Continue" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -240,6 +378,12 @@
     },
     "Coral" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coral"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -250,6 +394,12 @@
     },
     "Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualmente, puedes agregar hasta 10 canales. Si deseas agregar más, por favor contáctame usando el enlace en Configuración y aumentaré el límite."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -260,6 +410,12 @@
     },
     "Deepsea" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mar profundo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -270,6 +426,12 @@
     },
     "Display large numbers in a compact, simplified format" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar números grandes en un formato compacto y simplificado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -280,6 +442,12 @@
     },
     "Done" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hecho"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -290,6 +458,12 @@
     },
     "Emerald" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esmeralda"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -300,6 +474,12 @@
     },
     "FAQ" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntas frecuentes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -310,6 +490,12 @@
     },
     "Find My ID" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encuentra mi ID"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -320,6 +506,12 @@
     },
     "First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primero, toca y mantén presionado en tu pantalla de bloqueo y toca 'Personalizar'. Luego puedes agregar el widget y tocarlo para seleccionar el canal."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -330,6 +522,12 @@
     },
     "Harvest" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cosecha"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -358,6 +556,24 @@
             }
           }
         },
+        "es" : {
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Haz clic derecho y selecciona 'Editar SubWidget'"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mantén presionado y toca 'Editar Widget'"
+                }
+              }
+            }
+          }
+        },
         "fr" : {
           "variations" : {
             "device" : {
@@ -380,6 +596,12 @@
     },
     "Home" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicio"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -390,6 +612,12 @@
     },
     "How do I add the widget to my homescreen?" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo agrego el widget a mi pantalla de inicio?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -400,6 +628,12 @@
     },
     "How do I add widget to my Lock Screen?" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo agrego el widget a mi pantalla de bloqueo?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -410,6 +644,12 @@
     },
     "How many channels can I add?" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuántos canales puedo agregar?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -420,6 +660,12 @@
     },
     "How often does the subscriber count update?" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Con qué frecuencia se actualiza el contador de suscriptores?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -430,6 +676,12 @@
     },
     "I can't find my channel." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No puedo encontrar mi canal."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -440,6 +692,12 @@
     },
     "I have a feature idea I want to request." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tengo una idea de función que quiero solicitar."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -450,6 +708,12 @@
     },
     "Minted" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acuñado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -460,6 +724,12 @@
     },
     "Nautical" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Náutico"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -470,6 +740,12 @@
     },
     "Network error. Please try again later." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error de red. Por favor, inténtalo de nuevo más tarde."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -480,6 +756,12 @@
     },
     "Network error. Please try again." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error de red. Por favor, inténtalo de nuevo."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -490,6 +772,12 @@
     },
     "No channels added yet" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aún no se han agregado canales."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -500,6 +788,12 @@
     },
     "Number" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Número"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -510,6 +804,12 @@
     },
     "OK" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -520,6 +820,12 @@
     },
     "Onyx" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ónix"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -530,6 +836,12 @@
     },
     "Orchid" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orquídea"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -540,6 +852,12 @@
     },
     "Palettes" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paletas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -550,6 +868,12 @@
     },
     "Patriot" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Patriota"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -560,6 +884,12 @@
     },
     "Please install a mail app to continue" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, instala una aplicación de correo para continuar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -570,6 +900,12 @@
     },
     "Please remove the widget from your homescreen and add it back." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, quita el widget de tu pantalla de inicio y vuelve a agregarlo."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -580,6 +916,12 @@
     },
     "Preview" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vista previa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -590,6 +932,12 @@
     },
     "Privacy Policy" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de privacidad"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -600,6 +948,12 @@
     },
     "Rate" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calificar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -610,6 +964,12 @@
     },
     "Reset" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -620,6 +980,12 @@
     },
     "Restores the widget's colors to the defaults." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablece los colores del widget a los predeterminados."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -630,6 +996,12 @@
     },
     "Ruby" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rubí"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -640,6 +1012,12 @@
     },
     "Select Your Channel" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona tu canal"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -650,6 +1028,12 @@
     },
     "Settings" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -660,6 +1044,12 @@
     },
     "Simplify Numbers" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simplificar números"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -670,6 +1060,12 @@
     },
     "Submit" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -680,6 +1076,12 @@
     },
     "SubWidget" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SubWidget"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -690,6 +1092,12 @@
     },
     "SubWidget %@" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SubWidget %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -700,6 +1108,12 @@
     },
     "SubWidget FAQ" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntas frecuentes de SubWidget"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -710,6 +1124,12 @@
     },
     "Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toca y mantén presionado en cualquier lugar de tu pantalla de inicio y toca el botón más en la parte superior izquierda. Busca SubWidget y agrégalo a tu pantalla de inicio. Finalmente, toca y mantén presionado el widget y selecciona tu canal."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -720,6 +1140,12 @@
     },
     "The channels aren't loading." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los canales no se están cargando."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -730,6 +1156,12 @@
     },
     "The widget is blank." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El widget está en blanco."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -740,6 +1172,12 @@
     },
     "This indicates a server issue. Please try again later." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto indica un problema con el servidor. Por favor, inténtalo de nuevo más tarde."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -750,6 +1188,12 @@
     },
     "Total subscribers" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de suscriptores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -760,6 +1204,12 @@
     },
     "Total views" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de vistas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -770,6 +1220,12 @@
     },
     "Try Again" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intentar de nuevo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -780,6 +1236,12 @@
     },
     "Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta ingresar el ID de tu canal en lugar del nombre de tu canal. Si eso aún no funciona, por favor contáctame y te ayudaré."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -790,6 +1252,12 @@
     },
     "Try entering your YouTube channel ID instead" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta ingresar el ID de tu canal de YouTube en su lugar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -800,6 +1268,12 @@
     },
     "Twilight" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crepúsculo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -810,6 +1284,12 @@
     },
     "Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lamentablemente, YouTube no proporciona conteos exactos de suscriptores, proporciona un número redondeado."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -820,6 +1300,12 @@
     },
     "Update Frequency" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frecuencia de actualización"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -830,6 +1316,12 @@
     },
     "What does the reset button do?" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué hace el botón de reinicio?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -840,6 +1332,12 @@
     },
     "What's New in SubWidget" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué hay de nuevo en SubWidget?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -850,6 +1348,12 @@
     },
     "Why doesn't it show the exact subscriber count?" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué no muestra el conteo exacto de suscriptores?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -860,6 +1364,12 @@
     },
     "Wishlist" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de deseos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -870,6 +1380,12 @@
     },
     "You can only add 10 channels. Swipe left on a channel to delete it." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo puedes agregar 10 canales. Desliza hacia la izquierda en un canal para eliminarlo."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -880,6 +1396,12 @@
     },
     "You can request a feature using the Wishlist tab below." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes solicitar una función usando la pestaña de Lista de deseos a continuación."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -890,6 +1412,12 @@
     },
     "You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes seleccionar con qué frecuencia deseas que el widget se actualice en la configuración de la aplicación. El mínimo es cada 30 minutos."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",

@@ -3,6 +3,12 @@
   "strings" : {
     "- Add a channel in the app, then tap this widget while editing" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Agrega un canal en la aplicación, luego toca este widget mientras lo editas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13,6 +19,12 @@
     },
     "1 Hour" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Hora"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23,6 +35,12 @@
     },
     "6 Hours" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Horas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -33,6 +51,12 @@
     },
     "12 Hours" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 Horas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43,6 +67,12 @@
     },
     "30 Minutes" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Minutos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -53,6 +83,12 @@
     },
     "Add a channel in the app" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agrega un canal en la aplicación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -62,13 +98,45 @@
       }
     },
     "Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualmente, puedes agregar hasta 10 canales. Si deseas agregar más, por favor contáctame usando el enlace en Configuración y aumentaré el límite."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actuellement, vous pouvez ajouter jusqu'à 10 chaînes. Si vous souhaitez en ajouter plus, veuillez me contacter en utilisant le lien dans les paramètres et j'augmenterai la limite."
+          }
+        }
+      }
     },
     "First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primero, toca y mantén presionado en tu pantalla de bloqueo y toca 'Personalizar'. Luego puedes agregar el widget y tocarlo para seleccionar el canal."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D'abord, appuyez longuement sur votre écran de verrouillage et appuyez sur 'Personnaliser'. Ensuite, vous pouvez ajouter le widget et appuyer dessus pour sélectionner la chaîne."
+          }
+        }
+      }
     },
     "Hold and tap 'Edit Widget'" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantén presionado y toca 'Editar Widget'"
+          }
+        },
         "fr" : {
           "variations" : {
             "device" : {
@@ -90,31 +158,141 @@
       }
     },
     "How do I add the widget to my homescreen?" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo agrego el widget a mi pantalla de inicio?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment ajouter le widget à mon écran d'accueil ?"
+          }
+        }
+      }
     },
     "How do I add widget to my Lock Screen?" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo agrego el widget a mi pantalla de bloqueo?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment ajouter un widget à mon écran de verrouillage ?"
+          }
+        }
+      }
     },
     "How many channels can I add?" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuántos canales puedo agregar?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Combien de chaînes puis-je ajouter ?"
+          }
+        }
+      }
     },
     "How often does the subscriber count update?" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Con qué frecuencia se actualiza el contador de suscriptores?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez la fréquence de mise à jour du nombre d'abonnés"
+          }
+        }
+      }
     },
     "I can't find my channel." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No puedo encontrar mi canal."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je ne trouve pas ma chaîne."
+          }
+        }
+      }
     },
     "I have a feature idea I want to request." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tengo una idea de función que quiero solicitar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "J'ai une idée de fonctionnalité que je souhaite demander."
+          }
+        }
+      }
     },
     "Please remove the widget from your homescreen and add it back." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, quita el widget de tu pantalla de inicio y vuelve a agregarlo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez retirer le widget de votre écran d'accueil et l'ajouter à nouveau."
+          }
+        }
+      }
     },
     "Restores the widget's colors to the defaults." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablece los colores del widget a los predeterminados."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaure les couleurs du widget aux valeurs par défaut."
+          }
+        }
+      }
     },
     "Select Your Channel" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona tu canal"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -125,6 +303,12 @@
     },
     "Subscriber Count" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conteo de suscriptores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -134,19 +318,77 @@
       }
     },
     "Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toca y mantén presionado en cualquier lugar de tu pantalla de inicio y toca el botón más en la parte superior izquierda. Busca SubWidget y agrégalo a tu pantalla de inicio. Finalmente, toca y mantén presionado el widget y selecciona tu canal."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez longuement n'importe où sur votre écran d'accueil et appuyez sur le bouton plus en haut à gauche. Recherchez SubWidget et ajoutez-le à votre écran d'accueil. Enfin, appuyez longuement sur le widget et sélectionnez votre chaîne."
+          }
+        }
+      }
     },
     "The channels aren't loading." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los canales no se están cargando."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les chaînes ne se chargent pas."
+          }
+        }
+      }
     },
     "The widget is blank." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El widget está en blanco."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le widget est vide."
+          }
+        }
+      }
     },
     "This indicates a server issue. Please try again later." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto indica un problema con el servidor. Por favor, inténtalo de nuevo más tarde."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cela indique un problème de serveur. Veuillez réessayer plus tard."
+          }
+        }
+      }
     },
     "Total subscribers" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de suscriptores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -157,6 +399,12 @@
     },
     "Total views" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de vistas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -166,13 +414,45 @@
       }
     },
     "Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta ingresar el ID de tu canal en lugar del nombre de tu canal. Si eso aún no funciona, por favor contáctame y te ayudaré."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essayez d'entrer l'ID de votre chaîne au lieu de son nom. Si cela ne fonctionne toujours pas, veuillez me contacter et je vous aiderai."
+          }
+        }
+      }
     },
     "Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lamentablemente, YouTube no proporciona conteos exactos de suscriptores, proporciona un número redondeado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malheureusement, YouTube ne fournit pas de nombres exacts d'abonnés, ils fournissent un nombre arrondi."
+          }
+        }
+      }
     },
     "View Count" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conteo de vistas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -183,6 +463,12 @@
     },
     "View your YouTube subscriber count in realtime" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ve el conteo de suscriptores de tu canal de YouTube en tiempo real"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -193,6 +479,12 @@
     },
     "View your YouTube view count in realtime" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ve el conteo de vistas de tu canal de YouTube en tiempo real"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -202,16 +494,68 @@
       }
     },
     "What does the reset button do?" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué hace el botón de reinicio?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Que fait le bouton de réinitialisation ?"
+          }
+        }
+      }
     },
     "Why doesn't it show the exact subscriber count?" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué no muestra el conteo exacto de suscriptores?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourquoi cela n'affiche-t-il pas le nombre exact d'abonnés ?"
+          }
+        }
+      }
     },
     "You can request a feature using the Wishlist tab below." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes solicitar una función usando la pestaña Lista de deseos a continuación."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez demander une fonctionnalité en utilisant l'onglet Liste de souhaits ci-dessous."
+          }
+        }
+      }
     },
     "You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes seleccionar con qué frecuencia deseas que el widget se actualice en la configuración de la aplicación. El mínimo es cada 30 minutos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez sélectionner la fréquence à laquelle vous souhaitez que le widget se mette à jour dans les paramètres de l'application. Le minimum est toutes les 30 minutes."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
