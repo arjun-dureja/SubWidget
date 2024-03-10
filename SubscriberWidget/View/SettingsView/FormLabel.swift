@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FormLabel: View {
-    var text: String
+    var text: LocalizedStringResource
     var icon: String
 
     var body: some View {

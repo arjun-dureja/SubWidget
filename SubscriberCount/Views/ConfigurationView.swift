@@ -14,14 +14,6 @@ struct ConfigurationView: View {
 
     var baselineOffset: CGFloat
 
-    var editInstructions: String {
-        #if targetEnvironment(macCatalyst)
-        return "Right click and select \"Edit SubWidget\""
-        #else
-        return "Hold and tap 'Edit Widget'"
-        #endif
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -50,7 +42,7 @@ struct ConfigurationView: View {
                 Text(Image(systemName: "2.circle.fill"))
                     .foregroundColor(.youtubeRed)
                     .baselineOffset(baselineOffset)
-                Text(editInstructions)
+                Text("Hold and tap 'Edit Widget'")
                     .font(.system(size: 13))
                     .fontWeight(.medium)
                     .foregroundColor(Color("AccentColor"))
@@ -59,6 +51,7 @@ struct ConfigurationView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(showsWidgetContainerBackground ? 0 : 6)
+        .minimumScaleFactor(0.25)
         .forwardport.padding()
         .backport.containerBackground(.clear)
     }

@@ -59,16 +59,19 @@ struct CustomizeWidgetView: View {
                 Form {
                     Section {
                         WidgetColorPicker(
+                            title: "Background",
                             colorType: .background,
                             onSelectColor: handleColorSelected,
                             channel: $channel
                         )
                         WidgetColorPicker(
+                            title: "Accent",
                             colorType: .accent,
                             onSelectColor: handleColorSelected,
                             channel: $channel
                         )
                         WidgetColorPicker(
+                            title: "Number",
                             colorType: .number,
                             onSelectColor: handleColorSelected,
                             channel: $channel
@@ -86,7 +89,7 @@ struct CustomizeWidgetView: View {
 
                     Section("Palettes") {
                         LazyVGrid(columns: columns, spacing: 16) {
-                            ForEach(Palette.presets, id: \.name) { palette in
+                            ForEach(Palette.presets, id: \.name.key) { palette in
                                 ColorPalette(palette: palette, onPress: handlePressPalette)
                             }
                         }
@@ -162,7 +165,7 @@ struct CustomizeWidgetView: View {
     }
 
     func handlePressPalette(_ palette: Palette) {
-        AnalyticsService.shared.logColorPaletteTapped(palette.name)
+        AnalyticsService.shared.logColorPaletteTapped(String(localized: palette.name))
         let bgColor = UIColor(palette.background)
         let accentColor = UIColor(palette.accent)
         let numberColor = UIColor(palette.number)

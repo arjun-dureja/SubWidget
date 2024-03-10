@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Palette {
-    let name: String
+    let name: LocalizedStringResource
     let background: Color
     let accent: Color
     let number: Color

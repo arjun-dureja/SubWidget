@@ -11,7 +11,7 @@ import SwiftUI
 struct FormattedCaption: View {
     let widgetType: WidgetType
 
-    var caption: String {
+    var caption: LocalizedStringResource {
         switch widgetType {
         case .subscribers:
             "Total subscribers"

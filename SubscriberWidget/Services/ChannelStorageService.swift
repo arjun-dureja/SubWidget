@@ -39,7 +39,7 @@ class ChannelStorageService: ChannelStorageServiceProtocol {
             return
         }
 
-        AnalyticsService.shared.logRefreshFrequencyUpdated(frequency.toString())
+        AnalyticsService.shared.logRefreshFrequencyUpdated(String(localized: frequency.toString()))
         guard let encodedFrequency = try? JSONEncoder().encode(frequency) else { return }
         refreshFrequencyData = encodedFrequency
         WidgetCenter.shared.reloadAllTimelines()

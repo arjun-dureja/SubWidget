@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SafariSheet: View {
-    var text: String
+    var text: LocalizedStringResource
     var icon: String
     var url: URL
 

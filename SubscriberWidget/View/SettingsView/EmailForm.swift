@@ -33,8 +33,8 @@ extension EmailHelper {
             }
 
             let alert = UIAlertController(
-                title: "Cannot open mail",
-                message: "Please install a mail app to continue",
+                title: NSLocalizedString("Cannot open mail", comment: ""),
+                message: NSLocalizedString("Please install a mail app to continue", comment: ""),
                 preferredStyle: .alert
             )
 

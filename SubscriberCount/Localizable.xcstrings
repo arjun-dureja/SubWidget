@@ -1,0 +1,158 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "- Add a channel in the app, then tap this widget while editing" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Ajoutez une chaîne dans l'application, puis touchez ce widget en cours de modification"
+          }
+        }
+      }
+    },
+    "1 Hour" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Heure"
+          }
+        }
+      }
+    },
+    "6 Hours" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Heures"
+          }
+        }
+      }
+    },
+    "12 Hours" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 Heures"
+          }
+        }
+      }
+    },
+    "30 Minutes" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Minutes"
+          }
+        }
+      }
+    },
+    "Add a channel in the app" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez une chaîne dans l'application"
+          }
+        }
+      }
+    },
+    "Hold and tap 'Edit Widget'" : {
+      "localizations" : {
+        "fr" : {
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cliquez avec le bouton droit et sélectionnez 'Modifier SubWidget'"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Maintenez enfoncé et appuyez sur 'Modifier le widget'"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Select Your Channel" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez votre chaîne"
+          }
+        }
+      }
+    },
+    "Subscriber Count" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre d'abonnés"
+          }
+        }
+      }
+    },
+    "Total subscribers" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total des abonnés"
+          }
+        }
+      }
+    },
+    "Total views" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total des vues"
+          }
+        }
+      }
+    },
+    "View Count" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de vues"
+          }
+        }
+      }
+    },
+    "View your YouTube subscriber count in realtime" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consultez en temps réel le nombre d'abonnés de votre chaîne YouTube"
+          }
+        }
+      }
+    },
+    "View your YouTube view count in realtime" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consultez en temps réel le nombre de vues de votre chaîne YouTube"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

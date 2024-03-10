@@ -14,7 +14,7 @@ enum RefreshFrequencies: Double, CaseIterable, Codable {
     case SIX_HR = 180
     case TWELVE_HR = 720
 
-    func toString() -> String {
+    func toString() -> LocalizedStringResource {
         switch self {
         case .THIRTY_MIN:
             "30 Minutes"

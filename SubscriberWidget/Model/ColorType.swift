@@ -10,8 +10,4 @@ import Foundation
 
 enum ColorType: String {
     case background, accent, number
-
-    var title: String {
-        return self.rawValue.capitalized
-    }
 }

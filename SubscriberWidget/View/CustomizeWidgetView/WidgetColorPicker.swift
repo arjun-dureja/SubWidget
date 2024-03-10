@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct WidgetColorPicker: View {
+    let title: LocalizedStringResource
     let colorType: ColorType
     let onSelectColor: (_ color: CGColor, _ type: ColorType) -> Void
 
@@ -27,7 +28,7 @@ struct WidgetColorPicker: View {
     }
 
     var body: some View {
-        ColorPicker(colorType.title, selection: Binding(
+        ColorPicker(String(localized: title), selection: Binding(
             get: {
                 currentColor.cgColor
             },
