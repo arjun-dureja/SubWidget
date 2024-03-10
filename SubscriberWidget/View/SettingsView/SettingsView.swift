@@ -60,7 +60,7 @@ struct SettingsView: View {
 
                 Section {
                     NavigationLink {
-                        FAQ(viewModel: viewModel)
+                        FAQ()
                     } label: {
                         Label {
                             Text("FAQ")

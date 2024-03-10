@@ -9,27 +9,19 @@
 import SwiftUI
 
 struct FAQ: View {
-    @ObservedObject var viewModel: ViewModel
-    @State var faqData: [FAQItem] = []
-    @State var loading = true
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         ZStack {
-            if loading {
-                ProgressView()
-                    .scaleEffect(1.5, anchor: .center)
-            } else {
-                ScrollView {
-                    VStack(spacing: 0) {
-                        ForEach(faqData) { item in
-                            FAQCell(question: item.question, answer: item.answer)
-                        }
+            ScrollView {
+                VStack(spacing: 0) {
+                    ForEach(FAQItem.presets) { item in
+                        FAQCell(question: item.question, answer: item.answer)
                     }
-                    .cornerRadius(8)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom)
                 }
+                .cornerRadius(8)
+                .padding(.horizontal, 20)
+                .padding(.bottom)
             }
         }
         .navigationBarTitle("SubWidget FAQ")
@@ -37,8 +29,6 @@ struct FAQ: View {
         .onAppear {
             Task {
                 AnalyticsService.shared.logFaqScreenViewed()
-                faqData = try await viewModel.getFaq()
-                loading = false
             }
         }
     }

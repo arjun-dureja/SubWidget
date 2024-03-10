@@ -248,6 +248,16 @@
         }
       }
     },
+    "Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actuellement, vous pouvez ajouter jusqu'à 10 chaînes. Si vous souhaitez en ajouter plus, veuillez me contacter en utilisant le lien dans les paramètres et j'augmenterai la limite."
+          }
+        }
+      }
+    },
     "Deepsea" : {
       "localizations" : {
         "fr" : {
@@ -308,6 +318,16 @@
         }
       }
     },
+    "First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D'abord, appuyez longuement sur votre écran de verrouillage et appuyez sur 'Personnaliser'. Ensuite, vous pouvez ajouter le widget et appuyer dessus pour sélectionner la chaîne."
+          }
+        }
+      }
+    },
     "Harvest" : {
       "localizations" : {
         "fr" : {
@@ -364,6 +384,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accueil"
+          }
+        }
+      }
+    },
+    "How do I add the widget to my homescreen?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment ajouter le widget à mon écran d'accueil ?"
+          }
+        }
+      }
+    },
+    "How do I add widget to my Lock Screen?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment ajouter un widget à mon écran de verrouillage ?"
+          }
+        }
+      }
+    },
+    "How many channels can I add?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Combien de chaînes puis-je ajouter ?"
+          }
+        }
+      }
+    },
+    "How often does the subscriber count update?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À quelle fréquence le nombre d'abonnés est-il mis à jour ?"
+          }
+        }
+      }
+    },
+    "I can't find my channel." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je ne trouve pas ma chaîne."
+          }
+        }
+      }
+    },
+    "I have a feature idea I want to request." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "J'ai une idée de fonctionnalité que je souhaite demander."
           }
         }
       }
@@ -488,6 +568,16 @@
         }
       }
     },
+    "Please remove the widget from your homescreen and add it back." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez retirer le widget de votre écran d'accueil et l'ajouter à nouveau."
+          }
+        }
+      }
+    },
     "Preview" : {
       "localizations" : {
         "fr" : {
@@ -524,6 +614,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser"
+          }
+        }
+      }
+    },
+    "Restores the widget's colors to the defaults." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaure les couleurs du widget aux valeurs par défaut."
           }
         }
       }
@@ -608,6 +708,46 @@
         }
       }
     },
+    "Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez longuement n'importe où sur votre écran d'accueil et appuyez sur le bouton plus en haut à gauche. Recherchez SubWidget et ajoutez-le à votre écran d'accueil. Enfin, appuyez longuement sur le widget et sélectionnez votre chaîne."
+          }
+        }
+      }
+    },
+    "The channels aren't loading." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les chaînes ne se chargent pas."
+          }
+        }
+      }
+    },
+    "The widget is blank." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le widget est vide."
+          }
+        }
+      }
+    },
+    "This indicates a server issue. Please try again later." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cela indique un problème de serveur. Veuillez réessayer plus tard."
+          }
+        }
+      }
+    },
     "Total subscribers" : {
       "localizations" : {
         "fr" : {
@@ -638,6 +778,16 @@
         }
       }
     },
+    "Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essayez d'entrer l'ID de votre chaîne au lieu de son nom. Si cela ne fonctionne toujours pas, veuillez me contacter et je vous aiderai."
+          }
+        }
+      }
+    },
     "Try entering your YouTube channel ID instead" : {
       "localizations" : {
         "fr" : {
@@ -658,6 +808,16 @@
         }
       }
     },
+    "Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malheureusement, YouTube ne fournit pas de nombres exacts d'abonnés, ils fournissent un nombre arrondi."
+          }
+        }
+      }
+    },
     "Update Frequency" : {
       "localizations" : {
         "fr" : {
@@ -668,12 +828,32 @@
         }
       }
     },
+    "What does the reset button do?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Que fait le bouton de réinitialisation ?"
+          }
+        }
+      }
+    },
     "What's New in SubWidget" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouveautés dans SubWidget"
+          }
+        }
+      }
+    },
+    "Why doesn't it show the exact subscriber count?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourquoi cela n'affiche-t-il pas le nombre exact d'abonnés ?"
           }
         }
       }
@@ -694,6 +874,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous ne pouvez ajouter que 10 chaînes. Balayez vers la gauche sur une chaîne pour la supprimer."
+          }
+        }
+      }
+    },
+    "You can request a feature using the Wishlist tab below." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez demander une fonctionnalité en utilisant l'onglet Liste de souhaits ci-dessous."
+          }
+        }
+      }
+    },
+    "You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez sélectionner la fréquence à laquelle vous souhaitez que le widget se mette à jour dans les paramètres de l'application. Le minimum est toutes les 30 minutes."
           }
         }
       }

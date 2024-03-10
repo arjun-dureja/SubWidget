@@ -61,6 +61,12 @@
         }
       }
     },
+    "Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." : {
+
+    },
+    "First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." : {
+
+    },
     "Hold and tap 'Edit Widget'" : {
       "localizations" : {
         "fr" : {
@@ -83,6 +89,30 @@
         }
       }
     },
+    "How do I add the widget to my homescreen?" : {
+
+    },
+    "How do I add widget to my Lock Screen?" : {
+
+    },
+    "How many channels can I add?" : {
+
+    },
+    "How often does the subscriber count update?" : {
+
+    },
+    "I can't find my channel." : {
+
+    },
+    "I have a feature idea I want to request." : {
+
+    },
+    "Please remove the widget from your homescreen and add it back." : {
+
+    },
+    "Restores the widget's colors to the defaults." : {
+
+    },
     "Select Your Channel" : {
       "localizations" : {
         "fr" : {
@@ -103,6 +133,18 @@
         }
       }
     },
+    "Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." : {
+
+    },
+    "The channels aren't loading." : {
+
+    },
+    "The widget is blank." : {
+
+    },
+    "This indicates a server issue. Please try again later." : {
+
+    },
     "Total subscribers" : {
       "localizations" : {
         "fr" : {
@@ -122,6 +164,12 @@
           }
         }
       }
+    },
+    "Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." : {
+
+    },
+    "Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." : {
+
     },
     "View Count" : {
       "localizations" : {
@@ -152,6 +200,18 @@
           }
         }
       }
+    },
+    "What does the reset button do?" : {
+
+    },
+    "Why doesn't it show the exact subscriber count?" : {
+
+    },
+    "You can request a feature using the Wishlist tab below." : {
+
+    },
+    "You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." : {
+
     }
   },
   "version" : "1.0"

@@ -11,8 +11,8 @@ import SwiftUI
 struct FAQCell: View {
     @State private var tapped = false
     @Environment(\.colorScheme) var colorScheme
-    var question: String
-    var answer: String
+    var question: LocalizedStringResource
+    var answer: LocalizedStringResource
 
     var body: some View {
         VStack(spacing: 0) {
@@ -44,18 +44,12 @@ struct FAQCell: View {
         .background(colorScheme == . dark ? Color(UIColor.systemGray6) : .white).edgesIgnoringSafeArea(.all)
         .onTapGesture {
             if !tapped {
-                AnalyticsService.shared.logFaqCellTapped(question)
+                AnalyticsService.shared.logFaqCellTapped(String(localized: question))
             }
 
             withAnimation {
                 tapped.toggle()
             }
         }
-    }
-}
-
-struct FAQCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FAQCell(question: "Placeholder question", answer: "Placeholder answer")
     }
 }

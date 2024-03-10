@@ -133,13 +133,6 @@ class ViewModel: ObservableObject {
         AnalyticsService.shared.logChannelDeleted(deletedChannel.channelName)
     }
 
-    func getFaq() async throws -> [FAQItem] {
-        guard let faqUrl = URL(string: "https://arjundureja.com/subwidget/faq.json") else { throw SubWidgetError.invalidURL }
-        let (data, _) = try await URLSession.shared.data(from: faqUrl)
-        let jsonData = try JSONDecoder().decode([FAQItem].self, from: data)
-        return jsonData
-    }
-
     func shouldShowWhatsNew() -> Bool {
         // Version 2.1.1 - No whats new view
         return false
