@@ -14,6 +14,12 @@
             "state" : "translated",
             "value" : ""
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
         }
       }
     },
@@ -29,6 +35,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "- Ajoutez une chaîne dans l'application, puis touchez ce widget en cours de modification"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Adicione um canal no aplicativo e depois toque neste widget enquanto edita"
           }
         }
       }
@@ -46,6 +58,12 @@
             "state" : "translated",
             "value" : "1 Heure"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Hora"
+          }
         }
       }
     },
@@ -61,6 +79,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "6 Heures"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Horas"
           }
         }
       }
@@ -78,6 +102,12 @@
             "state" : "translated",
             "value" : "12 Heures"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 Horas"
+          }
         }
       }
     },
@@ -93,6 +123,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "30 Minutes"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Minutos"
           }
         }
       }
@@ -110,6 +146,12 @@
             "state" : "translated",
             "value" : "Accent"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acento"
+          }
         }
       }
     },
@@ -125,6 +167,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajoutez une chaîne"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar um Canal"
           }
         }
       }
@@ -142,6 +190,12 @@
             "state" : "translated",
             "value" : "Ajoutez une chaîne dans l'application"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione um canal no aplicativo"
+          }
         }
       }
     },
@@ -157,6 +211,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajoutez une chaîne pour commencer."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione um canal para começar."
           }
         }
       }
@@ -174,6 +234,12 @@
             "state" : "translated",
             "value" : "Améthyste"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ametista"
+          }
         }
       }
     },
@@ -189,6 +255,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fond"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fundo"
           }
         }
       }
@@ -206,6 +278,12 @@
             "state" : "translated",
             "value" : "par Arjun Dureja"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "por Arjun Dureja"
+          }
         }
       }
     },
@@ -221,6 +299,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous ne trouvez pas votre chaîne ?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não consegue encontrar seu canal?"
           }
         }
       }
@@ -238,6 +322,12 @@
             "state" : "translated",
             "value" : "Annuler"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
         }
       }
     },
@@ -254,6 +344,12 @@
             "state" : "translated",
             "value" : "Impossible d'ouvrir le courrier"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não é possível abrir o e-mail"
+          }
         }
       }
     },
@@ -269,6 +365,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nom de la chaîne ou ID"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome do Canal ou ID"
           }
         }
       }
@@ -293,6 +395,12 @@
             "state" : "translated",
             "value" : "Chaînes"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canais"
+          }
         }
       }
     },
@@ -308,6 +416,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chaînes"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canais"
           }
         }
       }
@@ -325,6 +439,12 @@
             "state" : "translated",
             "value" : "Choisissez la fréquence de mise à jour du nombre d'abonnés"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha com que frequência a contagem de inscritos deve ser atualizada"
+          }
         }
       }
     },
@@ -340,6 +460,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couleurs"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cores"
           }
         }
       }
@@ -357,6 +483,12 @@
             "state" : "translated",
             "value" : "Contact"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contato"
+          }
         }
       }
     },
@@ -373,6 +505,12 @@
             "state" : "translated",
             "value" : "Continuer"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
         }
       }
     },
@@ -385,6 +523,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coral"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Coral"
@@ -405,6 +549,12 @@
             "state" : "translated",
             "value" : "Actuellement, vous pouvez ajouter jusqu'à 10 chaînes. Si vous souhaitez en ajouter plus, veuillez me contacter en utilisant le lien dans les paramètres et j'augmenterai la limite."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualmente, você pode adicionar até 10 canais. Se quiser adicionar mais, por favor, entre em contato comigo usando o link em Configurações e eu aumentarei o limite."
+          }
         }
       }
     },
@@ -420,6 +570,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fond marin"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mar Profundo"
           }
         }
       }
@@ -437,6 +593,12 @@
             "state" : "translated",
             "value" : "Affichez de grands nombres dans un format compact et simplifié"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exibir números grandes em um formato compacto e simplificado"
+          }
         }
       }
     },
@@ -452,6 +614,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terminé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Concluído"
           }
         }
       }
@@ -469,6 +637,12 @@
             "state" : "translated",
             "value" : "Émeraude"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esmeralda"
+          }
         }
       }
     },
@@ -481,6 +655,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FAQ"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "FAQ"
@@ -501,6 +681,12 @@
             "state" : "translated",
             "value" : "Trouvez mon ID"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrar Meu ID"
+          }
         }
       }
     },
@@ -517,6 +703,12 @@
             "state" : "translated",
             "value" : "D'abord, appuyez longuement sur votre écran de verrouillage et appuyez sur 'Personnaliser'. Ensuite, vous pouvez ajouter le widget et appuyer dessus pour sélectionner la chaîne."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primeiro, toque e segure na sua Tela de Bloqueio e toque em 'Personalizar'. Depois, você pode adicionar o widget e tocar nele para selecionar o canal."
+          }
         }
       }
     },
@@ -532,6 +724,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Récolte"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colheita"
           }
         }
       }
@@ -591,6 +789,24 @@
               }
             }
           }
+        },
+        "pt-BR" : {
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Clique com o botão direito e selecione 'Editar SubWidget'"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Segure e toque em 'Editar Widget'"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -606,6 +822,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accueil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Início"
           }
         }
       }
@@ -623,6 +845,12 @@
             "state" : "translated",
             "value" : "Comment ajouter le widget à mon écran d'accueil ?"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Como adiciono o widget à minha tela inicial?"
+          }
         }
       }
     },
@@ -638,6 +866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Comment ajouter un widget à mon écran de verrouillage ?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Como adiciono o widget à minha Tela de Bloqueio?"
           }
         }
       }
@@ -655,6 +889,12 @@
             "state" : "translated",
             "value" : "Combien de chaînes puis-je ajouter ?"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quantos canais posso adicionar?"
+          }
         }
       }
     },
@@ -670,6 +910,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À quelle fréquence le nombre d'abonnés est-il mis à jour ?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com que frequência a contagem de inscritos é atualizada?"
           }
         }
       }
@@ -687,6 +933,12 @@
             "state" : "translated",
             "value" : "Je ne trouve pas ma chaîne."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não consigo encontrar meu canal."
+          }
         }
       }
     },
@@ -702,6 +954,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "J'ai une idée de fonctionnalité que je souhaite demander."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eu tenho uma ideia de recurso que quero solicitar."
           }
         }
       }
@@ -719,6 +977,12 @@
             "state" : "translated",
             "value" : "Menthe"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cunhado"
+          }
         }
       }
     },
@@ -734,6 +998,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nautique"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Náutico"
           }
         }
       }
@@ -751,6 +1021,12 @@
             "state" : "translated",
             "value" : "Erreur réseau. Veuillez réessayer plus tard."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro de rede. Por favor, tente novamente mais tarde."
+          }
         }
       }
     },
@@ -766,6 +1042,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erreur réseau. Veuillez réessayer."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro de rede. Por favor, tente novamente."
           }
         }
       }
@@ -783,6 +1065,12 @@
             "state" : "translated",
             "value" : "Aucune chaîne ajoutée pour le moment"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum canal adicionado ainda"
+          }
         }
       }
     },
@@ -799,6 +1087,12 @@
             "state" : "translated",
             "value" : "Numéro"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Número"
+          }
         }
       }
     },
@@ -811,6 +1105,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -831,6 +1131,12 @@
             "state" : "translated",
             "value" : "Onyx"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ônix"
+          }
         }
       }
     },
@@ -846,6 +1152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Orchidée"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orquídea"
           }
         }
       }
@@ -863,6 +1175,12 @@
             "state" : "translated",
             "value" : "Palettes"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paletas"
+          }
         }
       }
     },
@@ -878,6 +1196,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Patriote"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Patriota"
           }
         }
       }
@@ -895,6 +1219,12 @@
             "state" : "translated",
             "value" : "Veuillez installer une application de messagerie pour continuer"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, instale um aplicativo de e-mail para continuar"
+          }
         }
       }
     },
@@ -910,6 +1240,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Veuillez retirer le widget de votre écran d'accueil et l'ajouter à nouveau."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, remova o widget da sua tela inicial e adicione-o novamente."
           }
         }
       }
@@ -927,6 +1263,12 @@
             "state" : "translated",
             "value" : "Aperçu"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pré-visualização"
+          }
         }
       }
     },
@@ -942,6 +1284,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Politique de confidentialité"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de Privacidade"
           }
         }
       }
@@ -959,6 +1307,12 @@
             "state" : "translated",
             "value" : "Évaluer"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Classificar"
+          }
         }
       }
     },
@@ -974,6 +1328,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetar"
           }
         }
       }
@@ -991,6 +1351,12 @@
             "state" : "translated",
             "value" : "Restaure les couleurs du widget aux valeurs par défaut."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaura as cores do widget para os padrões."
+          }
         }
       }
     },
@@ -1006,6 +1372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rubis"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rubi"
           }
         }
       }
@@ -1023,6 +1395,12 @@
             "state" : "translated",
             "value" : "Sélectionnez votre chaîne"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecione Seu Canal"
+          }
         }
       }
     },
@@ -1038,6 +1416,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paramètres"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurações"
           }
         }
       }
@@ -1055,6 +1439,12 @@
             "state" : "translated",
             "value" : "Simplifier les nombres"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simplificar Números"
+          }
         }
       }
     },
@@ -1071,6 +1461,12 @@
             "state" : "translated",
             "value" : "Soumettre"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar"
+          }
         }
       }
     },
@@ -1083,6 +1479,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SubWidget"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "SubWidget"
@@ -1103,6 +1505,12 @@
             "state" : "translated",
             "value" : "SubWidget %@"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SubWidget %@"
+          }
         }
       }
     },
@@ -1118,6 +1526,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FAQ SubWidget"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FAQ do SubWidget"
           }
         }
       }
@@ -1135,6 +1549,12 @@
             "state" : "translated",
             "value" : "Appuyez longuement n'importe où sur votre écran d'accueil et appuyez sur le bouton plus en haut à gauche. Recherchez SubWidget et ajoutez-le à votre écran d'accueil. Enfin, appuyez longuement sur le widget et sélectionnez votre chaîne."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque e segure em qualquer lugar na sua tela inicial e toque no botão de mais no canto superior esquerdo. Procure por SubWidget e adicione-o à sua tela inicial. Por fim, toque e segure no widget e selecione seu canal."
+          }
         }
       }
     },
@@ -1150,6 +1570,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les chaînes ne se chargent pas."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os canais não estão carregando."
           }
         }
       }
@@ -1167,6 +1593,12 @@
             "state" : "translated",
             "value" : "Le widget est vide."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O widget está em branco."
+          }
         }
       }
     },
@@ -1182,6 +1614,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cela indique un problème de serveur. Veuillez réessayer plus tard."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isso indica um problema no servidor. Por favor, tente novamente mais tarde."
           }
         }
       }
@@ -1199,6 +1637,12 @@
             "state" : "translated",
             "value" : "Total abonnés"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de inscritos"
+          }
         }
       }
     },
@@ -1214,6 +1658,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Total des vues"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de visualizações"
           }
         }
       }
@@ -1231,6 +1681,12 @@
             "state" : "translated",
             "value" : "Essayez à nouveau"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tente Novamente"
+          }
         }
       }
     },
@@ -1246,6 +1702,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essayez d'entrer l'ID de votre chaîne au lieu de son nom. Si cela ne fonctionne toujours pas, veuillez me contacter et je vous aiderai."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tente inserir o ID do seu canal em vez do nome do seu canal. Se isso ainda não funcionar, por favor, entre em contato comigo e eu o ajudarei."
           }
         }
       }
@@ -1263,6 +1725,12 @@
             "state" : "translated",
             "value" : "Essayez d'entrer l'ID de votre chaîne YouTube à la place"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tente inserir o ID do seu canal do YouTube em vez disso"
+          }
         }
       }
     },
@@ -1278,6 +1746,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crépuscule"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crepúsculo"
           }
         }
       }
@@ -1295,6 +1769,12 @@
             "state" : "translated",
             "value" : "Malheureusement, YouTube ne fournit pas de nombres exacts d'abonnés, ils fournissent un nombre arrondi."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Infelizmente, o YouTube não fornece contagens exatas de inscritos, eles fornecem um número arredondado."
+          }
         }
       }
     },
@@ -1310,6 +1790,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fréquence de mise à jour"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frequência de Atualização"
           }
         }
       }
@@ -1327,6 +1813,12 @@
             "state" : "translated",
             "value" : "Que fait le bouton de réinitialisation ?"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O que o botão de reset faz?"
+          }
         }
       }
     },
@@ -1342,6 +1834,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouveautés dans SubWidget"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novidades no SubWidget"
           }
         }
       }
@@ -1359,6 +1857,12 @@
             "state" : "translated",
             "value" : "Pourquoi cela n'affiche-t-il pas le nombre exact d'abonnés ?"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por que não mostra a contagem exata de inscritos?"
+          }
         }
       }
     },
@@ -1374,6 +1878,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Liste de souhaits"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de Desejos"
           }
         }
       }
@@ -1391,6 +1901,12 @@
             "state" : "translated",
             "value" : "Vous ne pouvez ajouter que 10 chaînes. Balayez vers la gauche sur une chaîne pour la supprimer."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você só pode adicionar 10 canais. Deslize para a esquerda em um canal para excluí-lo."
+          }
         }
       }
     },
@@ -1407,6 +1923,12 @@
             "state" : "translated",
             "value" : "Vous pouvez demander une fonctionnalité en utilisant l'onglet Liste de souhaits ci-dessous."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você pode solicitar um recurso usando a aba Lista de Desejos abaixo."
+          }
         }
       }
     },
@@ -1422,6 +1944,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous pouvez sélectionner la fréquence à laquelle vous souhaitez que le widget se mette à jour dans les paramètres de l'application. Le minimum est toutes les 30 minutes."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você pode selecionar com que frequência deseja que o widget seja atualizado nas configurações do aplicativo. O mínimo é a cada 30 minutos."
           }
         }
       }

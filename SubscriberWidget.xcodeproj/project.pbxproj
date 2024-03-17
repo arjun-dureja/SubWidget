@@ -245,6 +245,12 @@
 		72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		72D12C8328DC1057002617E4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
+		72D7530C2BA69B0400A103EC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SubscriberCount.strings"; sourceTree = "<group>"; };
+		72D7530D2BA69B0400A103EC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		72D7530E2BA69B0400A103EC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/WidgetIntents.strings"; sourceTree = "<group>"; };
+		72D7530F2BA69B0400A103EC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		72D753102BA69B0400A103EC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		72D753112BA69B0400A103EC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		72D820A025D74613008240B2 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
 		72D820AA25D75440008240B2 /* WidgetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreview.swift; sourceTree = "<group>"; };
 		72DB77DF2B56305400F8CFAB /* YouTubeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeService.swift; sourceTree = "<group>"; };
@@ -618,6 +624,7 @@
 				Base,
 				fr,
 				es,
+				"pt-BR",
 			);
 			mainGroup = 7292FFF9251D1F3D0050194B;
 			packageReferences = (
@@ -851,6 +858,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7295EC142B9D8FAA004E0EFB /* es */,
+				72D753112BA69B0400A103EC /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -860,6 +868,7 @@
 			children = (
 				72EFB9362B9D361A00609DC5 /* fr */,
 				7295EC0F2B9D8FAA004E0EFB /* es */,
+				72D7530D2BA69B0400A103EC /* pt-BR */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -869,6 +878,7 @@
 			children = (
 				72EFB93A2B9D361A00609DC5 /* fr */,
 				7295EC112B9D8FAA004E0EFB /* es */,
+				72D7530F2BA69B0400A103EC /* pt-BR */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -878,6 +888,7 @@
 			children = (
 				72EFB93D2B9D361A00609DC5 /* fr */,
 				7295EC122B9D8FAA004E0EFB /* es */,
+				72D753102BA69B0400A103EC /* pt-BR */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -888,6 +899,7 @@
 				72FD5206289CB598001F9F48 /* Base */,
 				72EFB9342B9D361A00609DC5 /* fr */,
 				7295EC0E2B9D8FAA004E0EFB /* es */,
+				72D7530C2BA69B0400A103EC /* pt-BR */,
 			);
 			name = SubscriberCount.intentdefinition;
 			sourceTree = "<group>";
@@ -898,6 +910,7 @@
 				72FD520B289CB59C001F9F48 /* Base */,
 				72EFB9382B9D361A00609DC5 /* fr */,
 				7295EC102B9D8FAA004E0EFB /* es */,
+				72D7530E2BA69B0400A103EC /* pt-BR */,
 			);
 			name = WidgetIntents.intentdefinition;
 			sourceTree = "<group>";

@@ -1,0 +1,72 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1 Hora";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6 Horas";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12 Horas";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30 Minutos";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "Atualmente, você pode adicionar até 10 canais. Se quiser adicionar mais, por favor, entre em contato comigo usando o link em Configurações e eu aumentarei o limite.";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "Primeiro, toque e segure na sua Tela de Bloqueio e toque em 'Personalizar'. Depois, você pode adicionar o widget e tocar nele para selecionar o canal.";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "Como adiciono o widget à minha tela inicial?";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "Como adiciono o widget à minha Tela de Bloqueio?";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "Quantos canais posso adicionar?";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "Com que frequência a contagem de inscritos é atualizada?";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "Não consigo encontrar meu canal.";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "Eu tenho uma ideia de recurso que quero solicitar.";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "Por favor, remova o widget da sua tela inicial e adicione-o novamente.";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "Restaura as cores do widget para os padrões.";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "Toque e segure em qualquer lugar na sua tela inicial e toque no botão de mais no canto superior esquerdo. Procure por SubWidget e adicione-o à sua tela inicial. Por fim, toque e segure no widget e selecione seu canal.";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "Os canais não estão carregando.";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "O widget está em branco.";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "Isso indica um problema no servidor. Por favor, tente novamente mais tarde.";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "Tente inserir o ID do seu canal em vez do nome do seu canal. Se isso ainda não funcionar, por favor, entre em contato comigo e eu o ajudarei.";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "Infelizmente, o YouTube não fornece contagens exatas de inscritos, eles fornecem um número arredondado.";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "O que o botão de reset faz?";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "Por que não mostra a contagem exata de inscritos?";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "Você pode solicitar um recurso usando a aba Lista de Desejos abaixo.";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "Você pode selecionar com que frequência deseja que o widget seja atualizado nas configurações do aplicativo. O mínimo é a cada 30 minutos.";
+

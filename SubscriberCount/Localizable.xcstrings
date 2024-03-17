@@ -14,6 +14,12 @@
             "state" : "translated",
             "value" : "- Ajoutez une chaîne dans l'application, puis touchez ce widget en cours de modification"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Adicione um canal no aplicativo e depois toque neste widget enquanto edita"
+          }
         }
       }
     },
@@ -29,6 +35,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1 Heure"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Hora"
           }
         }
       }
@@ -46,6 +58,12 @@
             "state" : "translated",
             "value" : "6 Heures"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Horas"
+          }
         }
       }
     },
@@ -61,6 +79,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "12 Heures"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 Horas"
           }
         }
       }
@@ -78,6 +102,12 @@
             "state" : "translated",
             "value" : "30 Minutes"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Minutos"
+          }
         }
       }
     },
@@ -93,6 +123,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajoutez une chaîne dans l'application"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione um canal no aplicativo"
           }
         }
       }
@@ -110,6 +146,12 @@
             "state" : "translated",
             "value" : "Actuellement, vous pouvez ajouter jusqu'à 10 chaînes. Si vous souhaitez en ajouter plus, veuillez me contacter en utilisant le lien dans les paramètres et j'augmenterai la limite."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualmente, você pode adicionar até 10 canais. Se quiser adicionar mais, por favor, entre em contato comigo usando o link em Configurações e eu aumentarei o limite."
+          }
         }
       }
     },
@@ -125,6 +167,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "D'abord, appuyez longuement sur votre écran de verrouillage et appuyez sur 'Personnaliser'. Ensuite, vous pouvez ajouter le widget et appuyer dessus pour sélectionner la chaîne."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primeiro, toque e segure na sua Tela de Bloqueio e toque em 'Personalizar'. Depois, você pode adicionar o widget e tocar nele para selecionar o canal."
           }
         }
       }
@@ -154,6 +202,12 @@
               }
             }
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segure e toque em 'Editar Widget'"
+          }
         }
       }
     },
@@ -169,6 +223,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Comment ajouter le widget à mon écran d'accueil ?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Como adiciono o widget à minha tela inicial?"
           }
         }
       }
@@ -186,6 +246,12 @@
             "state" : "translated",
             "value" : "Comment ajouter un widget à mon écran de verrouillage ?"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Como adiciono o widget à minha Tela de Bloqueio?"
+          }
         }
       }
     },
@@ -201,6 +267,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Combien de chaînes puis-je ajouter ?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quantos canais posso adicionar?"
           }
         }
       }
@@ -218,6 +290,12 @@
             "state" : "translated",
             "value" : "Choisissez la fréquence de mise à jour du nombre d'abonnés"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com que frequência a contagem de inscritos é atualizada?"
+          }
         }
       }
     },
@@ -233,6 +311,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Je ne trouve pas ma chaîne."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não consigo encontrar meu canal."
           }
         }
       }
@@ -250,6 +334,12 @@
             "state" : "translated",
             "value" : "J'ai une idée de fonctionnalité que je souhaite demander."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eu tenho uma ideia de recurso que quero solicitar."
+          }
         }
       }
     },
@@ -265,6 +355,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Veuillez retirer le widget de votre écran d'accueil et l'ajouter à nouveau."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, remova o widget da sua tela inicial e adicione-o novamente."
           }
         }
       }
@@ -282,6 +378,12 @@
             "state" : "translated",
             "value" : "Restaure les couleurs du widget aux valeurs par défaut."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaura as cores do widget para os padrões."
+          }
         }
       }
     },
@@ -297,6 +399,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélectionnez votre chaîne"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecione Seu Canal"
           }
         }
       }
@@ -314,6 +422,12 @@
             "state" : "translated",
             "value" : "Nombre d'abonnés"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contagem de Inscritos"
+          }
         }
       }
     },
@@ -329,6 +443,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Appuyez longuement n'importe où sur votre écran d'accueil et appuyez sur le bouton plus en haut à gauche. Recherchez SubWidget et ajoutez-le à votre écran d'accueil. Enfin, appuyez longuement sur le widget et sélectionnez votre chaîne."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque e segure em qualquer lugar na sua tela inicial e toque no botão de mais no canto superior esquerdo. Procure por SubWidget e adicione-o à sua tela inicial. Por fim, toque e segure no widget e selecione seu canal."
           }
         }
       }
@@ -346,6 +466,12 @@
             "state" : "translated",
             "value" : "Les chaînes ne se chargent pas."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os canais não estão carregando."
+          }
         }
       }
     },
@@ -361,6 +487,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le widget est vide."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O widget está em branco."
           }
         }
       }
@@ -378,6 +510,12 @@
             "state" : "translated",
             "value" : "Cela indique un problème de serveur. Veuillez réessayer plus tard."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isso indica um problema no servidor. Por favor, tente novamente mais tarde."
+          }
         }
       }
     },
@@ -393,6 +531,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Total des abonnés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de inscritos"
           }
         }
       }
@@ -410,6 +554,12 @@
             "state" : "translated",
             "value" : "Total des vues"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de visualizações"
+          }
         }
       }
     },
@@ -425,6 +575,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essayez d'entrer l'ID de votre chaîne au lieu de son nom. Si cela ne fonctionne toujours pas, veuillez me contacter et je vous aiderai."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tente inserir o ID do seu canal em vez do nome do seu canal. Se isso ainda não funcionar, por favor, entre em contato comigo e eu o ajudarei."
           }
         }
       }
@@ -442,6 +598,12 @@
             "state" : "translated",
             "value" : "Malheureusement, YouTube ne fournit pas de nombres exacts d'abonnés, ils fournissent un nombre arrondi."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Infelizmente, o YouTube não fornece contagens exatas de inscritos, eles fornecem um número arredondado."
+          }
         }
       }
     },
@@ -457,6 +619,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nombre de vues"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contagem de Visualizações"
           }
         }
       }
@@ -474,6 +642,12 @@
             "state" : "translated",
             "value" : "Consultez en temps réel le nombre d'abonnés de votre chaîne YouTube"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veja sua contagem de inscritos no YouTube em tempo real"
+          }
         }
       }
     },
@@ -489,6 +663,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Consultez en temps réel le nombre de vues de votre chaîne YouTube"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veja sua contagem de visualizações no YouTube em tempo real"
           }
         }
       }
@@ -506,6 +686,12 @@
             "state" : "translated",
             "value" : "Que fait le bouton de réinitialisation ?"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O que o botão de reset faz?"
+          }
         }
       }
     },
@@ -521,6 +707,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pourquoi cela n'affiche-t-il pas le nombre exact d'abonnés ?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por que não mostra a contagem exata de inscritos?"
           }
         }
       }
@@ -538,6 +730,12 @@
             "state" : "translated",
             "value" : "Vous pouvez demander une fonctionnalité en utilisant l'onglet Liste de souhaits ci-dessous."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você pode solicitar um recurso usando a aba Lista de Desejos abaixo."
+          }
         }
       }
     },
@@ -553,6 +751,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous pouvez sélectionner la fréquence à laquelle vous souhaitez que le widget se mette à jour dans les paramètres de l'application. Le minimum est toutes les 30 minutes."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você pode selecionar com que frequência deseja que o widget seja atualizado nas configurações do aplicativo. O mínimo é a cada 30 minutos."
           }
         }
       }
