@@ -1,0 +1,72 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1 घंटा";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6 घंटे";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12 घंटे";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30 मिनट";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "वर्तमान में, आप अधिकतम 10 चैनल जोड़ सकते हैं। यदि आप और अधिक जोड़ना चाहते हैं, तो कृपया सेटिंग्स में दिए गए लिंक का उपयोग करके मुझसे संपर्क करें और मैं सीमा बढ़ा दूंगा।";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "सबसे पहले, अपनी लॉक स्क्रीन पर टैप करके रखें और 'कस्टमाइज़' पर टैप करें। फिर आप विजेट जोड़ सकते हैं और उसे टैप करके चैनल चुन सकते हैं।";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "मैं अपनी होमस्क्रीन पर विजेट कैसे जोड़ूं?";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "मैं अपनी लॉक स्क्रीन पर विजेट कैसे जोड़ूं?";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "मैं कितने चैनल जोड़ सकता हूँ?";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "सब्सक्राइबर काउंट कितनी बार अपडेट होता है?";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "मुझे अपना चैनल नहीं मिल रहा है।";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "मेरे पास एक फीचर आइडिया है जिसे मैं अनुरोध करना चाहता हूँ।";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "कृपया अपनी होमस्क्रीन से विजेट को हटा दें और उसे फिर से जोड़ें।";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "विजेट के रंगों को डिफ़ॉल्ट में पुनर्स्थापित करता है।";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "अपनी होमस्क्रीन पर कहीं भी टैप करके रखें और ऊपर बाईं ओर प्लस बटन पर टैप करें। SubWidget को खोजें और उसे अपनी होमस्क्रीन पर जोड़ें। अंत में, विजेट पर टैप करके रखें और अपना चैनल चुनें।";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "चैनल लोड नहीं हो रहे हैं।";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "विजेट खाली है।";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "यह एक सर्वर समस्या को दर्शाता है। कृपया बाद में पुनः प्रयास करें।";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "अपने चैनल के नाम के बजाय अपनी चैनल आईडी दर्ज करने का प्रयास करें। यदि वह अभी भी काम नहीं करता है, तो कृपया मुझसे संपर्क करें और मैं आपकी मदद करूंगा।";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "दुर्भाग्यवश, YouTube सटीक सब्सक्राइबर गिनती प्रदान नहीं करता है, वे एक गोल नंबर प्रदान करते हैं।";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "रीसेट बटन क्या करता है?";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "यह सटीक सब्सक्राइबर गिनती क्यों नहीं दिखाता है?";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "आप नीचे दिए गए विशलिस्ट टैब का उपयोग करके एक फीचर का अनुरोध कर सकते हैं।";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "आप ऐप सेटिंग्स में विजेट को कितनी बार अपडेट करना चाहते हैं, यह चुन सकते हैं। न्यूनतम हर 30 मिनट है।";
+

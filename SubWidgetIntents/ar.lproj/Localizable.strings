@@ -1,0 +1,72 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1 ساعة";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6 ساعات";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12 ساعة";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30 دقيقة";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "حاليًا، يمكنك إضافة ما يصل إلى 10 قنوات. إذا كنت ترغب في إضافة المزيد، يرجى الاتصال بي باستخدام الرابط في الإعدادات وسأزيد الحد.";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "أولاً، انقر واستمر في الضغط على شاشة القفل الخاصة بك وانقر على 'تخصيص'. بعد ذلك، يمكنك إضافة الواجهة والنقر عليها لتحديد القناة.";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "كيف أضيف الواجهة إلى شاشتي الرئيسية؟";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "كيف أضيف واجهة إلى شاشة القفل الخاصة بي؟";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "كم عدد القنوات التي يمكنني إضافتها؟";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "كم مرة يتم تحديث عدد المشتركين؟";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "لا أستطيع العثور على قناتي.";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "لدي فكرة ميزة أريد طلبها.";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "يرجى إزالة الواجهة من الشاشة الرئيسية وإضافتها مرة أخرى.";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "استعادة ألوان الواجهة إلى الإعدادات الافتراضية.";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "انقر واستمر في الضغط في أي مكان على شاشتك الرئيسية وانقر على زر الإضافة في الجزء العلوي الأيسر. ابحث عن الواجهة الفرعية وأضفها إلى شاشتك الرئيسية. أخيرًا، انقر واستمر في الضغط على الواجهة وحدد قناتك.";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "القنوات لا تتحمل.";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "الواجهة فارغة.";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "هذا يشير إلى مشكلة في الخادم. يرجى المحاولة مرة أخرى لاحقًا.";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "حاول إدخال معرّف قناتك بدلاً من اسم قناتك. إذا لم ينجح ذلك، يرجى الاتصال بي وسأساعدك.";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "للأسف، يوتيوب لا يوفر عدد المشتركين الدقيق، بل يوفر رقمًا مقربًا.";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "ماذا يفعل زر إعادة الضبط؟";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "لماذا لا يظهر عدد المشتركين الدقيق؟";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "يمكنك طلب ميزة باستخدام علامة التبويب قائمة الرغبات أدناه.";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "يمكنك تحديد مدى تكرار تحديث الواجهة في إعدادات التطبيق. الحد الأدنى هو كل 30 دقيقة.";
+

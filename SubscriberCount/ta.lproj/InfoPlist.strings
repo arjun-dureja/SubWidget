@@ -1,0 +1,6 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "SubscriberCount";
+
+/* Bundle name */
+"CFBundleName" = "SubscriberCountExtension";
+

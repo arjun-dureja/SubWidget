@@ -1,0 +1,72 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1 மணி";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6 மணி";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12 மணி";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30 நிமிடங்கள்";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "தற்போது, நீங்கள் 10 சேனல்கள் வரை சேர்க்கலாம். நீங்கள் மேலும் சேர்க்க விரும்பினால், அமைப்புகளில் உள்ள இணைப்பைப் பயன்படுத்தி என்னை தொடர்பு கொள்ளவும், நான் வரம்பை அதிகரிக்கிறேன்.";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "முதலில், உங்கள் பூட்டு திரையில் தட்டி அழுத்தி 'விருப்பமைக்கவும்' என்று தட்டவும். பின்னர் நீங்கள் விஜெட்டைச் சேர்க்கலாம் மற்றும் சேனலைத் தெரிவு செய்ய அதை தட்டலாம்.";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "என் முகப்புத் திரையில் விஜெட்டை எப்படி சேர்க்கலாம்?";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "என் பூட்டு திரையில் விஜெட்டை எப்படி சேர்க்கலாம்?";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "நான் எத்தனை சேனல்களை சேர்க்கலாம்?";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "சந்தாதாரர் எண்ணிக்கை எவ்வளவு அடிக்கடி புதுப்பிக்கப்படுகிறது?";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "எனது சேனலை கண்டுபிடிக்க முடியவில்லை.";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "நான் கேட்க விரும்பும் ஒரு அம்ச யோசனை உள்ளது.";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "தயவுசெய்து உங்கள் முகப்புத் திரையிலிருந்து விஜெட்டை நீக்கி மீண்டும் சேர்க்கவும்.";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "விஜெட்டின் நிறங்களை இயல்புநிலைக்கு மீட்டமைக்கிறது.";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "உங்கள் முகப்புத் திரையில் எங்கும் தட்டி அழுத்தி, மேல் இடதுபுறத்தில் உள்ள பிளஸ் பட்டனை தட்டவும். SubWidget ஐத் தேடி உங்கள் முகப்புத் திரையில் சேர்க்கவும். இறுதியாக, விஜெட்டின் மீது தட்டி அழுத்தி உங்கள் சேனலைத் தெரிவு செய்க.";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "சேனல்கள் ஏற்றப்படவில்லை.";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "விஜெட்டு காலியாக உள்ளது.";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "இது ஒரு சேவையக சிக்கலை குறிக்கிறது. தயவுசெய்து பின்னர் முயற்சிக்கவும்.";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "உங்கள் சேனல் பெயருக்கு பதிலாக உங்கள் சேனல் ஐடியை உள்ளிட முயற்சிக்கவும். அதுவும் செயல்படவில்லை என்றால், தயவுசெய்து என்னை தொடர்பு கொள்ளவும், நான் உதவுவேன்.";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "துரதிருஷ்டவசமாக, YouTube குறிப்பிட்ட சந்தாதாரர் எண்ணிக்கையை வழங்காமல், ஒரு சுற்று எண்ணை வழங்குகிறது.";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "மீட்டமைப்பு பொத்தான் என்ன செய்கிறது?";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "ஏன் அது குறிப்பிட்ட சந்தாதாரர் எண்ணிக்கையை காட்டவில்லை?";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "நீங்கள் கீழே உள்ள Wishlist தாவலைப் பயன்படுத்தி ஒரு அம்சத்தை கோரலாம்.";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "நீங்கள் செயலி அமைப்புகளில் விஜெட்டு எவ்வளவு அடிக்கடி புதுப்பிக்கப்பட வேண்டும் என்பதை தெரிவு செய்யலாம். குறைந்தபட்சம் ஒவ்வொரு 30 நிமிடங்களுக்கும் உள்ளது.";
+
