@@ -12,6 +12,7 @@ import WishKit
 struct WidgetListView: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.requestReview) private var requestReview
+    @Environment(\.colorScheme) private var colorScheme
 
     @State private var newWidget = false
     @State private var tooManyChannels = false
@@ -22,6 +23,11 @@ struct WidgetListView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                if colorScheme == .light {
+                    Color(UIColor.systemGray6)
+                        .ignoresSafeArea(.all)
+                }
+
                 switch viewModel.state {
                 case .loading:
                     ProgressView()

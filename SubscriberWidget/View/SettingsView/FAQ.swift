@@ -13,6 +13,11 @@ struct FAQ: View {
 
     var body: some View {
         ZStack {
+            if colorScheme == .light {
+                Color(UIColor.systemGray6)
+                    .ignoresSafeArea(.all)
+            }
+
             ScrollView {
                 VStack(spacing: 0) {
                     ForEach(FAQItem.presets) { item in
@@ -23,13 +28,11 @@ struct FAQ: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom)
             }
+            .frame(maxWidth: 850)
         }
         .navigationBarTitle("SubWidget FAQ")
-        .background(colorScheme == .dark ? .black : Color(UIColor.systemGray6))
-        .onAppear {
-            Task {
-                AnalyticsService.shared.logFaqScreenViewed()
-            }
+        .task {
+            AnalyticsService.shared.logFaqScreenViewed()
         }
     }
 }

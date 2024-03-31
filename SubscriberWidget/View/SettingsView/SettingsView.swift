@@ -17,85 +17,92 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationView {
-            Form {
-                Section(footer: EmptyView()) {
-                    HStack(spacing: 16) {
-                        Spacer()
-                        AppIcon()
-                            .cornerRadius(16)
-                            .frame(width: 60, height: 60)
-
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("SubWidget \(Bundle.main.appVersion)")
-                                .font(.system(size: 16, weight: .medium))
-                            Text("by Arjun Dureja")
-                                .font(.system(size: 14))
-                                .foregroundColor(colorScheme == .dark ? .darkModeTitleGray2 : .titleGray)
-                        }
-                        Spacer()
-                    }
-                }
-                .padding(.top, 24)
-                .listRowBackground(Color.clear)
-
-                Section(footer: Text("Choose how often the subscriber count should update")) {
-                    RefreshFrequency(viewModel: viewModel)
+            ZStack {
+                if colorScheme == .light {
+                    Color(UIColor.systemGray6)
+                        .ignoresSafeArea(.all)
                 }
 
-                Section(footer: Text("Display large numbers in a compact, simplified format")) {
-                    Toggle(isOn: $simplifyNumbers) {
-                        Label {
-                            Text("Simplify Numbers")
-                        } icon: {
-                            Image(systemName: "number.circle.fill")
-                                .foregroundStyle(.white, Color.youtubeRed)
+                Form {
+                    Section(footer: EmptyView()) {
+                        HStack(spacing: 16) {
+                            Spacer()
+                            AppIcon()
+                                .cornerRadius(16)
+                                .frame(width: 60, height: 60)
+
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("SubWidget \(Bundle.main.appVersion)")
+                                    .font(.system(size: 16, weight: .medium))
+                                Text("by Arjun Dureja")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray2 : .titleGray)
+                            }
+                            Spacer()
                         }
                     }
-                    .tint(.youtubeRed)
-                    .onChange(of: simplifyNumbers) { newValue in
-                        AnalyticsService.shared.logSimplifyNumbersToggled(newValue)
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
-                }
+                    .padding(.top, 24)
+                    .listRowBackground(Color.clear)
 
-                Section {
-                    NavigationLink {
-                        FAQ()
-                    } label: {
-                        Label {
-                            Text("FAQ")
-                        } icon: {
-                            Image(systemName: "questionmark.circle.fill")
-                                .foregroundStyle(.white, Color.youtubeRed)
+                    Section(footer: Text("Choose how often the subscriber count should update")) {
+                        RefreshFrequency(viewModel: viewModel)
+                    }
+
+                    Section(footer: Text("Display large numbers in a compact, simplified format")) {
+                        Toggle(isOn: $simplifyNumbers) {
+                            Label {
+                                Text("Simplify Numbers")
+                            } icon: {
+                                Image(systemName: "number.circle.fill")
+                                    .foregroundStyle(.white, Color.youtubeRed)
+                            }
+                        }
+                        .tint(.youtubeRed)
+                        .onChange(of: simplifyNumbers) { newValue in
+                            AnalyticsService.shared.logSimplifyNumbersToggled(newValue)
+                            WidgetCenter.shared.reloadAllTimelines()
                         }
                     }
 
-                    Button {
-                        AnalyticsService.shared.logContactButtonTapped()
-                        EmailHelper.shared.send(
-                            subject: "SubWidget Feedback",
-                            to: "arjun.dureja1000@gmail.com"
+                    Section {
+                        NavigationLink {
+                            FAQ()
+                        } label: {
+                            Label {
+                                Text("FAQ")
+                            } icon: {
+                                Image(systemName: "questionmark.circle.fill")
+                                    .foregroundStyle(.white, Color.youtubeRed)
+                            }
+                        }
+
+                        Button {
+                            AnalyticsService.shared.logContactButtonTapped()
+                            EmailHelper.shared.send(
+                                subject: "SubWidget Feedback",
+                                to: "arjun.dureja1000@gmail.com"
+                            )
+                        } label: {
+                            FormLabel(text: "Contact", icon: "envelope.circle.fill")
+                        }
+
+                        Button {
+                            AnalyticsService.shared.logRateButtontapped()
+                            UIApplication.shared.open(URL(string: "https://itunes.apple.com/app/id1534958933?action=write-review")!)
+                        } label: {
+                            FormLabel(text: "Rate", icon: "star.circle.fill")
+                        }
+
+                        SafariSheet(
+                            text: "Privacy Policy",
+                            icon: "lock.circle.fill",
+                            url: URL(string: "https://pages.flycricket.io/subwidget/privacy.html")!
                         )
-                    } label: {
-                        FormLabel(text: "Contact", icon: "envelope.circle.fill")
                     }
-
-                    Button {
-                        AnalyticsService.shared.logRateButtontapped()
-                        UIApplication.shared.open(URL(string: "https://itunes.apple.com/app/id1534958933?action=write-review")!)
-                    } label: {
-                        FormLabel(text: "Rate", icon: "star.circle.fill")
-                    }
-
-                    SafariSheet(
-                        text: "Privacy Policy",
-                        icon: "lock.circle.fill",
-                        url: URL(string: "https://pages.flycricket.io/subwidget/privacy.html")!
-                    )
                 }
+                .frame(maxWidth: 850)
             }
             .navigationBarTitle("Settings")
-            .frame(maxWidth: 850)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
