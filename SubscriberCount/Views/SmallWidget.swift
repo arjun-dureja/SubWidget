@@ -15,6 +15,7 @@ struct SmallWidget: View {
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
 
+    @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
     let lastUpdatedTime: String = .currentTime
 
     var channel: YouTubeChannel? {
@@ -79,6 +80,7 @@ struct SmallWidget: View {
                             Text(lastUpdatedTime)
                                 .font(.system(size: 10))
                                 .foregroundColor(accentColor)
+                                .opacity(showUpdateTime ? 1 : 0)
                         }
                         .frame(maxHeight: .infinity, alignment: .top)
                     }

@@ -13,6 +13,7 @@ struct MediumWidget: View {
     var entry: SimpleEntry?
     @Environment(\.colorScheme) var colorScheme
 
+    @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
     let lastUpdatedTime: String = .currentTime
 
     var channel: YouTubeChannel? {
@@ -93,6 +94,7 @@ struct MediumWidget: View {
                             .font(.system(size: 11))
                             .foregroundColor(accentColor)
                             .frame(maxHeight: .infinity, alignment: .bottom)
+                            .opacity(showUpdateTime ? 1 : 0)
                     }
                 }
                 .minimumScaleFactor(0.3)

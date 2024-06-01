@@ -1250,6 +1250,52 @@
         }
       }
     },
+    "Display the time the subscriber count was last updated" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض الوقت الذي تم فيه تحديث عدد المشتركين آخر مرة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeigen Sie die Zeit an, zu der die Abonnentenzahl zuletzt aktualisiert wurde"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar la hora en que se actualizó por última vez el recuento de suscriptores"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher l'heure de la dernière mise à jour du nombre d'abonnés"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "उस समय को दिखाएं जब ग्राहक संख्या आखिरी बार अपडेट की गई थी"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exibir a hora em que a contagem de assinantes foi atualizada pela última vez"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "சந்தாதாரர் எண்ணிக்கை கடைசியாக புதுப்பிக்கப்பட்ட நேரத்தை காட்டவும்"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "ar" : {
@@ -2958,6 +3004,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "அமைப்புகள்"
+          }
+        }
+      }
+    },
+    "Show Update Time" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إظهار وقت التحديث"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualisierungszeit anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar hora de actualización"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher l'heure de mise à jour"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अपडेट समय दिखाएं"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar hora da atualização"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "புதுப்பிப்பு நேரத்தை காண்பி"
           }
         }
       }

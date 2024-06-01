@@ -14,6 +14,7 @@ struct SettingsView: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
+    @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
 
     var body: some View {
         NavigationView {
@@ -46,6 +47,27 @@ struct SettingsView: View {
 
                     Section(footer: Text("Choose how often the subscriber count should update")) {
                         RefreshFrequency(viewModel: viewModel)
+                    }
+
+                    Section(footer: Text("Display the time the subscriber count was last updated")) {
+                        Toggle(isOn: $showUpdateTime) {
+                            Label {
+                                Text("Show Update Time")
+                            } icon: {
+                                // Workaround with overlay to get the clock background to be red and hands to be white
+                                Image(systemName: "clock")
+                                    .foregroundStyle(Color.white)
+                                    .overlay {
+                                        Image(systemName: "clock.fill")
+                                            .foregroundStyle(Color.youtubeRed)
+                                    }
+                            }
+                        }
+                        .tint(.youtubeRed)
+                        .onChange(of: showUpdateTime) { newValue in
+                            AnalyticsService.shared.logShowUpdateTimeToggled(newValue)
+                            WidgetCenter.shared.reloadAllTimelines()
+                        }
                     }
 
                     Section(footer: Text("Display large numbers in a compact, simplified format")) {

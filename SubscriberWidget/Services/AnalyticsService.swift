@@ -88,6 +88,12 @@ class AnalyticsService {
         ])
     }
 
+    func logShowUpdateTimeToggled(_ isToggled: Bool) {
+        logEvent("show_update_time.toggled", properties: [
+            "isToggled": isToggled
+        ])
+    }
+
     func logFaqScreenViewed() {
         logEvent("faq_screen.viewed")
     }
