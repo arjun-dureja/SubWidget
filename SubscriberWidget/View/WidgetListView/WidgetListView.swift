@@ -53,6 +53,13 @@ struct WidgetListView: View {
                                                     reason: viewModel.state == .loading ? .placeholder : []
                                                 )
                                         })
+                                    .contextMenu {
+                                        Button {
+                                            viewModel.deleteChannel(channel)
+                                        } label: {
+                                            Text("Delete")
+                                        }
+                                    }
                                 }
                                 .onDelete(perform: deleteChannel)
                             }

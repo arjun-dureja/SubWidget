@@ -1204,6 +1204,9 @@
         }
       }
     },
+    "Delete" : {
+
+    },
     "Display large numbers in a compact, simplified format" : {
       "localizations" : {
         "ar" : {

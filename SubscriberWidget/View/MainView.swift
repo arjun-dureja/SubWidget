@@ -12,6 +12,7 @@ import WidgetKit
 
 struct MainView: View {
     @StateObject var viewModel: ViewModel = ViewModel()
+    @State private var currentTab = 0
 
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
@@ -26,11 +27,14 @@ struct MainView: View {
     }
 
     var body: some View {
-        TabView {
+        TabView(selection: $currentTab) {
             WidgetListView(viewModel: viewModel)
                 .tag(0)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
+                }
+                .onAppear {
+                    currentTab = 0
                 }
 
             WishKit.view.withNavigation()
@@ -38,11 +42,17 @@ struct MainView: View {
                 .tabItem {
                     Label("Wishlist", systemImage: "lightbulb.fill")
                 }
+                .onAppear {
+                    currentTab = 1
+                }
 
             SettingsView(viewModel: viewModel)
                 .tag(2)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
+                }
+                .onAppear {
+                    currentTab = 2
                 }
         }
         .accentColor(.youtubeRed)

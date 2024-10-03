@@ -133,6 +133,12 @@ class ViewModel: ObservableObject {
         AnalyticsService.shared.logChannelDeleted(deletedChannel.channelName)
     }
 
+    func deleteChannel(_ channel: YouTubeChannel) {
+        if let index = channels.firstIndex(where: { $0.id == channel.id }) {
+            deleteChannel(at: index)
+        }
+    }
+
     func shouldShowWhatsNew() -> Bool {
         // Version 2.1.1 - No whats new view
         return false
