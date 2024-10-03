@@ -20,6 +20,7 @@ struct MainView: View {
         WishKit.config.commentSection = .hide
         WishKit.config.buttons.addButton.bottomPadding = .large
         WishKit.config.buttons.segmentedControl.display = .hide
+        WishKit.config.allowUndoVote = true
 
         WishKit.theme.primaryColor = .youtubeRed
         WishKit.theme.secondaryColor = .set(light: .white, dark: Color(UIColor.systemGray6))
