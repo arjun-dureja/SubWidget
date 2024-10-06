@@ -62,7 +62,9 @@ struct SmallWidget: View {
                 VStack(alignment: .leading) {
                     HStack {
                         if Utils.isInWidget() {
-                            NetworkImage(url: URL(string: channel.profileImage))
+                            Image(uiImage: entry.channelImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: showsWidgetContainerBackground ? 60 : 70, height: showsWidgetContainerBackground ? 60 : 70)
                                 .clipShape(Circle())
                                 .shadow(radius: 2)

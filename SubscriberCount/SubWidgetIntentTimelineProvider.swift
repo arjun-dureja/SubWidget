@@ -18,7 +18,14 @@ struct SimpleEntry: TimelineEntry {
     let date: Date = Date()
     let configuration: ConfigurationIntent = ConfigurationIntent()
     let channel: YouTubeChannel?
+    let channelImage: UIImage
     let widgetType: WidgetType
+
+    init(channel: YouTubeChannel?, channelImage: UIImage = UIImage(systemName: "person.circle")!, widgetType: WidgetType) {
+        self.channel = channel
+        self.channelImage = channelImage
+        self.widgetType = widgetType
+    }
 }
 
 struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
@@ -46,6 +53,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 if !channels.isEmpty {
                     let entry = SimpleEntry(
                         channel: channels[0],
+                        channelImage: getImageForUrl(channels[0].profileImage),
                         widgetType: widgetType
                     )
 
@@ -109,6 +117,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             updatedChannel.numberColor = channel.numberColor
             return SimpleEntry(
                 channel: updatedChannel,
+                channelImage: getImageForUrl(updatedChannel.profileImage),
                 widgetType: widgetType
             )
         }
@@ -117,6 +126,34 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             channel: nil,
             widgetType: widgetType
         )
+    }
+
+    private func getImageForUrl(_ url: String) -> UIImage {
+        if let imageUrl = URL(string: url), let imageData = try? Data(contentsOf: imageUrl) {
+            let image = UIImage(data: imageData)!
+            // Resize since widgets have a size limit
+            let resizedImage = resizeImage(image, targetSize: CGSize(width: 400, height: 400))
+            return resizedImage
+        }
+
+        return UIImage(systemName: "person.circle")!
+    }
+
+    private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        let newSize = widthRatio > heightRatio ?
+            CGSize(width: size.width * heightRatio, height: size.height * heightRatio) :
+            CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage ?? image
     }
 }
 

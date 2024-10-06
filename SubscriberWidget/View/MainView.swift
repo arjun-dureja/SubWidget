@@ -18,6 +18,7 @@ struct MainView: View {
         WishKit.configure(with: Constants.wishKitApiKey)
         WishKit.config.statusBadge = .hide
         WishKit.config.commentSection = .hide
+        WishKit.config.emailField = .none
         WishKit.config.buttons.addButton.bottomPadding = .large
         WishKit.config.buttons.segmentedControl.display = .hide
         WishKit.config.allowUndoVote = true
@@ -38,7 +39,7 @@ struct MainView: View {
                     currentTab = 0
                 }
 
-            WishKit.view.withNavigation()
+            WishKit.FeedbackListView().withNavigation()
                 .tag(1)
                 .tabItem {
                     Label("Wishlist", systemImage: "lightbulb.fill")

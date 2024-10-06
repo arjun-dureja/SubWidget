@@ -101,8 +101,6 @@
 		72B936F82AB40BC500997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F72AB40BC500997D20 /* Cache */; };
 		72B936FA2AB40BC900997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F92AB40BC900997D20 /* Cache */; };
 		72B936FB2AB40FB300997D20 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8328DC1057002617E4 /* Utils.swift */; };
-		72D12C7E28DC0CD0002617E4 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */; };
-		72D12C7F28DC0CD0002617E4 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */; };
 		72D12C8128DC0F8C002617E4 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */; };
 		72D12C8228DC0F8C002617E4 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */; };
 		72D12C8428DC1057002617E4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D12C8328DC1057002617E4 /* Utils.swift */; };
@@ -259,7 +257,6 @@
 		7295EC142B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7299DC642B958A1F00B85EF3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		72B5BB372897033B005D4897 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
-		72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		72D12C8328DC1057002617E4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		72D68C1A2B537A4600DC4393 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
@@ -353,7 +350,6 @@
 				7295DAD225294CB6005FA093 /* MediumWidget.swift */,
 				72E319192841DA2900F1C1AE /* ConfigurationView.swift */,
 				72DF862C28C3D61400452E3B /* LockscreenWidget.swift */,
-				72D12C7D28DC0CD0002617E4 /* NetworkImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -741,7 +737,6 @@
 				72EFF4A1252016FF007E1FA6 /* ViewModel.swift in Sources */,
 				723459282868DB35000C7DA5 /* RefreshFrequencies.swift in Sources */,
 				72FD5209289CB59C001F9F48 /* WidgetIntents.intentdefinition in Sources */,
-				72D12C7F28DC0CD0002617E4 /* NetworkImage.swift in Sources */,
 				72DF862E28C3D61400452E3B /* LockscreenWidget.swift in Sources */,
 				72E3191B2841DA9E00F1C1AE /* ConfigurationView.swift in Sources */,
 				722E2E7C2B5E2DE200E4832E /* ChannelStorageService.swift in Sources */,
@@ -846,7 +841,6 @@
 				725FE205251D3E75004B2907 /* ViewModel.swift in Sources */,
 				7207541825D73C8F003411CE /* Extensions.swift in Sources */,
 				725059FA25D882080064A451 /* SettingsView.swift in Sources */,
-				72D12C7E28DC0CD0002617E4 /* NetworkImage.swift in Sources */,
 				72ED4F4A2AB7707100560A86 /* EmailForm.swift in Sources */,
 				72FC21E72B788B1300AFA949 /* ColorPalette.swift in Sources */,
 				72920008251D1F3D0050194B /* SceneDelegate.swift in Sources */,

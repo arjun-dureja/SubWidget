@@ -31,7 +31,9 @@ struct LockscreenWidget: View {
         if let entry = entry,
            let channel = channel {
             HStack {
-                NetworkImage(url: URL(string: channel.profileImage))
+                Image(uiImage: entry.channelImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .shadow(radius: 2)
