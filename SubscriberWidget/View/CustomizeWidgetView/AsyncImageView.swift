@@ -12,12 +12,18 @@ struct AsyncImageView: View {
     public let url: URL?
 
     var body: some View {
-        AsyncImage(url: url, content: { image in
-            image.resizable()
-                .aspectRatio(contentMode: .fill)
-        }, placeholder: {
-            ProgressView()
-                .scaleEffect(1.5, anchor: .center)
-        })
+        AsyncImage(url: url) { phase in
+            if let image = phase.image {
+                image.resizable()
+                    .aspectRatio(contentMode: .fill)
+            } else if phase.error != nil {
+                Image(systemName: "exclamationmark.triangle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } else {
+                ProgressView()
+                    .scaleEffect(1.5, anchor: .center)
+            }
+        }
     }
 }

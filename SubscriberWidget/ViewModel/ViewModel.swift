@@ -180,6 +180,7 @@ class ViewModel: ObservableObject {
                 if let updatedChannel {
                     decodedChannels[index].subCount = updatedChannel.subCount
                     decodedChannels[index].viewCount = updatedChannel.viewCount
+                    decodedChannels[index].profileImage = updatedChannel.profileImage
                 }
             }
 
