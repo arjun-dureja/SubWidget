@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct YouTubeLogo: View {
+    @Environment(\.widgetRenderingMode) private var widgetRenderingMode
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
@@ -17,7 +19,9 @@ struct YouTubeLogo: View {
             Triangle()
                 .foregroundStyle(Color.white)
                 .frame(width: 6, height: 6)
+                .blendMode(widgetRenderingMode == .fullColor ? .normal : .destinationOut)
         }
+        .compositingGroup()
     }
 
     struct Triangle: Shape {

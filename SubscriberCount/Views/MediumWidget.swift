@@ -49,13 +49,11 @@ struct MediumWidget: View {
         ZStack {
             if let entry = entry,
                let channel = channel {
-                if let bgColor = channel.bgColor {
-                    Color(bgColor)
-                }
                 HStack {
                     if Utils.isInWidget() {
                         Image(uiImage: entry.channelImage)
                             .resizable()
+                            .widgetAccentedRenderingMode(.desaturated)
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
@@ -100,11 +98,18 @@ struct MediumWidget: View {
                     }
                 }
                 .minimumScaleFactor(0.3)
-                .forwardport.padding()
-                .backport.containerBackground(channel.bgColor)
+                .containerBackground(for: .widget) {
+                    if let bgColor = channel.bgColor {
+                        Color(bgColor)
+                    }
+                }
             } else {
                 ConfigurationView(baselineOffset: 0.0)
-                    .backport.containerBackground(channel?.bgColor)
+                    .containerBackground(for: .widget) {
+                        if let bgColor = channel?.bgColor {
+                            Color(bgColor)
+                        }
+                    }
             }
         }
         .widgetURL(channel?.deeplinkUrl)

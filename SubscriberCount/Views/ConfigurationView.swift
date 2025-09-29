@@ -52,8 +52,7 @@ struct ConfigurationView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(showsWidgetContainerBackground ? 0 : 6)
         .minimumScaleFactor(0.25)
-        .forwardport.padding()
-        .backport.containerBackground(.clear)
+        .containerBackground(.clear, for: .widget)
     }
 }
 

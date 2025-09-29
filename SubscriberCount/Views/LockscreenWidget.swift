@@ -33,6 +33,7 @@ struct LockscreenWidget: View {
             HStack {
                 Image(uiImage: entry.channelImage)
                     .resizable()
+                    .widgetAccentedRenderingMode(.desaturated)
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
@@ -56,7 +57,7 @@ struct LockscreenWidget: View {
                         .lineLimit(1)
                 }
             }
-            .backport.containerBackground(UIColor.clear)
+            .containerBackground(.clear, for: .widget)
             .widgetURL(channel.deeplinkUrl)
         } else {
             // Configuration View
@@ -68,7 +69,7 @@ struct LockscreenWidget: View {
                     .font(.system(size: 11))
                     .fontWeight(.medium)
             }
-            .backport.containerBackground(UIColor.clear)
+            .containerBackground(.clear, for: .widget)
         }
     }
 }

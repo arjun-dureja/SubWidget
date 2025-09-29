@@ -64,6 +64,7 @@ struct SmallWidget: View {
                         if Utils.isInWidget() {
                             Image(uiImage: entry.channelImage)
                                 .resizable()
+                                .widgetAccentedRenderingMode(.desaturated)
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: showsWidgetContainerBackground ? 60 : 70, height: showsWidgetContainerBackground ? 60 : 70)
                                 .clipShape(Circle())
@@ -104,11 +105,18 @@ struct SmallWidget: View {
                     .minimumScaleFactor(0.3)
                 }
                 .padding(showsWidgetContainerBackground ? 0 : 4)
-                .forwardport.padding()
-                .backport.containerBackground(channel.bgColor)
+                .containerBackground(for: .widget) {
+                    if let bgColor = channel.bgColor {
+                        Color(bgColor)
+                    }
+                }
             } else {
                 ConfigurationView(baselineOffset: 5.0)
-                    .backport.containerBackground(channel?.bgColor)
+                    .containerBackground(for: .widget) {
+                        if let bgColor = channel?.bgColor {
+                            Color(bgColor)
+                        }
+                    }
             }
         }
         .widgetURL(channel?.deeplinkUrl)
@@ -119,61 +127,5 @@ struct SmallWidget_Previews: PreviewProvider {
     static var previews: some View {
         SmallWidget(entry: SimpleEntry(channel: .preview, widgetType: .subscribers))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
-}
-
-struct Backport<Content> {
-    let content: Content
-
-    init(_ content: Content) {
-        self.content = content
-    }
-}
-
-extension View {
-    var backport: Backport<Self> { Backport(self) }
-}
-
-extension Backport where Content: View {
-    @ViewBuilder func containerBackground(_ bgColor: UIColor?) -> some View {
-        if #available(iOS 17, *) {
-            content.containerBackground(for: .widget) {
-                if let bgColor {
-                    Color(bgColor)
-                }
-            }
-        } else {
-            content
-        }
-    }
-
-    @ViewBuilder func padding() -> some View {
-        if #available(iOS 17, *) {
-            content.padding()
-        } else {
-            content
-        }
-    }
-}
-
-struct Forwardport<Content> {
-    let content: Content
-
-    init(_ content: Content) {
-        self.content = content
-    }
-}
-
-extension View {
-    var forwardport: Forwardport<Self> { Forwardport(self) }
-}
-
-extension Forwardport where Content: View {
-    @ViewBuilder func padding() -> some View {
-        if #unavailable(iOS 17) {
-            content.padding()
-        } else {
-            content
-        }
     }
 }

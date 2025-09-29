@@ -975,7 +975,7 @@
 				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1003,7 +1003,7 @@
 				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1028,7 +1028,7 @@
 				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1053,7 +1053,7 @@
 				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = 3KFKTY5JX3;
 				INFOPLIST_FILE = SubWidgetIntents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1204,7 +1204,7 @@
 				INFOPLIST_FILE = SubscriberWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SubWidget;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1236,7 +1236,7 @@
 				INFOPLIST_FILE = SubscriberWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SubWidget;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
