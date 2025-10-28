@@ -21,6 +21,7 @@ struct YouTubeLogo: View {
                 .frame(width: 6, height: 6)
                 .blendMode(widgetRenderingMode == .fullColor ? .normal : .destinationOut)
         }
+        .environment(\.layoutDirection, .leftToRight)
         .compositingGroup()
     }
 
