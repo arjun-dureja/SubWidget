@@ -49,10 +49,10 @@ class ViewModel: ObservableObject {
 
         do {
             state = .loading
-            
+
             // Check subscription/legacy access first
             await subscriptionService.checkAccess()
-            
+
             channels = try await getChannelsWithUpdatedStatistics()
             AnalyticsService.shared.logChannelsLoaded(channels.count)
             state = .loaded

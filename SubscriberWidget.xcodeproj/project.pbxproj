@@ -97,6 +97,12 @@
 		7299DC652B958A1F00B85EF3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7299DC642B958A1F00B85EF3 /* Localizable.xcstrings */; };
 		72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FE208251D44B1004B2907 /* Subscribers.swift */; };
 		72A3B472252E2CC300891D69 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295DABE252909BC005FA093 /* Constants.swift */; };
+		72AFB29A2F2FEF5100C4774A /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFB2982F2FEF5100C4774A /* SubscriptionService.swift */; };
+		72AFB29B2F2FEF5100C4774A /* SubscriptionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFB2992F2FEF5100C4774A /* SubscriptionServiceProtocol.swift */; };
+		72AFB29C2F2FEF5100C4774A /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFB2982F2FEF5100C4774A /* SubscriptionService.swift */; };
+		72AFB29D2F2FEF5100C4774A /* SubscriptionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFB2992F2FEF5100C4774A /* SubscriptionServiceProtocol.swift */; };
+		72AFB29E2F2FEF5100C4774A /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFB2982F2FEF5100C4774A /* SubscriptionService.swift */; };
+		72AFB29F2F2FEF5100C4774A /* SubscriptionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFB2992F2FEF5100C4774A /* SubscriptionServiceProtocol.swift */; };
 		72B5BB382897033B005D4897 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5BB372897033B005D4897 /* EmptyState.swift */; };
 		72B936F82AB40BC500997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F72AB40BC500997D20 /* Cache */; };
 		72B936FA2AB40BC900997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F92AB40BC900997D20 /* Cache */; };
@@ -256,6 +262,8 @@
 		7295EC122B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7295EC142B9D8FAA004E0EFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7299DC642B958A1F00B85EF3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		72AFB2982F2FEF5100C4774A /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
+		72AFB2992F2FEF5100C4774A /* SubscriptionServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceProtocol.swift; sourceTree = "<group>"; };
 		72B5BB372897033B005D4897 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		72D12C8028DC0F8C002617E4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		72D12C8328DC1057002617E4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -538,6 +546,8 @@
 				722E2E772B5E2C5600E4832E /* ChannelStorageServiceProtocol.swift */,
 				722E2E792B5E2D2800E4832E /* ChannelStorageService.swift */,
 				722E2E862B65FAE900E4832E /* AnalyticsService.swift */,
+				72AFB2982F2FEF5100C4774A /* SubscriptionService.swift */,
+				72AFB2992F2FEF5100C4774A /* SubscriptionServiceProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -749,6 +759,8 @@
 				722E2E7D2B5E2E1000E4832E /* ChannelStorageServiceProtocol.swift in Sources */,
 				72A3B46F252E2CB300891D69 /* Subscribers.swift in Sources */,
 				7207541D25D73CD7003411CE /* Extensions.swift in Sources */,
+				72AFB29E2F2FEF5100C4774A /* SubscriptionService.swift in Sources */,
+				72AFB29F2F2FEF5100C4774A /* SubscriptionServiceProtocol.swift in Sources */,
 				722E2E812B64D0F500E4832E /* FormattedCount.swift in Sources */,
 				7277197E2555E07A00358EEB /* ChannelID.swift in Sources */,
 				72D12C8528DC1057002617E4 /* Utils.swift in Sources */,
@@ -767,6 +779,8 @@
 			files = (
 				721AC2CE25DA4C3200C6100C /* Response.swift in Sources */,
 				721AC2CD25DA4C3200C6100C /* Subscribers.swift in Sources */,
+				72AFB29A2F2FEF5100C4774A /* SubscriptionService.swift in Sources */,
+				72AFB29B2F2FEF5100C4774A /* SubscriptionServiceProtocol.swift in Sources */,
 				7243E145282CB86B00A0FFF1 /* SubWidgetError.swift in Sources */,
 				722E2E8A2B65FDF300E4832E /* AnalyticsService.swift in Sources */,
 				72B936FB2AB40FB300997D20 /* Utils.swift in Sources */,
@@ -816,6 +830,8 @@
 				722E2E872B65FAE900E4832E /* AnalyticsService.swift in Sources */,
 				7295DAD325294CB6005FA093 /* MediumWidget.swift in Sources */,
 				72EFF4AB25201B3B007E1FA6 /* YouTubeChannel.swift in Sources */,
+				72AFB29C2F2FEF5100C4774A /* SubscriptionService.swift in Sources */,
+				72AFB29D2F2FEF5100C4774A /* SubscriptionServiceProtocol.swift in Sources */,
 				7207541425D73B4D003411CE /* WidgetColorPicker.swift in Sources */,
 				721103512B5A2E4100D4D7B5 /* NetworkError.swift in Sources */,
 				722E2E742B5E280C00E4832E /* YouTubeServiceProtocol.swift in Sources */,

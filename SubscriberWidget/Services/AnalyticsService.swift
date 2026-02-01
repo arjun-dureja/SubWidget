@@ -151,12 +151,12 @@ class AnalyticsService {
             "paletteName": paletteName
         ])
     }
-    
+
     // Subscription & Access Events
     func logLegacyUserDetected() {
         logEvent("subscription.legacy_user_detected")
     }
-    
+
     func logLegacyUserCheck(
         isLegacyUser: Bool,
         originalBuild: Int?,
@@ -171,11 +171,11 @@ class AnalyticsService {
         }
         logEvent("subscription.legacy_check", properties: properties)
     }
-    
+
     func logActiveSubscriberDetected() {
         logEvent("subscription.active_subscriber_detected")
     }
-    
+
     func logSubscriptionEntitlementEvaluated(
         status: String,
         productId: String,
@@ -190,7 +190,7 @@ class AnalyticsService {
         }
         logEvent("subscription.entitlement_evaluated", properties: properties)
     }
-    
+
     func logSubscriptionAccessEvaluated(
         stage: String,
         hasProAccess: Bool,
@@ -202,11 +202,11 @@ class AnalyticsService {
             "isLegacyUser": isLegacyUser
         ])
     }
-    
+
     func logLegacyAccessManuallyGranted() {
         logEvent("subscription.legacy_access_manually_granted")
     }
-    
+
     func logRestorePurchasesTapped() {
         logEvent("subscription.restore_purchases_tapped")
     }
