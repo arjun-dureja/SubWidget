@@ -7,6 +7,7 @@
 //
 
 import Mixpanel
+import Foundation
 
 class AnalyticsService {
     static let shared = AnalyticsService()
@@ -15,7 +16,15 @@ class AnalyticsService {
         _ eventName: String,
         properties: [String: any MixpanelType]? = [:]
     ) {
+        #if DEBUG
+        if let properties = properties, !properties.isEmpty {
+            print("📊 Analytics: \(eventName) | Properties: \(properties)")
+        } else {
+            print("📊 Analytics: \(eventName)")
+        }
+        #else
         Mixpanel.mainInstance().track(event: eventName, properties: properties)
+        #endif
     }
 
     func logAppOpened() {
@@ -141,5 +150,64 @@ class AnalyticsService {
         logEvent("color_palette.tapped", properties: [
             "paletteName": paletteName
         ])
+    }
+    
+    // Subscription & Access Events
+    func logLegacyUserDetected() {
+        logEvent("subscription.legacy_user_detected")
+    }
+    
+    func logLegacyUserCheck(
+        isLegacyUser: Bool,
+        originalBuild: Int?,
+        freemiumBuildNumber: Int
+    ) {
+        var properties: [String: any MixpanelType] = [
+            "isLegacyUser": isLegacyUser,
+            "freemiumBuildNumber": freemiumBuildNumber
+        ]
+        if let originalBuild = originalBuild {
+            properties["originalBuild"] = originalBuild
+        }
+        logEvent("subscription.legacy_check", properties: properties)
+    }
+    
+    func logActiveSubscriberDetected() {
+        logEvent("subscription.active_subscriber_detected")
+    }
+    
+    func logSubscriptionEntitlementEvaluated(
+        status: String,
+        productId: String,
+        expirationDate: Date?
+    ) {
+        var properties: [String: any MixpanelType] = [
+            "status": status,
+            "productId": productId
+        ]
+        if let expirationDate = expirationDate {
+            properties["expirationTimestamp"] = expirationDate.timeIntervalSince1970
+        }
+        logEvent("subscription.entitlement_evaluated", properties: properties)
+    }
+    
+    func logSubscriptionAccessEvaluated(
+        stage: String,
+        hasProAccess: Bool,
+        isLegacyUser: Bool
+    ) {
+        logEvent("subscription.access_evaluated", properties: [
+            "stage": stage,
+            "hasProAccess": hasProAccess,
+            "isLegacyUser": isLegacyUser
+        ])
+    }
+    
+    func logLegacyAccessManuallyGranted() {
+        logEvent("subscription.legacy_access_manually_granted")
+    }
+    
+    func logRestorePurchasesTapped() {
+        logEvent("subscription.restore_purchases_tapped")
     }
 }

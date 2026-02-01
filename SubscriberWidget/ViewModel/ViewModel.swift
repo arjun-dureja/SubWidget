@@ -18,6 +18,7 @@ enum LoadingState {
 class ViewModel: ObservableObject {
     let youtubeService: YouTubeServiceProtocol
     let channelStorageService: ChannelStorageServiceProtocol
+    let subscriptionService: SubscriptionServiceProtocol
 
     @Published var channels: [YouTubeChannel] = [] {
         didSet {
@@ -35,10 +36,12 @@ class ViewModel: ObservableObject {
 
     init(
         youtubeService: YouTubeServiceProtocol = YouTubeService(),
-        channelStorageService: ChannelStorageServiceProtocol = ChannelStorageService()
+        channelStorageService: ChannelStorageServiceProtocol = ChannelStorageService(),
+        subscriptionService: SubscriptionServiceProtocol = SubscriptionService()
     ) {
         self.youtubeService = youtubeService
         self.channelStorageService = channelStorageService
+        self.subscriptionService = subscriptionService
     }
 
     func loadChannels() async {
@@ -46,6 +49,10 @@ class ViewModel: ObservableObject {
 
         do {
             state = .loading
+            
+            // Check subscription/legacy access first
+            await subscriptionService.checkAccess()
+            
             channels = try await getChannelsWithUpdatedStatistics()
             AnalyticsService.shared.logChannelsLoaded(channels.count)
             state = .loaded
