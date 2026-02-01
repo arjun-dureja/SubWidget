@@ -76,7 +76,16 @@ class SubscriptionService: SubscriptionServiceProtocol {
             // originalAppVersion is the CFBundleVersion (Build number) for iOS apps
             let originalBuildString = transaction.originalAppVersion
 
-            guard let originalBuild = Int(originalBuildString) else {
+            let originalBuild: Int?
+            if let intBuild = Int(originalBuildString) {
+                originalBuild = intBuild
+            } else if let doubleBuild = Double(originalBuildString) {
+                originalBuild = Int(doubleBuild)
+            } else {
+                originalBuild = nil
+            }
+
+            guard let originalBuild else {
                 AnalyticsService.shared.logLegacyUserCheck(
                     isLegacyUser: false,
                     originalBuild: nil,
