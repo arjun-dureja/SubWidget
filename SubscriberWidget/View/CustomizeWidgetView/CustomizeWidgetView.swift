@@ -170,11 +170,6 @@ struct CustomizeWidgetView: View {
     }
 
     func handleResetColors() {
-        guard hasProAccess else {
-            AnalyticsService.shared.logPaywallShown(source: "color_reset")
-            showPaywall = true
-            return
-        }
         AnalyticsService.shared.logResetColorTapped()
         viewModel.resetAllColors(id: channel.id)
         channel.bgColor = nil
