@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import Mixpanel
+import RevenueCat
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Mixpanel.initialize(token: Constants.mixpanelToken, trackAutomaticEvents: true)
         AnalyticsService.shared.logAppOpened()
+
+        Purchases.configure(withAPIKey: Constants.revenueCatApiKey)
 
         let navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.barTintColor = .systemGray6
