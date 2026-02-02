@@ -8,17 +8,20 @@
 
 import SwiftUI
 import WishKit
+import RevenueCatUI
 
 struct WidgetListView: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.requestReview) private var requestReview
     @Environment(\.colorScheme) private var colorScheme
+    @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
     @State private var newWidget = false
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
     @State private var showUpdateAlert = false
     @State private var showNetworkError = false
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationView {
@@ -95,6 +98,11 @@ struct WidgetListView: View {
             .sheet(isPresented: $showWhatsNew, content: {
                 WhatsNewView(isPresented: $showWhatsNew)
             })
+            .sheet(isPresented: $showPaywall) {
+                NavigationView {
+                    PaywallView()
+                }
+            }
             .alert(
                 "You can only add 10 channels. Swipe left on a channel to delete it.",
                 isPresented: $tooManyChannels
@@ -128,7 +136,13 @@ struct WidgetListView: View {
     }
 
     func addWidgetTapped() {
-        if viewModel.channels.count >= 10 {
+        if !hasProAccess && viewModel.channels.count >= 1 {
+            AnalyticsService.shared.logPaywallShown(source: "add_channel")
+            showPaywall = true
+            return
+        }
+
+        if hasProAccess && viewModel.channels.count >= 10 {
             tooManyChannels = true
         } else {
             Task {

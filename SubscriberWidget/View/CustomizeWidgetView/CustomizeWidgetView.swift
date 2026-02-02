@@ -9,6 +9,7 @@
 import SwiftUI
 import UIKit
 import WidgetKit
+import RevenueCatUI
 
 struct CustomizeWidgetView: View {
     @ObservedObject var viewModel: ViewModel
@@ -17,12 +18,14 @@ struct CustomizeWidgetView: View {
 
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
+    @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
     @State private var name: String = ""
     @State private var showingAlert = false
     @State private var bgColor: CGColor?
     @State private var showNetworkError = false
     @State private var loadingChannel = false
+    @State private var showPaywall = false
 
     let columns = [
         GridItem(.adaptive(minimum: 80))
@@ -111,6 +114,11 @@ struct CustomizeWidgetView: View {
         .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
             Button("OK", role: .cancel) { }
         }
+        .sheet(isPresented: $showPaywall) {
+            NavigationView {
+                PaywallView()
+            }
+        }
         .onAppear {
             AnalyticsService.shared.logCustomizeWidgetScreenOpened(channel.channelName, subCount: channel.subCount)
         }
@@ -142,6 +150,11 @@ struct CustomizeWidgetView: View {
     }
 
     func handleColorSelected(_ color: CGColor, _ type: ColorType) {
+        guard hasProAccess else {
+            AnalyticsService.shared.logPaywallShown(source: "color_picker")
+            showPaywall = true
+            return
+        }
         let updatedColor = UIColor(cgColor: color)
         switch type {
         case .background:
@@ -157,6 +170,11 @@ struct CustomizeWidgetView: View {
     }
 
     func handleResetColors() {
+        guard hasProAccess else {
+            AnalyticsService.shared.logPaywallShown(source: "color_reset")
+            showPaywall = true
+            return
+        }
         AnalyticsService.shared.logResetColorTapped()
         viewModel.resetAllColors(id: channel.id)
         channel.bgColor = nil
@@ -165,6 +183,11 @@ struct CustomizeWidgetView: View {
     }
 
     func handlePressPalette(_ palette: Palette) {
+        guard hasProAccess else {
+            AnalyticsService.shared.logPaywallShown(source: "color_palette")
+            showPaywall = true
+            return
+        }
         AnalyticsService.shared.logColorPaletteTapped(String(localized: palette.name))
         let bgColor = UIColor(palette.background)
         let accentColor = UIColor(palette.accent)

@@ -209,6 +209,12 @@ class AnalyticsService {
         ])
     }
 
+    func logPaywallShown(source: String) {
+        logEvent("paywall.shown", properties: [
+            "source": source
+        ])
+    }
+
     func logLegacyAccessManuallyGranted() {
         logEvent("subscription.legacy_access_manually_granted")
     }

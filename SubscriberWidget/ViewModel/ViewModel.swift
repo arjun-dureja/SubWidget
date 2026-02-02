@@ -26,7 +26,7 @@ class ViewModel: ObservableObject {
         }
     }
 
-    @Published var refreshFrequency: RefreshFrequencies = .ONE_HR {
+    @Published var refreshFrequency: RefreshFrequencies = .SIX_HR {
         didSet {
             channelStorageService.saveRefreshFrequency(refreshFrequency)
         }

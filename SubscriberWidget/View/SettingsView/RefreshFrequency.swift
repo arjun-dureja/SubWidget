@@ -10,6 +10,8 @@ import SwiftUI
 
 struct RefreshFrequency: View {
     @ObservedObject var viewModel: ViewModel
+    @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
+    @Binding var showPaywall: Bool
 
     var body: some View {
         Picker(
@@ -26,6 +28,16 @@ struct RefreshFrequency: View {
         ) {
             ForEach(RefreshFrequencies.allCases, id: \.self) { freq in
                 Text(freq.toString()).tag(freq)
+            }
+        }
+        .onChange(of: viewModel.refreshFrequency) { newValue in
+            guard hasProAccess else {
+                if newValue != .SIX_HR {
+                    viewModel.refreshFrequency = .SIX_HR
+                    AnalyticsService.shared.logPaywallShown(source: "refresh_frequency")
+                    showPaywall = true
+                }
+                return
             }
         }
         .onAppear {

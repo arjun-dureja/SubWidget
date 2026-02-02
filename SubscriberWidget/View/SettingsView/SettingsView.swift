@@ -62,6 +62,7 @@ struct SettingsView: View {
                     if !hasProAccess {
                         Section {
                             Button {
+                                AnalyticsService.shared.logPaywallShown(source: "settings_cell")
                                 showPaywall = true
                             } label: {
                                 FormLabel(text: "SubWidget Pro", icon: "crown.fill", iconColor: .gold)
@@ -70,7 +71,7 @@ struct SettingsView: View {
                     }
 
                     Section(footer: Text("Choose how often the subscriber count should update")) {
-                        RefreshFrequency(viewModel: viewModel)
+                        RefreshFrequency(viewModel: viewModel, showPaywall: $showPaywall)
                     }
 
                     Section(footer: Text("Display the time the subscriber count was last updated")) {
@@ -105,6 +106,12 @@ struct SettingsView: View {
                         }
                         .tint(.youtubeRed)
                         .onChange(of: simplifyNumbers) { newValue in
+                            if !hasProAccess && newValue {
+                                simplifyNumbers = false
+                                AnalyticsService.shared.logPaywallShown(source: "simplify_numbers")
+                                showPaywall = true
+                                return
+                            }
                             AnalyticsService.shared.logSimplifyNumbersToggled(newValue)
                             WidgetCenter.shared.reloadAllTimelines()
                         }
