@@ -9,7 +9,6 @@
 import SwiftUI
 import UIKit
 import WidgetKit
-import RevenueCatUI
 
 struct CustomizeWidgetView: View {
     @ObservedObject var viewModel: ViewModel
@@ -114,11 +113,7 @@ struct CustomizeWidgetView: View {
         .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
             Button("OK", role: .cancel) { }
         }
-        .sheet(isPresented: $showPaywall) {
-            NavigationView {
-                PaywallView()
-            }
-        }
+        .paywallSheet(isPresented: $showPaywall)
         .onAppear {
             AnalyticsService.shared.logCustomizeWidgetScreenOpened(channel.channelName, subCount: channel.subCount)
         }

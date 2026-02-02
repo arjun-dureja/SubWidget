@@ -8,7 +8,6 @@
 
 import SwiftUI
 import WishKit
-import RevenueCatUI
 
 struct WidgetListView: View {
     @ObservedObject var viewModel: ViewModel
@@ -98,11 +97,7 @@ struct WidgetListView: View {
             .sheet(isPresented: $showWhatsNew, content: {
                 WhatsNewView(isPresented: $showWhatsNew)
             })
-            .sheet(isPresented: $showPaywall) {
-                NavigationView {
-                    PaywallView()
-                }
-            }
+            .paywallSheet(isPresented: $showPaywall)
             .alert(
                 "You can only add 10 channels. Swipe left on a channel to delete it.",
                 isPresented: $tooManyChannels

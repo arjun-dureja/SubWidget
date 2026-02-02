@@ -9,10 +9,12 @@
 import SwiftUI
 import WishKit
 import WidgetKit
+import ConfettiSwiftUI
 
 struct MainView: View {
     @StateObject var viewModel: ViewModel = ViewModel()
     @State private var currentTab = 0
+    @State private var confettiTrigger = 0
 
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
@@ -61,6 +63,16 @@ struct MainView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
             WidgetCenter.shared.reloadAllTimelines()
         }
+        .onReceive(NotificationCenter.default.publisher(for: .revenueCatPurchaseCompleted)) { _ in
+            confettiTrigger += 1
+        }
+        .confettiCannon(
+            trigger: $confettiTrigger,
+            num: 40,
+            rainHeight: 750,
+            radius: 500,
+            repetitions: 1,
+        )
     }
 }
 

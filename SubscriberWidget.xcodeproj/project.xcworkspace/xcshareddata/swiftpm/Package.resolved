@@ -1,5 +1,5 @@
 {
-  "originHash" : "5d987b6c45e78e4a2c66534a55d2e45f5e2ccf21c79700bae74fe8bd38720d1b",
+  "originHash" : "c6d753f0e66e0ad63597cce304612be8f084ca76d61e00993983df8daa0d8a89",
   "pins" : [
     {
       "identity" : "cache",
@@ -7,6 +7,15 @@
       "location" : "https://github.com/hyperoslo/Cache",
       "state" : {
         "revision" : "d048bf404a5c8362c6cf840c2096d5777975cd27"
+      }
+    },
+    {
+      "identity" : "confettiswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/simibac/ConfettiSwiftUI.git",
+      "state" : {
+        "revision" : "9ae5bc2ce2149980884d4612321c3a266d6bf82c",
+        "version" : "3.0.0"
       }
     },
     {

@@ -28,7 +28,7 @@ class ChannelStorageService: ChannelStorageServiceProtocol {
 
     func getRefreshFrequency() -> RefreshFrequencies {
         guard let refreshFrequency = try? JSONDecoder().decode(RefreshFrequencies.self, from: refreshFrequencyData) else {
-            return .ONE_HR
+            return .SIX_HR
         }
 
         return refreshFrequency

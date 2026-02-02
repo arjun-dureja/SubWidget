@@ -1,0 +1,33 @@
+//
+//  View+Extensions.swift
+//  SubscriberWidget
+//
+//  Created by Arjun Dureja on 2026-02-02.
+//  Copyright © 2026 Arjun Dureja. All rights reserved.
+//
+
+import SwiftUI
+import RevenueCatUI
+import Foundation
+
+extension Notification.Name {
+    static let revenueCatPurchaseCompleted = Notification.Name("revenueCatPurchaseCompleted")
+}
+
+extension View {
+    func paywallSheet(isPresented: Binding<Bool>) -> some View {
+        self.sheet(isPresented: isPresented) {
+            NavigationView {
+                PaywallView()
+                    .onPurchaseCompleted { _, _ in
+                        Task { await SubscriptionService().checkAccess() }
+                        NotificationCenter.default.post(name: .revenueCatPurchaseCompleted, object: nil)
+                    }
+                    .onRestoreCompleted { _ in
+                        Task { await SubscriptionService().checkAccess() }
+                        NotificationCenter.default.post(name: .revenueCatPurchaseCompleted, object: nil)
+                    }
+            }
+        }
+    }
+}

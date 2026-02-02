@@ -9,7 +9,6 @@
 import SwiftUI
 import StoreKit
 import WidgetKit
-import RevenueCatUI
 
 struct SettingsView: View {
     @ObservedObject var viewModel: ViewModel
@@ -158,11 +157,7 @@ struct SettingsView: View {
             .navigationBarTitle("Settings")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $showPaywall) {
-            NavigationView {
-                PaywallView()
-            }
-        }
+        .paywallSheet(isPresented: $showPaywall)
     }
 }
 

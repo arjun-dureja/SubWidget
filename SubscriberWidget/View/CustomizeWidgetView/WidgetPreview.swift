@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import RevenueCatUI
 
 struct WidgetPreview: View {
     @Environment(\.colorScheme) var colorScheme
@@ -69,11 +68,7 @@ struct WidgetPreview: View {
                 .foregroundColor(colorScheme == .light ? .white : Color(UIColor.systemGray6))
         )
         .padding(.horizontal, 16)
-        .sheet(isPresented: $showPaywall) {
-            NavigationView {
-                PaywallView()
-            }
-        }
+        .paywallSheet(isPresented: $showPaywall)
     }
 
     private func handleUpgradeTapped() {
