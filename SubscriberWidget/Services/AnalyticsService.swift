@@ -203,6 +203,12 @@ class AnalyticsService {
         ])
     }
 
+    func logRevenueCatError(_ message: String) {
+        logEvent("subscription.revenuecat_error", properties: [
+            "message": message
+        ])
+    }
+
     func logLegacyAccessManuallyGranted() {
         logEvent("subscription.legacy_access_manually_granted")
     }

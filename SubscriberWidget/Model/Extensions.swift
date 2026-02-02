@@ -12,6 +12,7 @@ extension Color {
     // Custom colors
     static let youtubeRed = Color(.sRGB, red: 236/255, green: 51/255, blue: 35/255, opacity: 1)
     static let titleGray = Color(.sRGB, red: 96/255, green: 96/255, blue: 96/255, opacity: 1)
+    static let gold = Color(.sRGB, red: 255/255, green: 215/255, blue: 0/255, opacity: 1)
 
     static let darkModeTitleGray2 = Color(.sRGB, red: 200/255, green: 200/255, blue: 200/255, opacity: 1)
     static let darkModeBG = Color(.sRGB, red: 41/255, green: 20/255, blue: 20/255, opacity: 1)

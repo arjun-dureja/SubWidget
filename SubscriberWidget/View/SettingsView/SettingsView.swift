@@ -9,12 +9,14 @@
 import SwiftUI
 import StoreKit
 import WidgetKit
+import RevenueCatUI
 
 struct SettingsView: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationView {
@@ -44,6 +46,14 @@ struct SettingsView: View {
                     }
                     .padding(.top, 24)
                     .listRowBackground(Color.clear)
+
+                    Section {
+                        Button {
+                            showPaywall = true
+                        } label: {
+                            FormLabel(text: "SubWidget Pro", icon: "crown.fill", iconColor: .gold)
+                        }
+                    }
 
                     Section(footer: Text("Choose how often the subscriber count should update")) {
                         RefreshFrequency(viewModel: viewModel)
@@ -127,6 +137,11 @@ struct SettingsView: View {
             .navigationBarTitle("Settings")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $showPaywall) {
+            NavigationView {
+                PaywallView()
+            }
+        }
     }
 }
 

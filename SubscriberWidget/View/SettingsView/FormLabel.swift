@@ -11,6 +11,7 @@ import SwiftUI
 struct FormLabel: View {
     var text: LocalizedStringResource
     var icon: String
+    var iconColor: Color?
 
     var body: some View {
         HStack {
@@ -18,8 +19,13 @@ struct FormLabel: View {
                 Text(text)
                     .foregroundColor(Color(UIColor.label))
             } icon: {
-                Image(systemName: icon)
-                    .foregroundStyle(.white, Color.youtubeRed)
+                if let iconColor {
+                    Image(systemName: icon)
+                        .foregroundColor(iconColor)
+                } else {
+                    Image(systemName: icon)
+                        .foregroundStyle(.white, Color.youtubeRed)
+                }
             }
 
             Spacer()
