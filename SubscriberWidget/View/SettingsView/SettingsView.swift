@@ -16,6 +16,7 @@ struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
+    @AppStorage("hasProAccess", store: .shared) var hasProAccess: Bool = false
     @State private var showPaywall = false
 
     var body: some View {
@@ -30,9 +31,20 @@ struct SettingsView: View {
                     Section(footer: EmptyView()) {
                         HStack(spacing: 16) {
                             Spacer()
-                            AppIcon()
-                                .cornerRadius(16)
-                                .frame(width: 60, height: 60)
+                            ZStack(alignment: .topTrailing) {
+                                AppIcon()
+                                    .cornerRadius(16)
+                                    .frame(width: 60, height: 60)
+
+                                if hasProAccess {
+                                    Text("PRO")
+                                        .font(.system(size: 12, weight: .bold))
+                                        .foregroundColor(.black)
+                                        .padding(4)
+                                        .background(Color.gold.cornerRadius(8))
+                                        .offset(x: 12, y: -12)
+                                }
+                            }
 
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("SubWidget \(Bundle.main.appVersion)")
@@ -47,11 +59,13 @@ struct SettingsView: View {
                     .padding(.top, 24)
                     .listRowBackground(Color.clear)
 
-                    Section {
-                        Button {
-                            showPaywall = true
-                        } label: {
-                            FormLabel(text: "SubWidget Pro", icon: "crown.fill", iconColor: .gold)
+                    if !hasProAccess {
+                        Section {
+                            Button {
+                                showPaywall = true
+                            } label: {
+                                FormLabel(text: "SubWidget Pro", icon: "crown.fill", iconColor: .gold)
+                            }
                         }
                     }
 
