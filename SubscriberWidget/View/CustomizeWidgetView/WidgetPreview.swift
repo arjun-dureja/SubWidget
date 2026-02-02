@@ -99,23 +99,25 @@ private struct LockedPreview<Content: View>: View {
             content
 
             if isLocked {
-                RoundedRectangle(cornerRadius: 12)
+                RoundedRectangle(cornerRadius: 25)
                     .fill(Color(UIColor.systemBackground).opacity(0.5))
-                Button(action: onUpgrade) {
-                    HStack(spacing: 6) {
-                        Image(systemName: "lock.fill")
-                        Text("Unlock")
-                    }
-                    .font(.caption.weight(.semibold))
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .foregroundColor(.white)
-                    .background(Color.youtubeRed)
-                    .cornerRadius(16)
-                }
+                    .frame(width: size.width, height: 155)
+                    .overlay(
+                        Button(action: onUpgrade) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "lock.fill")
+                                Text("Unlock")
+                            }
+                            .font(.caption.weight(.semibold))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .foregroundColor(.white)
+                            .background(Color.youtubeRed)
+                            .cornerRadius(16)
+                        }
+                    )
             }
         }
         .frame(width: size.width, height: 155)
-        .clipShape(RoundedRectangle(cornerRadius: 25))
     }
 }
