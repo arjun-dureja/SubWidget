@@ -69,6 +69,10 @@ class SubscriptionService: SubscriptionServiceProtocol {
 
             // originalAppVersion is the CFBundleVersion (Build number) for iOS apps
             let originalBuildString = transaction.originalAppVersion
+            AnalyticsService.shared.logAppTransactionDetails(
+                originalApplicationVersion: originalBuildString,
+                originalPurchaseDate: transaction.originalPurchaseDate
+            )
 
             let originalBuild: Int?
             if let intBuild = Int(originalBuildString) {

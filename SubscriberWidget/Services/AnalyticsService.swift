@@ -172,6 +172,21 @@ class AnalyticsService {
         logEvent("subscription.legacy_check", properties: properties)
     }
 
+    func logAppTransactionDetails(
+        originalApplicationVersion: String,
+        originalPurchaseDate: Date?
+    ) {
+        var properties: [String: any MixpanelType] = [
+            "originalApplicationVersion": originalApplicationVersion
+        ]
+
+        if let originalPurchaseDate = originalPurchaseDate {
+            properties["originalPurchaseTimestamp"] = originalPurchaseDate.timeIntervalSince1970
+        }
+
+        logEvent("subscription.app_transaction_details", properties: properties)
+    }
+
     func logActiveSubscriberDetected() {
         logEvent("subscription.active_subscriber_detected")
     }
