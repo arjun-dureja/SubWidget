@@ -12,8 +12,16 @@ import SwiftUI
 import RevenueCat
 
 class SubscriptionService: SubscriptionServiceProtocol {
-    private let freemiumBuildNumber = 31
-    private let revenueCatEntitlementId = Constants.revenueCatEntitlementId
+    private let freemiumCutoffDate = DateComponents(
+        calendar: Calendar(identifier: .gregorian),
+        timeZone: TimeZone(secondsFromGMT: 0),
+        year: 2026,
+        month: 2,
+        day: 10,
+        hour: 0,
+        minute: 0,
+        second: 0
+    ).date
 
     @AppStorage("hasProAccess", store: .shared) var hasProAccess: Bool = false
     @AppStorage("isLegacyUser", store: .shared) var isLegacyUser: Bool = false
@@ -61,59 +69,43 @@ class SubscriptionService: SubscriptionServiceProtocol {
             guard case .verified(let transaction) = appTransaction else {
                 AnalyticsService.shared.logLegacyUserCheck(
                     isLegacyUser: false,
-                    originalBuild: nil,
-                    freemiumBuildNumber: freemiumBuildNumber
+                    originalPurchaseDate: nil,
+                    freemiumCutoffDate: freemiumCutoffDate
                 )
                 return false
             }
 
-            // originalAppVersion is the CFBundleVersion (Build number) for iOS apps
-            let originalBuildString = transaction.originalAppVersion
-            AnalyticsService.shared.logAppTransactionDetails(
-                originalApplicationVersion: originalBuildString,
-                originalPurchaseDate: transaction.originalPurchaseDate
-            )
+            let originalPurchaseDate = transaction.originalPurchaseDate
 
-            let originalBuild: Int?
-            if let intBuild = Int(originalBuildString) {
-                originalBuild = intBuild
-            } else if let doubleBuild = Double(originalBuildString) {
-                originalBuild = Int(doubleBuild)
-            } else {
-                originalBuild = nil
-            }
-
-            guard let originalBuild else {
+            guard let freemiumCutoffDate else {
                 AnalyticsService.shared.logLegacyUserCheck(
                     isLegacyUser: false,
-                    originalBuild: nil,
-                    freemiumBuildNumber: freemiumBuildNumber
+                    originalPurchaseDate: originalPurchaseDate,
+                    freemiumCutoffDate: nil
                 )
                 return false
             }
 
-            // If they installed a build BEFORE the freemium build = legacy user
-            if originalBuild < freemiumBuildNumber {
+            if originalPurchaseDate < freemiumCutoffDate {
                 AnalyticsService.shared.logLegacyUserCheck(
                     isLegacyUser: true,
-                    originalBuild: originalBuild,
-                    freemiumBuildNumber: freemiumBuildNumber
+                    originalPurchaseDate: originalPurchaseDate,
+                    freemiumCutoffDate: freemiumCutoffDate
                 )
                 return true
             }
 
-            // New user who downloaded the free version
             AnalyticsService.shared.logLegacyUserCheck(
                 isLegacyUser: false,
-                originalBuild: originalBuild,
-                freemiumBuildNumber: freemiumBuildNumber
+                originalPurchaseDate: originalPurchaseDate,
+                freemiumCutoffDate: freemiumCutoffDate
             )
             return false
         } catch {
             AnalyticsService.shared.logLegacyUserCheck(
                 isLegacyUser: false,
-                originalBuild: nil,
-                freemiumBuildNumber: freemiumBuildNumber
+                originalPurchaseDate: nil,
+                freemiumCutoffDate: freemiumCutoffDate
             )
             return false
         }
@@ -123,7 +115,7 @@ class SubscriptionService: SubscriptionServiceProtocol {
     private func checkRevenueCatEntitlement() async -> Bool {
         do {
             let customerInfo = try await Purchases.shared.customerInfo()
-            return customerInfo.entitlements[revenueCatEntitlementId]?.isActive == true
+            return customerInfo.entitlements[Constants.revenueCatEntitlementId]?.isActive == true
         } catch {
             AnalyticsService.shared.logRevenueCatError(error.localizedDescription)
             AnalyticsService.shared.logSubscriptionAccessEvaluated(

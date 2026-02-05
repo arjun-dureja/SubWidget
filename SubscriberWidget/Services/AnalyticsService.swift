@@ -159,15 +159,17 @@ class AnalyticsService {
 
     func logLegacyUserCheck(
         isLegacyUser: Bool,
-        originalBuild: Int?,
-        freemiumBuildNumber: Int
+        originalPurchaseDate: Date?,
+        freemiumCutoffDate: Date?
     ) {
         var properties: [String: any MixpanelType] = [
-            "isLegacyUser": isLegacyUser,
-            "freemiumBuildNumber": freemiumBuildNumber
+            "isLegacyUser": isLegacyUser
         ]
-        if let originalBuild = originalBuild {
-            properties["originalBuild"] = originalBuild
+        if let originalPurchaseDate = originalPurchaseDate {
+            properties["originalPurchaseTimestamp"] = originalPurchaseDate.timeIntervalSince1970
+        }
+        if let freemiumCutoffDate = freemiumCutoffDate {
+            properties["freemiumCutoffTimestamp"] = freemiumCutoffDate.timeIntervalSince1970
         }
         logEvent("subscription.legacy_check", properties: properties)
     }
