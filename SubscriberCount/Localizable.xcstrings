@@ -369,6 +369,9 @@
         }
       }
     },
+    "Get SubWidget Pro to use this widget" : {
+
+    },
     "Hold and tap 'Edit Widget'" : {
       "localizations" : {
         "ar" : {
@@ -1254,6 +1257,9 @@
           }
         }
       }
+    },
+    "Unlock" : {
+
     },
     "View Count" : {
       "localizations" : {

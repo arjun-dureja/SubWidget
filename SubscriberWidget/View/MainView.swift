@@ -15,6 +15,8 @@ struct MainView: View {
     @StateObject var viewModel: ViewModel = ViewModel()
     @State private var currentTab = 0
     @State private var confettiTrigger = 0
+    @State private var showPaywall = false
+    @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
 
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
@@ -66,6 +68,17 @@ struct MainView: View {
         .onReceive(NotificationCenter.default.publisher(for: .revenueCatPurchaseCompleted)) { _ in
             confettiTrigger += 1
         }
+        .onReceive(NotificationCenter.default.publisher(for: .paywallRequested)) { _ in
+            AnalyticsService.shared.logPaywallShown(source: "widget")
+            showPaywall = true
+        }
+        .onAppear {
+            if pendingPaywallFromWidget {
+                pendingPaywallFromWidget = false
+                AnalyticsService.shared.logPaywallShown(source: "widget_cold_start")
+                showPaywall = true
+            }
+        }
         .confettiCannon(
             trigger: $confettiTrigger,
             num: 40,
@@ -73,6 +86,7 @@ struct MainView: View {
             radius: 500,
             repetitions: 1,
         )
+        .paywallSheet(isPresented: $showPaywall)
     }
 }
 

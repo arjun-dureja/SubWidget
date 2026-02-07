@@ -112,7 +112,6 @@ struct MediumWidget: View {
                     }
             }
         }
-        .widgetURL(channel?.deeplinkUrl)
     }
 }
 

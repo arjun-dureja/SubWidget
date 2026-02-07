@@ -152,6 +152,19 @@ class AnalyticsService {
         ])
     }
 
+    func logWidgetChannelFetchFailed(_ message: String) {
+        logEvent("widget.channel_fetch_failed", properties: [
+            "message": message
+        ])
+    }
+
+    func logWidgetImageFetchFailed(url: String, error: String) {
+        logEvent("widget.image_fetch_failed", properties: [
+            "url": url,
+            "error": error
+        ])
+    }
+
     // Subscription & Access Events
     func logLegacyUserDetected() {
         logEvent("subscription.legacy_user_detected")

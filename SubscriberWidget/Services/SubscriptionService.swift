@@ -17,7 +17,7 @@ class SubscriptionService: SubscriptionServiceProtocol {
         timeZone: TimeZone(secondsFromGMT: 0),
         year: 2026,
         month: 2,
-        day: 10,
+        day: 9,
         hour: 0,
         minute: 0,
         second: 0

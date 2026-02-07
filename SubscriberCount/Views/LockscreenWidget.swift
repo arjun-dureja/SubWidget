@@ -58,7 +58,6 @@ struct LockscreenWidget: View {
                 }
             }
             .containerBackground(.clear, for: .widget)
-            .widgetURL(channel.deeplinkUrl)
         } else {
             // Configuration View
             VStack(alignment: .leading) {

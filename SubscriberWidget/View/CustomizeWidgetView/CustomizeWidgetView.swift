@@ -147,7 +147,10 @@ struct CustomizeWidgetView: View {
     func handleColorSelected(_ color: CGColor, _ type: ColorType) {
         guard hasProAccess else {
             AnalyticsService.shared.logPaywallShown(source: "color_picker")
-            showPaywall = true
+            // Show paywall after delay to avoid sheet collision
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                showPaywall = true
+            }
             return
         }
         let updatedColor = UIColor(cgColor: color)

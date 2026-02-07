@@ -28,6 +28,10 @@ struct SimpleEntry: TimelineEntry {
     }
 }
 
+private enum WidgetDeepLink {
+    static let paywall = URL(string: "subwidget://paywall")
+}
+
 struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
     typealias Entry = SimpleEntry
     typealias Intent = SelectChannelIntent
@@ -53,14 +57,14 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 if !channels.isEmpty {
                     let entry = SimpleEntry(
                         channel: channels[0],
-                        channelImage: getImageForUrl(channels[0].profileImage),
+                        channelImage: await getImageForUrl(channels[0].profileImage),
                         widgetType: widgetType
                     )
 
                     completion(entry)
                 }
             } else {
-                let result = try await fetchChannel(
+                let result = await fetchChannel(
                     for: configuration.channel ?? YouTubeChannelParam.global,
                     channelStorageService: channelStorageService
                 )
@@ -88,7 +92,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             Task {
                 let channelStorageService = ChannelStorageService()
                 let refreshFrequency = channelStorageService.getRefreshFrequency().rawValue
-                let result = try await fetchChannel(
+                let result = await fetchChannel(
                     for: configuration.channel ?? YouTubeChannelParam.global,
                     channelStorageService: channelStorageService
                 )
@@ -103,23 +107,27 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         }
     }
 
-    private func fetchChannel(for param: YouTubeChannelParam, channelStorageService: ChannelStorageService) async throws -> SimpleEntry {
-        guard let id = param.identifier else {
-            throw SubWidgetError.invalidIdentifer
-        }
+    private func fetchChannel(for param: YouTubeChannelParam, channelStorageService: ChannelStorageService) async -> SimpleEntry {
+        do {
+            guard let id = param.identifier else {
+                throw SubWidgetError.invalidIdentifer
+            }
 
-        let channels = channelStorageService.getChannels()
-        if let channel = channels.first(where: { $0.id == id }) {
-            let youtubeService = YouTubeService()
-            var updatedChannel = try await youtubeService.getChannelDetailsFromId(for: channel.channelId)
-            updatedChannel.bgColor = channel.bgColor
-            updatedChannel.accentColor = channel.accentColor
-            updatedChannel.numberColor = channel.numberColor
-            return SimpleEntry(
-                channel: updatedChannel,
-                channelImage: getImageForUrl(updatedChannel.profileImage),
-                widgetType: widgetType
-            )
+            let channels = channelStorageService.getChannels()
+            if let channel = channels.first(where: { $0.id == id }) {
+                let youtubeService = YouTubeService()
+                var updatedChannel = try await youtubeService.getChannelDetailsFromId(for: channel.channelId)
+                updatedChannel.bgColor = channel.bgColor
+                updatedChannel.accentColor = channel.accentColor
+                updatedChannel.numberColor = channel.numberColor
+                return SimpleEntry(
+                    channel: updatedChannel,
+                    channelImage: await getImageForUrl(updatedChannel.profileImage),
+                    widgetType: widgetType
+                )
+            }
+        } catch {
+            AnalyticsService.shared.logWidgetChannelFetchFailed(error.localizedDescription)
         }
 
         return SimpleEntry(
@@ -128,47 +136,88 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         )
     }
 
-    private func getImageForUrl(_ url: String) -> UIImage {
-        if let imageUrl = URL(string: url), let imageData = try? Data(contentsOf: imageUrl) {
-            let image = UIImage(data: imageData)!
-            // Resize since widgets have a size limit
-            let resizedImage = resizeImage(image, targetSize: CGSize(width: 400, height: 400))
-            return resizedImage
+    private func getImageForUrl(_ url: String) async -> UIImage {
+        guard let url = URL(string: url) else {
+            return UIImage(systemName: "person.circle")!
+        }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let image = UIImage(data: data) {
+                return resizeImage(image, targetSize: CGSize(width: 400, height: 400))
+            }
+        } catch {
+            AnalyticsService.shared.logWidgetImageFetchFailed(url: url.absoluteString, error: error.localizedDescription)
         }
 
         return UIImage(systemName: "person.circle")!
     }
 
     private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        let widthRatio  = targetSize.width  / size.width
-        let heightRatio = targetSize.height / size.height
-        let newSize = widthRatio > heightRatio ?
-            CGSize(width: size.width * heightRatio, height: size.height * heightRatio) :
-            CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
 
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return newImage ?? image
+        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
+        return renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
     }
 }
 
 struct SubscriberCountEntryView: View {
     var entry: SubWidgetIntentTimelineProvider.Entry
     @Environment(\.widgetFamily) private var widgetFamily
+    @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
-    var body: some View {
+    private var isPreview: Bool {
+        entry.channel?.channelName == "SubWidgetPrev"
+    }
+
+    private var isLocked: Bool {
+        guard entry.channel != nil else { return false }
+        guard !hasProAccess else { return false }
+        guard !isPreview else { return false }
         switch widgetFamily {
         case .systemSmall:
-            SmallWidget(entry: entry)
+            return entry.widgetType != .subscribers
         case .accessoryRectangular:
-            LockscreenWidget(entry: entry)
+            return true
         default:
-            MediumWidget(entry: entry)
+            return true
         }
+    }
+
+    private var deepLink: URL? {
+        isLocked ? WidgetDeepLink.paywall : entry.channel?.deeplinkUrl
+    }
+
+    var body: some View {
+        Group {
+            switch widgetFamily {
+            case .systemSmall:
+                if isLocked {
+                    LockedWidgetContainer {
+                        SmallWidget(entry: entry)
+                    }
+                } else {
+                    SmallWidget(entry: entry)
+                }
+            case .accessoryRectangular:
+                if isLocked {
+                    LockedLockscreenWidget()
+                } else {
+                    LockscreenWidget(entry: entry)
+                }
+            default:
+                if isLocked {
+                    LockedWidgetContainer {
+                        MediumWidget(entry: entry)
+                    }
+                } else {
+                    MediumWidget(entry: entry)
+                }
+            }
+        }
+        .widgetURL(isPreview ? nil : deepLink)
     }
 }

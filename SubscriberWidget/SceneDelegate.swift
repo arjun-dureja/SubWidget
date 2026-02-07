@@ -29,14 +29,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
 
-        if let channelId = connectionOptions.urlContexts.first?.url.host() {
-            self.openYoutubeChannel(channelId)
+        if let url = connectionOptions.urlContexts.first?.url {
+            handleDeepLink(url)
+        }
+    }
+
+    private func handleDeepLink(_ url: URL) {
+        if url.host() == "paywall" {
+            UserDefaults.shared?.set(true, forKey: "pendingPaywallFromWidget")
+            NotificationCenter.default.post(name: .paywallRequested, object: nil)
+            return
+        }
+
+        if let channelId = url.host() {
+            openYoutubeChannel(channelId)
         }
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let channelId = URLContexts.first?.url.host() {
-            self.openYoutubeChannel(channelId)
+        if let url = URLContexts.first?.url {
+            handleDeepLink(url)
         }
     }
 

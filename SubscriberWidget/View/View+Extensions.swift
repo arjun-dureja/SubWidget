@@ -12,6 +12,7 @@ import Foundation
 
 extension Notification.Name {
     static let revenueCatPurchaseCompleted = Notification.Name("revenueCatPurchaseCompleted")
+    static let paywallRequested = Notification.Name("paywallRequested")
 }
 
 extension View {

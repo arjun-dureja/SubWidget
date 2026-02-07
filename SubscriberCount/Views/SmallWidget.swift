@@ -119,7 +119,6 @@ struct SmallWidget: View {
                     }
             }
         }
-        .widgetURL(channel?.deeplinkUrl)
     }
 }
 
