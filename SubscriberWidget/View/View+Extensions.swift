@@ -24,9 +24,11 @@ extension View {
                         Task { await SubscriptionService().checkAccess() }
                         NotificationCenter.default.post(name: .revenueCatPurchaseCompleted, object: nil)
                     }
-                    .onRestoreCompleted { _ in
+                    .onRestoreCompleted { customerInfo in
                         Task { await SubscriptionService().checkAccess() }
-                        NotificationCenter.default.post(name: .revenueCatPurchaseCompleted, object: nil)
+                        if customerInfo.entitlements[Constants.revenueCatEntitlementId]?.isActive ?? false {
+                            NotificationCenter.default.post(name: .revenueCatPurchaseCompleted, object: nil)
+                        }
                     }
             }
         }

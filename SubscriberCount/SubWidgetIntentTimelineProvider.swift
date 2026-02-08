@@ -144,7 +144,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             if let image = UIImage(data: data) {
-                return resizeImage(image, targetSize: CGSize(width: 400, height: 400))
+                return resizeImage(image, targetSize: CGSize(width: 200, height: 200))
             }
         } catch {
             AnalyticsService.shared.logWidgetImageFetchFailed(url: url.absoluteString, error: error.localizedDescription)
