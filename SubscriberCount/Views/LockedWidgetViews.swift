@@ -15,6 +15,9 @@ struct LockedWidgetContainer<Content: View>: View {
     var body: some View {
         ZStack {
             content
+                .redacted(reason: .placeholder)
+                .blur(radius: 3)
+
             HStack(spacing: 8) {
                 Image(systemName: "lock.fill")
                     .font(.system(size: 20, weight: .semibold))

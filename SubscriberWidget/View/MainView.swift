@@ -17,6 +17,7 @@ struct MainView: View {
     @State private var confettiTrigger = 0
     @State private var showPaywall = false
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
+    @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
@@ -67,16 +68,15 @@ struct MainView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .revenueCatPurchaseCompleted)) { _ in
             confettiTrigger += 1
+            WidgetCenter.shared.reloadAllTimelines()
         }
         .onReceive(NotificationCenter.default.publisher(for: .paywallRequested)) { _ in
-            AnalyticsService.shared.logPaywallShown(source: "widget")
-            showPaywall = true
+            handleWidgetPaywallRequest(source: "widget")
         }
         .onAppear {
             if pendingPaywallFromWidget {
                 pendingPaywallFromWidget = false
-                AnalyticsService.shared.logPaywallShown(source: "widget_cold_start")
-                showPaywall = true
+                handleWidgetPaywallRequest(source: "widget_cold_start")
             }
         }
         .confettiCannon(
@@ -87,6 +87,17 @@ struct MainView: View {
             repetitions: 1,
         )
         .paywallSheet(isPresented: $showPaywall)
+    }
+
+    @MainActor
+    private func handleWidgetPaywallRequest(source: String) {
+        Task {
+            await SubscriptionService().checkAccess()
+            if !hasProAccess {
+                AnalyticsService.shared.logPaywallShown(source: source)
+                showPaywall = true
+            }
+        }
     }
 }
 
