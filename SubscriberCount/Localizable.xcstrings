@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "- Add a channel in the app, then tap this widget while editing" : {
       "localizations" : {
         "ar" : {
@@ -933,6 +936,9 @@
         }
       }
     },
+    "Subscribers + Views" : {
+
+    },
     "Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." : {
       "localizations" : {
         "ar" : {
@@ -1346,6 +1352,9 @@
           }
         }
       }
+    },
+    "View both your subscriber and view counts in one widget" : {
+
     },
     "View Count" : {
       "localizations" : {

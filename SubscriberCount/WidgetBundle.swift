@@ -14,5 +14,6 @@ struct SubWidgets: WidgetBundle {
    var body: some Widget {
        SubscriberCount()
        ViewCount()
+       CombinedCount()
    }
 }

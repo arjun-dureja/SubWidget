@@ -11,7 +11,7 @@ import WidgetKit
 import SwiftUI
 
 enum WidgetType: String {
-    case subscribers, views
+    case subscribers, views, combined
 }
 
 struct SimpleEntry: TimelineEntry {

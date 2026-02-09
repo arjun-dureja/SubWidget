@@ -3155,6 +3155,9 @@
         }
       }
     },
+    "Subscribers + Views" : {
+
+    },
     "SubWidget" : {
       "localizations" : {
         "ar" : {
@@ -3850,6 +3853,9 @@
           }
         }
       }
+    },
+    "View both your subscriber and view counts in one widget" : {
+
     },
     "What does the reset button do?" : {
       "localizations" : {

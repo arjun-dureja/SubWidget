@@ -9,6 +9,11 @@
 import SwiftUI
 import WidgetKit
 
+private enum CountMode {
+    case single(count: String, type: WidgetType)
+    case combined(subscribers: String, views: String)
+}
+
 struct MediumWidget: View {
     var entry: SimpleEntry?
     @Environment(\.colorScheme) var colorScheme
@@ -20,14 +25,24 @@ struct MediumWidget: View {
         entry?.channel
     }
 
-    var count: String {
+    private var subCount: String {
+        channel?.subCount ?? "0"
+    }
+
+    private var viewCount: String {
+        channel?.viewCount ?? "0"
+    }
+
+    private var countMode: CountMode {
         switch entry?.widgetType {
         case .subscribers:
-            channel?.subCount ?? "0"
+            return .single(count: subCount, type: .subscribers)
         case .views:
-            channel?.viewCount ?? "0"
+            return .single(count: viewCount, type: .views)
+        case .combined:
+            return .combined(subscribers: subCount, views: viewCount)
         case nil:
-            "0"
+            return .single(count: "0", type: .subscribers)
         }
     }
 
@@ -73,14 +88,35 @@ struct MediumWidget: View {
                             .font(.system(size: 24))
                             .lineLimit(channel.channelName.firstIndex(of: " ") != nil && channel.channelName.count > 15 ? .max : 1)
                             .foregroundColor(accentColor)
-                        FormattedCount(count: count)
-                            .font(.system(size: 32))
-                            .lineLimit(1)
-                            .foregroundColor(numberColor)
-                        FormattedCaption(widgetType: entry.widgetType)
-                            .font(.system(size: 15))
-                            .lineLimit(1)
-                            .foregroundColor(accentColor)
+
+                        switch countMode {
+                        case let .single(count, type):
+                            FormattedCount(count: count)
+                                .font(.system(size: 32))
+                                .lineLimit(1)
+                                .foregroundColor(numberColor)
+                            FormattedCaption(widgetType: type)
+                                .font(.system(size: 15))
+                                .lineLimit(1)
+                                .foregroundColor(accentColor)
+                        case let .combined(subscribers, views):
+                            VStack(alignment: .leading, spacing: 2) {
+                                FormattedCount(count: subscribers)
+                                    .font(.system(size: 24))
+                                    .foregroundColor(numberColor)
+                                FormattedCaption(widgetType: .subscribers)
+                                    .font(.system(size: 12))
+                                    .foregroundColor(accentColor)
+                            }
+                            VStack(alignment: .leading, spacing: 2) {
+                                FormattedCount(count: views)
+                                    .font(.system(size: 24))
+                                    .foregroundColor(numberColor)
+                                FormattedCaption(widgetType: .views)
+                                    .font(.system(size: 12))
+                                    .foregroundColor(accentColor)
+                            }
+                        }
                     }
                     .minimumScaleFactor(0.3)
 

@@ -57,6 +57,13 @@ struct WidgetPreview: View {
                         .widgetBackground(bgColor: channel.bgColor, size: .medium)
                 }
                 .tag(3)
+
+                let combinedEntry = SimpleEntry(channel: channel, widgetType: .combined)
+                LockedPreview(size: .medium, isLocked: !hasProAccess, onUpgrade: handleUpgradeTapped) {
+                    MediumWidget(entry: combinedEntry)
+                        .widgetBackground(bgColor: channel.bgColor, size: .medium)
+                }
+                .tag(4)
             }
             .padding(.top, -40)
             .padding(.bottom, -8)

@@ -22,6 +22,8 @@ struct LockscreenWidget: View {
             channel?.subCount ?? "0"
         case .views:
             channel?.viewCount ?? "0"
+        case .combined:
+            channel?.subCount ?? "0"
         case nil:
             "0"
         }

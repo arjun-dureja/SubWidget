@@ -17,6 +17,8 @@ struct FormattedCaption: View {
             "Total subscribers"
         case .views:
             "Total views"
+        default:
+            ""
         }
     }
 
