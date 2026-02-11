@@ -17,7 +17,7 @@ class SubscriptionService: SubscriptionServiceProtocol {
         timeZone: TimeZone(secondsFromGMT: 0),
         year: 2026,
         month: 2,
-        day: 10,
+        day: 13,
         hour: 0,
         minute: 0,
         second: 0
@@ -67,6 +67,15 @@ class SubscriptionService: SubscriptionServiceProtocol {
             let appTransaction = try await AppTransaction.shared
 
             guard case .verified(let transaction) = appTransaction else {
+                AnalyticsService.shared.logLegacyUserCheck(
+                    isLegacyUser: false,
+                    originalPurchaseDate: nil,
+                    freemiumCutoffDate: freemiumCutoffDate
+                )
+                return false
+            }
+
+            if transaction.environment == .sandbox {
                 AnalyticsService.shared.logLegacyUserCheck(
                     isLegacyUser: false,
                     originalPurchaseDate: nil,

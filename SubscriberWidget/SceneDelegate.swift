@@ -53,8 +53,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func openYoutubeChannel(_ channelId: String) {
-        AnalyticsService.shared.logChannelDeepLinkOpened(channelId)
-        UIApplication.shared.open(URL(string: "https://youtube.com/channel/\(channelId)")!, options: [:], completionHandler: nil)
+        let channelUrl = "https://youtube.com/channel/\(channelId)"
+        AnalyticsService.shared.logChannelDeepLinkOpened(channelUrl)
+        UIApplication.shared.open(URL(string: channelUrl)!, options: [:], completionHandler: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
