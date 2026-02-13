@@ -937,7 +937,50 @@
       }
     },
     "Subscribers + Views" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المشتركون + المشاهدات"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abonnenten + Aufrufe"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suscriptores + Visualizaciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abonnés + Vues"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सब्सक्राइबर + व्यूज़"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inscritos + Visualizações"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "சந்தாதாரர்கள் + பார்வைகள்"
+          }
+        }
+      }
     },
     "Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." : {
       "localizations" : {
@@ -1354,7 +1397,50 @@
       }
     },
     "View both your subscriber and view counts in one widget" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اعرض عدد المشتركين والمشاهدات في أداة واحدة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sieh dir sowohl deine Abonnenten- als auch Aufrufzahlen in einem Widget an"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consulta tanto tus suscriptores como tus visualizaciones en un solo widget"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consultez à la fois votre nombre d’abonnés et de vues dans un seul widget"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक ही विजेट में अपने सब्सक्राइबर और व्यू की संख्या देखें"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veja o número de inscritos e visualizações em um único widget"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ஒரே விட்ஜெட்டில் உங்கள் சந்தாதாரர்கள் மற்றும் பார்வைகள் எண்ணிக்கையை காணுங்கள்"
+          }
+        }
+      }
     },
     "View Count" : {
       "localizations" : {
