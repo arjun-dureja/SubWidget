@@ -245,6 +245,14 @@ class AnalyticsService {
         ])
     }
 
+    func logSubscriptionPurchaseCompleted() {
+        logEvent("subscription.purchase_completed")
+    }
+
+    func logSubscriptionRestoreSucceeded() {
+        logEvent("subscription.restore_succeeded")
+    }
+
     func logLegacyAccessManuallyGranted() {
         logEvent("subscription.legacy_access_manually_granted")
     }

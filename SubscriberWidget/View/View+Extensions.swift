@@ -21,12 +21,14 @@ extension View {
             NavigationView {
                 PaywallView()
                     .onPurchaseCompleted { _, _ in
+                        AnalyticsService.shared.logSubscriptionPurchaseCompleted()
                         Task { await SubscriptionService().checkAccess() }
                         NotificationCenter.default.post(name: .revenueCatPurchaseCompleted, object: nil)
                     }
                     .onRestoreCompleted { customerInfo in
                         Task { await SubscriptionService().checkAccess() }
                         if customerInfo.entitlements[Constants.revenueCatEntitlementId]?.isActive ?? false {
+                            AnalyticsService.shared.logSubscriptionRestoreSucceeded()
                             NotificationCenter.default.post(name: .revenueCatPurchaseCompleted, object: nil)
                         }
                     }

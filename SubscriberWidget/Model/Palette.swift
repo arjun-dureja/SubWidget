@@ -86,6 +86,24 @@ struct Palette {
             background: Color(hex: "#141414"),
             accent: Color(hex: "#cfd3cf"),
             number: Color(hex: "#a0bcc3")
+        ),
+        .init(
+            name: "Sandstone",
+            background: Color(hex: "#F3E9D7"),
+            accent: Color(hex: "#3B2F2F"),
+            number: Color(hex: "#C4623E")
+        ),
+        .init(
+            name: "Citrus Night",
+            background: Color(hex: "#1B1F3A"),
+            accent: Color(hex: "#F5F0E6"),
+            number: Color(hex: "#FFB000")
+        ),
+        .init(
+            name: "Rosewood",
+            background: Color(hex: "#3B1F2B"),
+            accent: Color(hex: "#F7EDE2"),
+            number: Color(hex: "#E07A5F")
         )
     ]
 }
