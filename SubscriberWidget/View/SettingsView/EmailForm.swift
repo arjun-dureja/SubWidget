@@ -16,10 +16,7 @@ class EmailHelper: NSObject {
 
 extension EmailHelper {
     func send(subject: String, to email: String) {
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-
-        guard let viewController = windowScene?.windows.first?.rootViewController else {
+        guard let viewController = topMostViewController() else {
             return
         }
 
@@ -50,6 +47,21 @@ extension EmailHelper {
         mailCompose.mailComposeDelegate = self
 
         viewController.present(mailCompose, animated: true, completion: nil)
+    }
+
+    private func topMostViewController() -> UIViewController? {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+
+        var viewController = windowScene?.windows
+            .first(where: { $0.isKeyWindow })?
+            .rootViewController
+
+        while let presented = viewController?.presentedViewController {
+            viewController = presented
+        }
+
+        return viewController
     }
 
     private func createEmailUrl(to email: String, subject: String) -> URL? {

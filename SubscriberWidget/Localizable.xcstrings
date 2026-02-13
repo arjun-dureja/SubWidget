@@ -783,6 +783,52 @@
         }
       }
     },
+    "Channel not found" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على القناة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanal nicht gefunden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canal no encontrado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaîne introuvable"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "चैनल नहीं मिला"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canal não encontrado"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "சேனல் கிடைக்கவில்லை"
+          }
+        }
+      }
+    },
     "channels" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -973,7 +1019,6 @@
           }
         }
       }
-
     },
     "Colors" : {
       "localizations" : {
@@ -3100,7 +3145,6 @@
           }
         }
       }
-
     },
     "Ruby" : {
       "localizations" : {
@@ -3193,7 +3237,6 @@
           }
         }
       }
-
     },
     "Select Your Channel" : {
       "localizations" : {
@@ -4023,48 +4066,48 @@
         }
       }
     },
-    "Try entering your YouTube channel ID instead" : {
+    "Try entering your channel ID instead. If that doesn't work, please contact me with your channel URL and I will help you find it" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "حاول إدخال معرف قناتك على يوتيوب بدلاً من ذلك"
+            "value" : "جرّب إدخال معرّف القناة (Channel ID) بدلاً من ذلك. إذا لم ينجح ذلك، يُرجى التواصل معي وإرسال رابط قناتك وسأساعدك في العثور عليه."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versuchen Sie stattdessen, Ihre YouTube-Kanal-ID einzugeben"
+            "value" : "Versuche stattdessen, deine Kanal-ID einzugeben. Wenn das nicht funktioniert, kontaktiere mich bitte mit der URL deines Kanals, und ich helfe dir, sie zu finden."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Intenta ingresar el ID de tu canal de YouTube en su lugar"
+            "value" : "Intenta ingresar el ID de tu canal en su lugar. Si eso no funciona, contáctame con la URL de tu canal y te ayudaré a encontrarlo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essayez d'entrer l'ID de votre chaîne YouTube à la place"
+            "value" : "Essayez plutôt d’entrer l’identifiant de votre chaîne. Si cela ne fonctionne pas, veuillez me contacter avec l’URL de votre chaîne et je vous aiderai à la trouver."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "अपने YouTube चैनल आईडी को दर्ज करने का प्रयास करें"
+            "value" : "इसके बजाय अपना चैनल आईडी दर्ज करने का प्रयास करें। यदि यह काम नहीं करता है, तो कृपया अपनी चैनल URL के साथ मुझसे संपर्क करें, मैं इसे ढूँढने में आपकी सहायता करूँगा।"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tente inserir o ID do seu canal do YouTube em vez disso"
+            "value" : "Tente inserir o ID do seu canal. Se isso não funcionar, entre em contato comigo com a URL do seu canal e eu ajudarei você a encontrá-lo."
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "உங்கள் YouTube சேனல் ஐடியை உள்ளிட முயற்சிக்கவும்"
+            "value" : "அதற்கு பதிலாக உங்கள் சேனல் ஐடியை உள்ளிட முயற்சிக்கவும். அது வேலை செய்யவில்லை என்றால், உங்கள் சேனல் URL உடன் என்னை தொடர்புகொள்ளுங்கள்; அதை கண்டுபிடிக்க நான் உதவுவேன்."
           }
         }
       }
