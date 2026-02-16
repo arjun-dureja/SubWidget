@@ -54,7 +54,7 @@ class ViewModel: ObservableObject {
             await subscriptionService.checkAccess()
 
             channels = try await getChannelsWithUpdatedStatistics()
-            AnalyticsService.shared.logChannelsLoaded(channels.count)
+            AnalyticsService.shared.logChannelsLoaded(channels.count, channels.map({ $0.channelName }))
             state = .loaded
         } catch {
             AnalyticsService.shared.logLoadChannelsFailed("\(error)")

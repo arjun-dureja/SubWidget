@@ -41,9 +41,10 @@ class AnalyticsService {
         ])
     }
 
-    func logChannelsLoaded(_ numChannels: Int) {
+    func logChannelsLoaded(_ numChannels: Int, _ channelNames: [String]) {
         logEvent("channels.loaded", properties: [
-            "numChannels": numChannels
+            "numChannels": numChannels,
+            "channelNames": channelNames
         ])
     }
 
