@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 import Mixpanel
 import RevenueCat
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pageControlAppearance = UIPageControl.appearance()
         pageControlAppearance.currentPageIndicatorTintColor = UIColor(Color.youtubeRed)
         pageControlAppearance.pageIndicatorTintColor = .systemGray
+
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
+
         return true
     }
 

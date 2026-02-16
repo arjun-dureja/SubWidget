@@ -28,9 +28,20 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>subwidget</string>
+				<string>fb1330349575792233</string>
 			</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1330349575792233</string>
+	<key>FacebookDisplayName</key>
+	<string>SubWidget</string>
+	<key>FacebookClientToken</key>
+	<string>cad77a90f871e2f74ab5648cb506f901</string>
+    <key>FacebookAutoLogAppEventsEnabled</key>
+    <true/>
+    <key>FacebookAdvertiserIDCollectionEnabled</key>
+    <false/>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>

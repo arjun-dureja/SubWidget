@@ -10,6 +10,7 @@
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
 		722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8D2B65FE0400E4832E /* Mixpanel */; };
+		7247B03F2F42792A008A8DF0 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7247B03E2F42792A008A8DF0 /* FacebookCore */; };
 		724BD92A2AB4063A008C1DB2 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 724BD9292AB4063A008C1DB2 /* Cache */; };
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
 		725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1F0251D3983004B2907 /* SwiftUI.framework */; };
@@ -239,6 +240,7 @@
 			files = (
 				72AFB3CC2F30722300C4774A /* ConfettiSwiftUI in Frameworks */,
 				72AFB3BF2F30231400C4774A /* RevenueCat in Frameworks */,
+				7247B03F2F42792A008A8DF0 /* FacebookCore in Frameworks */,
 				722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */,
 				72F2EE222B2D6128002AFCEA /* WishKit in Frameworks */,
 				72AFB3C12F30231400C4774A /* RevenueCatUI in Frameworks */,
@@ -363,6 +365,7 @@
 				72AFB3BE2F30231400C4774A /* RevenueCat */,
 				72AFB3C02F30231400C4774A /* RevenueCatUI */,
 				72AFB3CB2F30722300C4774A /* ConfettiSwiftUI */,
+				7247B03E2F42792A008A8DF0 /* FacebookCore */,
 			);
 			productName = SubscriberWidget;
 			productReference = 72920002251D1F3D0050194B /* SubWidget.app */;
@@ -411,6 +414,7 @@
 				722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 				72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 				72AFB3CA2F30720D00C4774A /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				7247B03D2F42792A008A8DF0 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 50;
 			productRefGroup = 72920003251D1F3D0050194B /* Products */;
@@ -857,6 +861,14 @@
 				kind = branch;
 			};
 		};
+		7247B03D2F42792A008A8DF0 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
 		724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hyperoslo/Cache";
@@ -906,6 +918,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
 			productName = Mixpanel;
+		};
+		7247B03E2F42792A008A8DF0 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7247B03D2F42792A008A8DF0 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
 		};
 		724BD9292AB4063A008C1DB2 /* Cache */ = {
 			isa = XCSwiftPackageProductDependency;
