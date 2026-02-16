@@ -187,8 +187,20 @@ struct SubscriberCountEntryView: View {
         }
     }
 
+    private var widgetTypeString: String {
+        return "\(entry.widgetType.rawValue)_\(widgetFamily.description)"
+    }
+
     private var deepLink: URL? {
-        isLocked ? WidgetDeepLink.paywall : entry.channel?.deeplinkUrl
+        if isLocked {
+            return WidgetDeepLink.paywall
+        }
+
+        guard let baseUrl = entry.channel?.deeplinkUrl else { return nil }
+        var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false)
+        let queryItem = URLQueryItem(name: "widgetType", value: widgetTypeString)
+        components?.queryItems = [queryItem]
+        return components?.url
     }
 
     var body: some View {

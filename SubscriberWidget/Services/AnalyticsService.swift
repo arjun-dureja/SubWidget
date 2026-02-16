@@ -121,9 +121,10 @@ class AnalyticsService {
         logEvent("review.requested")
     }
 
-    func logChannelDeepLinkOpened(_ channelUrl: String) {
+    func logChannelDeepLinkOpened(_ channelUrl: String, widgetType: String) {
         logEvent("channel_deeplink.opened", properties: [
-            "channelUrl": channelUrl
+            "channelUrl": channelUrl,
+            "widgetType": widgetType
         ])
     }
 

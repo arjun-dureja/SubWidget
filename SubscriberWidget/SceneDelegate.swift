@@ -42,7 +42,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         if let channelId = url.host() {
-            openYoutubeChannel(channelId)
+            let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            let widgetType = components?.queryItems?.first(where: { $0.name == "widgetType" })?.value ?? "unknown"
+            openYoutubeChannel(channelId, widgetType: widgetType)
         }
     }
 
@@ -52,9 +54,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    func openYoutubeChannel(_ channelId: String) {
+    func openYoutubeChannel(_ channelId: String, widgetType: String) {
         let channelUrl = "https://youtube.com/channel/\(channelId)"
-        AnalyticsService.shared.logChannelDeepLinkOpened(channelUrl)
+        AnalyticsService.shared.logChannelDeepLinkOpened(channelUrl, widgetType: widgetType)
         UIApplication.shared.open(URL(string: channelUrl)!, options: [:], completionHandler: nil)
     }
 
