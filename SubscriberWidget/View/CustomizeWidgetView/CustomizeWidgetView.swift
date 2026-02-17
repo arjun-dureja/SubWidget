@@ -13,17 +13,12 @@ import WidgetKit
 struct CustomizeWidgetView: View {
     @ObservedObject var viewModel: ViewModel
     @State var channel: YouTubeChannel
-    @State var isNewWidget: Bool
 
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
-    @State private var name: String = ""
-    @State private var showingAlert = false
     @State private var bgColor: CGColor?
-    @State private var showNetworkError = false
-    @State private var loadingChannel = false
     @State private var showPaywall = false
 
     let columns = [
@@ -31,29 +26,10 @@ struct CustomizeWidgetView: View {
     ]
 
     var body: some View {
-        GeometryReader { geometry in // Use geometry reader to prevent keyboard avoidance
+        GeometryReader { geometry in
             VStack(spacing: 16) {
-                if isNewWidget {
-                    CustomizeWidgetHeader(onCancel: handleCancelAddNewChannel)
-
-                    HStack {
-                        ChannelTextField(
-                            name: $name,
-                            submitButtonTapped: submitButtonTapped
-                        )
-
-                        SubmitButton(
-                            showingAlert: $showingAlert,
-                            loading: $loadingChannel,
-                            submitButtonTapped: submitButtonTapped
-                        )
-
-                        HelpButton()
-                    }
-                } else {
-                    Spacer()
-                        .frame(height: 8)
-                }
+                Spacer()
+                    .frame(height: 8)
 
                 WidgetPreview(channel: $channel)
                     .frame(maxWidth: 650)
@@ -110,38 +86,14 @@ struct CustomizeWidgetView: View {
         }
         .background(colorScheme == .light ? Color(UIColor.systemGray6) : .black)
         .ignoresSafeArea(.keyboard, edges: .all)
-        .alert("Network error. Please try again later.", isPresented: $showNetworkError) {
-            Button("OK", role: .cancel) { }
-        }
         .paywallSheet(isPresented: $showPaywall)
         .onAppear {
-            AnalyticsService.shared.logCustomizeWidgetScreenOpened(channel.channelName, subCount: channel.subCount)
+            AnalyticsService.shared.logCustomizeWidgetScreenOpened(
+                channel.channelName,
+                StringUtils.getChannelUrlFromId(channel.channelId),
+                channel.subCount
+            )
         }
-    }
-
-    func submitButtonTapped() {
-        guard !name.isEmpty else { return }
-
-        Task {
-            do {
-                loadingChannel = true
-                let channel = try await viewModel.updateChannel(id: channel.id, name: name)
-                UIApplication.shared.endEditing()
-                name.removeAll()
-                self.channel = channel
-            } catch SubWidgetError.serverError {
-                showNetworkError = true
-            } catch {
-                AnalyticsService.shared.logChannelSearchFailed(name)
-                showingAlert = true
-            }
-
-            loadingChannel = false
-        }
-    }
-
-    func handleCancelAddNewChannel() {
-        viewModel.deleteChannel(at: viewModel.channels.count-1)
     }
 
     func handleColorSelected(_ color: CGColor, _ type: ColorType) {
@@ -203,8 +155,7 @@ struct CustomizeWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         CustomizeWidgetView(
             viewModel: ViewModel(),
-            channel: .preview,
-            isNewWidget: false
+            channel: .preview
         )
     }
 }

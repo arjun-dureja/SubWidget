@@ -77,15 +77,16 @@ class ViewModel: ObservableObject {
         refreshFrequency = channelStorageService.getRefreshFrequency()
     }
 
-    func addNewChannel() async throws {
-        AnalyticsService.shared.logAddNewChannelTapped()
-        var channel = try await youtubeService.getChannelDetailsFromId(
-            for: YouTubeChannel.preview.channelId
-        )
+    func searchChannels(for name: String) async throws -> [Channel] {
+        AnalyticsService.shared.logChannelSearched(name)
+        return try await youtubeService.searchChannels(for: name)
+    }
 
-        // Generate a new ID in case an existing channel was returned
-        channel.id = UUID().uuidString
-        channels.append(channel)
+    func addChannel(_ channel: YouTubeChannel) -> YouTubeChannel {
+        var newChannel = channel
+        newChannel.id = UUID().uuidString
+        channels.append(newChannel)
+        return newChannel
     }
 
     func updateBgColorForChannel(id: String, color: UIColor?) {
@@ -120,19 +121,6 @@ class ViewModel: ObservableObject {
             channels[index].accentColor = nil
             channels[index].numberColor = nil
         }
-    }
-
-    func updateChannel(id: String, name: String) async throws -> YouTubeChannel {
-        if let index = channels.firstIndex(where: { $0.id == id }) {
-            var channel = try await youtubeService.getChannelDetailsFromChannelName(for: name)
-            // Generate a new ID in case an existing channel was returned
-            channel.id = UUID().uuidString
-            channels[index] = channel
-            AnalyticsService.shared.logChannelSearched(name)
-            return channels[index]
-        }
-
-        throw SubWidgetError.channelNotfound
     }
 
     func deleteChannel(at index: Int) {

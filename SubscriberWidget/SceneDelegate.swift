@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func openYoutubeChannel(_ channelId: String, widgetType: String) {
-        let channelUrl = "https://youtube.com/channel/\(channelId)"
+        let channelUrl = StringUtils.getChannelUrlFromId(channelId)
         AnalyticsService.shared.logChannelDeepLinkOpened(channelUrl, widgetType: widgetType)
         UIApplication.shared.open(URL(string: channelUrl)!, options: [:], completionHandler: nil)
     }

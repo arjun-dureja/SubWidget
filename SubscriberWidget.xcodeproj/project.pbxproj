@@ -10,7 +10,7 @@
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
 		722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8D2B65FE0400E4832E /* Mixpanel */; };
-		7247B03F2F42792A008A8DF0 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7247B03E2F42792A008A8DF0 /* FacebookCore */; };
+		7247B03F2F42792A008A8DF0 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 7247B03E2F42792A008A8DF0 /* FacebookCore */; };
 		724BD92A2AB4063A008C1DB2 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 724BD9292AB4063A008C1DB2 /* Cache */; };
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
 		725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1F0251D3983004B2907 /* SwiftUI.framework */; };

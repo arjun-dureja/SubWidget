@@ -9,7 +9,7 @@
 import Foundation
 
 protocol YouTubeServiceProtocol {
-    func getChannelDetailsFromChannelName(for name: String) async throws -> YouTubeChannel
+    func searchChannels(for name: String) async throws -> [Channel]
 
     func getChannelDetailsFromId(for id: String) async throws -> YouTubeChannel
 }

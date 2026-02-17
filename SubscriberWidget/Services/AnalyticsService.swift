@@ -129,9 +129,10 @@ class AnalyticsService {
         ])
     }
 
-    func logCustomizeWidgetScreenOpened(_ channelName: String, subCount: String) {
+    func logCustomizeWidgetScreenOpened(_ channelName: String, _ channelUrl: String, _ subCount: String) {
         logEvent("customize_widget_screen.opened", properties: [
             "channelName": channelName,
+            "channelUrl": channelUrl,
             "subCount": subCount
         ])
     }

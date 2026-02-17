@@ -15,7 +15,8 @@ struct WidgetListView: View {
     @Environment(\.colorScheme) private var colorScheme
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
-    @State private var newWidget = false
+    @State private var showSearch = false
+    @State private var navigateToChannelId: String?
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
     @State private var showUpdateAlert = false
@@ -46,9 +47,10 @@ struct WidgetListView: View {
                                     NavigationLink(
                                         destination: CustomizeWidgetView(
                                             viewModel: viewModel,
-                                            channel: channel,
-                                            isNewWidget: false
+                                            channel: channel
                                         ),
+                                        tag: channel.id,
+                                        selection: $navigateToChannelId,
                                         label: {
                                             ChannelListRow(channel: channel)
                                                 .redacted(
@@ -75,25 +77,20 @@ struct WidgetListView: View {
             .if(!viewModel.channels.isEmpty) { view in
                 view.navigationBarItems(trailing: AddWidgetButton(action: addWidgetTapped))
             }
-            .sheet(
-                isPresented: $newWidget,
-                onDismiss: {
-                    if viewModel.channels.count > 1 {
-                        AnalyticsService.shared.logReviewRequested()
-                        DispatchQueue.main.async {
-                            requestReview()
+            .sheet(isPresented: $showSearch, content: {
+                ChannelSearchView(
+                    viewModel: viewModel,
+                    onChannelAdded: { channel in
+                        navigateToChannelId = channel.id
+                        if viewModel.channels.count > 1 {
+                            AnalyticsService.shared.logReviewRequested()
+                            DispatchQueue.main.async {
+                                requestReview()
+                            }
                         }
                     }
-                },
-                content: {
-                    CustomizeWidgetView(
-                        viewModel: viewModel,
-                        channel: viewModel.channels.last!,
-                        isNewWidget: true
-                    )
-                    .background(Color(UIColor.systemBackground))
-                }
-            )
+                )
+            })
             .sheet(isPresented: $showWhatsNew, content: {
                 WhatsNewView(isPresented: $showWhatsNew)
             })
@@ -131,6 +128,7 @@ struct WidgetListView: View {
     }
 
     func addWidgetTapped() {
+        AnalyticsService.shared.logAddNewChannelTapped()
         if !hasProAccess && viewModel.channels.count >= 1 {
             AnalyticsService.shared.logPaywallShown(source: "add_channel")
             showPaywall = true
@@ -140,15 +138,7 @@ struct WidgetListView: View {
         if hasProAccess && viewModel.channels.count >= 10 {
             tooManyChannels = true
         } else {
-            Task {
-                do {
-                    try await viewModel.addNewChannel()
-                    newWidget = true
-                } catch {
-                    AnalyticsService.shared.logNetworkError(error.localizedDescription)
-                    showNetworkError = true
-                }
-            }
+            showSearch = true
         }
     }
 

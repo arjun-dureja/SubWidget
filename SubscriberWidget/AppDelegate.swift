@@ -10,7 +10,9 @@ import UIKit
 import SwiftUI
 import Mixpanel
 import RevenueCat
+#if !targetEnvironment(macCatalyst)
 import FBSDKCoreKit
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Override point for customization after application launch.
         Mixpanel.initialize(token: Constants.mixpanelToken, trackAutomaticEvents: true)
         AnalyticsService.shared.logAppOpened()
 
@@ -37,10 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControlAppearance.currentPageIndicatorTintColor = UIColor(Color.youtubeRed)
         pageControlAppearance.pageIndicatorTintColor = .systemGray
 
+        #if !targetEnvironment(macCatalyst)
         ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+        #endif
 
         return true
     }

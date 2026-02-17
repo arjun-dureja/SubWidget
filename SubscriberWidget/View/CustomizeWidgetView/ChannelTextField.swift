@@ -10,16 +10,16 @@ import SwiftUI
 
 struct ChannelTextField: View {
     @Binding var name: String
-    @FocusState private var isFocused: Bool
+    var isFocused: FocusState<Bool>.Binding
     @Environment(\.colorScheme) var colorScheme
 
     var submitButtonTapped: () -> Void
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .frame(width: 200, height: 42, alignment: .center)
-                .foregroundColor(colorScheme == .light ? .white : Color(UIColor.systemGray6))
+            RoundedRectangle(cornerRadius: 10)
+                .frame(height: 44)
+                .foregroundColor(Color(UIColor.secondarySystemGroupedBackground))
 
             HStack {
                 if name.isEmpty {
@@ -27,20 +27,17 @@ struct ChannelTextField: View {
                         .foregroundColor(.gray)
                 }
                 Spacer()
-                    .frame(width: 14)
             }
+            .padding(.leading, 10)
 
             TextField("", text: $name)
                 .disableAutocorrection(true)
-                .padding(10)
-                .frame(width: 200)
+                .padding(.horizontal, 10)
                 .foregroundColor(Color(UIColor.label))
-                .cornerRadius(8)
-                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 5))
-                .focused($isFocused)
+                .focused(isFocused)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                        self.isFocused = true
+                        isFocused.wrappedValue = true
                     }
                 }
                 .onSubmit {
