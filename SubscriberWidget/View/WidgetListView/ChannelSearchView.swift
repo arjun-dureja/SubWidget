@@ -93,7 +93,12 @@ struct ChannelSearchView: View {
     private var searchResultsList: some View {
         List {
             ForEach(searchResults) { channel in
-                ChannelSearchResultRow(channel: channel, onAdd: { addChannel(channel) })
+                ChannelSearchResultRow(
+                    channel: channel,
+                    onAdd: {
+                        addChannel(channel)
+                    }
+                )
             }
         }
         .listStyle(InsetGroupedListStyle())
