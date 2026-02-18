@@ -74,9 +74,20 @@ struct WidgetListView: View {
                 }
             }
             .navigationBarTitle("SubWidget")
-            .if(!viewModel.channels.isEmpty) { view in
-                view.navigationBarItems(trailing: AddWidgetButton(action: addWidgetTapped))
-            }
+            .navigationBarItems(
+                leading: hasProAccess ? nil : Button {
+                    AnalyticsService.shared.logPaywallShown(source: "pro_button")
+                    showPaywall = true
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "crown.fill")
+                            .foregroundColor(.gold)
+                        Text("Pro")
+                            .foregroundColor(.youtubeRed)
+                    }
+                },
+                trailing: viewModel.channels.isEmpty ? nil : AddWidgetButton(action: addWidgetTapped)
+            )
             .sheet(isPresented: $showSearch, content: {
                 ChannelSearchView(
                     viewModel: viewModel,
