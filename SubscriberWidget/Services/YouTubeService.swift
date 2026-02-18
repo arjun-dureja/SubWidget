@@ -38,15 +38,38 @@ class YouTubeService: YouTubeServiceProtocol {
             return [searchResult]
         }
 
+        // If input starts with @, try handle lookup directly
+        if trimmedInput.hasPrefix("@") {
+            let channel = try await getChannelDetailsFromHandle(for: trimmedInput)
+            var searchResult = Channel(
+                channelName: channel.channelName,
+                profileImage: channel.profileImage
+            )
+            searchResult.channelId = channel.channelId
+            return [searchResult]
+        }
+
+        // Try search endpoint
         let channelNameWithoutSpaces = name.replacingOccurrences(of: " ", with: "%20")
         let query = "search?part=snippet&q=\(channelNameWithoutSpaces)&type=channel&maxResults=50"
 
         let items: [Channel] = try await makeRequest(with: query)
-        guard !items.isEmpty else {
-            throw SubWidgetError.channelNotfound
+
+        if !items.isEmpty {
+            return items
         }
 
-        return items
+        // If no results, try handle lookup as fallback
+        if let channel = try? await getChannelDetailsFromHandle(for: trimmedInput) {
+            var searchResult = Channel(
+                channelName: channel.channelName,
+                profileImage: channel.profileImage
+            )
+            searchResult.channelId = channel.channelId
+            return [searchResult]
+        }
+
+        throw SubWidgetError.channelNotfound
     }
 
     func getChannelDetailsFromId(for id: String) async throws -> YouTubeChannel {
@@ -76,6 +99,25 @@ class YouTubeService: YouTubeServiceProtocol {
 
         try storage?.setObject(channelFromGoogle, forKey: idWithoutSpaces)
         return channelFromGoogle
+    }
+
+    private func getChannelDetailsFromHandle(for handle: String) async throws -> YouTubeChannel {
+        let handleWithoutSpaces = handle.replacingOccurrences(of: " ", with: "")
+        let query = "channels?part=snippet&forHandle=\(handleWithoutSpaces)"
+
+        let items: [ChannelID] = try await makeRequest(with: query)
+        guard let channelData = items.first else {
+            throw SubWidgetError.channelNotfound
+        }
+
+        let (subCount, viewCount) = try await getStatistics(channelId: channelData.channelId)
+        return YouTubeChannel(
+            channelName: channelData.channelName,
+            profileImage: channelData.profileImage,
+            subCount: subCount,
+            viewCount: viewCount,
+            channelId: channelData.channelId
+        )
     }
 
     private func getStatistics(channelId: String) async throws -> (String, String) {
