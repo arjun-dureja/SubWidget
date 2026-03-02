@@ -15,12 +15,11 @@
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
 		725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1F0251D3983004B2907 /* SwiftUI.framework */; };
 		725FE1FD251D3988004B2907 /* SubscriberCountExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		727A33772F5625B3004A3351 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C22F30273600C4774A /* RevenueCat */; };
 		728683C225DA44AE00568034 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728683C125DA44AE00568034 /* Intents.framework */; };
 		728683DA25DA44AE00568034 /* SubWidgetIntents.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 728683C025DA44AE00568034 /* SubWidgetIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		72AFB3BF2F30231400C4774A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3BE2F30231400C4774A /* RevenueCat */; };
 		72AFB3C12F30231400C4774A /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C02F30231400C4774A /* RevenueCatUI */; };
-		72AFB3C32F30273600C4774A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C22F30273600C4774A /* RevenueCat */; };
-		72AFB3C52F30273B00C4774A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C42F30273B00C4774A /* RevenueCat */; };
 		72AFB3CC2F30722300C4774A /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3CB2F30722300C4774A /* ConfettiSwiftUI */; };
 		72B936F82AB40BC500997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F72AB40BC500997D20 /* Cache */; };
 		72B936FA2AB40BC900997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F92AB40BC900997D20 /* Cache */; };
@@ -95,11 +94,9 @@
 				Services/AnalyticsService.swift,
 				Services/ChannelStorageService.swift,
 				Services/ChannelStorageServiceProtocol.swift,
-				Services/SubscriptionService.swift,
 				Services/SubscriptionServiceProtocol.swift,
 				Services/YouTubeService.swift,
 				Services/YouTubeServiceProtocol.swift,
-				ViewModel/ViewModel.swift,
 			);
 			target = 728683BF25DA44AE00568034 /* SubWidgetIntents */;
 		};
@@ -119,12 +116,10 @@
 				Services/AnalyticsService.swift,
 				Services/ChannelStorageService.swift,
 				Services/ChannelStorageServiceProtocol.swift,
-				Services/SubscriptionService.swift,
 				Services/SubscriptionServiceProtocol.swift,
 				Services/YouTubeService.swift,
 				Services/YouTubeServiceProtocol.swift,
 				View/CustomizeWidgetView/AsyncImageView.swift,
-				ViewModel/ViewModel.swift,
 			);
 			target = 725FE1EB251D3983004B2907 /* SubscriberCountExtension */;
 		};
@@ -217,7 +212,6 @@
 			files = (
 				72B936FA2AB40BC900997D20 /* Cache in Frameworks */,
 				725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */,
-				72AFB3C52F30273B00C4774A /* RevenueCat in Frameworks */,
 				722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */,
 				725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */,
 			);
@@ -227,7 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72AFB3C32F30273600C4774A /* RevenueCat in Frameworks */,
+				727A33772F5625B3004A3351 /* RevenueCat in Frameworks */,
 				722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */,
 				728683C225DA44AE00568034 /* Intents.framework in Frameworks */,
 				72B936F82AB40BC500997D20 /* Cache in Frameworks */,

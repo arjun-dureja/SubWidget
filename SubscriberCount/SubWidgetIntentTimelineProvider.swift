@@ -136,31 +136,54 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         )
     }
 
-    private func getImageForUrl(_ url: String) async -> UIImage {
-        guard let url = URL(string: url) else {
+    private func getImageForUrl(_ urlString: String) async -> UIImage {
+        guard let url = URL(string: urlString) else {
             return UIImage(systemName: "person.circle")!
         }
 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            if let image = UIImage(data: data) {
-                return resizeImage(image, targetSize: CGSize(width: 200, height: 200))
-            }
+
+            return downsampleImage(from: data, to: CGSize(width: 200, height: 200))
+                ?? UIImage(systemName: "person.circle")!
+
         } catch {
-            AnalyticsService.shared.logWidgetImageFetchFailed(url: url.absoluteString, error: error.localizedDescription)
+            AnalyticsService.shared.logWidgetImageFetchFailed(
+                url: url.absoluteString,
+                error: error.localizedDescription
+            )
         }
 
         return UIImage(systemName: "person.circle")!
     }
 
-    private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
-        let format = UIGraphicsImageRendererFormat()
-        format.scale = 1
+    private func downsampleImage(from data: Data, to size: CGSize) -> UIImage? {
+        let options: [CFString: Any] = [
+            kCGImageSourceShouldCache: false
+        ]
 
-        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
-        return renderer.image { _ in
-            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        guard let source = CGImageSourceCreateWithData(data as CFData, options as CFDictionary) else {
+            return nil
         }
+
+        let maxDimension = max(size.width, size.height)
+
+        let downsampleOptions: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxDimension
+        ]
+
+        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(
+            source,
+            0,
+            downsampleOptions as CFDictionary
+        ) else {
+            return nil
+        }
+
+        return UIImage(cgImage: cgImage)
     }
 }
 
