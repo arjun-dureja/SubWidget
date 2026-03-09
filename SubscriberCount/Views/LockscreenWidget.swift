@@ -16,6 +16,10 @@ struct LockscreenWidget: View {
         entry?.channel
     }
 
+    private var usesLocalPreviewImage: Bool {
+        channel?.profileImage.hasPrefix("OnboardingAvatar-") == true
+    }
+
     var count: String {
         switch entry?.widgetType {
         case .subscribers:
@@ -33,13 +37,20 @@ struct LockscreenWidget: View {
         if let entry = entry,
            let channel = channel {
             HStack {
-                Image(uiImage: entry.channelImage)
-                    .resizable()
-                    .widgetAccentedRenderingMode(.desaturated)
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                    .shadow(radius: 2)
+                if Utils.isInWidget() || usesLocalPreviewImage {
+                    Image(uiImage: entry.channelImage)
+                        .resizable()
+                        .widgetAccentedRenderingMode(.desaturated)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
+                } else {
+                    AsyncImageView(url: URL(string: channel.profileImage))
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
+                }
 
                 VStack(alignment: .leading) {
                     Text(channel.channelName)

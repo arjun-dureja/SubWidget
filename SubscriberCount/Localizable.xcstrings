@@ -9,43 +9,43 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- أضف قناة في التطبيق، ثم انقر على هذه الواجهة أثناء التحرير"
+            "value" : "- أضف قناة في التطبيق، ثم اضغط على هذه الأداة أثناء تعديلها"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Fügen Sie einen Kanal in der App hinzu und tippen Sie dann auf dieses Widget, während Sie es bearbeiten"
+            "value" : "- Fügen Sie zuerst in der App einen Kanal hinzu und tippen Sie dann beim Bearbeiten auf dieses Widget"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Agrega un canal en la aplicación, luego toca este widget mientras lo editas"
+            "value" : "- Agrega un canal en la app y luego toca este widget mientras lo editas"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Ajoutez une chaîne dans l'application, puis touchez ce widget en cours de modification"
+            "value" : "- Ajoutez d’abord une chaîne dans l’app, puis touchez ce widget pendant sa modification"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- ऐप में एक चैनल जोड़ें, फिर संपादन के दौरान इस विजेट को टैप करें"
+            "value" : "- पहले ऐप में एक चैनल जोड़ें, फिर एडिट करते समय इस विजेट पर टैप करें"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Adicione um canal no aplicativo e depois toque neste widget enquanto edita"
+            "value" : "- Adicione um canal no app e depois toque neste widget enquanto o estiver editando"
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- செயலியில் ஒரு சேனலைச் சேர்க்கவும், பின்னர் இந்த விஜெட்டை திருத்தும்போது தட்டவும்"
+            "value" : "- முதலில் செயலியில் ஒரு சேனலைச் சேர்க்கவும், பின்னர் திருத்தும் போது இந்த விட்ஜெட்டைத் தட்டவும்"
           }
         }
       }
@@ -239,25 +239,25 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "أضف قناة في التطبيق"
+            "value" : "أضف قناة داخل التطبيق"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fügen Sie einen Kanal in der App hinzu"
+            "value" : "Fügen Sie in der App einen Kanal hinzu"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Agrega un canal en la aplicación"
+            "value" : "Agrega un canal en la app"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ajoutez une chaîne dans l'application"
+            "value" : "Ajoutez une chaîne dans l’app"
           }
         },
         "hi" : {
@@ -269,7 +269,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adicione um canal no aplicativo"
+            "value" : "Adicione um canal no app"
           }
         },
         "ta" : {
@@ -377,13 +377,13 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "احصل على SubWidget Pro لاستخدام هذا الودجت"
+            "value" : "احصل على SubWidget Pro لاستخدام هذه الأداة"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hol dir SubWidget Pro, um dieses Widget zu nutzen"
+            "value" : "Hol dir SubWidget Pro, um dieses Widget zu verwenden"
           }
         },
         "es" : {
@@ -395,7 +395,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Obtenez SubWidget Pro pour utiliser ce widget"
+            "value" : "Passez à SubWidget Pro pour utiliser ce widget"
           }
         },
         "hi" : {
@@ -413,7 +413,7 @@
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "இந்த விட்ஜெட்டை பயன்படுத்த SubWidget Pro ஐ பெறுங்கள்"
+            "value" : "இந்த விட்ஜெட்டை பயன்படுத்த SubWidget Pro ஐப் பெறுங்கள்"
           }
         }
       }
@@ -423,13 +423,13 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "استمر في الضغط وانقر على 'تحرير الواجهة'"
+            "value" : "اضغط مطولاً ثم اضغط على 'تحرير الأداة'"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halten und tippen Sie auf 'Widget bearbeiten'"
+            "value" : "Gedrückt halten und auf 'Widget bearbeiten' tippen"
           }
         },
         "es" : {
@@ -450,7 +450,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Maintenez enfoncé et appuyez sur 'Modifier le widget'"
+                  "value" : "Maintenez le doigt puis touchez « Modifier le widget »"
                 }
               }
             }
@@ -459,19 +459,19 @@
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "'एडिट विजेट' पर टैप करके रखें"
+            "value" : "दबाकर रखें, फिर 'एडिट विजेट' पर टैप करें"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Segure e toque em 'Editar Widget'"
+            "value" : "Toque e segure, depois toque em 'Editar Widget'"
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "'விஜெட்டை திருத்து' என்று தட்டி அழுத்தவும்"
+            "value" : "அழுத்திப் பிடித்து, பின்னர் 'விட்ஜெட்டைத் திருத்து' என்பதைத் தட்டவும்"
           }
         }
       }
@@ -879,7 +879,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecione Seu Canal"
+            "value" : "Selecione seu canal"
           }
         },
         "ta" : {
@@ -1355,7 +1355,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "فتح القفل"
+            "value" : "افتح"
           }
         },
         "de" : {
@@ -1391,7 +1391,7 @@
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "திறக்கவும்"
+            "value" : "திற"
           }
         }
       }

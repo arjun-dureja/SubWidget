@@ -21,7 +21,11 @@ struct SimpleEntry: TimelineEntry {
     let channelImage: UIImage
     let widgetType: WidgetType
 
-    init(channel: YouTubeChannel?, channelImage: UIImage = UIImage(systemName: "person.circle")!, widgetType: WidgetType) {
+    init(
+        channel: YouTubeChannel?,
+        channelImage: UIImage = UIImage(systemName: "person.circle")!,
+        widgetType: WidgetType
+    ) {
         self.channel = channel
         self.channelImage = channelImage
         self.widgetType = widgetType

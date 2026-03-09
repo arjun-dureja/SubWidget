@@ -12,12 +12,22 @@ import WidgetKit
 import ConfettiSwiftUI
 
 struct MainView: View {
+    private enum OnboardingAction {
+        case none
+        case completed
+    }
+
     @StateObject var viewModel: ViewModel = ViewModel()
     @State private var currentTab = 0
     @State private var confettiTrigger = 0
     @State private var showPaywall = false
+    @State private var showOnboarding = false
+    @State private var hasPreparedInitialPresentation = false
+    @State private var onboardingAction: OnboardingAction = .none
+    @State private var onboardingLastViewedStep: OnboardingStep = .welcome
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
+    @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
 
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
@@ -73,11 +83,19 @@ struct MainView: View {
         .onReceive(NotificationCenter.default.publisher(for: .paywallRequested)) { _ in
             handleWidgetPaywallRequest(source: "widget")
         }
+        .onChange(of: hasProAccess) { hasProAccess in
+            guard hasProAccess else { return }
+            hasCompletedOnboarding = true
+            showOnboarding = false
+        }
         .onAppear {
             if pendingPaywallFromWidget {
                 pendingPaywallFromWidget = false
                 handleWidgetPaywallRequest(source: "widget_cold_start")
             }
+        }
+        .task {
+            await prepareInitialPresentation()
         }
         .confettiCannon(
             trigger: $confettiTrigger,
@@ -86,6 +104,18 @@ struct MainView: View {
             radius: 500,
             repetitions: 1,
         )
+        .sheet(
+            isPresented: $showOnboarding,
+            onDismiss: handleOnboardingDismissed
+        ) {
+            OnboardingView(
+                onStepViewed: { step in
+                    onboardingLastViewedStep = step
+                },
+                onComplete: completeOnboarding
+            )
+            .presentationDragIndicator(.visible)
+        }
         .paywallSheet(isPresented: $showPaywall)
     }
 
@@ -98,6 +128,42 @@ struct MainView: View {
                 showPaywall = true
             }
         }
+    }
+
+    @MainActor
+    private func prepareInitialPresentation() async {
+        guard !hasPreparedInitialPresentation else { return }
+        hasPreparedInitialPresentation = true
+
+        await SubscriptionService().checkAccess()
+
+        showOnboarding = true
+    }
+
+    private func completeOnboarding() {
+        onboardingAction = .completed
+        hasCompletedOnboarding = true
+        showOnboarding = false
+    }
+
+    private func handleOnboardingDismissed() {
+        hasCompletedOnboarding = true
+
+        switch onboardingAction {
+        case .completed:
+            currentTab = 0
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                NotificationCenter.default.post(name: .addWidgetRequested, object: nil)
+            }
+        case .none:
+            AnalyticsService.shared.logOnboardingDismissed(
+                step: onboardingLastViewedStep.analyticsName,
+                stepIndex: onboardingLastViewedStep.rawValue + 1,
+                source: "sheet_dismiss"
+            )
+        }
+
+        onboardingAction = .none
     }
 }
 

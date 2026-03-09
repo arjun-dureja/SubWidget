@@ -93,6 +93,52 @@
         }
       }
     },
+    "@mkbhd" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@mkbhd"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@mkbhd"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@mkbhd"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@mkbhd"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@mkbhd"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@mkbhd"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@mkbhd"
+          }
+        }
+      }
+    },
     "1 Hour" : {
       "localizations" : {
         "ar" : {
@@ -507,6 +553,98 @@
         }
       }
     },
+    "Add your first channel for free" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أضف قناتك الأولى مجانًا"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen Sie Ihren ersten Kanal kostenlos hinzu"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agrega tu primer canal gratis"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez votre première chaîne gratuitement"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अपना पहला चैनल मुफ्त में जोड़ें"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione seu primeiro canal grátis"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "உங்கள் முதல் சேனலை இலவசமாகச் சேர்க்கவும்"
+          }
+        }
+      }
+    },
+    "Add your first channel now, then place the widget when you’re ready." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أضف قناتك الأولى الآن، ثم ضع الأداة عندما تكون جاهزًا."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen Sie jetzt Ihren ersten Kanal hinzu und platzieren Sie das Widget, wenn Sie bereit sind."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agrega ahora tu primer canal y coloca el widget cuando quieras."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez votre première chaîne maintenant, puis placez le widget quand vous le souhaitez."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अपना पहला चैनल अभी जोड़ें, फिर जब चाहें विजेट लगा दें।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione seu primeiro canal agora e coloque o widget quando quiser."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "உங்கள் முதல் சேனலை இப்போது சேர்க்கவும், தயாரானபோது விட்ஜெட்டை இடவும்."
+          }
+        }
+      }
+    },
     "Amethyst" : {
       "localizations" : {
         "ar" : {
@@ -549,6 +687,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "அமெதிஸ்ட்"
+          }
+        }
+      }
+    },
+    "AT A GLANCE" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بنظرة سريعة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AUF EINEN BLICK"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DE UN VISTAZO"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "EN UN COUP D’ŒIL"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक नज़र में"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DE RELANCE"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ஒரே பார்வையில்"
           }
         }
       }
@@ -1664,6 +1848,52 @@
         }
       }
     },
+    "FIND A CHANNEL" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابحث عن قناة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KANAL FINDEN"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BUSCA UN CANAL"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TROUVEZ UNE CHAÎNE"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कोई चैनल खोजें"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ENCONTRE UM CANAL"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ஒரு சேனலைத் தேடுங்கள்"
+          }
+        }
+      }
+    },
     "Find My ID" : {
       "localizations" : {
         "ar" : {
@@ -1752,6 +1982,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "முதலில், உங்கள் பூட்டு திரையில் தட்டி அழுத்தி 'விருப்பமைக்கவும்' என்று தட்டவும். பின்னர் நீங்கள் விஜெட்டைச் சேர்க்கலாம் மற்றும் சேனலைத் தெரிவு செய்ய அதை தட்டலாம்."
+          }
+        }
+      }
+    },
+    "Get Started" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los geht’s"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comenzar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "शुरू करें"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começar"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "தொடங்குங்கள்"
           }
         }
       }
@@ -3009,7 +3285,50 @@
       }
     },
     "Pro" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        }
+      }
     },
     "PRO" : {
       "localizations" : {
@@ -3333,6 +3652,98 @@
         }
       }
     },
+    "Search a channel. Add the widget." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابحث عن قناة. ثم أضف الأداة."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen Sie einen Kanal. Fügen Sie das Widget hinzu."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca un canal. Agrega el widget."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherchez une chaîne. Ajoutez le widget."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक चैनल खोजें। विजेट जोड़ें।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pesquise um canal. Adicione o widget."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ஒரு சேனலைத் தேடுங்கள். விட்ஜெட்டைச் சேர்க்கவும்."
+          }
+        }
+      }
+    },
+    "Search by name, @handle, or channel ID. See a preview instantly." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابحث بالاسم أو @المعرّف أو رقم القناة. شاهد المعاينة فورًا."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen Sie nach Name, @Handle oder Kanal-ID. Sehen Sie sofort eine Vorschau."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca por nombre, @usuario o ID del canal. Mira la vista previa al instante."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherchez par nom, @identifiant ou ID de chaîne. Voyez l’aperçu instantanément."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नाम, @हैंडल या चैनल आईडी से खोजें। तुरंत प्रीव्यू देखें।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pesquise por nome, @perfil ou ID do canal. Veja a prévia na hora."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "பெயர், @handle அல்லது சேனல் ஐடி மூலம் தேடுங்கள். முன்னோட்டத்தை உடனே பாருங்கள்."
+          }
+        }
+      }
+    },
     "Search for your channel" : {
       "localizations" : {
         "ar" : {
@@ -3375,6 +3786,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "உங்கள் சேனலைத் தேடுங்கள்"
+          }
+        }
+      }
+    },
+    "See subscriber and view counts on your home screen or lock screen." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شاهد عدد المشتركين والمشاهدات على الشاشة الرئيسية أو شاشة القفل."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sehen Sie Abonnenten- und Aufrufzahlen auf Ihrem Home-Bildschirm oder Sperrbildschirm."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ve los suscriptores y las vistas en tu pantalla de inicio o pantalla bloqueada."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consultez vos abonnés et vos vues sur l’écran d’accueil ou l’écran verrouillé."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अपने होम स्क्रीन या लॉक स्क्रीन पर सब्सक्राइबर और व्यू काउंट देखें।"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veja inscritos e visualizações na tela inicial ou na tela bloqueada."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "உங்கள் ஹோம் ஸ்கிரீன் அல்லது லாக் ஸ்கிரீனில் சந்தாதாரர் மற்றும் காட்சி எண்ணிக்கைகளைப் பாருங்கள்."
           }
         }
       }
@@ -3559,6 +4016,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "எண்களை எளிமைப்படுத்து"
+          }
+        }
+      }
+    },
+    "START FREE" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ مجانًا"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KOSTENLOS STARTEN"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "EMPIEZA GRATIS"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "COMMENCEZ GRATUITEMENT"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मुफ्त में शुरू करें"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "COMECE GRÁTIS"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "இலவசமாக தொடங்குங்கள்"
           }
         }
       }
@@ -4801,6 +5304,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "நீங்கள் செயலி அமைப்புகளில் விஜெட்டு எவ்வளவு அடிக்கடி புதுப்பிக்கப்பட வேண்டும் என்பதை தெரிவு செய்யலாம். குறைந்தபட்சம் ஒவ்வொரு 30 நிமிடங்களுக்கும் உள்ளது."
+          }
+        }
+      }
+    },
+    "YouTube channel statistics, at a glance" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إحصاءات قناة YouTube بنظرة سريعة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube-Kanalstatistiken auf einen Blick"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estadísticas de canales de YouTube de un vistazo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les statistiques de chaîne YouTube en un coup d’œil"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube चैनल आँकड़े, एक नज़र में"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estatísticas do canal do YouTube de relance"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube சேனல் புள்ளிவிவரங்கள், ஒரே பார்வையில்"
           }
         }
       }

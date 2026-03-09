@@ -248,6 +248,37 @@ class AnalyticsService {
         ])
     }
 
+    func logOnboardingShown() {
+        logEvent("onboarding.shown")
+    }
+
+    func logOnboardingStepViewed(_ step: String, stepIndex: Int) {
+        logEvent("onboarding.step_viewed", properties: [
+            "step": step,
+            "stepIndex": stepIndex
+        ])
+    }
+
+    func logOnboardingAdvanced(from step: String, to nextStep: String, nextStepIndex: Int) {
+        logEvent("onboarding.advanced", properties: [
+            "fromStep": step,
+            "toStep": nextStep,
+            "toStepIndex": nextStepIndex
+        ])
+    }
+
+    func logOnboardingDismissed(step: String, stepIndex: Int, source: String) {
+        logEvent("onboarding.dismissed", properties: [
+            "step": step,
+            "stepIndex": stepIndex,
+            "source": source
+        ])
+    }
+
+    func logOnboardingCompleted() {
+        logEvent("onboarding.completed")
+    }
+
     func logSubscriptionPurchaseCompleted() {
         logEvent("subscription.purchase_completed")
     }
