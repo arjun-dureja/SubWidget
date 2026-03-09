@@ -137,6 +137,13 @@ struct MainView: View {
 
         await SubscriptionService().checkAccess()
 
+        guard !hasProAccess else {
+            hasCompletedOnboarding = true
+            return
+        }
+
+        guard !hasCompletedOnboarding else { return }
+        
         showOnboarding = true
     }
 
