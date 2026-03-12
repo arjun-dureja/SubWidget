@@ -15,7 +15,6 @@ struct MainView: View {
     private enum OnboardingAction {
         case none
         case completed
-        case purchasedPro
     }
 
     @StateObject var viewModel: ViewModel = ViewModel()
@@ -85,9 +84,6 @@ struct MainView: View {
         }
         .onChange(of: hasProAccess) { hasProAccess in
             guard hasProAccess else { return }
-            if showOnboarding {
-                onboardingAction = .purchasedPro
-            }
             hasCompletedOnboarding = true
             showOnboarding = false
         }
@@ -155,16 +151,11 @@ struct MainView: View {
     private func handleOnboardingDismissed() {
         hasCompletedOnboarding = true
 
-        switch onboardingAction {
-        case .completed:
+        if onboardingAction == .completed {
             currentTab = 0
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 NotificationCenter.default.post(name: .addWidgetRequested, object: nil)
             }
-        case .purchasedPro:
-            break
-        case .none:
-            break
         }
 
         onboardingAction = .none
