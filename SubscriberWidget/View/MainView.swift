@@ -131,8 +131,14 @@ struct MainView: View {
         hasPreparedInitialPresentation = true
 
         await SubscriptionService().checkAccess()
+        let hasSavedChannels = !ChannelStorageService().getChannels().isEmpty
 
         guard !hasProAccess else {
+            hasCompletedOnboarding = true
+            return
+        }
+
+        guard !hasSavedChannels else {
             hasCompletedOnboarding = true
             return
         }

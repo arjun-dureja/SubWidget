@@ -226,7 +226,7 @@ struct SubscriberCountEntryView: View {
     }
 
     private var deepLink: URL? {
-        if isLocked {
+        if !hasProAccess {
             return WidgetDeepLink.paywall
         }
 
