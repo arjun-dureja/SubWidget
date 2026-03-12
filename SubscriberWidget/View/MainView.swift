@@ -25,7 +25,6 @@ struct MainView: View {
     @State private var showOnboarding = false
     @State private var hasPreparedInitialPresentation = false
     @State private var onboardingAction: OnboardingAction = .none
-    @State private var onboardingLastViewedStep: OnboardingStep = .welcome
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
@@ -112,12 +111,7 @@ struct MainView: View {
             isPresented: $showOnboarding,
             onDismiss: handleOnboardingDismissed
         ) {
-            OnboardingView(
-                onStepViewed: { step in
-                    onboardingLastViewedStep = step
-                },
-                onComplete: completeOnboarding
-            )
+            OnboardingView(onComplete: completeOnboarding)
             .interactiveDismissDisabled()
             .presentationDragIndicator(.hidden)
         }
@@ -170,11 +164,7 @@ struct MainView: View {
         case .purchasedPro:
             break
         case .none:
-            AnalyticsService.shared.logOnboardingDismissed(
-                step: onboardingLastViewedStep.analyticsName,
-                stepIndex: onboardingLastViewedStep.rawValue + 1,
-                source: "sheet_dismiss"
-            )
+            break
         }
 
         onboardingAction = .none

@@ -10,7 +10,6 @@ struct OnboardingView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var currentStep: OnboardingStep = .welcome
 
-    let onStepViewed: (OnboardingStep) -> Void
     let onComplete: () -> Void
 
     var body: some View {
@@ -33,12 +32,10 @@ struct OnboardingView: View {
         .background(backgroundColor.ignoresSafeArea())
         .onAppear {
             AnalyticsService.shared.logOnboardingShown()
-            AnalyticsService.shared.logOnboardingStepViewed(currentStep.analyticsName, stepIndex: currentStep.rawValue + 1)
-            onStepViewed(currentStep)
+            AnalyticsService.shared.logOnboardingStepViewed()
         }
-        .onChange(of: currentStep) { step in
-            AnalyticsService.shared.logOnboardingStepViewed(step.analyticsName, stepIndex: step.rawValue + 1)
-            onStepViewed(step)
+        .onChange(of: currentStep) { _ in
+            AnalyticsService.shared.logOnboardingStepViewed()
         }
     }
 
@@ -54,11 +51,7 @@ struct OnboardingView: View {
         }
 
         guard let nextStep = OnboardingStep(rawValue: currentStep.rawValue + 1) else { return }
-        AnalyticsService.shared.logOnboardingAdvanced(
-            from: currentStep.analyticsName,
-            to: nextStep.analyticsName,
-            nextStepIndex: nextStep.rawValue + 1
-        )
+        AnalyticsService.shared.logOnboardingAdvanced()
         withAnimation(.easeInOut(duration: 0.25)) {
             currentStep = nextStep
         }
@@ -66,7 +59,7 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView(onStepViewed: { _ in }, onComplete: {})
+    OnboardingView(onComplete: {})
 }
 
 struct OnboardingHeaderView: View {
@@ -197,17 +190,6 @@ enum OnboardingStep: Int, CaseIterable, Identifiable {
             "Get Started"
         default:
             "Continue"
-        }
-    }
-
-    var analyticsName: String {
-        switch self {
-        case .welcome:
-            "welcome"
-        case .addChannels:
-            "search_preview"
-        case .addWidget:
-            "get_started"
         }
     }
 }
