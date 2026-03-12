@@ -123,6 +123,12 @@ class ViewModel: ObservableObject {
         }
     }
 
+    func updateMilestoneSettings(id: String, enabled: Bool) {
+        if let index = channels.firstIndex(where: { $0.id == id }) {
+            channels[index].milestoneEnabled = enabled
+        }
+    }
+
     func deleteChannel(at index: Int) {
         let deletedChannel = channels.remove(at: index)
         AnalyticsService.shared.logChannelDeleted(deletedChannel.channelName)
@@ -176,6 +182,13 @@ class ViewModel: ObservableObject {
                     decodedChannels[index].subCount = updatedChannel.subCount
                     decodedChannels[index].viewCount = updatedChannel.viewCount
                     decodedChannels[index].profileImage = updatedChannel.profileImage
+
+                    if decodedChannels[index].milestoneEnabled {
+                        await MilestoneNotificationService.shared.checkAndNotifyMilestone(
+                            channel: decodedChannels[index],
+                            hasProAccess: subscriptionService.hasProAccess
+                        )
+                    }
                 }
             }
 

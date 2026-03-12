@@ -24,7 +24,9 @@ struct MainView: View {
     @State private var showOnboarding = false
     @State private var hasPreparedInitialPresentation = false
     @State private var onboardingAction: OnboardingAction = .none
+    @State private var navigateToChannelId: String?
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
+    @AppStorage("pendingMilestoneChannelId", store: .shared) private var pendingMilestoneChannelId: String?
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
 
@@ -44,7 +46,7 @@ struct MainView: View {
 
     var body: some View {
         TabView(selection: $currentTab) {
-            WidgetListView(viewModel: viewModel)
+            WidgetListView(viewModel: viewModel, navigateToChannelId: $navigateToChannelId)
                 .tag(0)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
@@ -86,11 +88,27 @@ struct MainView: View {
             guard hasProAccess else { return }
             hasCompletedOnboarding = true
             showOnboarding = false
+        .onReceive(NotificationCenter.default.publisher(for: .milestoneNotificationTapped)) { _ in
+            if viewModel.state == .loaded, let milestoneChannelId = pendingMilestoneChannelId {
+                pendingMilestoneChannelId = nil
+                navigateToChannelId = milestoneChannelId
+            }
+        }
+        .onChange(of: viewModel.state) { newState in
+            if newState == .loaded, let milestoneChannelId = pendingMilestoneChannelId {
+                pendingMilestoneChannelId = nil
+                navigateToChannelId = milestoneChannelId
+            }
         }
         .onAppear {
             if pendingPaywallFromWidget {
                 pendingPaywallFromWidget = false
                 handleWidgetPaywallRequest(source: "widget_cold_start")
+            }
+            
+            if let milestoneChannelId = pendingMilestoneChannelId, viewModel.state == .loaded {
+                pendingMilestoneChannelId = nil
+                navigateToChannelId = milestoneChannelId
             }
         }
         .task {

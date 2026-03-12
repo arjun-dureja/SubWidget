@@ -72,6 +72,13 @@ struct CustomizeWidgetView: View {
                             }
                         }
                     }
+
+                    MilestoneNotificationsSection(
+                        channel: $channel,
+                        hasProAccess: hasProAccess,
+                        showPaywall: $showPaywall,
+                        onUpdateChannel: updateChannel
+                    )
                 }
                 .scrollContentBackground(.hidden)
                 .frame(maxWidth: 650)
@@ -147,6 +154,14 @@ struct CustomizeWidgetView: View {
         channel.bgColor = bgColor
         channel.accentColor = accentColor
         channel.numberColor = numberColor
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+
+    func updateChannel() {
+        viewModel.updateMilestoneSettings(
+            id: channel.id,
+            enabled: channel.milestoneEnabled
+        )
         WidgetCenter.shared.reloadAllTimelines()
     }
 }

@@ -1756,6 +1756,9 @@
         }
       }
     },
+    "Enable notifications in Settings to receive milestone alerts" : {
+
+    },
     "Enter a YouTube channel name or ID" : {
       "localizations" : {
         "ar" : {
@@ -2550,6 +2553,9 @@
         }
       }
     },
+    "Milestone Notifications" : {
+
+    },
     "Minted" : {
       "localizations" : {
         "ar" : {
@@ -2826,6 +2832,12 @@
         }
       }
     },
+    "Notifications" : {
+
+    },
+    "Notifications Disabled" : {
+
+    },
     "Number" : {
       "localizations" : {
         "ar" : {
@@ -2963,6 +2975,9 @@
           }
         }
       }
+    },
+    "Open Settings" : {
+
     },
     "Orchid" : {
       "localizations" : {
@@ -5539,6 +5554,7 @@
           }
         }
       }
+    "You will be notified when this channel reaches %@ subscribers" : {
     }
   },
   "version" : "1.0"

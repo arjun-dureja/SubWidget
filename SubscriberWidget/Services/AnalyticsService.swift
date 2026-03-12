@@ -279,4 +279,50 @@ class AnalyticsService {
     func logRestorePurchasesTapped() {
         logEvent("subscription.restore_purchases_tapped")
     }
+
+    // Milestone Notifications
+    func logMilestoneNotificationsEnabled(channelName: String) {
+        logEvent("milestone_notifications.enabled", properties: [
+            "channelName": channelName
+        ])
+    }
+
+    func logMilestoneNotificationsDisabled(channelName: String) {
+        logEvent("milestone_notifications.disabled", properties: [
+            "channelName": channelName
+        ])
+    }
+
+    func logMilestoneNotificationScheduled(channelName: String, milestone: Int) {
+        logEvent("milestone_notification.scheduled", properties: [
+            "channelName": channelName,
+            "milestone": milestone
+        ])
+    }
+
+    func logMilestoneNotificationFailed(_ errorMessage: String) {
+        logEvent("milestone_notification.failed", properties: [
+            "errorMessage": errorMessage
+        ])
+    }
+
+    func logNotificationPermissionGranted() {
+        logEvent("notification_permission.granted")
+    }
+
+    func logNotificationPermissionDenied() {
+        logEvent("notification_permission.denied")
+    }
+
+    func logNotificationPermissionError(_ errorMessage: String) {
+        logEvent("notification_permission.error", properties: [
+            "errorMessage": errorMessage
+        ])
+    }
+
+    func logMilestoneNotificationTapped(channelId: String) {
+        logEvent("milestone_notification.tapped", properties: [
+            "channelId": channelId
+        ])
+    }
 }
