@@ -18,10 +18,10 @@
 		727A33772F5625B3004A3351 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C22F30273600C4774A /* RevenueCat */; };
 		728683C225DA44AE00568034 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728683C125DA44AE00568034 /* Intents.framework */; };
 		728683DA25DA44AE00568034 /* SubWidgetIntents.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 728683C025DA44AE00568034 /* SubWidgetIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7289A0AD2F5BEF9900629942 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C42F30273B00C4774A /* RevenueCat */; };
 		72AFB3BF2F30231400C4774A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3BE2F30231400C4774A /* RevenueCat */; };
 		72AFB3C12F30231400C4774A /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C02F30231400C4774A /* RevenueCatUI */; };
 		72AFB3CC2F30722300C4774A /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3CB2F30722300C4774A /* ConfettiSwiftUI */; };
+		72B29A042F62756B00D7E79C /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C42F30273B00C4774A /* RevenueCat */; };
 		72B936F82AB40BC500997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F72AB40BC500997D20 /* Cache */; };
 		72B936FA2AB40BC900997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F92AB40BC900997D20 /* Cache */; };
 		72F2EE222B2D6128002AFCEA /* WishKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72F2EE212B2D6128002AFCEA /* WishKit */; };
@@ -211,7 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7289A0AD2F5BEF9900629942 /* RevenueCat in Frameworks */,
+				72B29A042F62756B00D7E79C /* RevenueCat in Frameworks */,
 				72B936FA2AB40BC900997D20 /* Cache in Frameworks */,
 				725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */,
 				722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */,

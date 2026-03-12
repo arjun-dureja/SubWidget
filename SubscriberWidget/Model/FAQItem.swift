@@ -30,6 +30,10 @@ struct FAQItem: Identifiable, Equatable {
             answer: "Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you."
         ),
         .init(
+            question: "How do I delete a channel?",
+            answer: "Swipe right on the channel to delete it"
+        ),
+        .init(
             question: "The channels aren't loading.",
             answer: "This indicates a server issue. Please try again later."
         ),
@@ -44,7 +48,7 @@ struct FAQItem: Identifiable, Equatable {
         .init(
             question: "How many channels can I add?",
             answer: """
-            Currently, you can add up to 10 channels. If you would like to add more, \
+            With SubWidget Pro, you can add up to 10 channels. If you would like to add more, \
             please contact me using the link in Settings and I will increase the limit.
             """
         ),
@@ -54,11 +58,15 @@ struct FAQItem: Identifiable, Equatable {
         ),
         .init(
             question: "What does the reset button do?",
-            answer: "Restores the widget's colors to the defaults."
+            answer: "Restores the widget's colors to the defaults - White in light mode and black in dark mode."
         ),
         .init(
             question: "I have a feature idea I want to request.",
             answer: "You can request a feature using the Wishlist tab below."
+        ),
+        .init(
+            question: "My question is not listed here.",
+            answer: "Please contact me from the settings screen and I will answer any question you have. I typically respond within a few hours!."
         )
     ]
 
