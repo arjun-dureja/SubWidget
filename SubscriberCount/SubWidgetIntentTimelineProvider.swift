@@ -58,7 +58,14 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             if configuration.channel == nil {
                 // Show first channel in add widget screen if exists
                 let channels = channelStorageService.getChannels()
-                if !channels.isEmpty {
+                if channels.isEmpty {
+                    let entry = SimpleEntry(
+                        channel: nil,
+                        widgetType: widgetType
+                    )
+
+                    completion(entry)
+                } else {
                     let entry = SimpleEntry(
                         channel: channels[0],
                         channelImage: await getImageForUrl(channels[0].profileImage),
