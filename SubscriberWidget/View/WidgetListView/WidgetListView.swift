@@ -120,6 +120,9 @@ struct WidgetListView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onReceive(NotificationCenter.default.publisher(for: .addWidgetRequested)) { _ in
+            addWidgetTapped()
+        }
         .task {
             await viewModel.loadChannels()
 

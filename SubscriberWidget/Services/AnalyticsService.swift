@@ -248,6 +248,22 @@ class AnalyticsService {
         ])
     }
 
+    func logOnboardingShown() {
+        logEvent("onboarding.shown")
+    }
+
+    func logOnboardingStepViewed() {
+        logEvent("onboarding.step_viewed")
+    }
+
+    func logOnboardingAdvanced() {
+        logEvent("onboarding.advanced")
+    }
+
+    func logOnboardingCompleted() {
+        logEvent("onboarding.completed")
+    }
+
     func logSubscriptionPurchaseCompleted() {
         logEvent("subscription.purchase_completed")
     }

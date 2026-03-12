@@ -21,7 +21,11 @@ struct SimpleEntry: TimelineEntry {
     let channelImage: UIImage
     let widgetType: WidgetType
 
-    init(channel: YouTubeChannel?, channelImage: UIImage = UIImage(systemName: "person.circle")!, widgetType: WidgetType) {
+    init(
+        channel: YouTubeChannel?,
+        channelImage: UIImage = UIImage(systemName: "person.circle")!,
+        widgetType: WidgetType
+    ) {
         self.channel = channel
         self.channelImage = channelImage
         self.widgetType = widgetType
@@ -54,7 +58,14 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             if configuration.channel == nil {
                 // Show first channel in add widget screen if exists
                 let channels = channelStorageService.getChannels()
-                if !channels.isEmpty {
+                if channels.isEmpty {
+                    let entry = SimpleEntry(
+                        channel: nil,
+                        widgetType: widgetType
+                    )
+
+                    completion(entry)
+                } else {
                     let entry = SimpleEntry(
                         channel: channels[0],
                         channelImage: await getImageForUrl(channels[0].profileImage),
@@ -215,7 +226,7 @@ struct SubscriberCountEntryView: View {
     }
 
     private var deepLink: URL? {
-        if isLocked {
+        if !hasProAccess {
             return WidgetDeepLink.paywall
         }
 

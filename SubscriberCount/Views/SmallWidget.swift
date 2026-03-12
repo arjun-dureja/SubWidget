@@ -53,6 +53,10 @@ struct SmallWidget: View {
         return .youtubeRed
     }
 
+    private var usesLocalPreviewImage: Bool {
+        channel?.profileImage.hasPrefix("OnboardingAvatar-") == true
+    }
+
     var body: some View {
         ZStack {
             if let entry = entry,
@@ -63,7 +67,7 @@ struct SmallWidget: View {
 
                 VStack(alignment: .leading) {
                     HStack {
-                        if Utils.isInWidget() {
+                        if Utils.isInWidget() || usesLocalPreviewImage {
                             Image(uiImage: entry.channelImage)
                                 .resizable()
                                 .widgetAccentedRenderingMode(.desaturated)
