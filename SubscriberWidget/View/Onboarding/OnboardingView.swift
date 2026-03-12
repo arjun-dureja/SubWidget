@@ -83,8 +83,8 @@ struct OnboardingHeaderView: View {
             }
         }
         .padding(.top, 24)
-        .padding(.horizontal, OnboardingStyle.horizontalPadding)
-        .padding(.bottom, OnboardingStyle.verticalSpacing)
+        .padding(.horizontal, 24)
+        .padding(.bottom, 18)
     }
 }
 
@@ -104,9 +104,9 @@ struct OnboardingFooterView: View {
                     .frame(minHeight: 54)
             }
             .background(Color.youtubeRed)
-            .clipShape(RoundedRectangle(cornerRadius: OnboardingStyle.buttonCornerRadius))
-            .padding(.horizontal, OnboardingStyle.horizontalPadding)
-            .padding(.bottom, OnboardingStyle.verticalSpacing)
+            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .padding(.horizontal, 24)
+            .padding(.bottom, 18)
         }
     }
 }
@@ -146,7 +146,7 @@ struct OnboardingPageView: View {
 
             Spacer(minLength: 0)
         }
-        .padding(.horizontal, OnboardingStyle.horizontalPadding)
+        .padding(.horizontal, 24)
         .padding(.bottom, 8)
     }
 }
@@ -212,16 +212,9 @@ enum OnboardingStep: Int, CaseIterable, Identifiable {
     }
 }
 
-enum OnboardingStyle {
-    static let horizontalPadding: CGFloat = 24
-    static let verticalSpacing: CGFloat = 18
-    static let cardCornerRadius: CGFloat = 26
-    static let buttonCornerRadius: CGFloat = 18
-    static let compactSpacing: CGFloat = 10
-}
-
 enum OnboardingPreviewData {
     static let mkbhdImageName = "OnboardingAvatar-mkbhd"
+    static let mrBeastImageName = "OnboardingAvatar-mrbeast"
 
     static func mkbhdChannel(displayName: String = "Marques Brownlee") -> YouTubeChannel {
         var preview = YouTubeChannel.preview
@@ -237,6 +230,21 @@ enum OnboardingPreviewData {
         SimpleEntry(
             channel: mkbhdChannel(displayName: displayName),
             channelImage: UIImage(named: mkbhdImageName) ?? UIImage(systemName: "person.circle")!,
+            widgetType: widgetType
+        )
+    }
+
+    static func mrBeastEntry(widgetType: WidgetType, displayName: String = "MrBeast") -> SimpleEntry {
+        var preview = YouTubeChannel.preview
+        preview.channelName = displayName
+        preview.profileImage = mrBeastImageName
+        preview.subCount = "389000000"
+        preview.viewCount = "75800000000"
+        preview.channelId = "UCX6OQ3DkcsbYNE6H8uQQuVA"
+
+        return SimpleEntry(
+            channel: preview,
+            channelImage: UIImage(named: mrBeastImageName) ?? UIImage(systemName: "person.circle")!,
             widgetType: widgetType
         )
     }

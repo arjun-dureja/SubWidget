@@ -9,7 +9,7 @@ struct OnboardingAddWidgetCard: View {
     private let mediumScale: CGFloat = 0.90
 
     var body: some View {
-        let entry = OnboardingPreviewData.mkbhdEntry(widgetType: .combined, displayName: "MKBHD")
+        let entry = OnboardingPreviewData.mrBeastEntry(widgetType: .combined)
 
         VStack(spacing: 16) {
             MediumWidget(entry: entry)
@@ -25,10 +25,10 @@ struct OnboardingAddWidgetCard: View {
         }
         .padding(18)
         .background(
-            RoundedRectangle(cornerRadius: OnboardingStyle.cardCornerRadius)
+            RoundedRectangle(cornerRadius: 26)
                 .fill(Color(UIColor.secondarySystemGroupedBackground))
                 .overlay(
-                    RoundedRectangle(cornerRadius: OnboardingStyle.cardCornerRadius)
+                    RoundedRectangle(cornerRadius: 26)
                         .stroke(Color.primary.opacity(0.05), lineWidth: 1)
                 )
         )
@@ -36,8 +36,8 @@ struct OnboardingAddWidgetCard: View {
 }
 
 struct OnboardingInlineStepsView: View {
-    let firstStep: String
-    let secondStep: String
+    let firstStep: LocalizedStringKey
+    let secondStep: LocalizedStringKey
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -51,7 +51,7 @@ struct OnboardingInlineStepsView: View {
 
 struct OnboardingInlineStepRow: View {
     let number: String
-    let text: String
+    let text: LocalizedStringKey
 
     var body: some View {
         HStack(spacing: 10) {

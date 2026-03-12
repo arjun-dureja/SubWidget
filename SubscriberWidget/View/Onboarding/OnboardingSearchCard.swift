@@ -13,7 +13,7 @@ struct OnboardingSearchCard: View {
         let entry = OnboardingPreviewData.mkbhdEntry(widgetType: .subscribers)
 
         VStack(spacing: 14) {
-            HStack(spacing: OnboardingStyle.compactSpacing) {
+            HStack(spacing: 10) {
                 Image(systemName: "magnifyingglass")
                     .foregroundStyle(.secondary)
 
@@ -30,7 +30,7 @@ struct OnboardingSearchCard: View {
 
             VStack(spacing: 12) {
                 OnboardingSearchResultCard(
-                    name: "MKBHD",
+                    name: "Marques Brownlee",
                     imageName: OnboardingPreviewData.mkbhdImageName
                 )
 
@@ -48,7 +48,7 @@ struct OnboardingSearchCard: View {
         }
         .padding(16)
         .background(cardBackground)
-        .cornerRadius(OnboardingStyle.cardCornerRadius)
+        .cornerRadius(26)
     }
 
     private var searchBarFill: Color {
@@ -56,10 +56,10 @@ struct OnboardingSearchCard: View {
     }
 
     private var cardBackground: some View {
-        RoundedRectangle(cornerRadius: OnboardingStyle.cardCornerRadius)
+        RoundedRectangle(cornerRadius: 26)
             .fill(colorScheme == .dark ? Color.white.opacity(0.04) : Color.youtubeRed.opacity(0.05))
             .overlay(
-                RoundedRectangle(cornerRadius: OnboardingStyle.cardCornerRadius)
+                RoundedRectangle(cornerRadius: 26)
                     .stroke(colorScheme == .dark ? Color.white.opacity(0.08) : Color.youtubeRed.opacity(0.10), lineWidth: 1)
             )
     }

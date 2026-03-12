@@ -114,7 +114,8 @@ struct MainView: View {
                 },
                 onComplete: completeOnboarding
             )
-            .presentationDragIndicator(.visible)
+            .interactiveDismissDisabled()
+            .presentationDragIndicator(.hidden)
         }
         .paywallSheet(isPresented: $showPaywall)
     }

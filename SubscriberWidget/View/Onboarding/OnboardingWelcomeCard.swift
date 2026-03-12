@@ -15,7 +15,7 @@ struct OnboardingWelcomeCard: View {
     private let showcaseItems: [OnboardingWidgetShowcaseItem] = Self.makeShowcaseItems()
 
     var body: some View {
-        let cardShape = RoundedRectangle(cornerRadius: OnboardingStyle.cardCornerRadius, style: .continuous)
+        let cardShape = RoundedRectangle(cornerRadius: 26, style: .continuous)
 
         ZStack {
             cardShape
