@@ -66,15 +66,18 @@ class MilestoneNotificationService {
             return 10
         case ..<10_000:
             return 100
+        case ..<50_000:
+            return 1_000
+        case ..<100_000:
+            return 5_000
         case ..<1_000_000:
             return 10_000
         case ..<100_000_000:
-            return 1_000_000
+            return 100_000
         case ..<1_000_000_000:
-            return 10_000_000
+            return 1_000_000
         default:
-            let digits = String(subscriberCount).count
-            return Int(pow(10.0, Double(max(digits - 2, 0))))
+            return 10_000_000
         }
     }
 

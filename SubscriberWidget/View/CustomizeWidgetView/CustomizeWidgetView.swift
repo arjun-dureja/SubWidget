@@ -35,6 +35,13 @@ struct CustomizeWidgetView: View {
                     .frame(maxWidth: 650)
 
                 Form {
+                    MilestoneNotificationsSection(
+                        channel: $channel,
+                        hasProAccess: hasProAccess,
+                        showPaywall: $showPaywall,
+                        onUpdateChannel: updateChannel
+                    )
+
                     Section {
                         WidgetColorPicker(
                             title: "Background",
@@ -72,13 +79,6 @@ struct CustomizeWidgetView: View {
                             }
                         }
                     }
-
-                    MilestoneNotificationsSection(
-                        channel: $channel,
-                        hasProAccess: hasProAccess,
-                        showPaywall: $showPaywall,
-                        onUpdateChannel: updateChannel
-                    )
                 }
                 .scrollContentBackground(.hidden)
                 .frame(maxWidth: 650)

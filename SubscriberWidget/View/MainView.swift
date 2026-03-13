@@ -88,6 +88,7 @@ struct MainView: View {
             guard hasProAccess else { return }
             hasCompletedOnboarding = true
             showOnboarding = false
+        }
         .onReceive(NotificationCenter.default.publisher(for: .milestoneNotificationTapped)) { _ in
             if viewModel.state == .loaded, let milestoneChannelId = pendingMilestoneChannelId {
                 pendingMilestoneChannelId = nil
