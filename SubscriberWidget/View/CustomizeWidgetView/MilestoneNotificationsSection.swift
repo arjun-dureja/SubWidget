@@ -63,41 +63,42 @@ struct MilestoneNotificationsSection: View {
     }
 
     private func handleToggle(_ newValue: Bool) {
+        if !newValue {
+            channel.milestoneEnabled = false
+            onUpdateChannel()
+            AnalyticsService.shared.logMilestoneNotificationsDisabled(channelName: channel.channelName)
+            MilestoneNotificationService.shared.clearLastKnownSubCount(for: channel.id)
+            return
+        }
+
         guard hasProAccess else {
             AnalyticsService.shared.logPaywallShown(source: "milestone_notifications")
             showPaywall = true
             return
         }
 
-        if newValue {
-            Task {
-                let status = await MilestoneNotificationService.shared.getNotificationPermissionStatus()
+        Task {
+            let status = await MilestoneNotificationService.shared.getNotificationPermissionStatus()
 
-                switch status {
-                case .notDetermined:
-                    let granted = await MilestoneNotificationService.shared.requestNotificationPermission()
-                    if granted {
-                        channel.milestoneEnabled = true
-                        onUpdateChannel()
-                        AnalyticsService.shared.logMilestoneNotificationsEnabled(channelName: channel.channelName)
-                    } else {
-                        channel.milestoneEnabled = false
-                    }
-                case .authorized, .provisional, .ephemeral:
+            switch status {
+            case .notDetermined:
+                let granted = await MilestoneNotificationService.shared.requestNotificationPermission()
+                if granted {
                     channel.milestoneEnabled = true
                     onUpdateChannel()
                     AnalyticsService.shared.logMilestoneNotificationsEnabled(channelName: channel.channelName)
-                case .denied:
-                    notificationDenied = true
-                @unknown default:
+                } else {
                     channel.milestoneEnabled = false
                 }
+            case .authorized, .provisional, .ephemeral:
+                channel.milestoneEnabled = true
+                onUpdateChannel()
+                AnalyticsService.shared.logMilestoneNotificationsEnabled(channelName: channel.channelName)
+            case .denied:
+                notificationDenied = true
+            @unknown default:
+                channel.milestoneEnabled = false
             }
-        } else {
-            channel.milestoneEnabled = false
-            onUpdateChannel()
-            AnalyticsService.shared.logMilestoneNotificationsDisabled(channelName: channel.channelName)
-            MilestoneNotificationService.shared.clearLastKnownSubCount(for: channel.id)
         }
     }
 }

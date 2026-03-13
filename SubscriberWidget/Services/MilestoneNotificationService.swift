@@ -31,13 +31,13 @@ class MilestoneNotificationService {
         channel: YouTubeChannel,
         hasProAccess: Bool
     ) async {
-        guard hasProAccess else { return }
         guard let newSubCount = Int(channel.subCount) else { return }
 
         let channelId = channel.id
         let oldSubCount = lastKnownSubCounts[channelId] ?? newSubCount
 
         lastKnownSubCounts[channelId] = newSubCount
+        guard hasProAccess else { return }
 
         if let crossedMilestone = detectMilestoneCrossing(oldCount: oldSubCount, newCount: newSubCount) {
             await scheduleMilestoneNotification(
@@ -82,7 +82,7 @@ class MilestoneNotificationService {
         let center = UNUserNotificationCenter.current()
 
         let settings = await center.notificationSettings()
-        guard settings.authorizationStatus == .authorized else { return }
+        guard canScheduleNotifications(for: settings.authorizationStatus) else { return }
 
         let content = UNMutableNotificationContent()
         content.title = "🎉 Milestone Reached!"
@@ -139,6 +139,15 @@ class MilestoneNotificationService {
     func getNotificationPermissionStatus() async -> UNAuthorizationStatus {
         let settings = await UNUserNotificationCenter.current().notificationSettings()
         return settings.authorizationStatus
+    }
+
+    private func canScheduleNotifications(for status: UNAuthorizationStatus) -> Bool {
+        switch status {
+        case .authorized, .provisional, .ephemeral:
+            return true
+        default:
+            return false
+        }
     }
 
     func clearLastKnownSubCount(for channelId: String) {
