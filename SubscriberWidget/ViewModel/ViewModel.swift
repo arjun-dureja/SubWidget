@@ -135,6 +135,12 @@ class ViewModel: ObservableObject {
 
     func deleteChannel(at index: Int) {
         let deletedChannel = channels.remove(at: index)
+
+        let hasRemainingCopies = channels.contains { $0.channelId == deletedChannel.channelId }
+        if !hasRemainingCopies {
+            MilestoneNotificationService.shared.clearLastKnownSubCount(for: deletedChannel.channelId)
+        }
+
         AnalyticsService.shared.logChannelDeleted(deletedChannel.channelName)
     }
 
