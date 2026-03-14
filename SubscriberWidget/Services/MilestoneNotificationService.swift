@@ -33,7 +33,7 @@ class MilestoneNotificationService {
     ) async {
         guard let newSubCount = Int(channel.subCount) else { return }
 
-        let channelId = channel.id
+        let channelId = channel.channelId
         let oldSubCount = lastKnownSubCounts[channelId] ?? newSubCount
 
         lastKnownSubCounts[channelId] = newSubCount
@@ -92,13 +92,13 @@ class MilestoneNotificationService {
         content.body = "\(channel.channelName) reached \(formatMilestone(milestone)) subscribers!"
         content.sound = .default
         content.userInfo = [
-            "channelId": channel.id,
+            "channelId": channel.channelId,
             "channelName": channel.channelName,
             "milestone": milestone,
             "type": "milestone_notification"
         ]
 
-        let identifier = "\(notificationIdentifierPrefix)\(channel.id)_\(milestone)"
+        let identifier = "\(notificationIdentifierPrefix)\(channel.channelId)_\(milestone)"
         let request = UNNotificationRequest(
             identifier: identifier,
             content: content,

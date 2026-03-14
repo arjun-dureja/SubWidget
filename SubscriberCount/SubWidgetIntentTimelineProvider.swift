@@ -131,6 +131,15 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 updatedChannel.bgColor = channel.bgColor
                 updatedChannel.accentColor = channel.accentColor
                 updatedChannel.numberColor = channel.numberColor
+                updatedChannel.milestoneEnabled = channel.milestoneEnabled
+
+                if channel.milestoneEnabled {
+                    await MilestoneNotificationService.shared.checkAndNotifyMilestone(
+                        channel: updatedChannel,
+                        hasProAccess: UserDefaults.shared?.bool(forKey: "hasProAccess") ?? false
+                    )
+                }
+
                 return SimpleEntry(
                     channel: updatedChannel,
                     channelImage: await getImageForUrl(updatedChannel.profileImage),

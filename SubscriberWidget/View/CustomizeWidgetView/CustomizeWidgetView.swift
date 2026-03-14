@@ -77,9 +77,10 @@ struct CustomizeWidgetView: View {
                             ForEach(Palette.presets, id: \.name.key) { palette in
                                 ColorPalette(palette: palette, onPress: handlePressPalette)
                             }
-                        }
+                        }   
                     }
                 }
+                .padding(.top, -24)
                 .scrollContentBackground(.hidden)
                 .frame(maxWidth: 650)
 

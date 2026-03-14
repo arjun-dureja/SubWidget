@@ -31,11 +31,9 @@ struct MilestoneNotificationsSection: View {
                 }
             }
             .tint(.youtubeRed)
-        } header: {
-            Text("Notifications")
         } footer: {
             if channel.milestoneEnabled {
-                Text("You will be notified when this channel reaches \(nextMilestoneText) subscribers")
+                Text("You'll be notified when this channel reaches \(nextMilestoneText) subscribers!")
             }
         }
         .alert("Notifications Disabled", isPresented: $notificationDenied) {
@@ -67,7 +65,7 @@ struct MilestoneNotificationsSection: View {
             channel.milestoneEnabled = false
             onUpdateChannel()
             AnalyticsService.shared.logMilestoneNotificationsDisabled(channelName: channel.channelName)
-            MilestoneNotificationService.shared.clearLastKnownSubCount(for: channel.id)
+            MilestoneNotificationService.shared.clearLastKnownSubCount(for: channel.channelId)
             return
         }
 

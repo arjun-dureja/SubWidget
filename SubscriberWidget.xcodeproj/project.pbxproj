@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7209656C2F65E6A700A1376E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6F2F5E8CD7007AD287 /* RevenueCat */; };
 		720A6A6E2F5E8CD1007AD287 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6D2F5E8CD1007AD287 /* RevenueCat */; };
-		720A6A702F5E8CD7007AD287 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6F2F5E8CD7007AD287 /* RevenueCat */; };
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
 		722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8D2B65FE0400E4832E /* Mixpanel */; };
@@ -217,9 +217,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7209656C2F65E6A700A1376E /* RevenueCat in Frameworks */,
 				72B936FA2AB40BC900997D20 /* Cache in Frameworks */,
 				725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */,
-				720A6A702F5E8CD7007AD287 /* RevenueCat in Frameworks */,
 				726EAEE42F4A579C004AABA1 /* UserNotifications.framework in Frameworks */,
 				722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */,
 				725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */,

@@ -59,9 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         AnalyticsService.shared.logMilestoneNotificationTapped(channelId: channelId)
-
-        UserDefaults.shared?.set(channelId, forKey: "pendingMilestoneChannelId")
-        NotificationCenter.default.post(name: .milestoneNotificationTapped, object: nil)
+        openYoutubeChannel(channelId, widgetType: "milestone_notification")
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -107,10 +105,6 @@ extension SceneDelegate: UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        completionHandler([.banner, .sound])
+        completionHandler([.banner, .list, .sound])
     }
-}
-
-extension Notification.Name {
-    static let milestoneNotificationTapped = Notification.Name("milestoneNotificationTapped")
 }

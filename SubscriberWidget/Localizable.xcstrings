@@ -2832,9 +2832,6 @@
         }
       }
     },
-    "Notifications" : {
-
-    },
     "Notifications Disabled" : {
 
     },
@@ -5509,6 +5506,52 @@
         }
       }
     },
+    "You'll be notified when this channel reaches %@ subscribers!" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سيتم إعلامك عندما تصل هذه القناة إلى %@ مشترك!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du wirst benachrichtigt, wenn dieser Kanal %@ Abonnenten erreicht!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recibirás una notificación cuando este canal alcance %@ suscriptores!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous serez averti lorsque cette chaîne atteindra %@ abonnés !"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जब यह चैनल %@ सब्सक्राइबर तक पहुंचेगा, तब आपको सूचित किया जाएगा!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você será notificado quando este canal alcançar %@ inscritos!"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "இந்த சேனல் %@ சந்தாதாரர்களை எட்டும் போது உங்களுக்கு அறிவிக்கப்படும்!"
+          }
+        }
+      }
+    },
     "YouTube channel statistics, at a glance" : {
       "localizations" : {
         "ar" : {
@@ -5551,52 +5594,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "YouTube சேனல் புள்ளிவிவரங்கள், ஒரே பார்வையில்"
-          }
-        }
-      }
-    },
-    "You will be notified when this channel reaches %@ subscribers" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "سيتم إعلامك عندما تصل هذه القناة إلى %@ مشترك"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du wirst benachrichtigt, wenn dieser Kanal %@ Abonnenten erreicht"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recibirás una notificación cuando este canal alcance %@ suscriptores"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous serez averti lorsque cette chaîne atteindra %@ abonnés"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "जब यह चैनल %@ सब्सक्राइबर तक पहुंचेगा, तब आपको सूचित किया जाएगा"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você será notificado quando este canal alcançar %@ inscritos"
-          }
-        },
-        "ta" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "இந்த சேனல் %@ சந்தாதாரர்களை எட்டும் போது உங்களுக்கு அறிவிக்கப்படும்"
           }
         }
       }
