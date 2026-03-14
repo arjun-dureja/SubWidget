@@ -186,7 +186,6 @@ class ViewModel: ObservableObject {
                     decodedChannels[index].subCount = updatedChannel.subCount
                     decodedChannels[index].viewCount = updatedChannel.viewCount
                     decodedChannels[index].profileImage = updatedChannel.profileImage
-
                 }
             }
 
