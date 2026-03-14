@@ -547,73 +547,73 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "لهجة"
+            "value" : "لون مميز"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Akzent"
+            "value" : "Akzentfarbe"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acento"
+            "value" : "Color de acento"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accent"
+            "value" : "Couleur d’accent"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "एक्सेंट"
+            "value" : "एक्सेंट रंग"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acento"
+            "value" : "Cor de destaque"
           }
         },
         "ta" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "உச்சரிப்பு"
+            "value" : "முக்கிய நிறம்"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アクセント"
+            "value" : "アクセントカラー"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "口音"
+            "value" : "强调色"
           }
         },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Акцент"
+            "value" : "Акцент түсі"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aksen"
+            "value" : "Warna aksen"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aksan"
+            "value" : "Vurgu rengi"
           }
         }
       }
