@@ -1,0 +1,71 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1 Jam";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6 Jam";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12 Jam";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30 Menit";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "Saat ini, Anda dapat menambahkan hingga 10 saluran. Jika ingin menambah lebih banyak, silakan hubungi saya melalui tautan di Pengaturan dan saya akan menaikkan batasnya.";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "Pertama, sentuh dan tahan Layar Terkunci Anda lalu ketuk 'Sesuaikan'. Setelah itu Anda dapat menambahkan widget dan mengetuknya untuk memilih saluran.";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "Bagaimana cara menambahkan widget ke layar utama saya?";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "Bagaimana cara menambahkan widget ke Layar Terkunci saya?";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "Berapa banyak saluran yang bisa saya tambahkan?";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "Seberapa sering jumlah subscriber diperbarui?";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "Saya tidak dapat menemukan saluran saya.";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "Saya punya ide fitur yang ingin saya minta.";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "Hapus widget dari layar utama Anda lalu tambahkan kembali.";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "Mengembalikan warna widget ke default.";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "Sentuh dan tahan area kosong mana pun di layar utama Anda, lalu ketuk tombol plus di kiri atas. Cari SubWidget dan tambahkan ke layar utama Anda. Terakhir, sentuh dan tahan widget lalu pilih saluran Anda.";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "Saluran tidak dapat dimuat.";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "Widget kosong.";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "Ini menunjukkan ada masalah server. Silakan coba lagi nanti.";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "Coba masukkan ID saluran Anda, bukan nama saluran. Jika masih tidak berhasil, silakan hubungi saya dan saya akan membantu.";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "Sayangnya, YouTube tidak memberikan jumlah subscriber yang tepat; yang ditampilkan adalah angka yang dibulatkan.";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "Apa fungsi tombol reset?";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "Mengapa jumlah subscriber yang tepat tidak ditampilkan?";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "Anda dapat meminta fitur melalui tab Daftar Keinginan di bawah.";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "Anda dapat memilih seberapa sering widget diperbarui di pengaturan aplikasi. Minimal setiap 30 menit.";

@@ -1,0 +1,71 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1 Saat";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6 Saat";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12 Saat";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30 Dakika";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "Şu anda en fazla 10 kanal ekleyebilirsiniz. Daha fazlasını eklemek isterseniz lütfen Ayarlar'daki bağlantıyı kullanarak benimle iletişime geçin; limiti artıracağım.";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "Öncelikle Kilit Ekranınıza dokunup basılı tutun ve 'Özelleştir'e dokunun. Daha sonra widget'ı ekleyebilir ve kanalı seçmek için ona dokunabilirsiniz.";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "Widget'ı ana ekranıma nasıl eklerim?";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "Kilit Ekranıma nasıl widget eklerim?";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "Kaç kanal ekleyebilirim?";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "Abone sayısı ne sıklıkla güncellenir?";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "Kanalımı bulamıyorum.";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "Talep etmek istediğim bir özellik fikrim var.";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "Lütfen widget'ı ana ekranınızdan kaldırın ve tekrar ekleyin.";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "Widget'ın renklerini varsayılanlara geri yükler.";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "Ana ekranınızda herhangi bir yere dokunup basılı tutun ve sol üstteki artı düğmesine dokunun. SubWidget'i arayın ve ana ekranınıza ekleyin. Son olarak widget'a dokunup basılı tutun ve kanalınızı seçin.";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "Kanallar yüklenmiyor.";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "Widget boş.";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "Bu, sunucuyla ilgili bir soruna işaret eder. Lütfen daha sonra tekrar deneyin.";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "Kanal adınız yerine kanal kimliğinizi girmeyi deneyin. Eğer hâlâ işe yaramazsa lütfen benimle iletişime geçin; size yardımcı olacağım.";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "Ne yazık ki YouTube tam abone sayısını vermez; yalnızca yuvarlatılmış bir sayı gösterir.";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "Sıfırlama düğmesi ne işe yarar?";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "Neden tam abone sayısını göstermiyor?";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "Aşağıdaki İstek Listesi sekmesini kullanarak bir özellik talep edebilirsiniz.";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "Widget'ın ne sıklıkla güncellenmesini istediğinizi uygulama ayarlarından seçebilirsiniz. En kısa süre 30 dakikadır.";

@@ -1,0 +1,71 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1 сағат";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6 сағат";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12 сағат";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30 минут";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "Қазіргі уақытта 10 арнаға дейін қоса аласыз. Тағы қосуды қаласаңыз, Параметрлердегі сілтеме арқылы маған хабарласыңыз, мен шектеуді арттырамын.";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "Алдымен құлыптау экранын басып тұрып, «Баптау» түймесін түртіңіз. Содан кейін виджетті қосып, арнаны таңдау үшін оны түртуге болады.";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "Виджетті негізгі экранға қалай қосамын?";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "Виджетті құлыптау экранына қалай қосамын?";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "Қанша арна қоса аламын?";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "Жазылушылар саны қаншалықты жиі жаңартылады?";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "Арнамды таба алмай жатырмын.";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "Ұсынғым келетін мүмкіндік туралы идеям бар.";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "Виджетті негізгі экраннан алып тастап, қайта қосыңыз.";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "Виджет түстерін әдепкі мәндерге қайтарады.";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "Негізгі экранның кез келген жерін басып тұрыңыз да, жоғарғы сол жақтағы қосу түймесін түртіңіз. SubWidget-ті тауып, оны негізгі экранға қосыңыз. Соңында виджетті басып тұрып, арнаңызды таңдаңыз.";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "Арналар жүктелмей жатыр.";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "Виджет бос.";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "Бұл сервер мәселесін білдіреді. Кейінірек қайталап көріңіз.";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "Арна атауының орнына арна ID-сін енгізіп көріңіз. Егер бұл да көмектеспесе, маған хабарласыңыз, мен көмектесемін.";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "Өкінішке орай, YouTube жазылушылардың нақты санын бермейді, тек дөңгелектелген санды көрсетеді.";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "Қалпына келтіру түймесі не істейді?";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "Неліктен жазылушылардың нақты саны көрсетілмейді?";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "Төмендегі Қалаулар тізімі қойындысы арқылы мүмкіндік сұрай аласыз.";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "Виджеттің қаншалықты жиі жаңартылатынын қолданба параметрлерінен таңдауға болады. Ең азы - әр 30 минут сайын.";
