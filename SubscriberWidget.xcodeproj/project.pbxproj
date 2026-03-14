@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7209656C2F65E6A700A1376E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6F2F5E8CD7007AD287 /* RevenueCat */; };
+		720A6A6E2F5E8CD1007AD287 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6D2F5E8CD1007AD287 /* RevenueCat */; };
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
 		722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8D2B65FE0400E4832E /* Mixpanel */; };
@@ -15,7 +17,7 @@
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
 		725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1F0251D3983004B2907 /* SwiftUI.framework */; };
 		725FE1FD251D3988004B2907 /* SubscriberCountExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		727A33772F5625B3004A3351 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C22F30273600C4774A /* RevenueCat */; };
+		726EAEE42F4A579C004AABA1 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726EAEE32F4A579C004AABA1 /* UserNotifications.framework */; };
 		728683C225DA44AE00568034 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728683C125DA44AE00568034 /* Intents.framework */; };
 		728683DA25DA44AE00568034 /* SubWidgetIntents.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 728683C025DA44AE00568034 /* SubWidgetIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		72AFB3BF2F30231400C4774A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3BE2F30231400C4774A /* RevenueCat */; };
@@ -62,6 +64,7 @@
 		725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriberCountExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		725FE1EE251D3983004B2907 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		725FE1F0251D3983004B2907 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		726EAEE32F4A579C004AABA1 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		728683C025DA44AE00568034 /* SubWidgetIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubWidgetIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		728683C125DA44AE00568034 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		728683CC25DA44AE00568034 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
@@ -94,6 +97,8 @@
 				Services/AnalyticsService.swift,
 				Services/ChannelStorageService.swift,
 				Services/ChannelStorageServiceProtocol.swift,
+				Services/MilestoneNotificationService.swift,
+				Services/SubscriptionService.swift,
 				Services/SubscriptionServiceProtocol.swift,
 				Services/YouTubeService.swift,
 				Services/YouTubeServiceProtocol.swift,
@@ -116,6 +121,8 @@
 				Services/AnalyticsService.swift,
 				Services/ChannelStorageService.swift,
 				Services/ChannelStorageServiceProtocol.swift,
+				Services/MilestoneNotificationService.swift,
+				Services/SubscriptionService.swift,
 				Services/SubscriptionServiceProtocol.swift,
 				Services/YouTubeService.swift,
 				Services/YouTubeServiceProtocol.swift,
@@ -210,8 +217,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7209656C2F65E6A700A1376E /* RevenueCat in Frameworks */,
 				72B936FA2AB40BC900997D20 /* Cache in Frameworks */,
 				725FE1F1251D3983004B2907 /* SwiftUI.framework in Frameworks */,
+				726EAEE42F4A579C004AABA1 /* UserNotifications.framework in Frameworks */,
 				722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */,
 				725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */,
 			);
@@ -221,7 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				727A33772F5625B3004A3351 /* RevenueCat in Frameworks */,
+				720A6A6E2F5E8CD1007AD287 /* RevenueCat in Frameworks */,
 				722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */,
 				728683C225DA44AE00568034 /* Intents.framework in Frameworks */,
 				72B936F82AB40BC500997D20 /* Cache in Frameworks */,
@@ -248,6 +257,7 @@
 		725FE1ED251D3983004B2907 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				726EAEE32F4A579C004AABA1 /* UserNotifications.framework */,
 				725FE1EE251D3983004B2907 /* WidgetKit.framework */,
 				725FE1F0251D3983004B2907 /* SwiftUI.framework */,
 				728683C125DA44AE00568034 /* Intents.framework */,
@@ -300,7 +310,7 @@
 			packageProductDependencies = (
 				72B936F92AB40BC900997D20 /* Cache */,
 				722E2E8B2B65FDFC00E4832E /* Mixpanel */,
-				72AFB3C42F30273B00C4774A /* RevenueCat */,
+				720A6A6F2F5E8CD7007AD287 /* RevenueCat */,
 			);
 			productName = SubscriberCountExtension;
 			productReference = 725FE1EC251D3983004B2907 /* SubscriberCountExtension.appex */;
@@ -325,7 +335,7 @@
 			packageProductDependencies = (
 				72B936F72AB40BC500997D20 /* Cache */,
 				722E2E8D2B65FE0400E4832E /* Mixpanel */,
-				72AFB3C22F30273600C4774A /* RevenueCat */,
+				720A6A6D2F5E8CD1007AD287 /* RevenueCat */,
 			);
 			productName = SubWidgetIntents;
 			productReference = 728683C025DA44AE00568034 /* SubWidgetIntents.appex */;
@@ -898,6 +908,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		720A6A6D2F5E8CD1007AD287 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		720A6A6F2F5E8CD7007AD287 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
 		722E2E842B65F86B00E4832E /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
@@ -932,16 +952,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
 			productName = RevenueCatUI;
-		};
-		72AFB3C22F30273600C4774A /* RevenueCat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCat;
-		};
-		72AFB3C42F30273B00C4774A /* RevenueCat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCat;
 		};
 		72AFB3CB2F30722300C4774A /* ConfettiSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

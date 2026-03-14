@@ -15,8 +15,8 @@ struct WidgetListView: View {
     @Environment(\.colorScheme) private var colorScheme
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
-    @State private var showSearch = false
     @State private var navigateToChannelId: String?
+    @State private var showSearch = false
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
     @State private var showUpdateAlert = false

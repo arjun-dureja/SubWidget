@@ -35,6 +35,13 @@ struct CustomizeWidgetView: View {
                     .frame(maxWidth: 650)
 
                 Form {
+                    MilestoneNotificationsSection(
+                        channel: $channel,
+                        hasProAccess: hasProAccess,
+                        showPaywall: $showPaywall,
+                        onUpdateChannel: updateChannel
+                    )
+
                     Section {
                         WidgetColorPicker(
                             title: "Background",
@@ -73,6 +80,7 @@ struct CustomizeWidgetView: View {
                         }
                     }
                 }
+                .padding(.top, -24)
                 .scrollContentBackground(.hidden)
                 .frame(maxWidth: 650)
 
@@ -147,6 +155,14 @@ struct CustomizeWidgetView: View {
         channel.bgColor = bgColor
         channel.accentColor = accentColor
         channel.numberColor = numberColor
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+
+    func updateChannel() {
+        viewModel.updateMilestoneSettings(
+            id: channel.id,
+            enabled: channel.milestoneEnabled
+        )
         WidgetCenter.shared.reloadAllTimelines()
     }
 }

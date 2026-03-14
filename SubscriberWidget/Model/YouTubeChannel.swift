@@ -13,6 +13,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
 
     private enum CodingKeys: String, CodingKey {
         case channelName, profileImage, subCount, viewCount, channelId, bgColor, accentColor, numberColor, id
+        case milestoneEnabled
     }
 
     var channelName: String
@@ -23,6 +24,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
     var bgColor: UIColor?
     var accentColor: UIColor?
     var numberColor: UIColor?
+    var milestoneEnabled: Bool = false
     var id = UUID().uuidString
 
     var deeplinkUrl: URL? {
@@ -37,7 +39,8 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         channelId: String,
         bgColor: UIColor? = nil,
         accentColor: UIColor? = nil,
-        numberColor: UIColor? = nil
+        numberColor: UIColor? = nil,
+        milestoneEnabled: Bool = false
     ) {
         self.channelName = channelName
         self.profileImage = profileImage
@@ -47,6 +50,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         self.bgColor = bgColor
         self.accentColor = accentColor
         self.numberColor = numberColor
+        self.milestoneEnabled = milestoneEnabled
     }
 
     init(from decoder: Decoder) throws {
@@ -59,6 +63,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         bgColor = try? container.decode(CustomColor.self, forKey: .bgColor).uiColor
         accentColor = try? container.decode(CustomColor.self, forKey: .accentColor).uiColor
         numberColor = try? container.decode(CustomColor.self, forKey: .numberColor).uiColor
+        milestoneEnabled = (try? container.decode(Bool.self, forKey: .milestoneEnabled)) ?? false
         id = try container.decode(String.self, forKey: .id)
     }
 
@@ -72,6 +77,7 @@ struct YouTubeChannel: Identifiable, Codable, Hashable {
         try container.encode(bgColor != nil ? CustomColor(uiColor: bgColor) : nil, forKey: .bgColor)
         try container.encode(accentColor != nil ? CustomColor(uiColor: accentColor) : nil, forKey: .accentColor)
         try container.encode(numberColor != nil ? CustomColor(uiColor: numberColor) : nil, forKey: .numberColor)
+        try container.encode(milestoneEnabled, forKey: .milestoneEnabled)
         try container.encode(id, forKey: .id)
     }
 

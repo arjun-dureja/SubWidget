@@ -123,8 +123,24 @@ class ViewModel: ObservableObject {
         }
     }
 
+    func updateMilestoneSettings(id: String, enabled: Bool) {
+        guard let channelId = channels.first(where: { $0.id == id })?.channelId else {
+            return
+        }
+
+        for index in channels.indices where channels[index].channelId == channelId {
+            channels[index].milestoneEnabled = enabled
+        }
+    }
+
     func deleteChannel(at index: Int) {
         let deletedChannel = channels.remove(at: index)
+
+        let hasRemainingCopies = channels.contains { $0.channelId == deletedChannel.channelId }
+        if !hasRemainingCopies {
+            MilestoneNotificationService.shared.clearLastKnownSubCount(for: deletedChannel.channelId)
+        }
+
         AnalyticsService.shared.logChannelDeleted(deletedChannel.channelName)
     }
 
