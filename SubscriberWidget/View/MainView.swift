@@ -24,7 +24,6 @@ struct MainView: View {
     @State private var showOnboarding = false
     @State private var hasPreparedInitialPresentation = false
     @State private var onboardingAction: OnboardingAction = .none
-    @State private var navigateToChannelId: String?
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
@@ -45,7 +44,7 @@ struct MainView: View {
 
     var body: some View {
         TabView(selection: $currentTab) {
-            WidgetListView(viewModel: viewModel, navigateToChannelId: $navigateToChannelId)
+            WidgetListView(viewModel: viewModel)
                 .tag(0)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")

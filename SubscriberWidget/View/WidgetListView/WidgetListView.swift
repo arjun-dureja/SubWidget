@@ -15,7 +15,7 @@ struct WidgetListView: View {
     @Environment(\.colorScheme) private var colorScheme
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
-    @Binding var navigateToChannelId: String?
+    @State private var navigateToChannelId: String?
     @State private var showSearch = false
     @State private var tooManyChannels = false
     @State private var showWhatsNew = false
@@ -165,6 +165,6 @@ struct WidgetListView: View {
 
 struct WidgetListView_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetListView(viewModel: ViewModel(), navigateToChannelId: .constant(nil))
+        WidgetListView(viewModel: ViewModel())
     }
 }
