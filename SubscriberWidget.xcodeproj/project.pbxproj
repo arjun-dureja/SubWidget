@@ -410,6 +410,11 @@
 				de,
 				ar,
 				ta,
+				ja,
+				"zh-Hans",
+				kk,
+				id,
+				tr,
 			);
 			mainGroup = 7292FFF9251D1F3D0050194B;
 			packageReferences = (

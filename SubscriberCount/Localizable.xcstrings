@@ -47,6 +47,36 @@
             "state" : "translated",
             "value" : "- முதலில் செயலியில் ஒரு சேனலைச் சேர்க்கவும், பின்னர் திருத்தும் போது இந்த விட்ஜெட்டைத் தட்டவும்"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- アプリにチャンネルを追加し、編集中にこのウィジェットをタップします"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- 在应用程序中添加频道，然后在编辑时点击此小组件"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Қолданбаға арна қосыңыз, содан кейін өңдеу кезінде осы виджетті түртіңіз"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Tambahkan saluran di aplikasi, lalu ketuk widget ini saat mengedit"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Uygulamaya bir kanal ekleyin ve ardından düzenleme yaparken bu widget'a dokunun"
+          }
         }
       }
     },
@@ -99,6 +129,36 @@
             "state" : "translated",
             "value" : "%1$@ %2$@ சந்தாதாரர்களை எட்டியது!"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ が %2$@ 人の登録者に到達しました！"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 已达到 %2$@ 位订阅者！"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ жазылушыға жетті!"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ mencapai %2$@ subscriber!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, %2$@ aboneye ulaştı!"
+          }
         }
       }
     },
@@ -144,6 +204,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1 மணி"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1時間"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1小时"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 сағат"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Jam"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Saat"
           }
         }
       }
@@ -191,6 +281,36 @@
             "state" : "translated",
             "value" : "6 மணி"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6時間"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6小时"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 сағат"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Jam"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Saat"
+          }
         }
       }
     },
@@ -236,6 +356,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "12 மணி"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12時間"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12小时"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 сағат"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 Jam"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 Saat"
           }
         }
       }
@@ -283,6 +433,36 @@
             "state" : "translated",
             "value" : "30 நிமிடங்கள்"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30分"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30分钟"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 минут"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Menit"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Dakika"
+          }
         }
       }
     },
@@ -328,6 +508,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "செயலியில் ஒரு சேனலைச் சேர்க்கவும்"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリにチャンネルを追加する"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在应用程序中添加频道"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қолданбаға арна қосыңыз"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tambahkan saluran di aplikasi"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulamaya bir kanal ekleyin"
           }
         }
       }
@@ -376,6 +586,36 @@
             "state" : "translated",
             "value" : "தற்போது, நீங்கள் 10 சேனல்கள் வரை சேர்க்கலாம். நீங்கள் மேலும் சேர்க்க விரும்பினால், அமைப்புகளில் உள்ள இணைப்பைப் பயன்படுத்தி என்னை தொடர்பு கொள்ளவும், நான் வரம்பை அதிகரிக்கிறேன்."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在、最大 10 チャンネルを追加できます。さらに追加したい場合は、設定のリンクを使用して私にご連絡ください。制限を増やします。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目前，您最多可以添加 10 个频道。如果您想添加更多，请使用“设置”中的链接与我联系，我将增加限制。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қазіргі уақытта 10 арнаға дейін қосуға болады. Қосымша қосқыңыз келсе, \"Параметрлер\" бөліміндегі сілтеме арқылы маған хабарласыңыз, мен шектеуді арттырамын."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saat ini, Anda dapat menambahkan hingga 10 saluran. Jika Anda ingin menambahkan lebih banyak, silakan hubungi saya menggunakan tautan di Pengaturan dan saya akan menambah batasnya."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu anda en fazla 10 kanal ekleyebilirsiniz. Daha fazlasını eklemek isterseniz lütfen Ayarlar'daki bağlantıyı kullanarak benimle iletişime geçin; limiti artıracağım."
+          }
         }
       }
     },
@@ -422,6 +662,36 @@
             "state" : "translated",
             "value" : "முதலில், உங்கள் பூட்டு திரையில் தட்டி அழுத்தி 'விருப்பமைக்கவும்' என்று தட்டவும். பின்னர் நீங்கள் விஜெட்டைச் சேர்க்கலாம் மற்றும் சேனலைத் தெரிவு செய்ய அதை தட்டலாம்."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まず、ロック画面を長押しして「カスタマイズ」をタップします。次に、ウィジェットを追加し、タップしてチャンネルを選択します。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首先，点击并按住锁定屏幕，然后点击“自定义”。然后您可以添加小组件并点击它来选择频道。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Алдымен құлыптау экранын түртіп, ұстап тұрыңыз және «Реттеу» түймесін түртіңіз. Содан кейін виджетті қосып, арнаны таңдау үшін оны түртуге болады."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pertama, ketuk dan tahan Layar Terkunci Anda dan ketuk 'Sesuaikan'. Kemudian Anda dapat menambahkan widget dan mengetuknya untuk memilih saluran."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öncelikle Kilit Ekranınıza dokunup basılı tutun ve 'Özelleştir'e dokunun. Daha sonra widget'ı ekleyebilir ve kanalı seçmek için ona dokunabilirsiniz."
+          }
         }
       }
     },
@@ -467,6 +737,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "இந்த விட்ஜெட்டை பயன்படுத்த SubWidget Pro ஐப் பெறுங்கள்"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このウィジェットを使うには SubWidget Pro が必要です"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用此小组件需要 SubWidget Pro"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бұл виджетті пайдалану үшін SubWidget Pro қажет"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dapatkan SubWidget Pro untuk menggunakan widget ini"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu widget'ı kullanmak için SubWidget Pro gerekir"
           }
         }
       }
@@ -526,6 +826,36 @@
             "state" : "translated",
             "value" : "அழுத்திப் பிடித்து, பின்னர் 'விட்ஜெட்டைத் திருத்து' என்பதைத் தட்டவும்"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "長押しして「ウィジェットを編集」をタップします"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住并点击“编辑小组件”"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Виджетті өңдеу\" түймесін басып тұрыңыз және түртіңіз."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tahan dan ketuk 'Edit Widget'"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basılı tutun ve 'Widget'ı Düzenle'ye dokunun"
+          }
         }
       }
     },
@@ -571,6 +901,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "என் முகப்புத் திரையில் விஜெட்டை எப்படி சேர்க்கலாம்?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム画面にウィジェットを追加するにはどうすればよいですか?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何将小组件添加到我的主屏幕？"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виджетті негізгі экранға қалай қосуға болады?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bagaimana cara menambahkan widget ke layar beranda saya?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget'ı ana ekranıma nasıl eklerim?"
           }
         }
       }
@@ -618,6 +978,36 @@
             "state" : "translated",
             "value" : "என் பூட்டு திரையில் விஜெட்டை எப்படி சேர்க்கலாம்?"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロック画面にウィジェットを追加するにはどうすればよいですか?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何将小组件添加到我的锁定屏幕？"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Құлыптау экранына виджетті қалай қосуға болады?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bagaimana cara menambahkan widget ke Layar Terkunci saya?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilit Ekranıma nasıl widget eklerim?"
+          }
         }
       }
     },
@@ -663,6 +1053,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ஒரு சேனலை எப்படி நீக்குவது?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャンネルを削除するにはどうすればよいですか?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何删除频道？"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Арнаны қалай жоюға болады?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bagaimana cara menghapus saluran?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir kanalı nasıl silerim?"
           }
         }
       }
@@ -710,6 +1130,36 @@
             "state" : "translated",
             "value" : "நான் எத்தனை சேனல்களை சேர்க்கலாம்?"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャンネルは何個まで追加できますか?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我可以添加多少个频道？"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қанша арна қосуға болады?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berapa banyak saluran yang dapat saya tambahkan?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaç kanal ekleyebilirim?"
+          }
         }
       }
     },
@@ -755,6 +1205,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "சந்தாதாரர் எண்ணிக்கை எவ்வளவு அடிக்கடி புதுப்பிக்கப்படுகிறது?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャンネル登録者数はどのくらいの頻度で更新されますか?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "订阅者数量多久更新一次？"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жазылушылар саны қаншалықты жиі жаңартылады?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seberapa sering pembaruan jumlah pelanggan?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abone sayısı ne sıklıkla güncellenir?"
           }
         }
       }
@@ -802,6 +1282,36 @@
             "state" : "translated",
             "value" : "எனது சேனலை கண்டுபிடிக்க முடியவில்லை."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自分のチャンネルが見つかりません。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我找不到我的频道。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мен өз арнамды таба алмаймын."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saya tidak dapat menemukan saluran saya."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanalımı bulamıyorum."
+          }
         }
       }
     },
@@ -847,6 +1357,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "நான் கேட்க விரும்பும் ஒரு அம்ச யோசனை உள்ளது."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リクエストしたい機能のアイデアがあります。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我有一个想要请求的功能想法。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Менде сұрағым келетін мүмкіндік идеясы бар."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saya punya ide fitur yang ingin saya minta."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Talep etmek istediğim bir özellik fikrim var."
           }
         }
       }
@@ -900,6 +1440,36 @@
             "state" : "translated",
             "value" : "மைல்கல் எட்டப்பட்டது!"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マイルストーンに到達しました!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "里程碑已达！"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Белгіленген межеге жетті!"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tonggak Pencapaian Tercapai!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometre Taşına Ulaşıldı!"
+          }
         }
       }
     },
@@ -945,6 +1515,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "என் கேள்வி இங்கே பட்டியலிடப்படவில்லை."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "私の質問はここには記載されていません。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的问题没有在这里列出。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Менің сұрағым мұнда тізімде жоқ."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pertanyaan saya tidak tercantum di sini."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sorum burada listelenmiyor."
           }
         }
       }
@@ -992,6 +1592,36 @@
             "state" : "translated",
             "value" : "அமைப்புகள் திரையிலிருந்து என்னை தொடர்பு கொள்ளுங்கள்; உங்களிடம் உள்ள எந்தக் கேள்விக்கும் நான் பதில் அளிப்பேன். பொதுவாக சில மணி நேரங்களுக்குள் பதிலளிக்கிறேன்!"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定画面よりご連絡いただければ質問にお答えします。通常、数時間以内に返信します。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请从设置屏幕与我联系，我将回答您的任何问题。我通常会在几个小时内回复！"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Параметрлер экранынан маған хабарласыңыз, мен кез келген сұрағыңызға жауап беремін. Мен әдетте бірнеше сағат ішінде жауап беремін!."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silakan hubungi saya dari layar pengaturan dan saya akan menjawab pertanyaan apa pun yang Anda miliki. Saya biasanya merespons dalam beberapa jam!."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen ayarlar ekranından benimle iletişime geçin, sorularınızı yanıtlayacağım. Genellikle birkaç saat içinde yanıt veririm!"
+          }
         }
       }
     },
@@ -1038,6 +1668,36 @@
             "state" : "translated",
             "value" : "தயவுசெய்து உங்கள் முகப்புத் திரையிலிருந்து விஜெட்டை நீக்கி மீண்டும் சேர்க்கவும்."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム画面からウィジェットを削除し、再度追加してください。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请从主屏幕中删除该小组件并将其添加回来。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виджетті негізгі экраннан алып тастап, қайта қосыңыз."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Harap hapus widget dari layar beranda Anda dan tambahkan kembali."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen widget'ı ana ekranınızdan kaldırın ve tekrar ekleyin."
+          }
         }
       }
     },
@@ -1083,6 +1743,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "விட்ஜெட்டின் நிறங்களை இயல்புநிலைக்கு மீட்டமைக்கும் - ஒளி முறையில் வெள்ளை, இருள் முறையில் கருப்பு."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェットの色をデフォルト (ライト モードでは白、ダーク モードでは黒) に戻します。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将小组件的颜色恢复为默认值 - 浅色模式下为白色，深色模式下为黑色。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виджет түстерін әдепкі мәндерге қалпына келтіреді - жарық режимінде ақ және қараңғы режимде қара."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengembalikan warna widget ke default - Putih dalam mode terang dan hitam dalam mode gelap."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget'ın renklerini varsayılan ayarlara geri yükler - Açık modda beyaz ve karanlık modda siyah."
           }
         }
       }
@@ -1131,6 +1821,36 @@
             "state" : "translated",
             "value" : "விஜெட்டின் நிறங்களை இயல்புநிலைக்கு மீட்டமைக்கிறது."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェットの色をデフォルトに戻します。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将小组件的颜色恢复为默认值。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виджет түстерін әдепкі мәндерге қалпына келтіреді."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengembalikan warna widget ke default."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget'ın renklerini varsayılanlara geri yükler."
+          }
         }
       }
     },
@@ -1176,6 +1896,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "உங்கள் சேனலைத் தெரிவு செய்க"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャンネルを選択してください"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择您的频道"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Арнаңызды таңдаңыз"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilih Saluran Anda"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanalınızı Seçin"
           }
         }
       }
@@ -1223,6 +1973,36 @@
             "state" : "translated",
             "value" : "சந்தாதாரர் எண்ணிக்கை"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録者数"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "订阅者数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жазылушылар саны"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumlah Subscriber"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abone Sayısı"
+          }
         }
       }
     },
@@ -1268,6 +2048,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "சந்தாதாரர்கள் + பார்வைகள்"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録者数 + 視聴回数"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "订阅者数 + 观看次数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жазылушылар + қаралымдар"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscriber + Tayangan"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aboneler + Görüntülemeler"
           }
         }
       }
@@ -1315,6 +2125,36 @@
             "state" : "translated",
             "value" : "சேனலை நீக்க அதில் வலமாக ஸ்வைப் செய்யவும்"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャンネルを右にスワイプして削除します"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向右滑动频道即可将其删除"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оны жою үшін арнаны оңға сырғытыңыз"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geser ke kanan pada saluran untuk menghapusnya"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silmek için kanalı sağa kaydırın"
+          }
         }
       }
     },
@@ -1360,6 +2200,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "உங்கள் முகப்புத் திரையில் எங்கும் தட்டி அழுத்தி, மேல் இடதுபுறத்தில் உள்ள பிளஸ் பட்டனை தட்டவும். SubWidget ஐத் தேடி உங்கள் முகப்புத் திரையில் சேர்க்கவும். இறுதியாக, விஜெட்டின் மீது தட்டி அழுத்தி உங்கள் சேனலைத் தெரிவு செய்க."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム画面の任意の場所を長押しし、左上のプラスボタンをタップします。 SubWidget を探してホーム画面に追加します。最後に、ウィジェットを長押ししてチャンネルを選択します。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击并按住主屏幕上的任意位置，然后点击左上角的加号按钮。查找 SubWidget 并将其添加到您的主屏幕。最后，点击并按住小组件并选择您的频道。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Негізгі экранның кез келген жерін түртіп, ұстап тұрыңыз және жоғарғы сол жақтағы қосу түймесін түртіңіз. SubWidget іздеп, оны негізгі экранға қосыңыз. Соңында виджетті түртіп, ұстап тұрыңыз және арнаңызды таңдаңыз."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ketuk dan tahan di mana saja di layar beranda Anda dan ketuk tombol plus di kiri atas. Cari SubWidget dan tambahkan ke layar beranda Anda. Terakhir, ketuk dan tahan widget dan pilih saluran Anda."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ana ekranınızda herhangi bir yere dokunup basılı tutun ve sol üstteki artı düğmesine dokunun. SubWidget'i arayın ve ana ekranınıza ekleyin. Son olarak widget'a dokunup basılı tutun ve kanalınızı seçin."
           }
         }
       }
@@ -1407,6 +2277,36 @@
             "state" : "translated",
             "value" : "சேனல்கள் ஏற்றப்படவில்லை."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャンネルが読み込まれていません。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "频道未加载。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Арналар жүктелмейді."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saluran tidak dimuat."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanallar yüklenmiyor."
+          }
         }
       }
     },
@@ -1452,6 +2352,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "விஜெட்டு காலியாக உள்ளது."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウィジェットは空白です。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小组件是空白的。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виджет бос."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widgetnya kosong."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget boş."
           }
         }
       }
@@ -1499,6 +2429,36 @@
             "state" : "translated",
             "value" : "இது ஒரு சேவையக சிக்கலை குறிக்கிறது. தயவுசெய்து பின்னர் முயற்சிக்கவும்."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これはサーバーの問題を示しています。後でもう一度試してください。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这表明服务器有问题。请稍后重试。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бұл сервер мәселесін көрсетеді. Тағы жасауды сәл кейінірек көріңізді өтінеміз."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ini menunjukkan masalah server. Silakan coba lagi nanti."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu bir sunucu sorununu gösterir. Lütfen daha sonra tekrar deneyin."
+          }
         }
       }
     },
@@ -1544,6 +2504,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "மொத்த சந்தாதாரர்கள்"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "総登録者数"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "订阅者总数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жалпы жазылушылар саны"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumlah subscriber"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toplam abone sayısı"
           }
         }
       }
@@ -1591,6 +2581,36 @@
             "state" : "translated",
             "value" : "மொத்த காட்சிகள்"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "総視聴回数"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总观看次数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жалпы қаралым саны"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumlah tayangan"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toplam görüntüleme sayısı"
+          }
         }
       }
     },
@@ -1636,6 +2656,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "உங்கள் சேனல் பெயருக்கு பதிலாக உங்கள் சேனல் ஐடியை உள்ளிட முயற்சிக்கவும். அதுவும் செயல்படவில்லை என்றால், தயவுசெய்து என்னை தொடர்பு கொள்ளவும், நான் உதவுவேன்."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャンネル名の代わりにチャンネル ID を入力してみてください。それでもうまくいかない場合は、私に連絡してください。お手伝いします。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尝试输入您的频道 ID 而不是频道名称。如果仍然不行，请联系我，我会帮助你。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Арна атауының орнына арна идентификаторын енгізіп көріңіз. Егер бұл әлі жұмыс істемесе, маған хабарласыңыз, мен сізге көмектесемін."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coba masukkan ID saluran Anda, bukan nama saluran Anda. Jika masih tidak berhasil, silakan hubungi saya dan saya akan membantu Anda."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanal adınız yerine kanal kimliğinizi girmeyi deneyin. Eğer hala işe yaramazsa lütfen benimle iletişime geçin, size yardımcı olacağım."
           }
         }
       }
@@ -1683,6 +2733,36 @@
             "state" : "translated",
             "value" : "துரதிருஷ்டவசமாக, YouTube குறிப்பிட்ட சந்தாதாரர் எண்ணிக்கையை வழங்காமல், ஒரு சுற்று எண்ணை வழங்குகிறது."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "残念ながら、YouTube は正確な登録者数を提供しておらず、概数を提供しています。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不幸的是，YouTube 不提供准确的订阅者数量，他们提供的是四舍五入的数字。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Өкінішке орай, YouTube жазылушылардың нақты санын бермейді, олар дөңгелектелген нөмірді береді."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sayangnya YouTube tidak memberikan jumlah pasti subscribernya, mereka memberikan angka yang dibulatkan."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne yazık ki YouTube tam abone sayısını vermiyor; yuvarlatılmış bir sayı veriyor."
+          }
         }
       }
     },
@@ -1728,6 +2808,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "திற"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロックを解除する"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解锁"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Құлыпты ашу"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka kunci"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilidi aç"
           }
         }
       }
@@ -1775,6 +2885,36 @@
             "state" : "translated",
             "value" : "ஒரே விட்ஜெட்டில் உங்கள் சந்தாதாரர்கள் மற்றும் பார்வைகள் எண்ணிக்கையை காணுங்கள்"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1つのウィジェットで登録者数と視聴回数をまとめて表示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在一个小组件中同时查看订阅者数和观看次数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бір виджетте жазылушылар мен қаралым санын бірге көріңіз"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lihat jumlah subscriber dan tayangan dalam satu widget"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abone ve görüntülenme sayılarını tek bir widget'ta birlikte görüntüleyin"
+          }
         }
       }
     },
@@ -1820,6 +2960,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "காட்சி எண்ணிக்கை"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "視聴回数"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观看次数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қаралым саны"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumlah Tayangan"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görüntülenme Sayısı"
           }
         }
       }
@@ -1867,6 +3037,36 @@
             "state" : "translated",
             "value" : "உங்கள் YouTube சந்தாதாரர் எண்ணிக்கையை நேரடியாக காண்க"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube の登録者数をリアルタイムで表示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实时查看你的 YouTube 订阅者数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube жазылушылар санын нақты уақытта көріңіз"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lihat jumlah subscriber YouTube Anda secara real time"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube abone sayınızı gerçek zamanlı görüntüleyin"
+          }
         }
       }
     },
@@ -1912,6 +3112,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "உங்கள் YouTube காட்சி எண்ணிக்கையை நேரடியாக காண்க"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube の視聴回数をリアルタイムで表示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实时查看你的 YouTube 观看次数"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube қаралым санын нақты уақытта көріңіз"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lihat jumlah tayangan YouTube Anda secara real time"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YouTube görüntülenme sayınızı gerçek zamanlı görüntüleyin"
           }
         }
       }
@@ -1959,6 +3189,36 @@
             "state" : "translated",
             "value" : "மீட்டமைப்பு பொத்தான் என்ன செய்கிறது?"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセットボタンは何をするのですか?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置按钮有什么作用？"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қалпына келтіру түймесі не істейді?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apa fungsi tombol reset?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sıfırlama düğmesi ne işe yarar?"
+          }
         }
       }
     },
@@ -2004,6 +3264,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ஏன் அது குறிப்பிட்ட சந்தாதாரர் எண்ணிக்கையை காட்டவில்லை?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正確なチャンネル登録者数が表示されないのはなぜですか?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为什么它不显示确切的订阅者数量？"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неліктен ол жазылушылардың нақты санын көрсетпейді?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengapa tidak menunjukkan jumlah pasti pelanggan?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neden tam abone sayısını göstermiyor?"
           }
         }
       }
@@ -2051,6 +3341,36 @@
             "state" : "translated",
             "value" : "SubWidget Pro உடன், நீங்கள் 10 சேனல்கள் வரை சேர்க்கலாம். அதற்கு மேல் சேர்க்க விரும்பினால், அமைப்புகளில் உள்ள இணைப்பைப் பயன்படுத்தி என்னை தொடர்பு கொள்ளுங்கள்; நான் வரம்பை உயர்த்துவேன்."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SubWidget Pro では、最大 10 チャンネルを追加できます。さらに追加したい場合は、設定のリンクを使用して私にご連絡ください。制限を増やします。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 SubWidget Pro，您最多可以添加 10 个频道。如果您想添加更多，请使用“设置”中的链接与我联系，我将增加限制。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SubWidget Pro көмегімен 10 арнаға дейін қосуға болады. Қосымша қосқыңыз келсе, \"Параметрлер\" бөліміндегі сілтеме арқылы маған хабарласыңыз, мен шектеуді арттырамын."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dengan SubWidget Pro, Anda dapat menambahkan hingga 10 saluran. Jika Anda ingin menambahkan lebih banyak, silakan hubungi saya menggunakan tautan di Pengaturan dan saya akan menambah batasnya."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SubWidget Pro ile 10'a kadar kanal ekleyebilirsiniz. Daha fazlasını eklemek isterseniz lütfen Ayarlar'daki bağlantıyı kullanarak benimle iletişime geçin; limiti artıracağım."
+          }
         }
       }
     },
@@ -2097,6 +3417,36 @@
             "state" : "translated",
             "value" : "நீங்கள் கீழே உள்ள Wishlist தாவலைப் பயன்படுத்தி ஒரு அம்சத்தை கோரலாம்."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以下の「ウィッシュリスト」タブを使用して機能をリクエストできます。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可以使用下面的“愿望清单”选项卡来请求某项功能。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Төмендегі Қалаулар тізімі қойындысын пайдаланып мүмкіндікті сұрауға болады."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda dapat meminta fitur menggunakan tab Daftar Keinginan di bawah."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aşağıdaki İstek Listesi sekmesini kullanarak bir özellik talep edebilirsiniz."
+          }
         }
       }
     },
@@ -2142,6 +3492,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "நீங்கள் செயலி அமைப்புகளில் விஜெட்டு எவ்வளவு அடிக்கடி புதுப்பிக்கப்பட வேண்டும் என்பதை தெரிவு செய்யலாம். குறைந்தபட்சம் ஒவ்வொரு 30 நிமிடங்களுக்கும் உள்ளது."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ設定でウィジェットを更新する頻度を選択できます。最小値は 30 分ごとです。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可以在应用程序设置中选择小组件的更新频率。最少为每 30 分钟一次。"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виджеттің қаншалықты жиі жаңартылатынын қолданба параметрлерінде таңдауға болады. Минималды - әр 30 минут сайын."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda dapat memilih seberapa sering Anda ingin widget diperbarui di pengaturan aplikasi. Minimalnya setiap 30 menit."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget'ın ne sıklıkta güncellenmesini istediğinizi uygulama ayarlarından seçebilirsiniz. Minimum her 30 dakikada birdir."
           }
         }
       }
