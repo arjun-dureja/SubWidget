@@ -96,6 +96,58 @@
         }
       }
     },
+    "%@ reached %@ subscribers!" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "وصل %1$@ إلى %2$@ مشترك!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ hat %2$@ Abonnenten erreicht!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ reached %2$@ subscribers!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡%1$@ alcanzó %2$@ suscriptores!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ a atteint %2$@ abonnés !"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ ने %2$@ सब्सक्राइबर हासिल कर लिए!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ alcançou %2$@ inscritos!"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ சந்தாதாரர்களை எட்டியது!"
+          }
+        }
+      }
+    },
     "1 Hour" : {
       "localizations" : {
         "ar" : {
@@ -2595,6 +2647,58 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "மைல்கல் அறிவிப்புகள்"
+          }
+        }
+      }
+    },
+    "Milestone Reached!" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم بلوغ الإنجاز!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meilenstein erreicht!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Milestone Reached!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Hito alcanzado!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jalon atteint !"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "माइलस्टोन हासिल हुआ!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marco alcançado!"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "மைல்கல் எட்டப்பட்டது!"
           }
         }
       }

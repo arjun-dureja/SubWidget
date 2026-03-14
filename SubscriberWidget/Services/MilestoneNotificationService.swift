@@ -88,8 +88,12 @@ class MilestoneNotificationService {
         guard canScheduleNotifications(for: settings.authorizationStatus) else { return }
 
         let content = UNMutableNotificationContent()
-        content.title = "🎉 Milestone Reached!"
-        content.body = "\(channel.channelName) reached \(formatMilestone(milestone)) subscribers!"
+        content.title = String(localized: "Milestone Reached!")
+        content.body = String.localizedStringWithFormat(
+            String(localized: "%@ reached %@ subscribers!"),
+            channel.channelName,
+            formatMilestone(milestone)
+        )
         content.sound = .default
         content.userInfo = [
             "channelId": channel.channelId,
