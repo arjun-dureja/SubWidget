@@ -134,10 +134,7 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 updatedChannel.milestoneEnabled = channel.milestoneEnabled
 
                 if channel.milestoneEnabled {
-                    await MilestoneNotificationService.shared.checkAndNotifyMilestone(
-                        channel: updatedChannel,
-                        hasProAccess: UserDefaults.shared?.bool(forKey: "hasProAccess") ?? false
-                    )
+                    await MilestoneNotificationService.shared.checkAndNotifyMilestone(channel: updatedChannel)
                 }
 
                 return SimpleEntry(

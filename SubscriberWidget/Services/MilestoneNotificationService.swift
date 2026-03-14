@@ -16,6 +16,7 @@ class MilestoneNotificationService {
     private let lastKnownSubCountsKey = "lastKnownSubCounts"
     private let notificationIdentifierPrefix = "milestone_"
 
+    @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @AppStorage("lastKnownSubCounts", store: .shared) private var lastKnownSubCountsData: Data = Data()
 
     private var lastKnownSubCounts: [String: Int] {
@@ -27,10 +28,7 @@ class MilestoneNotificationService {
         }
     }
 
-    func checkAndNotifyMilestone(
-        channel: YouTubeChannel,
-        hasProAccess: Bool
-    ) async {
+    func checkAndNotifyMilestone(channel: YouTubeChannel) async {
         guard let newSubCount = Int(channel.subCount) else { return }
 
         let channelId = channel.channelId
