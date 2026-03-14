@@ -1,0 +1,71 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1時間";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6時間";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12時間";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30分";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "現在、最大 10 チャンネルを追加できます。さらに追加したい場合は、設定のリンクからご連絡ください。上限を増やします。";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "まず、ロック画面を長押しして「カスタマイズ」をタップします。その後、ウィジェットを追加し、タップしてチャンネルを選択できます。";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "ホーム画面にウィジェットを追加するにはどうすればよいですか?";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "ロック画面にウィジェットを追加するにはどうすればよいですか?";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "チャンネルは何個まで追加できますか?";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "登録者数はどのくらいの頻度で更新されますか?";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "自分のチャンネルが見つかりません。";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "リクエストしたい機能のアイデアがあります。";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "ホーム画面からウィジェットを削除して、もう一度追加してください。";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "ウィジェットの色をデフォルトに戻します。";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "ホーム画面の空いている場所を長押しし、左上のプラスボタンをタップします。SubWidget を探してホーム画面に追加します。最後に、ウィジェットを長押ししてチャンネルを選択します。";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "チャンネルを読み込めません。";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "ウィジェットが空白です。";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "これはサーバー側の問題を示しています。後でもう一度お試しください。";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "チャンネル名の代わりにチャンネル ID を入力してみてください。それでもうまくいかない場合は、ご連絡ください。お手伝いします。";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "残念ながら、YouTube は正確な登録者数を提供しておらず、概算値のみを表示します。";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "リセットボタンは何をしますか?";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "なぜ正確な登録者数が表示されないのですか?";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "下のウィッシュリストタブから機能をリクエストできます。";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "アプリ設定でウィジェットの更新頻度を選択できます。最短は30分ごとです。";

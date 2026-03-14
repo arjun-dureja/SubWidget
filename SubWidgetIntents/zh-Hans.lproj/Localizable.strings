@@ -1,0 +1,71 @@
+/* No comment provided by engineer. */
+"1 Hour" = "1小时";
+
+/* No comment provided by engineer. */
+"6 Hours" = "6小时";
+
+/* No comment provided by engineer. */
+"12 Hours" = "12小时";
+
+/* No comment provided by engineer. */
+"30 Minutes" = "30分钟";
+
+/* No comment provided by engineer. */
+"Currently, you can add up to 10 channels. If you would like to add more, please contact me using the link in Settings and I will increase the limit." = "目前，您最多可以添加 10 个频道。如果想添加更多，请通过“设置”中的链接联系我，我会提高上限。";
+
+/* No comment provided by engineer. */
+"First, tap and hold on your Lock Screen and tap 'Customize'. Then you can add the widget and tap it to select the channel." = "首先，长按锁定屏幕并点按“自定义”。然后您可以添加小组件，并点按它来选择频道。";
+
+/* No comment provided by engineer. */
+"How do I add the widget to my homescreen?" = "如何将小组件添加到我的主屏幕？";
+
+/* No comment provided by engineer. */
+"How do I add widget to my Lock Screen?" = "如何将小组件添加到我的锁定屏幕？";
+
+/* No comment provided by engineer. */
+"How many channels can I add?" = "我可以添加多少个频道？";
+
+/* No comment provided by engineer. */
+"How often does the subscriber count update?" = "订阅者数量多久更新一次？";
+
+/* No comment provided by engineer. */
+"I can't find my channel." = "我找不到我的频道。";
+
+/* No comment provided by engineer. */
+"I have a feature idea I want to request." = "我有一个想要请求的功能想法。";
+
+/* No comment provided by engineer. */
+"Please remove the widget from your homescreen and add it back." = "请从主屏幕移除此小组件，然后重新添加。";
+
+/* No comment provided by engineer. */
+"Restores the widget's colors to the defaults." = "将小组件颜色恢复为默认值。";
+
+/* No comment provided by engineer. */
+"Tap and hold anywhere on your homescreen and tap the plus button in the top left. Look for SubWidget and add it to your homescreen. Finally, tap and hold on the widget and select your channel." = "长按主屏幕任意空白处，然后点按左上角的加号。找到 SubWidget 并将其添加到主屏幕。最后，长按小组件并选择您的频道。";
+
+/* No comment provided by engineer. */
+"The channels aren't loading." = "频道无法加载。";
+
+/* No comment provided by engineer. */
+"The widget is blank." = "小组件是空白的。";
+
+/* No comment provided by engineer. */
+"This indicates a server issue. Please try again later." = "这表示服务器出现问题。请稍后再试。";
+
+/* No comment provided by engineer. */
+"Try entering your channel ID instead of your channel name. If that still doesn't work, please contact me and I will help you." = "请尝试输入频道 ID，而不是频道名称。如果仍然不行，请联系我，我会帮您解决。";
+
+/* No comment provided by engineer. */
+"Unfortunately, YouTube does not provide exact subscriber counts, they provide a rounded number." = "很遗憾，YouTube 不提供精确的订阅者数量，只会显示四舍五入后的数字。";
+
+/* No comment provided by engineer. */
+"What does the reset button do?" = "重置按钮有什么作用？";
+
+/* No comment provided by engineer. */
+"Why doesn't it show the exact subscriber count?" = "为什么不显示精确的订阅者数量？";
+
+/* No comment provided by engineer. */
+"You can request a feature using the Wishlist tab below." = "您可以通过下面的“愿望清单”标签请求功能。";
+
+/* No comment provided by engineer. */
+"You can select how often you want the widget to update in the app settings. The minimum is every 30 minutes." = "您可以在应用设置中选择小组件的更新频率。最短为每 30 分钟一次。";
