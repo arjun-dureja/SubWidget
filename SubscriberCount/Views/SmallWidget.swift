@@ -63,8 +63,7 @@ struct SmallWidget: View {
         guard hasProAccess else { return false }
         guard showWidgetRefreshButton else { return false }
         guard channel?.channelName != YouTubeChannel.preview.channelName else { return false }
-        guard let widgetType = entry?.widgetType else { return false }
-        return widgetType == .subscribers || widgetType == .views || widgetType == .combined
+        return entry != nil
     }
 
     var body: some View {
