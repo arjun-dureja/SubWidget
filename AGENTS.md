@@ -48,7 +48,7 @@ The project contains three main targets:
 **Main App (SubscriberWidget)**
 - **MVVM pattern**: `ViewModel.swift` is the central view model that manages app state
 - **Services layer**: Protocol-based services for separation of concerns
-  - `YouTubeService`: Fetches channel data from YouTube Data API with caching (10-minute expiry)
+  - `YouTubeService`: Fetches channel data from YouTube Data API with caching (2-minute expiry)
   - `ChannelStorageService`: Persists channels and settings to shared UserDefaults
   - `AnalyticsService`: Mixpanel event tracking singleton
 - **Model**: Core data models in `Model/` directory
@@ -81,7 +81,7 @@ The project contains three main targets:
   - Channel search by name: `search?part=snippet&q={name}&type=channel`
   - Channel details by ID: `channels?part=snippet&id={id}`
   - Channel statistics: `channels?part=statistics&id={channelId}`
-- Caching: Uses the `Cache` library (Hyperoslo) with 600-second expiry for channel data
+- Caching: Uses the `Cache` library (Hyperoslo) with 120-second expiry for channel data
 - Response handling via generic `Response<T>` wrapper and custom error types in `SubWidgetError`
 
 ### Dependencies (Swift Package Manager)
