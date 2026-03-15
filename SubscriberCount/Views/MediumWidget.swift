@@ -19,6 +19,8 @@ struct MediumWidget: View {
     @Environment(\.colorScheme) var colorScheme
 
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
+    @AppStorage("showWidgetRefreshButton", store: .shared) var showWidgetRefreshButton: Bool = false
+    @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     let lastUpdatedTime: String = .currentTime
 
     var channel: YouTubeChannel? {
@@ -62,6 +64,13 @@ struct MediumWidget: View {
 
     private var usesLocalPreviewImage: Bool {
         channel?.profileImage.hasPrefix("OnboardingAvatar-") == true
+    }
+
+    private var shouldShowRefreshButton: Bool {
+        guard hasProAccess else { return false }
+        guard showWidgetRefreshButton else { return false }
+        guard channel?.channelName != YouTubeChannel.preview.channelName else { return false }
+        return entry != nil
     }
 
     var body: some View {
@@ -127,8 +136,16 @@ struct MediumWidget: View {
                     Spacer()
 
                     VStack(alignment: .trailing) {
-                        YouTubeLogo()
-                            .frame(maxHeight: .infinity, alignment: .top)
+                        Group {
+                            if shouldShowRefreshButton {
+                                WidgetRefreshButton(
+                                    widgetType: entry.widgetType
+                                )
+                            } else {
+                                YouTubeLogo()
+                            }
+                        }
+                        .frame(maxHeight: .infinity, alignment: .top)
 
                         Text(lastUpdatedTime)
                             .font(.system(size: 11))

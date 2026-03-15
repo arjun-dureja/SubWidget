@@ -15,6 +15,7 @@ struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
+    @AppStorage("showWidgetRefreshButton", store: .shared) var showWidgetRefreshButton: Bool = false
     @AppStorage("hasProAccess", store: .shared) var hasProAccess: Bool = false
     @State private var showPaywall = false
 
@@ -112,6 +113,28 @@ struct SettingsView: View {
                                 return
                             }
                             AnalyticsService.shared.logSimplifyNumbersToggled(newValue)
+                            WidgetCenter.shared.reloadAllTimelines()
+                        }
+                    }
+
+                    Section(footer: Text("Add a button to manually refresh the subscriber count")) {
+                        Toggle(isOn: $showWidgetRefreshButton) {
+                            Label {
+                                Text("Refresh Button")
+                            } icon: {
+                                Image(systemName: "arrow.clockwise.circle.fill")
+                                    .foregroundStyle(.white, Color.youtubeRed)
+                            }
+                        }
+                        .tint(.youtubeRed)
+                        .onChange(of: showWidgetRefreshButton) { newValue in
+                            if !hasProAccess && newValue {
+                                showWidgetRefreshButton = false
+                                AnalyticsService.shared.logPaywallShown(source: "widget_refresh_button")
+                                showPaywall = true
+                                return
+                            }
+                            AnalyticsService.shared.logWidgetRefreshButtonToggled(newValue)
                             WidgetCenter.shared.reloadAllTimelines()
                         }
                     }

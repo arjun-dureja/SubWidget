@@ -14,8 +14,8 @@ class YouTubeService: YouTubeServiceProtocol {
     let storage: Storage<String, YouTubeChannel>?
 
     init() {
-        let diskConfig = DiskConfig(name: "SubWidget", expiry: .seconds(600))
-        let memoryConfig = MemoryConfig(expiry: .seconds(600))
+        let diskConfig = DiskConfig(name: "SubWidget", expiry: .seconds(120))
+        let memoryConfig = MemoryConfig(expiry: .seconds(120))
 
         self.storage = try? Storage(
             diskConfig: diskConfig,

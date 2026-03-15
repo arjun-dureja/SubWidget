@@ -104,6 +104,18 @@ class AnalyticsService {
         ])
     }
 
+    func logWidgetRefreshButtonToggled(_ isToggled: Bool) {
+        logEvent("widget_refresh_button.toggled", properties: [
+            "isToggled": isToggled
+        ])
+    }
+
+    func logWidgetManualRefreshTapped(widgetKind: String) {
+        logEvent("widget_manual_refresh.tapped", properties: [
+            "widgetKind": widgetKind
+        ])
+    }
+
     func logFaqScreenViewed() {
         logEvent("faq_screen.viewed")
     }
