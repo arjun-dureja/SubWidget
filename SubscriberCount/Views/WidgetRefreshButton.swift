@@ -9,10 +9,10 @@ import SwiftUI
 import AppIntents
 
 struct WidgetRefreshButton: View {
-    let widgetType: WidgetType
+    let widgetKind: String
 
     var body: some View {
-        Button(intent: RefreshWidgetIntent(widgetKind: widgetType.widgetKind)) {
+        Button(intent: RefreshWidgetIntent(widgetKind: widgetKind)) {
             Image(systemName: "arrow.clockwise.circle.fill")
                 .font(.system(size: 20, weight: .bold))
                 .symbolRenderingMode(.palette)

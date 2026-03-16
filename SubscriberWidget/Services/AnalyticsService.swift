@@ -141,6 +141,13 @@ class AnalyticsService {
         ])
     }
 
+    func logVideoDeepLinkOpened(_ videoUrl: String, widgetType: String) {
+        logEvent("video_deeplink.opened", properties: [
+            "videoUrl": videoUrl,
+            "widgetType": widgetType
+        ])
+    }
+
     func logCustomizeWidgetScreenOpened(_ channelName: String, _ channelUrl: String, _ subCount: String) {
         logEvent("customize_widget_screen.opened", properties: [
             "channelName": channelName,

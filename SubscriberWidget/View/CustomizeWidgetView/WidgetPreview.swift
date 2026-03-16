@@ -14,6 +14,7 @@ struct WidgetPreview: View {
 
     @Binding var channel: YouTubeChannel
     @State private var currentPage = 0
+    @State private var latestUpload: LatestUploadVideo?
     @State private var showPaywall = false
 
     var body: some View {
@@ -64,6 +65,13 @@ struct WidgetPreview: View {
                         .widgetBackground(bgColor: channel.bgColor, size: .medium)
                 }
                 .tag(4)
+
+                let latestUploadEntry = LatestUploadEntry(channel: channel, latestUpload: latestUpload)
+                LockedPreview(size: .medium, isLocked: !hasProAccess, onUpgrade: handleUpgradeTapped) {
+                    LatestUploadMediumWidget(entry: latestUploadEntry)
+                        .widgetBackground(bgColor: channel.bgColor, size: .medium)
+                }
+                .tag(5)
             }
             .padding(.top, -40)
             .padding(.bottom, -8)
@@ -76,11 +84,25 @@ struct WidgetPreview: View {
         )
         .padding(.horizontal, 16)
         .paywallSheet(isPresented: $showPaywall)
+        .task(id: channel.channelId) {
+            await loadLatestUploadPreview()
+        }
     }
 
     private func handleUpgradeTapped() {
         AnalyticsService.shared.logPaywallShown(source: "preview_page")
         showPaywall = true
+    }
+
+    @MainActor
+    private func loadLatestUploadPreview() async {
+        if channel.channelName == YouTubeChannel.preview.channelName {
+            latestUpload = .preview
+            return
+        }
+
+        latestUpload = nil
+        latestUpload = try? await YouTubeService().getLatestUpload(for: channel.channelId)
     }
 }
 

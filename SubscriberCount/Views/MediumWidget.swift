@@ -139,7 +139,7 @@ struct MediumWidget: View {
                         Group {
                             if shouldShowRefreshButton {
                                 WidgetRefreshButton(
-                                    widgetType: entry.widgetType
+                                    widgetKind: entry.widgetType.widgetKind
                                 )
                             } else {
                                 YouTubeLogo()

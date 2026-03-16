@@ -68,7 +68,11 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 } else {
                     let entry = SimpleEntry(
                         channel: channels[0],
-                        channelImage: await getImageForUrl(channels[0].profileImage),
+                        channelImage: await WidgetImageLoader.getImageForUrl(
+                            channels[0].profileImage,
+                            fallbackSystemName: "person.circle",
+                            size: CGSize(width: 200, height: 200)
+                        ),
                         widgetType: widgetType
                     )
 
@@ -139,7 +143,11 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
 
                 return SimpleEntry(
                     channel: updatedChannel,
-                    channelImage: await getImageForUrl(updatedChannel.profileImage),
+                    channelImage: await WidgetImageLoader.getImageForUrl(
+                        updatedChannel.profileImage,
+                        fallbackSystemName: "person.circle",
+                        size: CGSize(width: 200, height: 200)
+                    ),
                     widgetType: widgetType
                 )
             }
@@ -151,56 +159,6 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
             channel: nil,
             widgetType: widgetType
         )
-    }
-
-    private func getImageForUrl(_ urlString: String) async -> UIImage {
-        guard let url = URL(string: urlString) else {
-            return UIImage(systemName: "person.circle")!
-        }
-
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-
-            return downsampleImage(from: data, to: CGSize(width: 200, height: 200))
-                ?? UIImage(systemName: "person.circle")!
-
-        } catch {
-            AnalyticsService.shared.logWidgetImageFetchFailed(
-                url: url.absoluteString,
-                error: error.localizedDescription
-            )
-        }
-
-        return UIImage(systemName: "person.circle")!
-    }
-
-    private func downsampleImage(from data: Data, to size: CGSize) -> UIImage? {
-        let options: [CFString: Any] = [
-            kCGImageSourceShouldCache: false
-        ]
-
-        guard let source = CGImageSourceCreateWithData(data as CFData, options as CFDictionary) else {
-            return nil
-        }
-
-        let maxDimension = max(size.width, size.height)
-
-        let downsampleOptions: [CFString: Any] = [
-            kCGImageSourceCreateThumbnailFromImageAlways: true,
-            kCGImageSourceShouldCacheImmediately: true,
-            kCGImageSourceCreateThumbnailWithTransform: true,
-            kCGImageSourceThumbnailMaxPixelSize: maxDimension
-        ]
-
-        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(
-            source,
-            0,
-            downsampleOptions as CFDictionary
-        ) else {
-            return nil
-        }
-
-        return UIImage(cgImage: cgImage)
     }
 }
 

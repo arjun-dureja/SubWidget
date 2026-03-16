@@ -4361,6 +4361,9 @@
         }
       }
     },
+    "Latest Upload" : {
+
+    },
     "Milestone Notifications" : {
       "localizations" : {
         "ar" : {
@@ -9154,6 +9157,9 @@
           }
         }
       }
+    },
+    "View stats for your channel's latest upload" : {
+
     },
     "What does the reset button do?" : {
       "localizations" : {

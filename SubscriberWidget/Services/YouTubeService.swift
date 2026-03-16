@@ -12,15 +12,24 @@ import Cache
 class YouTubeService: YouTubeServiceProtocol {
     let baseUrl = "https://www.googleapis.com/youtube/v3/"
     let storage: Storage<String, YouTubeChannel>?
+    let latestUploadStorage: Storage<String, LatestUploadVideo>?
 
     init() {
         let diskConfig = DiskConfig(name: "SubWidget", expiry: .seconds(120))
         let memoryConfig = MemoryConfig(expiry: .seconds(120))
+        let latestUploadDiskConfig = DiskConfig(name: "SubWidgetLatestUpload", expiry: .seconds(120))
+        let latestUploadMemoryConfig = MemoryConfig(expiry: .seconds(120))
 
         self.storage = try? Storage(
             diskConfig: diskConfig,
             memoryConfig: memoryConfig,
             transformer: TransformerFactory.forCodable(ofType: YouTubeChannel.self)
+        )
+
+        self.latestUploadStorage = try? Storage(
+            diskConfig: latestUploadDiskConfig,
+            memoryConfig: latestUploadMemoryConfig,
+            transformer: TransformerFactory.forCodable(ofType: LatestUploadVideo.self)
         )
     }
 
@@ -101,6 +110,23 @@ class YouTubeService: YouTubeServiceProtocol {
         return channelFromGoogle
     }
 
+    func getLatestUpload(for channelId: String) async throws -> LatestUploadVideo {
+        try? latestUploadStorage?.removeExpiredObjects()
+
+        let channelIdWithoutSpaces = channelId.replacingOccurrences(of: " ", with: "")
+
+        if let cachedUpload = try? latestUploadStorage?.object(forKey: channelIdWithoutSpaces) {
+            return cachedUpload
+        }
+
+        let uploadsPlaylistId = try await getUploadsPlaylistId(for: channelIdWithoutSpaces)
+        let latestVideoId = try await getLatestUploadVideoId(for: uploadsPlaylistId)
+        let latestUpload = try await getLatestUploadVideoDetails(for: latestVideoId)
+
+        try latestUploadStorage?.setObject(latestUpload, forKey: channelIdWithoutSpaces)
+        return latestUpload
+    }
+
     private func getChannelDetailsFromHandle(for handle: String) async throws -> YouTubeChannel {
         let handleWithoutSpaces = handle.replacingOccurrences(of: " ", with: "")
         let query = "channels?part=snippet&forHandle=\(handleWithoutSpaces)"
@@ -127,6 +153,36 @@ class YouTubeService: YouTubeServiceProtocol {
             throw SubWidgetError.channelNotfound
         }
         return (channelStatistics.subscriberCount, channelStatistics.viewCount)
+    }
+
+    private func getUploadsPlaylistId(for channelId: String) async throws -> String {
+        let query = "channels?part=contentDetails&id=\(channelId)"
+        let items: [ChannelUploads] = try await makeRequest(with: query)
+        guard let uploadsPlaylistId = items.first?.uploadsPlaylistId, !uploadsPlaylistId.isEmpty else {
+            throw SubWidgetError.channelNotfound
+        }
+
+        return uploadsPlaylistId
+    }
+
+    private func getLatestUploadVideoId(for playlistId: String) async throws -> String {
+        let query = "playlistItems?part=contentDetails&playlistId=\(playlistId)&maxResults=1"
+        let items: [PlaylistVideoItem] = try await makeRequest(with: query)
+        guard let videoId = items.first?.videoId, !videoId.isEmpty else {
+            throw SubWidgetError.channelNotfound
+        }
+
+        return videoId
+    }
+
+    private func getLatestUploadVideoDetails(for videoId: String) async throws -> LatestUploadVideo {
+        let query = "videos?part=snippet,statistics&id=\(videoId)"
+        let items: [LatestUploadVideo] = try await makeRequest(with: query)
+        guard let latestUpload = items.first else {
+            throw SubWidgetError.channelNotfound
+        }
+
+        return latestUpload
     }
 
     private func makeUrl(query: String) throws -> URL {
