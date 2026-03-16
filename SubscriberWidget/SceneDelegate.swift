@@ -42,6 +42,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
+        if url.host() == "video" {
+            let videoId = url.path.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+            let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            let widgetType = components?.queryItems?.first(where: { $0.name == "widgetType" })?.value ?? "unknown"
+
+            guard !videoId.isEmpty else { return }
+            openYoutubeVideo(videoId, widgetType: widgetType)
+            return
+        }
+
         if let channelId = url.host() {
             let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
             let widgetType = components?.queryItems?.first(where: { $0.name == "widgetType" })?.value ?? "unknown"
@@ -72,6 +82,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let channelUrl = StringUtils.getChannelUrlFromId(channelId)
         AnalyticsService.shared.logChannelDeepLinkOpened(channelUrl, widgetType: widgetType)
         UIApplication.shared.open(URL(string: channelUrl)!, options: [:], completionHandler: nil)
+    }
+
+    func openYoutubeVideo(_ videoId: String, widgetType: String) {
+        let videoUrl = StringUtils.getVideoUrlFromId(videoId)
+        AnalyticsService.shared.logVideoDeepLinkOpened(videoUrl, widgetType: widgetType)
+        UIApplication.shared.open(URL(string: videoUrl)!, options: [:], completionHandler: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

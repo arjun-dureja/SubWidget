@@ -10,4 +10,8 @@ class StringUtils {
     static func getChannelUrlFromId(_ channelId: String) -> String {
         return "https://youtube.com/channel/\(channelId)"
     }
+
+    static func getVideoUrlFromId(_ videoId: String) -> String {
+        return "https://youtube.com/watch?v=\(videoId)"
+    }
 }

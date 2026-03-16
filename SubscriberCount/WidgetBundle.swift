@@ -15,5 +15,6 @@ struct SubWidgets: WidgetBundle {
        SubscriberCount()
        ViewCount()
        CombinedCount()
+       LatestUploadWidget()
    }
 }

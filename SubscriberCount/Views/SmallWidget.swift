@@ -96,7 +96,7 @@ struct SmallWidget: View {
                         VStack(alignment: .trailing, spacing: 6) {
                             if shouldShowRefreshButton {
                                 WidgetRefreshButton(
-                                    widgetType: entry.widgetType
+                                    widgetKind: entry.widgetType.widgetKind
                                 )
                             } else {
                                 YouTubeLogo()

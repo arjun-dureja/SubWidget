@@ -87,8 +87,11 @@
 				Constants.swift,
 				Model/Channel.swift,
 				Model/ChannelID.swift,
+				Model/ChannelUploads.swift,
 				Model/Extensions.swift,
 				Model/FAQItem.swift,
+				Model/LatestUploadVideo.swift,
+				Model/PlaylistVideoItem.swift,
 				Model/RefreshFrequencies.swift,
 				Model/Response.swift,
 				Model/Subscribers.swift,
@@ -111,8 +114,11 @@
 				Constants.swift,
 				Model/Channel.swift,
 				Model/ChannelID.swift,
+				Model/ChannelUploads.swift,
 				Model/Extensions.swift,
 				Model/FAQItem.swift,
+				Model/LatestUploadVideo.swift,
+				Model/PlaylistVideoItem.swift,
 				Model/RefreshFrequencies.swift,
 				Model/Response.swift,
 				Model/Subscribers.swift,
@@ -148,6 +154,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Utils.swift,
+				WidgetImageLoader.swift,
 			);
 			target = 728683BF25DA44AE00568034 /* SubWidgetIntents */;
 		};
