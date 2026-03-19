@@ -223,6 +223,10 @@ struct SubscriberCountEntryView: View {
         guard entry.channel != nil else { return false }
         guard !hasProAccess else { return false }
         guard !isPreview else { return false }
+        return isProOnlyWidgetKind
+    }
+
+    private var isProOnlyWidgetKind: Bool {
         switch widgetFamily {
         case .systemSmall:
             return entry.widgetType != .subscribers
@@ -239,7 +243,7 @@ struct SubscriberCountEntryView: View {
 
     private var deepLink: URL? {
         if !hasProAccess {
-            return WidgetDeepLink.paywall(source: isLocked ? "widget_locked" : "widget_free")
+            return WidgetDeepLink.paywall(source: isProOnlyWidgetKind ? "widget_locked" : "widget_free")
         }
 
         guard let baseUrl = entry.channel?.deeplinkUrl else { return nil }

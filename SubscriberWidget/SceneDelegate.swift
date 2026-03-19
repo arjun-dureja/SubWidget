@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func handleDeepLink(_ url: URL) {
         if url.host() == "paywall" {
             let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-            let source = components?.queryItems?.first(where: { $0.name == "source" })?.value ?? "widget_free"
+            let source = components?.queryItems?.first(where: { $0.name == "source" })?.value ?? "widget_legacy"
             UserDefaults.shared?.set(true, forKey: "pendingPaywallFromWidget")
             UserDefaults.shared?.set(source, forKey: "pendingWidgetPaywallSource")
             NotificationCenter.default.post(name: .paywallRequested, object: source)

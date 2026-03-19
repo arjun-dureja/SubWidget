@@ -27,7 +27,7 @@ struct MainView: View {
     @State private var onboardingAction: OnboardingAction = .none
     @State private var widgetPaywallSource = "widget_free"
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
-    @AppStorage("pendingWidgetPaywallSource", store: .shared) private var pendingWidgetPaywallSource: String = "widget_free"
+    @AppStorage("pendingWidgetPaywallSource", store: .shared) private var pendingWidgetPaywallSource: String = "widget_legacy"
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
 
@@ -83,7 +83,8 @@ struct MainView: View {
             WidgetCenter.shared.reloadAllTimelines()
         }
         .onReceive(NotificationCenter.default.publisher(for: .paywallRequested)) { notification in
-            let source = notification.object as? String ?? "widget_free"
+            let source = notification.object as? String ?? "widget_legacy"
+            clearPendingWidgetPaywallRequest()
             handleWidgetPaywallRequest(source: source)
         }
         .onChange(of: hasProAccess) { hasProAccess in
@@ -93,8 +94,9 @@ struct MainView: View {
         }
         .onAppear {
             if pendingPaywallFromWidget {
-                pendingPaywallFromWidget = false
-                handleWidgetPaywallRequest(source: pendingWidgetPaywallSource)
+                let source = pendingWidgetPaywallSource
+                clearPendingWidgetPaywallRequest()
+                handleWidgetPaywallRequest(source: source)
             }
         }
         .task {
@@ -132,7 +134,7 @@ struct MainView: View {
         Task {
             await SubscriptionService().checkAccess()
             if !hasProAccess {
-                if source == "widget_locked" {
+                if source == "widget_locked" || source == "widget_legacy" {
                     AnalyticsService.shared.logPaywallShown(source: source)
                     showPaywall = true
                     return
@@ -143,6 +145,11 @@ struct MainView: View {
                 showWidgetUpgradeAlert = true
             }
         }
+    }
+
+    private func clearPendingWidgetPaywallRequest() {
+        pendingPaywallFromWidget = false
+        pendingWidgetPaywallSource = "widget_legacy"
     }
 
     @MainActor
