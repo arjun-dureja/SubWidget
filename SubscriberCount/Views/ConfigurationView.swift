@@ -11,7 +11,7 @@ import WidgetKit
 
 struct ConfigurationView: View {
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
-    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     var baselineOffset: CGFloat
 

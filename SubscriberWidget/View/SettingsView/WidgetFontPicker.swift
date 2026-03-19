@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetFontPicker: View {
-    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @Binding var showPaywall: Bool
 

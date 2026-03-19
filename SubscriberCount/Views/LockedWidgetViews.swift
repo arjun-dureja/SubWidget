@@ -10,7 +10,7 @@ import WidgetKit
 
 struct LockedWidgetContainer<Content: View>: View {
     @Environment(\.widgetFamily) private var widgetFamily
-    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
     @ViewBuilder var content: Content
 
     private var widgetFont: WidgetFont {
@@ -40,7 +40,7 @@ struct LockedWidgetContainer<Content: View>: View {
 }
 
 struct LockedLockscreenWidget: View {
-    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     private var widgetFont: WidgetFont {
         WidgetFont(storageValue: widgetFontRawValue)

@@ -18,7 +18,7 @@ struct SmallWidget: View {
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
     @AppStorage("showWidgetRefreshButton", store: .shared) var showWidgetRefreshButton: Bool = false
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
-    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
     let lastUpdatedTime: String = .currentTime
 
     var channel: YouTubeChannel? {

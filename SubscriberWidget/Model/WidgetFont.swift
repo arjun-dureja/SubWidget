@@ -13,8 +13,6 @@ enum WidgetFont: String, CaseIterable, Codable {
     case serif
     case monospaced
 
-    static let storageKey = "widgetFont"
-
     init(storageValue: String) {
         self = WidgetFont(rawValue: storageValue) ?? .default
     }

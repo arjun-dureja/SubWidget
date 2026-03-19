@@ -11,7 +11,7 @@ import WidgetKit
 
 struct LockscreenWidget: View {
     var entry: SimpleEntry?
-    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     var channel: YouTubeChannel? {
         entry?.channel

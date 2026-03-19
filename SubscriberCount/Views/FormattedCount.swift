@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FormattedCount: View {
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
-    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     var count: String
     var fontSize: CGFloat? = nil
