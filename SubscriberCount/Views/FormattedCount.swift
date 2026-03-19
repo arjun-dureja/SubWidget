@@ -10,8 +10,15 @@ import SwiftUI
 
 struct FormattedCount: View {
     @AppStorage("simplifyNumbers", store: .shared) var simplifyNumbers: Bool = false
+    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     var count: String
+    var fontSize: CGFloat? = nil
+    var fontWeight: Font.Weight = .bold
+
+    private var widgetFont: WidgetFont {
+        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+    }
 
     var formatted: String {
         if simplifyNumbers {
@@ -23,6 +30,11 @@ struct FormattedCount: View {
 
     var body: some View {
         Text(formatted)
-            .fontWeight(.bold)
+            .if(fontSize != nil) { view in
+                view.font(widgetFont.font(size: fontSize ?? 17, weight: fontWeight))
+            }
+            .if(fontSize == nil) { view in
+                view.fontWeight(fontWeight)
+            }
     }
 }

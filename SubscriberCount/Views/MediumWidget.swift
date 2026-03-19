@@ -21,6 +21,7 @@ struct MediumWidget: View {
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
     @AppStorage("showWidgetRefreshButton", store: .shared) var showWidgetRefreshButton: Bool = false
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
+    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
     let lastUpdatedTime: String = .currentTime
 
     var channel: YouTubeChannel? {
@@ -62,6 +63,10 @@ struct MediumWidget: View {
         return .youtubeRed
     }
 
+    private var widgetFont: WidgetFont {
+        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+    }
+
     private var usesLocalPreviewImage: Bool {
         channel?.profileImage.hasPrefix("OnboardingAvatar-") == true
     }
@@ -97,36 +102,32 @@ struct MediumWidget: View {
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text(channel.channelName)
-                            .fontWeight(.bold)
-                            .font(.system(size: 24))
+                            .font(widgetFont.font(size: 24, weight: .bold))
                             .lineLimit(channel.channelName.firstIndex(of: " ") != nil && channel.channelName.count > 15 ? .max : 1)
                             .foregroundColor(accentColor)
 
                         switch countMode {
                         case let .single(count, type):
-                            FormattedCount(count: count)
-                                .font(.system(size: 32))
+                            FormattedCount(count: count, fontSize: 32)
                                 .lineLimit(1)
                                 .foregroundColor(numberColor)
                             FormattedCaption(widgetType: type)
-                                .font(.system(size: 15))
+                                .font(widgetFont.font(size: 15))
                                 .lineLimit(1)
                                 .foregroundColor(accentColor)
                         case let .combined(subscribers, views):
                             VStack(alignment: .leading, spacing: 2) {
-                                FormattedCount(count: subscribers)
-                                    .font(.system(size: 24))
+                                FormattedCount(count: subscribers, fontSize: 24)
                                     .foregroundColor(numberColor)
                                 FormattedCaption(widgetType: .subscribers)
-                                    .font(.system(size: 12))
+                                    .font(widgetFont.font(size: 12))
                                     .foregroundColor(accentColor)
                             }
                             VStack(alignment: .leading, spacing: 2) {
-                                FormattedCount(count: views)
-                                    .font(.system(size: 24))
+                                FormattedCount(count: views, fontSize: 24)
                                     .foregroundColor(numberColor)
                                 FormattedCaption(widgetType: .views)
-                                    .font(.system(size: 12))
+                                    .font(widgetFont.font(size: 12))
                                     .foregroundColor(accentColor)
                             }
                         }
@@ -148,7 +149,7 @@ struct MediumWidget: View {
                         .frame(maxHeight: .infinity, alignment: .top)
 
                         Text(lastUpdatedTime)
-                            .font(.system(size: 11))
+                            .font(widgetFont.font(size: 11))
                             .foregroundColor(accentColor)
                             .frame(maxHeight: .infinity, alignment: .bottom)
                             .opacity(showUpdateTime ? 1 : 0)

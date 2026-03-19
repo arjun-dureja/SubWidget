@@ -110,6 +110,12 @@ class AnalyticsService {
         ])
     }
 
+    func logWidgetFontChanged(_ font: String) {
+        logEvent("widget_font.changed", properties: [
+            "font": font
+        ])
+    }
+
     func logWidgetManualRefreshTapped(widgetKind: String) {
         logEvent("widget_manual_refresh.tapped", properties: [
             "widgetKind": widgetKind

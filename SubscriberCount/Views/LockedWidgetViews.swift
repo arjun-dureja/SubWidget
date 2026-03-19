@@ -10,7 +10,12 @@ import WidgetKit
 
 struct LockedWidgetContainer<Content: View>: View {
     @Environment(\.widgetFamily) private var widgetFamily
+    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
     @ViewBuilder var content: Content
+
+    private var widgetFont: WidgetFont {
+        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+    }
 
     var body: some View {
         ZStack {
@@ -22,7 +27,7 @@ struct LockedWidgetContainer<Content: View>: View {
                 Image(systemName: "lock.fill")
                     .font(.system(size: 20, weight: .semibold))
                 Text("Unlock")
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(widgetFont.font(size: 16, weight: .semibold))
             }
             .foregroundColor(.white)
             .padding(.horizontal, 16)
@@ -35,9 +40,15 @@ struct LockedWidgetContainer<Content: View>: View {
 }
 
 struct LockedLockscreenWidget: View {
+    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
+
+    private var widgetFont: WidgetFont {
+        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+    }
+
     var body: some View {
         Text("Get SubWidget Pro to use this widget")
-            .font(.system(size: 12, weight: .semibold))
+            .font(widgetFont.font(size: 12, weight: .semibold))
             .minimumScaleFactor(0.1)
             .lineLimit(2)
             .containerBackground(.clear, for: .widget)

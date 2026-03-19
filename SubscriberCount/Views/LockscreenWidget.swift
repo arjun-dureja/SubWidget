@@ -11,9 +11,14 @@ import WidgetKit
 
 struct LockscreenWidget: View {
     var entry: SimpleEntry?
+    @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     var channel: YouTubeChannel? {
         entry?.channel
+    }
+
+    private var widgetFont: WidgetFont {
+        WidgetFont(rawValue: widgetFontRawValue) ?? .default
     }
 
     private var usesLocalPreviewImage: Bool {
@@ -54,18 +59,14 @@ struct LockscreenWidget: View {
 
                 VStack(alignment: .leading) {
                     Text(channel.channelName)
-                        .fontWeight(.bold)
-                        .font(.system(size: 14))
+                        .font(widgetFont.font(size: 14, weight: .bold))
                         .minimumScaleFactor(0.01)
                         .lineLimit(2)
-                    FormattedCount(count: count)
-                        .fontWeight(.bold)
-                        .font(.system(size: 16))
+                    FormattedCount(count: count, fontSize: 16)
                         .minimumScaleFactor(0.01)
                         .lineLimit(1)
                     FormattedCaption(widgetType: entry.widgetType)
-                        .fontWeight(.medium)
-                        .font(.system(size: 11))
+                        .font(widgetFont.font(size: 11, weight: .medium))
                         .minimumScaleFactor(0.01)
                         .lineLimit(1)
                 }
@@ -75,11 +76,9 @@ struct LockscreenWidget: View {
             // Configuration View
             VStack(alignment: .leading) {
                 Text("Select Your Channel")
-                    .fontWeight(.bold)
-                    .font(.system(size: 13))
+                    .font(widgetFont.font(size: 13, weight: .bold))
                 Text("- Add a channel in the app, then tap this widget while editing")
-                    .font(.system(size: 11))
-                    .fontWeight(.medium)
+                    .font(widgetFont.font(size: 11, weight: .medium))
             }
             .containerBackground(.clear, for: .widget)
         }
