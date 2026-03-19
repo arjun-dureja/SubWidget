@@ -57,6 +57,7 @@ struct WidgetFontPicker: View {
                 isRevertingSelection = true
                 widgetFontRawValue = WidgetFont.default.rawValue
                 AnalyticsService.shared.logPaywallShown(source: "widget_font")
+                WidgetCenter.shared.reloadAllTimelines()
                 showPaywall = true
                 return
             }

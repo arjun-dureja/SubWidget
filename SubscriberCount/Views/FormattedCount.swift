@@ -30,6 +30,8 @@ struct FormattedCount: View {
 
     var body: some View {
         Text(formatted)
+            // Widget call sites pass an explicit size so the global widget font applies only there.
+            // Non-widget app views continue to provide their own `.font(...)` externally.
             .if(fontSize != nil) { view in
                 view.font(widgetFont.font(size: fontSize ?? 17, weight: fontWeight))
             }
