@@ -78,13 +78,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        ReviewPromptService.shared.registerAppOpen()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        ReviewPromptService.shared.registerAppOpen()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
