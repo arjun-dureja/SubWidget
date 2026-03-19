@@ -21,6 +21,9 @@ extension View {
         self.sheet(isPresented: isPresented) {
             NavigationView {
                 PaywallView()
+                    .onAppear {
+                        ReviewPromptService.shared.markPaywallShown()
+                    }
                     .onPurchaseCompleted { _, _ in
                         AnalyticsService.shared.logSubscriptionPurchaseCompleted()
                         Task { await SubscriptionService().checkAccess() }
