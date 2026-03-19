@@ -266,6 +266,12 @@ class AnalyticsService {
         ])
     }
 
+    func logWidgetUpgradeAlertShown(source: String) {
+        logEvent("widget_upgrade_alert.shown", properties: [
+            "source": source
+        ])
+    }
+
     func logOnboardingShown() {
         logEvent("onboarding.shown")
     }

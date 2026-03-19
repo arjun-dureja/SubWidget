@@ -33,7 +33,13 @@ struct SimpleEntry: TimelineEntry {
 }
 
 private enum WidgetDeepLink {
-    static let paywall = URL(string: "subwidget://paywall")
+    static func paywall(source: String) -> URL? {
+        var components = URLComponents()
+        components.scheme = "subwidget"
+        components.host = "paywall"
+        components.queryItems = [URLQueryItem(name: "source", value: source)]
+        return components.url
+    }
 }
 
 struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
@@ -233,7 +239,7 @@ struct SubscriberCountEntryView: View {
 
     private var deepLink: URL? {
         if !hasProAccess {
-            return WidgetDeepLink.paywall
+            return WidgetDeepLink.paywall(source: isLocked ? "widget_locked" : "widget_free")
         }
 
         guard let baseUrl = entry.channel?.deeplinkUrl else { return nil }
