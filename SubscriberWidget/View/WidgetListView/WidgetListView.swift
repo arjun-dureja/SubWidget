@@ -93,11 +93,11 @@ struct WidgetListView: View {
                     viewModel: viewModel,
                     onChannelAdded: { channel in
                         navigateToChannelId = channel.id
-                        if viewModel.channels.count > 1 {
-                            AnalyticsService.shared.logReviewRequested()
-                            DispatchQueue.main.async {
-                                requestReview()
-                            }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            ReviewPromptService.shared.requestReviewIfAppropriate(
+                                channelCount: viewModel.channels.count,
+                                requestReview: { requestReview() }
+                            )
                         }
                     }
                 )

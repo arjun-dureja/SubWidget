@@ -84,6 +84,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        ReviewPromptService.shared.registerAppOpen()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

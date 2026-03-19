@@ -167,6 +167,7 @@ struct SettingsView: View {
 
                         Button {
                             AnalyticsService.shared.logRateButtontapped()
+                            ReviewPromptService.shared.markRateButtonTapped()
                             UIApplication.shared.open(URL(string: "https://itunes.apple.com/app/id1534958933?action=write-review")!)
                         } label: {
                             FormLabel(text: "Rate", icon: "star.circle.fill")
