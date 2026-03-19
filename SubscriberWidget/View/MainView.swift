@@ -21,10 +21,13 @@ struct MainView: View {
     @State private var currentTab = 0
     @State private var confettiTrigger = 0
     @State private var showPaywall = false
+    @State private var showWidgetUpgradeAlert = false
     @State private var showOnboarding = false
     @State private var hasPreparedInitialPresentation = false
     @State private var onboardingAction: OnboardingAction = .none
+    @State private var widgetPaywallSource = "widget_free"
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
+    @AppStorage("pendingWidgetPaywallSource", store: .shared) private var pendingWidgetPaywallSource: String = "widget_legacy"
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
 
@@ -79,8 +82,10 @@ struct MainView: View {
             confettiTrigger += 1
             WidgetCenter.shared.reloadAllTimelines()
         }
-        .onReceive(NotificationCenter.default.publisher(for: .paywallRequested)) { _ in
-            handleWidgetPaywallRequest(source: "widget")
+        .onReceive(NotificationCenter.default.publisher(for: .paywallRequested)) { notification in
+            let source = notification.object as? String ?? "widget_legacy"
+            clearPendingWidgetPaywallRequest()
+            handleWidgetPaywallRequest(source: source)
         }
         .onChange(of: hasProAccess) { hasProAccess in
             guard hasProAccess else { return }
@@ -89,12 +94,22 @@ struct MainView: View {
         }
         .onAppear {
             if pendingPaywallFromWidget {
-                pendingPaywallFromWidget = false
-                handleWidgetPaywallRequest(source: "widget_cold_start")
+                let source = pendingWidgetPaywallSource
+                clearPendingWidgetPaywallRequest()
+                handleWidgetPaywallRequest(source: source)
             }
         }
         .task {
             await prepareInitialPresentation()
+        }
+        .alert("Open in YouTube", isPresented: $showWidgetUpgradeAlert) {
+            Button("Close", role: .cancel) {}
+            Button("Upgrade now") {
+                AnalyticsService.shared.logPaywallShown(source: widgetPaywallSource)
+                showPaywall = true
+            }
+        } message: {
+            Text("Upgrade to Pro to open your YouTube channel directly from the widget")
         }
         .confettiCannon(
             trigger: $confettiTrigger,
@@ -119,10 +134,22 @@ struct MainView: View {
         Task {
             await SubscriptionService().checkAccess()
             if !hasProAccess {
-                AnalyticsService.shared.logPaywallShown(source: source)
-                showPaywall = true
+                if source == "widget_locked" || source == "widget_legacy" {
+                    AnalyticsService.shared.logPaywallShown(source: source)
+                    showPaywall = true
+                    return
+                }
+
+                widgetPaywallSource = source
+                AnalyticsService.shared.logWidgetUpgradeAlertShown(source: source)
+                showWidgetUpgradeAlert = true
             }
         }
+    }
+
+    private func clearPendingWidgetPaywallRequest() {
+        pendingPaywallFromWidget = false
+        pendingWidgetPaywallSource = "widget_legacy"
     }
 
     @MainActor
