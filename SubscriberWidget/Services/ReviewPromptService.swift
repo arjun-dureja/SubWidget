@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 
+@MainActor
 final class ReviewPromptService {
     static let shared = ReviewPromptService()
 
@@ -36,7 +37,6 @@ final class ReviewPromptService {
         hasTappedRateButton = true
     }
 
-    @MainActor
     func requestReviewIfAppropriate(channelCount: Int, requestReview: () -> Void) {
         guard shouldRequestReview(channelCount: channelCount) else { return }
 

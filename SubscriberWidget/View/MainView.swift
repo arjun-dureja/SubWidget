@@ -129,7 +129,6 @@ struct MainView: View {
     private func prepareInitialPresentation() async {
         guard !hasPreparedInitialPresentation else { return }
         hasPreparedInitialPresentation = true
-        ReviewPromptService.shared.registerAppOpen()
 
         await SubscriptionService().checkAccess()
         let hasSavedChannels = !ChannelStorageService().getChannels().isEmpty
