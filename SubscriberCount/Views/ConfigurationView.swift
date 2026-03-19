@@ -11,15 +11,19 @@ import WidgetKit
 
 struct ConfigurationView: View {
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     var baselineOffset: CGFloat
+
+    private var widgetFont: WidgetFont {
+        WidgetFont(storageValue: widgetFontRawValue)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Text("Select Your Channel")
-                    .fontWeight(.bold)
-                    .font(.system(size: 14))
+                    .font(widgetFont.font(size: 14, weight: .bold))
                     .foregroundColor(Color("AccentColor"))
 
                 Spacer()
@@ -33,8 +37,7 @@ struct ConfigurationView: View {
                     .foregroundColor(.youtubeRed)
                     .baselineOffset(baselineOffset)
                 Text("Add a channel in the app")
-                    .font(.system(size: 13))
-                    .fontWeight(.medium)
+                    .font(widgetFont.font(size: 13, weight: .medium))
                     .foregroundColor(Color("AccentColor"))
             }
 
@@ -43,8 +46,7 @@ struct ConfigurationView: View {
                     .foregroundColor(.youtubeRed)
                     .baselineOffset(baselineOffset)
                 Text("Hold and tap 'Edit Widget'")
-                    .font(.system(size: 13))
-                    .fontWeight(.medium)
+                    .font(widgetFont.font(size: 13, weight: .medium))
                     .foregroundColor(Color("AccentColor"))
             }
 

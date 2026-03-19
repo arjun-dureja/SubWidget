@@ -74,6 +74,10 @@ struct SettingsView: View {
                         RefreshFrequency(viewModel: viewModel, showPaywall: $showPaywall)
                     }
 
+                    Section(footer: Text("Choose the font used across all widgets")) {
+                        WidgetFontPicker(showPaywall: $showPaywall)
+                    }
+
                     Section(footer: Text("Display the time the subscriber count was last updated")) {
                         Toggle(isOn: $showUpdateTime) {
                             Label {

@@ -18,6 +18,7 @@ struct SmallWidget: View {
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
     @AppStorage("showWidgetRefreshButton", store: .shared) var showWidgetRefreshButton: Bool = false
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
+    @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
     let lastUpdatedTime: String = .currentTime
 
     var channel: YouTubeChannel? {
@@ -53,6 +54,10 @@ struct SmallWidget: View {
             return Color(color)
         }
         return .youtubeRed
+    }
+
+    private var widgetFont: WidgetFont {
+        WidgetFont(storageValue: widgetFontRawValue)
     }
 
     private var usesLocalPreviewImage: Bool {
@@ -102,7 +107,7 @@ struct SmallWidget: View {
                                 YouTubeLogo()
                             }
                             Text(lastUpdatedTime)
-                                .font(.system(size: 10))
+                                .font(widgetFont.font(size: 10))
                                 .foregroundColor(accentColor)
                                 .opacity(showUpdateTime ? 1 : 0)
                         }
@@ -113,14 +118,15 @@ struct SmallWidget: View {
 
                     VStack(alignment: .leading) {
                         Text(channel.channelName)
-                            .fontWeight(.bold)
-                            .font(.system(size: 14))
+                            .font(widgetFont.font(size: 14, weight: .bold))
                             .foregroundColor(accentColor)
-                        FormattedCount(count: count)
-                            .font(.system(size: showsWidgetContainerBackground ? 20 : 40))
+                        FormattedCount(
+                            count: count,
+                            fontSize: showsWidgetContainerBackground ? 20 : 40
+                        )
                             .foregroundColor(isVibrant ? .white : numberColor)
                         FormattedCaption(widgetType: entry.widgetType)
-                            .font(.system(size: 12))
+                            .font(widgetFont.font(size: 12))
                             .foregroundColor(accentColor)
                     }
                     .minimumScaleFactor(0.3)
