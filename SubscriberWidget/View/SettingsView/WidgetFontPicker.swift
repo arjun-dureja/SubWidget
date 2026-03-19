@@ -13,11 +13,16 @@ struct WidgetFontPicker: View {
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
     @Binding var showPaywall: Bool
 
-    @State private var isRevertingSelection = false
+    private var selectedWidgetFont: Binding<WidgetFont> {
+        Binding(
+            get: { WidgetFont(storageValue: widgetFontRawValue) },
+            set: { widgetFontRawValue = $0.rawValue }
+        )
+    }
 
     var body: some View {
         Picker(
-            selection: $widgetFontRawValue,
+            selection: selectedWidgetFont,
             label: Label(
                 title: {
                     Text("Widget Font")
@@ -34,33 +39,21 @@ struct WidgetFontPicker: View {
             )
         ) {
             ForEach(WidgetFont.allCases, id: \.self) { font in
-                Text(font.displayName).tag(font.rawValue)
-            }
-        }
-        .onAppear {
-            if WidgetFont(rawValue: widgetFontRawValue) == nil {
-                widgetFontRawValue = WidgetFont.default.rawValue
+                Text(font.displayName).tag(font)
             }
         }
         .onChange(of: widgetFontRawValue) { newValue in
-            if isRevertingSelection {
-                isRevertingSelection = false
-                return
-            }
-
-            guard let widgetFont = WidgetFont(rawValue: newValue) else {
-                widgetFontRawValue = WidgetFont.default.rawValue
-                return
-            }
+            let widgetFont = WidgetFont(storageValue: newValue)
 
             guard hasProAccess || widgetFont == .default else {
-                isRevertingSelection = true
                 widgetFontRawValue = WidgetFont.default.rawValue
                 AnalyticsService.shared.logPaywallShown(source: "widget_font")
                 WidgetCenter.shared.reloadAllTimelines()
                 showPaywall = true
                 return
             }
+
+            guard hasProAccess else { return }
 
             AnalyticsService.shared.logWidgetFontChanged(widgetFont.rawValue)
             WidgetCenter.shared.reloadAllTimelines()

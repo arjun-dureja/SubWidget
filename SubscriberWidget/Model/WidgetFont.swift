@@ -15,6 +15,10 @@ enum WidgetFont: String, CaseIterable, Codable {
 
     static let storageKey = "widgetFont"
 
+    init(storageValue: String) {
+        self = WidgetFont(rawValue: storageValue) ?? .default
+    }
+
     var displayName: LocalizedStringResource {
         switch self {
         case .default:

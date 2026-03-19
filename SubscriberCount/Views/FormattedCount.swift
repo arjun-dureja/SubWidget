@@ -17,7 +17,7 @@ struct FormattedCount: View {
     var fontWeight: Font.Weight = .bold
 
     private var widgetFont: WidgetFont {
-        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+        WidgetFont(storageValue: widgetFontRawValue)
     }
 
     var formatted: String {

@@ -14,7 +14,7 @@ struct LockedWidgetContainer<Content: View>: View {
     @ViewBuilder var content: Content
 
     private var widgetFont: WidgetFont {
-        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+        WidgetFont(storageValue: widgetFontRawValue)
     }
 
     var body: some View {
@@ -43,7 +43,7 @@ struct LockedLockscreenWidget: View {
     @AppStorage(WidgetFont.storageKey, store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     private var widgetFont: WidgetFont {
-        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+        WidgetFont(storageValue: widgetFontRawValue)
     }
 
     var body: some View {

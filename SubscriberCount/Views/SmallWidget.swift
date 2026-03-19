@@ -57,7 +57,7 @@ struct SmallWidget: View {
     }
 
     private var widgetFont: WidgetFont {
-        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+        WidgetFont(storageValue: widgetFontRawValue)
     }
 
     private var usesLocalPreviewImage: Bool {

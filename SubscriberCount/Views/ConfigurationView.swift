@@ -16,7 +16,7 @@ struct ConfigurationView: View {
     var baselineOffset: CGFloat
 
     private var widgetFont: WidgetFont {
-        WidgetFont(rawValue: widgetFontRawValue) ?? .default
+        WidgetFont(storageValue: widgetFontRawValue)
     }
 
     var body: some View {
