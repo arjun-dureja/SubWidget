@@ -100,16 +100,6 @@ extension UIApplication {
     }
 }
 
-extension YouTubeChannelParam {
-    convenience init(channel: YouTubeChannel) {
-        self.init(identifier: channel.id, display: channel.channelName)
-    }
-
-    static var global: YouTubeChannelParam {
-        YouTubeChannelParam(channel: .init(channelName: "", profileImage: "", subCount: "0", viewCount: "0", channelId: ""))
-    }
-}
-
 extension Double {
     func reduceScale(to places: Int) -> Double {
         let multiplier = pow(10, Double(places))

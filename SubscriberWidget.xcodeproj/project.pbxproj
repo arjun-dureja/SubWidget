@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7209656C2F65E6A700A1376E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6F2F5E8CD7007AD287 /* RevenueCat */; };
-		720A6A6E2F5E8CD1007AD287 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6D2F5E8CD1007AD287 /* RevenueCat */; };
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
-		722E2E8E2B65FE0400E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8D2B65FE0400E4832E /* Mixpanel */; };
 		7247B03F2F42792A008A8DF0 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 7247B03E2F42792A008A8DF0 /* FacebookCore */; };
 		724BD92A2AB4063A008C1DB2 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 724BD9292AB4063A008C1DB2 /* Cache */; };
 		725FE1EF251D3983004B2907 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725FE1EE251D3983004B2907 /* WidgetKit.framework */; platformFilter = ios; };
@@ -21,7 +19,6 @@
 		72AFB3BF2F30231400C4774A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3BE2F30231400C4774A /* RevenueCat */; };
 		72AFB3C12F30231400C4774A /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3C02F30231400C4774A /* RevenueCatUI */; };
 		72AFB3CC2F30722300C4774A /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3CB2F30722300C4774A /* ConfettiSwiftUI */; };
-		72B936F82AB40BC500997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F72AB40BC500997D20 /* Cache */; };
 		72B936FA2AB40BC900997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F92AB40BC900997D20 /* Cache */; };
 		72F2EE222B2D6128002AFCEA /* WishKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72F2EE212B2D6128002AFCEA /* WishKit */; };
 /* End PBXBuildFile section */
@@ -136,7 +133,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		72AFB2F22F2FF1C400C4774A /* SubscriberWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (72AFB3532F2FF1C400C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3572F2FF1C400C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SubscriberWidget; sourceTree = "<group>"; };
-		72AFB37A2F2FF1C800C4774A /* SubscriberCount */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (72AFB3A02F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A12F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, 72AFB3A22F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A32F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A42F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SubscriberCount; sourceTree = "<group>"; };
+		72AFB37A2F2FF1C800C4774A /* SubscriberCount */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (72AFB3A02F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A12F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, 72AFB3A32F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A42F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SubscriberCount; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -715,11 +712,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		720A6A6D2F5E8CD1007AD287 /* RevenueCat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCat;
-		};
 		720A6A6F2F5E8CD7007AD287 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
@@ -731,11 +723,6 @@
 			productName = Mixpanel;
 		};
 		722E2E8B2B65FDFC00E4832E /* Mixpanel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
-			productName = Mixpanel;
-		};
-		722E2E8D2B65FE0400E4832E /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
 			productName = Mixpanel;
@@ -764,11 +751,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 72AFB3CA2F30720D00C4774A /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
 			productName = ConfettiSwiftUI;
-		};
-		72B936F72AB40BC500997D20 /* Cache */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */;
-			productName = Cache;
 		};
 		72B936F92AB40BC900997D20 /* Cache */ = {
 			isa = XCSwiftPackageProductDependency;
