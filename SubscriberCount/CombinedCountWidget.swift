@@ -13,9 +13,9 @@ struct CombinedCount: Widget {
     let kind: String = "CombinedCount"
 
     var body: some WidgetConfiguration {
-        return IntentConfiguration(
+        return AppIntentConfiguration(
             kind: kind,
-            intent: SelectChannelIntent.self,
+            intent: SelectChannelAppIntent.self,
             provider: SubWidgetIntentTimelineProvider(widgetType: .combined),
             content: { entry in
                 SubscriberCountEntryView(entry: entry)

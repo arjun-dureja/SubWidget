@@ -14,9 +14,9 @@ struct ViewCount: Widget {
     let kind: String = "ViewCount"
 
     var body: some WidgetConfiguration {
-        return IntentConfiguration(
+        return AppIntentConfiguration(
             kind: kind,
-            intent: SelectChannelIntent.self,
+            intent: SelectChannelAppIntent.self,
             provider: SubWidgetIntentTimelineProvider(widgetType: .views),
             content: { (entry) in
                 SubscriberCountEntryView(entry: entry)

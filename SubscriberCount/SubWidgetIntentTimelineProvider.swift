@@ -16,7 +16,6 @@ enum WidgetType: String {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date = Date()
-    let configuration: ConfigurationIntent = ConfigurationIntent()
     let channel: YouTubeChannel?
     let channelImage: UIImage
     let widgetType: WidgetType
@@ -42,9 +41,9 @@ private enum WidgetDeepLink {
     }
 }
 
-struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
+struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
     typealias Entry = SimpleEntry
-    typealias Intent = SelectChannelIntent
+    typealias Intent = SelectChannelAppIntent
 
     let widgetType: WidgetType
 
@@ -56,45 +55,37 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
         )
     }
 
-    func getSnapshot(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        Task {
-            let channelStorageService = ChannelStorageService()
+    func snapshot(for configuration: SelectChannelAppIntent, in context: Context) async -> SimpleEntry {
+        let channelStorageService = ChannelStorageService()
 
-            // Determine if caller is from add widget screen or home screen
-            if configuration.channel == nil {
-                // Show first channel in add widget screen if exists
-                let channels = channelStorageService.getChannels()
-                if channels.isEmpty {
-                    let entry = SimpleEntry(
-                        channel: nil,
-                        widgetType: widgetType
-                    )
-
-                    completion(entry)
-                } else {
-                    let entry = SimpleEntry(
-                        channel: channels[0],
-                        channelImage: await getImageForUrl(channels[0].profileImage),
-                        widgetType: widgetType
-                    )
-
-                    completion(entry)
-                }
-            } else {
-                let result = await fetchChannel(
-                    for: configuration.channel ?? YouTubeChannelParam.global,
-                    channelStorageService: channelStorageService
+        // Determine if caller is from add widget screen or home screen
+        if configuration.channel == nil {
+            // Show first channel in add widget screen if exists
+            let channels = channelStorageService.getChannels()
+            if channels.isEmpty {
+                return SimpleEntry(
+                    channel: nil,
+                    widgetType: widgetType
                 )
-
-                completion(result)
+            } else {
+                return SimpleEntry(
+                    channel: channels[0],
+                    channelImage: await getImageForUrl(channels[0].profileImage),
+                    widgetType: widgetType
+                )
             }
         }
+
+        return await fetchChannel(
+            for: configuration.channel,
+            channelStorageService: channelStorageService
+        )
     }
 
-    func getTimeline(for configuration: SelectChannelIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
+    func timeline(for configuration: SelectChannelAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         // Determine if user has already selected a channel or not
         if configuration.channel == nil {
-            let timeline = Timeline(
+            return Timeline(
                 entries: [
                     SimpleEntry(
                         channel: nil,
@@ -103,30 +94,27 @@ struct SubWidgetIntentTimelineProvider: IntentTimelineProvider {
                 ],
                 policy: .never
             )
-
-            completion(timeline)
         } else {
-            Task {
-                let channelStorageService = ChannelStorageService()
-                let refreshFrequency = channelStorageService.getRefreshFrequency().rawValue
-                let result = await fetchChannel(
-                    for: configuration.channel ?? YouTubeChannelParam.global,
-                    channelStorageService: channelStorageService
-                )
+            let channelStorageService = ChannelStorageService()
+            let refreshFrequency = channelStorageService.getRefreshFrequency().rawValue
+            let result = await fetchChannel(
+                for: configuration.channel,
+                channelStorageService: channelStorageService
+            )
 
-                let timeline = Timeline(
-                    entries: [result],
-                    policy: .after(.now.advanced(by: refreshFrequency * 60))
-                )
-
-                completion(timeline)
-            }
+            return Timeline(
+                entries: [result],
+                policy: .after(.now.advanced(by: refreshFrequency * 60))
+            )
         }
     }
 
-    private func fetchChannel(for param: YouTubeChannelParam, channelStorageService: ChannelStorageService) async -> SimpleEntry {
+    private func fetchChannel(
+        for channelEntity: YouTubeChannelEntity?,
+        channelStorageService: ChannelStorageService
+    ) async -> SimpleEntry {
         do {
-            guard let id = param.identifier else {
+            guard let id = channelEntity?.id else {
                 throw SubWidgetError.invalidIdentifer
             }
 
