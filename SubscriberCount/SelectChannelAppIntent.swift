@@ -7,32 +7,36 @@
 
 import AppIntents
 
-struct YouTubeChannelEntity: AppEntity {
+struct YouTubeChannelParam: AppEntity {
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Channel"
-    static var defaultQuery = YouTubeChannelEntityQuery()
+    static var defaultQuery = YouTubeChannelParamQuery()
 
-    let id: String
-    let channelName: String
+    let identifier: String
+    let displayString: String
+
+    var id: String {
+        identifier
+    }
 
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(stringLiteral: channelName)
+        DisplayRepresentation(stringLiteral: displayString)
     }
 }
 
-struct YouTubeChannelEntityQuery: EntityQuery {
-    func entities(for identifiers: [YouTubeChannelEntity.ID]) async throws -> [YouTubeChannelEntity] {
+struct YouTubeChannelParamQuery: EntityQuery {
+    func entities(for identifiers: [YouTubeChannelParam.ID]) async throws -> [YouTubeChannelParam] {
         let channels = ChannelStorageService().getChannels()
 
         return identifiers.map { identifier in
             channels
                 .first(where: { $0.id == identifier })
-                .map(YouTubeChannelEntity.init(channel:))
-                ?? YouTubeChannelEntity(id: identifier, channelName: identifier)
+                .map(YouTubeChannelParam.init(channel:))
+                ?? YouTubeChannelParam(identifier: identifier, displayString: identifier)
         }
     }
 
-    func suggestedEntities() async throws -> [YouTubeChannelEntity] {
-        ChannelStorageService().getChannels().map(YouTubeChannelEntity.init(channel:))
+    func suggestedEntities() async throws -> [YouTubeChannelParam] {
+        ChannelStorageService().getChannels().map(YouTubeChannelParam.init(channel:))
     }
 }
 
@@ -42,15 +46,15 @@ struct SelectChannelAppIntent: WidgetConfigurationIntent, CustomIntentMigratedAp
     static let description = IntentDescription("Select a YouTube channel for this widget.")
 
     @Parameter(title: "Channel")
-    var channel: YouTubeChannelEntity?
+    var channel: YouTubeChannelParam?
 
     static var parameterSummary: some ParameterSummary {
         Summary("View \(\.$channel)")
     }
 }
 
-private extension YouTubeChannelEntity {
+private extension YouTubeChannelParam {
     init(channel: YouTubeChannel) {
-        self.init(id: channel.id, channelName: channel.channelName)
+        self.init(identifier: channel.id, displayString: channel.channelName)
     }
 }

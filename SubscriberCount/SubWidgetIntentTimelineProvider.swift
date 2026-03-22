@@ -117,11 +117,11 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
     }
 
     private func fetchChannel(
-        for channelEntity: YouTubeChannelEntity?,
+        for channelEntity: YouTubeChannelParam?,
         channelStorageService: ChannelStorageService
     ) async -> SimpleEntry {
         do {
-            guard let id = channelEntity?.id else {
+            guard let id = channelEntity?.identifier else {
                 throw SubWidgetError.invalidIdentifer
             }
 
