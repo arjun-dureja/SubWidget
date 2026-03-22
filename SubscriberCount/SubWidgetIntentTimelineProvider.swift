@@ -47,6 +47,10 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
 
     let widgetType: WidgetType
 
+    private var retryPolicy: TimelineReloadPolicy {
+        .after(.now.advanced(by: 15 * 60))
+    }
+
     func placeholder(in context: Context) -> SimpleEntry {
         // Arbitrary channel for placeholder - will show as redacted
         return SimpleEntry(
@@ -83,6 +87,9 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
     }
 
     func timeline(for configuration: SelectChannelAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+        let channelStorageService = ChannelStorageService()
+        let refreshFrequency = channelStorageService.getRefreshFrequency().rawValue
+
         // Determine if user has already selected a channel or not
         if configuration.channel == nil {
             return Timeline(
@@ -92,11 +99,9 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
                         widgetType: widgetType
                     )
                 ],
-                policy: .never
+                policy: retryPolicy
             )
         } else {
-            let channelStorageService = ChannelStorageService()
-            let refreshFrequency = channelStorageService.getRefreshFrequency().rawValue
             let result = await fetchChannel(
                 for: configuration.channel,
                 channelStorageService: channelStorageService
@@ -104,7 +109,9 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
 
             return Timeline(
                 entries: [result],
-                policy: .after(.now.advanced(by: refreshFrequency * 60))
+                policy: result.channel == nil
+                    ? retryPolicy
+                    : .after(.now.advanced(by: refreshFrequency * 60))
             )
         }
     }

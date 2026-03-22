@@ -23,8 +23,11 @@ struct YouTubeChannelEntityQuery: EntityQuery {
     func entities(for identifiers: [YouTubeChannelEntity.ID]) async throws -> [YouTubeChannelEntity] {
         let channels = ChannelStorageService().getChannels()
 
-        return identifiers.compactMap { identifier in
-            channels.first(where: { $0.id == identifier }).map(YouTubeChannelEntity.init(channel:))
+        return identifiers.map { identifier in
+            channels
+                .first(where: { $0.id == identifier })
+                .map(YouTubeChannelEntity.init(channel:))
+                ?? YouTubeChannelEntity(id: identifier, channelName: identifier)
         }
     }
 
