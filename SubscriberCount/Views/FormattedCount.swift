@@ -13,7 +13,7 @@ struct FormattedCount: View {
     @AppStorage("widgetFont", store: .shared) private var widgetFontRawValue: String = WidgetFont.default.rawValue
 
     var count: String
-    var fontSize: CGFloat? = nil
+    var fontSize: CGFloat?
     var fontWeight: Font.Weight = .bold
 
     private var widgetFont: WidgetFont {
