@@ -32,16 +32,15 @@ xcodebuild -resolvePackageDependencies -project SubscriberWidget.xcodeproj
 swiftlint lint
 ```
 
-SwiftLint is configured to lint only the `SubscriberWidget`, `SubscriberCount`, and `SubWidgetIntents` directories. Configuration is in `.swiftlint.yml`.
+SwiftLint is configured to lint only the `SubscriberWidget` and `SubscriberCount` directories. Configuration is in `.swiftlint.yml`.
 
 ## Project Structure
 
 ### Targets
-The project contains three main targets:
+The project contains two main targets:
 
 1. **SubscriberWidget** - Main iOS app target
 2. **SubscriberCountExtension** - Widget extension for displaying subscriber/view counts
-3. **SubWidgetIntents** - App intents extension for Siri/Shortcuts integration
 
 ### Architecture
 
@@ -58,15 +57,12 @@ The project contains three main targets:
 - **Shared state**: Uses `UserDefaults.shared` (App Group: `group.com.arjundureja.SubscriberWidget`) to share data between app and widget extensions
 
 **Widget Extension (SubscriberCount)**
-- Uses `IntentTimelineProvider` pattern via `SubWidgetIntentTimelineProvider`
+- Uses `AppIntentTimelineProvider` pattern via `SubWidgetIntentTimelineProvider`
+- Widget configuration is powered by `SelectChannelAppIntent`
 - Supports three widget families: `.systemSmall`, `.systemMedium`, `.accessoryRectangular` (lockscreen)
-- Two widget types defined by `WidgetType` enum: `.subscribers` and `.views`
+- Three widget types defined by `WidgetType` enum: `.subscribers`, `.views`, and `.combined`
 - Widget views: `SmallWidget`, `MediumWidget`, `LockscreenWidget`
 - Timeline refresh based on user-configured `RefreshFrequencies`
-
-**App Intents (SubWidgetIntents)**
-- `IntentHandler`: Provides channel list for widget configuration picker
-- Integrates with `ChannelStorageService` to populate available channels
 
 ### Data Flow
 1. User adds/updates channels in main app → stored via `ChannelStorageService` to shared UserDefaults
