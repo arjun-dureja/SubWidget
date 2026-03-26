@@ -71,10 +71,7 @@ struct WidgetShareRenderer {
             throw WidgetShareRendererError.imageGenerationFailed
         }
 
-        let sanitizedName = channel.channelName
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "-")
-            .filter(\.isASCII)
+        let sanitizedName = sanitizeFilenameComponent(channel.channelName)
         let fileName = "subwidget-\(sanitizedName)-\(page.analyticsName).png"
         let url = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
 
@@ -95,5 +92,30 @@ struct WidgetShareRenderer {
         } catch {
             return nil
         }
+    }
+
+    private func sanitizeFilenameComponent(_ input: String) -> String {
+        let sanitized = input
+            .lowercased()
+            .map { character -> Character in
+                if character.isASCII, character.isLetter || character.isNumber {
+                    return character
+                }
+
+                if character == "-" || character == "_" {
+                    return character
+                }
+
+                return "-"
+            }
+            .reduce(into: "") { result, character in
+                if character == "-", result.last == "-" {
+                    return
+                }
+                result.append(character)
+            }
+            .trimmingCharacters(in: CharacterSet(charactersIn: "-_"))
+
+        return sanitized.isEmpty ? "channel" : sanitized
     }
 }

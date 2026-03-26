@@ -117,6 +117,8 @@ extension ShareCardConfiguration: Equatable {
 struct ShareableWidgetCard: View {
     static let canvasSize = CGSize(width: 1_200, height: 1_200)
 
+    @Environment(\.colorScheme) private var colorScheme
+
     let channel: YouTubeChannel
     let page: WidgetPreviewPage
     let channelImage: UIImage?
@@ -142,7 +144,7 @@ struct ShareableWidgetCard: View {
         if let bgColor = channel.bgColor {
             return Color(bgColor)
         }
-        return .black
+        return colorScheme == .dark ? .black : .white
     }
 
     private var backgroundColors: [Color] {

@@ -293,11 +293,15 @@ struct ShareEditorView: View {
                 configuration: configuration
             )
 
+            guard !Task.isCancelled else { return }
             await MainActor.run {
+                guard !Task.isCancelled else { return }
                 previewImage = image
             }
         } catch {
+            guard !Task.isCancelled else { return }
             await MainActor.run {
+                guard !Task.isCancelled else { return }
                 previewImage = nil
             }
         }

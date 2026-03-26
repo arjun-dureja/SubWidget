@@ -80,7 +80,7 @@ struct ShareableWidgetPreview: View {
     var body: some View {
         LockedPreview(size: page.size, isLocked: isLocked, onUpgrade: onUpgrade ?? {}) {
             widgetView
-                .widgetBackground(bgColor: channel.bgColor, size: page.size)
+                .widgetBackground(bgColor: channel.bgColor, size: page.size, showsShadow: !exportMode)
         }
     }
 
@@ -88,9 +88,9 @@ struct ShareableWidgetPreview: View {
     private var widgetView: some View {
         switch page.size {
         case .small:
-            SmallWidget(entry: entry, forceEntryImage: channelImage != nil, exportMode: exportMode)
+            SmallWidget(entry: entry, forceEntryImage: exportMode || channelImage != nil, exportMode: exportMode)
         case .medium:
-            MediumWidget(entry: entry, forceEntryImage: channelImage != nil, exportMode: exportMode)
+            MediumWidget(entry: entry, forceEntryImage: exportMode || channelImage != nil, exportMode: exportMode)
         }
     }
 }
