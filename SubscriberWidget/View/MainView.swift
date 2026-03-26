@@ -29,7 +29,12 @@ struct MainView: View {
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
     @AppStorage("pendingWidgetPaywallSource", store: .shared) private var pendingWidgetPaywallSource: String = "widget_legacy"
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
+    @AppStorage("isLegacyUser", store: .shared) private var isLegacyUser: Bool = false
     @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
+
+    private var hasEffectiveProAccess: Bool {
+        hasProAccess || isLegacyUser
+    }
 
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
@@ -133,17 +138,17 @@ struct MainView: View {
     private func handleWidgetPaywallRequest(source: String) {
         Task {
             await SubscriptionService().checkAccess()
-            if !hasProAccess {
-                if source == "widget_locked" || source == "widget_legacy" {
-                    AnalyticsService.shared.logPaywallShown(source: source)
-                    showPaywall = true
-                    return
-                }
+            guard !hasEffectiveProAccess else { return }
 
-                widgetPaywallSource = source
-                AnalyticsService.shared.logWidgetUpgradeAlertShown(source: source)
-                showWidgetUpgradeAlert = true
+            if source == "widget_locked" || source == "widget_legacy" {
+                AnalyticsService.shared.logPaywallShown(source: source)
+                showPaywall = true
+                return
             }
+
+            widgetPaywallSource = source
+            AnalyticsService.shared.logWidgetUpgradeAlertShown(source: source)
+            showWidgetUpgradeAlert = true
         }
     }
 
@@ -160,7 +165,7 @@ struct MainView: View {
         await SubscriptionService().checkAccess()
         let hasSavedChannels = !ChannelStorageService().getChannels().isEmpty
 
-        guard !hasProAccess else {
+        guard !hasEffectiveProAccess else {
             hasCompletedOnboarding = true
             return
         }
