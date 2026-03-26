@@ -85,12 +85,12 @@ struct ShareEditorView: View {
         .onChange(of: configuration.backgroundStyle) { style in
             AnalyticsService.shared.logWidgetShareBackgroundSelected(name: style.rawValue)
         }
-        .alert("Couldn't Share Widget", isPresented: errorBinding) {
+        .alert(String(localized: "Couldn't Share Widget"), isPresented: errorBinding) {
             Button("OK", role: .cancel) {
                 errorMessage = nil
             }
         } message: {
-            Text(errorMessage ?? "Something went wrong while generating the widget image.")
+            Text(errorMessage ?? String(localized: "Something went wrong while generating the widget image."))
         }
     }
 
