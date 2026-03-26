@@ -11,6 +11,8 @@ import WidgetKit
 
 struct SmallWidget: View {
     var entry: SimpleEntry?
+    var forceEntryImage: Bool = false
+    var exportMode: Bool = false
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground
     @Environment(\.widgetRenderingMode) var widgetRenderingMode
@@ -65,6 +67,7 @@ struct SmallWidget: View {
     }
 
     private var shouldShowRefreshButton: Bool {
+        guard !exportMode else { return false }
         guard hasProAccess else { return false }
         guard showWidgetRefreshButton else { return false }
         guard channel?.channelName != YouTubeChannel.preview.channelName else { return false }
@@ -81,7 +84,7 @@ struct SmallWidget: View {
 
                 VStack(alignment: .leading) {
                     HStack {
-                        if Utils.isInWidget() || usesLocalPreviewImage {
+                        if forceEntryImage || Utils.isInWidget() || usesLocalPreviewImage {
                             Image(uiImage: entry.channelImage)
                                 .resizable()
                                 .widgetAccentedRenderingMode(.desaturated)
@@ -109,7 +112,7 @@ struct SmallWidget: View {
                             Text(lastUpdatedTime)
                                 .font(widgetFont.font(size: 10))
                                 .foregroundColor(accentColor)
-                                .opacity(showUpdateTime ? 1 : 0)
+                                .opacity(showUpdateTime && !exportMode ? 1 : 0)
                         }
                         .frame(maxHeight: .infinity, alignment: .top)
                     }

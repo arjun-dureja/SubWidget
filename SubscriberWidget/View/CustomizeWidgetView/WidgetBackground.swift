@@ -25,13 +25,17 @@ struct WidgetBackgroundModifier: ViewModifier {
 
     var bgColor: UIColor?
     var size: WidgetSize
+    var showsShadow: Bool
 
     func body(content: Content) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
                 .frame(width: size.width, height: 155)
                 .foregroundColor(Color((bgColor ?? (colorScheme == .dark ? UIColor.black : UIColor.white))))
-                .shadow(color: colorScheme == .dark ? .white.opacity(0.20) : .black.opacity(0.33), radius: 8)
+                .shadow(
+                    color: colorScheme == .dark ? .white.opacity(0.20) : .black.opacity(0.33),
+                    radius: showsShadow ? 8 : 0
+                )
 
             content
                 .padding()
@@ -42,7 +46,7 @@ struct WidgetBackgroundModifier: ViewModifier {
 }
 
 extension View {
-    func widgetBackground(bgColor: UIColor?, size: WidgetSize) -> some View {
-        self.modifier(WidgetBackgroundModifier(bgColor: bgColor, size: size))
+    func widgetBackground(bgColor: UIColor?, size: WidgetSize, showsShadow: Bool = true) -> some View {
+        self.modifier(WidgetBackgroundModifier(bgColor: bgColor, size: size, showsShadow: showsShadow))
     }
 }

@@ -16,6 +16,8 @@ private enum CountMode {
 
 struct MediumWidget: View {
     var entry: SimpleEntry?
+    var forceEntryImage: Bool = false
+    var exportMode: Bool = false
     @Environment(\.colorScheme) var colorScheme
 
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
@@ -73,6 +75,7 @@ struct MediumWidget: View {
     }
 
     private var shouldShowRefreshButton: Bool {
+        guard !exportMode else { return false }
         guard hasProAccess else { return false }
         guard showWidgetRefreshButton else { return false }
         guard channel?.channelName != YouTubeChannel.preview.channelName else { return false }
@@ -84,7 +87,7 @@ struct MediumWidget: View {
             if let entry = entry,
                let channel = channel {
                 HStack {
-                    if Utils.isInWidget() || usesLocalPreviewImage {
+                    if forceEntryImage || Utils.isInWidget() || usesLocalPreviewImage {
                         Image(uiImage: entry.channelImage)
                             .resizable()
                             .widgetAccentedRenderingMode(.desaturated)
@@ -153,7 +156,7 @@ struct MediumWidget: View {
                             .font(widgetFont.font(size: 11))
                             .foregroundColor(accentColor)
                             .frame(maxHeight: .infinity, alignment: .bottom)
-                            .opacity(showUpdateTime ? 1 : 0)
+                            .opacity(showUpdateTime && !exportMode ? 1 : 0)
                     }
                 }
                 .minimumScaleFactor(0.3)

@@ -13,7 +13,7 @@ struct WidgetPreview: View {
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
     @Binding var channel: YouTubeChannel
-    @State private var currentPage = 0
+    @Binding var currentPage: WidgetPreviewPage
     @State private var showPaywall = false
 
     var body: some View {
@@ -34,36 +34,50 @@ struct WidgetPreview: View {
             .padding(.top, 7)
 
             TabView(selection: $currentPage) {
-                let subCountEntry = SimpleEntry(channel: channel, widgetType: .subscribers)
-                SmallWidget(entry: subCountEntry)
-                    .widgetBackground(bgColor: channel.bgColor, size: .small)
-                    .tag(0)
+                ShareableWidgetPreview(
+                    channel: channel,
+                    page: .subscribersSmall,
+                    channelImage: nil,
+                    hasProAccess: hasProAccess,
+                    onUpgrade: handleUpgradeTapped
+                )
+                .tag(WidgetPreviewPage.subscribersSmall)
 
-                LockedPreview(size: .medium, isLocked: !hasProAccess, onUpgrade: handleUpgradeTapped) {
-                    MediumWidget(entry: subCountEntry)
-                        .widgetBackground(bgColor: channel.bgColor, size: .medium)
-                }
-                .tag(1)
+                ShareableWidgetPreview(
+                    channel: channel,
+                    page: .subscribersMedium,
+                    channelImage: nil,
+                    hasProAccess: hasProAccess,
+                    onUpgrade: handleUpgradeTapped
+                )
+                .tag(WidgetPreviewPage.subscribersMedium)
 
-                let viewCountEntry = SimpleEntry(channel: channel, widgetType: .views)
-                LockedPreview(size: .small, isLocked: !hasProAccess, onUpgrade: handleUpgradeTapped) {
-                    SmallWidget(entry: viewCountEntry)
-                        .widgetBackground(bgColor: channel.bgColor, size: .small)
-                }
-                .tag(2)
+                ShareableWidgetPreview(
+                    channel: channel,
+                    page: .viewsSmall,
+                    channelImage: nil,
+                    hasProAccess: hasProAccess,
+                    onUpgrade: handleUpgradeTapped
+                )
+                .tag(WidgetPreviewPage.viewsSmall)
 
-                LockedPreview(size: .medium, isLocked: !hasProAccess, onUpgrade: handleUpgradeTapped) {
-                    MediumWidget(entry: viewCountEntry)
-                        .widgetBackground(bgColor: channel.bgColor, size: .medium)
-                }
-                .tag(3)
+                ShareableWidgetPreview(
+                    channel: channel,
+                    page: .viewsMedium,
+                    channelImage: nil,
+                    hasProAccess: hasProAccess,
+                    onUpgrade: handleUpgradeTapped
+                )
+                .tag(WidgetPreviewPage.viewsMedium)
 
-                let combinedEntry = SimpleEntry(channel: channel, widgetType: .combined)
-                LockedPreview(size: .medium, isLocked: !hasProAccess, onUpgrade: handleUpgradeTapped) {
-                    MediumWidget(entry: combinedEntry)
-                        .widgetBackground(bgColor: channel.bgColor, size: .medium)
-                }
-                .tag(4)
+                ShareableWidgetPreview(
+                    channel: channel,
+                    page: .combinedMedium,
+                    channelImage: nil,
+                    hasProAccess: hasProAccess,
+                    onUpgrade: handleUpgradeTapped
+                )
+                .tag(WidgetPreviewPage.combinedMedium)
             }
             .padding(.top, -40)
             .padding(.bottom, -8)
@@ -86,10 +100,11 @@ struct WidgetPreview: View {
 
 #Preview {
     @State var channel: YouTubeChannel = .preview
-    return WidgetPreview(channel: $channel)
+    @State var currentPage: WidgetPreviewPage = .subscribersSmall
+    return WidgetPreview(channel: $channel, currentPage: $currentPage)
 }
 
-private struct LockedPreview<Content: View>: View {
+struct LockedPreview<Content: View>: View {
     let size: WidgetSize
     let isLocked: Bool
     let onUpgrade: () -> Void
