@@ -15,8 +15,4 @@ protocol SubscriptionServiceProtocol {
 struct AccessState {
     let hasProAccess: Bool
     let isLegacyUser: Bool
-
-    var hasEffectiveProAccess: Bool {
-        hasProAccess || isLegacyUser
-    }
 }

@@ -209,11 +209,6 @@ struct SubscriberCountEntryView: View {
     var entry: SubWidgetIntentTimelineProvider.Entry
     @Environment(\.widgetFamily) private var widgetFamily
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
-    @AppStorage("isLegacyUser", store: .shared) private var isLegacyUser: Bool = false
-
-    private var hasEffectiveProAccess: Bool {
-        hasProAccess || isLegacyUser
-    }
 
     private var isPreview: Bool {
         entry.channel?.channelName == "SubWidgetPrev"
@@ -221,7 +216,7 @@ struct SubscriberCountEntryView: View {
 
     private var isLocked: Bool {
         guard entry.channel != nil else { return false }
-        guard !hasEffectiveProAccess else { return false }
+        guard !hasProAccess else { return false }
         guard !isPreview else { return false }
         return isProOnlyWidgetKind
     }
@@ -242,7 +237,7 @@ struct SubscriberCountEntryView: View {
     }
 
     private var deepLink: URL? {
-        if !hasEffectiveProAccess {
+        if !hasProAccess {
             return WidgetDeepLink.paywall(source: isProOnlyWidgetKind ? "widget_locked" : "widget_free")
         }
 

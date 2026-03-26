@@ -133,7 +133,7 @@ struct MainView: View {
     private func handleWidgetPaywallRequest(source: String) {
         Task {
             let accessState = await SubscriptionService().checkAccess()
-            guard !accessState.hasEffectiveProAccess else { return }
+            guard !accessState.hasProAccess else { return }
 
             if source == "widget_locked" || source == "widget_legacy" {
                 AnalyticsService.shared.logPaywallShown(source: source)
@@ -160,7 +160,7 @@ struct MainView: View {
         let accessState = await SubscriptionService().checkAccess()
         let hasSavedChannels = !ChannelStorageService().getChannels().isEmpty
 
-        guard !accessState.hasEffectiveProAccess else {
+        guard !accessState.hasProAccess else {
             hasCompletedOnboarding = true
             return
         }
