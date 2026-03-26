@@ -26,7 +26,7 @@ class SubscriptionService: SubscriptionServiceProtocol {
     @AppStorage("hasProAccess", store: .shared) var hasProAccess: Bool = false
     @AppStorage("isLegacyUser", store: .shared) var isLegacyUser: Bool = false
 
-    func checkAccess() async {
+    func checkAccess() async -> AccessState {
         if isLegacyUser {
             hasProAccess = true
             AnalyticsService.shared.logSubscriptionAccessEvaluated(
@@ -34,7 +34,7 @@ class SubscriptionService: SubscriptionServiceProtocol {
                 hasProAccess: true,
                 isLegacyUser: true
             )
-            return
+            return AccessState(hasProAccess: true, isLegacyUser: true)
         }
 
         if await detectLegacyUser() {
@@ -46,7 +46,7 @@ class SubscriptionService: SubscriptionServiceProtocol {
                 hasProAccess: true,
                 isLegacyUser: true
             )
-            return
+            return AccessState(hasProAccess: true, isLegacyUser: true)
         }
 
         let isProActive = await checkRevenueCatEntitlement()
@@ -59,6 +59,7 @@ class SubscriptionService: SubscriptionServiceProtocol {
             hasProAccess: isProActive,
             isLegacyUser: false
         )
+        return AccessState(hasProAccess: isProActive, isLegacyUser: false)
     }
 
     /// Checks if user purchased the app before it went freemium

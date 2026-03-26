@@ -29,12 +29,7 @@ struct MainView: View {
     @AppStorage("pendingPaywallFromWidget", store: .shared) private var pendingPaywallFromWidget: Bool = false
     @AppStorage("pendingWidgetPaywallSource", store: .shared) private var pendingWidgetPaywallSource: String = "widget_legacy"
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
-    @AppStorage("isLegacyUser", store: .shared) private var isLegacyUser: Bool = false
     @AppStorage("hasCompletedOnboarding", store: .shared) private var hasCompletedOnboarding: Bool = false
-
-    private var hasEffectiveProAccess: Bool {
-        hasProAccess || isLegacyUser
-    }
 
     init() {
         WishKit.configure(with: Constants.wishKitApiKey)
@@ -137,8 +132,8 @@ struct MainView: View {
     @MainActor
     private func handleWidgetPaywallRequest(source: String) {
         Task {
-            await SubscriptionService().checkAccess()
-            guard !hasEffectiveProAccess else { return }
+            let accessState = await SubscriptionService().checkAccess()
+            guard !accessState.hasEffectiveProAccess else { return }
 
             if source == "widget_locked" || source == "widget_legacy" {
                 AnalyticsService.shared.logPaywallShown(source: source)
@@ -162,10 +157,10 @@ struct MainView: View {
         guard !hasPreparedInitialPresentation else { return }
         hasPreparedInitialPresentation = true
 
-        await SubscriptionService().checkAccess()
+        let accessState = await SubscriptionService().checkAccess()
         let hasSavedChannels = !ChannelStorageService().getChannels().isEmpty
 
-        guard !hasEffectiveProAccess else {
+        guard !accessState.hasEffectiveProAccess else {
             hasCompletedOnboarding = true
             return
         }
