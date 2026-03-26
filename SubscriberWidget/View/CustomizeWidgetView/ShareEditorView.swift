@@ -180,7 +180,6 @@ struct ShareEditorView: View {
                 VStack(spacing: 14) {
                     HStack(spacing: 24) {
                         Text("Thickness")
-                            .font(.subheadline.bold())
 
                         Slider(value: $configuration.borderWidth, in: 1...8)
                             .tint(.youtubeRed)
