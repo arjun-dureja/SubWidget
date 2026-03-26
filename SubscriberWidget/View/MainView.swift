@@ -132,18 +132,18 @@ struct MainView: View {
     @MainActor
     private func handleWidgetPaywallRequest(source: String) {
         Task {
-            await SubscriptionService().checkAccess()
-            if !hasProAccess {
-                if source == "widget_locked" || source == "widget_legacy" {
-                    AnalyticsService.shared.logPaywallShown(source: source)
-                    showPaywall = true
-                    return
-                }
+            let accessState = await SubscriptionService().checkAccess()
+            guard !accessState.hasProAccess else { return }
 
-                widgetPaywallSource = source
-                AnalyticsService.shared.logWidgetUpgradeAlertShown(source: source)
-                showWidgetUpgradeAlert = true
+            if source == "widget_locked" || source == "widget_legacy" {
+                AnalyticsService.shared.logPaywallShown(source: source)
+                showPaywall = true
+                return
             }
+
+            widgetPaywallSource = source
+            AnalyticsService.shared.logWidgetUpgradeAlertShown(source: source)
+            showWidgetUpgradeAlert = true
         }
     }
 
@@ -157,10 +157,10 @@ struct MainView: View {
         guard !hasPreparedInitialPresentation else { return }
         hasPreparedInitialPresentation = true
 
-        await SubscriptionService().checkAccess()
+        let accessState = await SubscriptionService().checkAccess()
         let hasSavedChannels = !ChannelStorageService().getChannels().isEmpty
 
-        guard !hasProAccess else {
+        guard !accessState.hasProAccess else {
             hasCompletedOnboarding = true
             return
         }

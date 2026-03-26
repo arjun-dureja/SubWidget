@@ -9,5 +9,10 @@
 protocol SubscriptionServiceProtocol {
     var hasProAccess: Bool { get set }
 
-    func checkAccess() async
+    func checkAccess() async -> AccessState
+}
+
+struct AccessState {
+    let hasProAccess: Bool
+    let isLegacyUser: Bool
 }

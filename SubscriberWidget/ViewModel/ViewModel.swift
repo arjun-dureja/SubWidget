@@ -51,7 +51,7 @@ class ViewModel: ObservableObject {
             state = .loading
 
             // Check subscription/legacy access first
-            await subscriptionService.checkAccess()
+            _ = await subscriptionService.checkAccess()
 
             channels = try await getChannelsWithUpdatedStatistics()
             AnalyticsService.shared.logChannelsLoaded(channels.count, channels.map({ $0.channelName }))
