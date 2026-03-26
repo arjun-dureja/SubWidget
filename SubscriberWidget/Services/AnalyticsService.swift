@@ -173,6 +173,34 @@ class AnalyticsService {
         ])
     }
 
+    func logWidgetShareTapped(page: String, channelName: String) {
+        logEvent("widget_share.tapped", properties: [
+            "page": page,
+            "channelName": channelName
+        ])
+    }
+
+    func logWidgetShareSucceeded(page: String, channelName: String) {
+        logEvent("widget_share.succeeded", properties: [
+            "page": page,
+            "channelName": channelName
+        ])
+    }
+
+    func logWidgetShareFailed(page: String, channelName: String, message: String) {
+        logEvent("widget_share.failed", properties: [
+            "page": page,
+            "channelName": channelName,
+            "message": message
+        ])
+    }
+
+    func logWidgetShareBackgroundSelected(name: String) {
+        logEvent("widget_share.background_selected", properties: [
+            "name": name
+        ])
+    }
+
     func logWidgetChannelFetchFailed(_ message: String) {
         logEvent("widget.channel_fetch_failed", properties: [
             "message": message

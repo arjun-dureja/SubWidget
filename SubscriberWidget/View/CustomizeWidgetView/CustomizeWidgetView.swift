@@ -15,10 +15,10 @@ struct CustomizeWidgetView: View {
     @State var channel: YouTubeChannel
 
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.openURL) var openURL
     @AppStorage("hasProAccess", store: .shared) private var hasProAccess: Bool = false
 
-    @State private var bgColor: CGColor?
+    @State private var currentPage: WidgetPreviewPage = .subscribersSmall
+    @State private var showShareEditor = false
     @State private var showPaywall = false
 
     let columns = [
@@ -31,7 +31,7 @@ struct CustomizeWidgetView: View {
                 Spacer()
                     .frame(height: 8)
 
-                WidgetPreview(channel: $channel)
+                WidgetPreview(channel: $channel, currentPage: $currentPage)
                     .frame(maxWidth: 650)
 
                 Form {
@@ -95,6 +95,23 @@ struct CustomizeWidgetView: View {
         .background(colorScheme == .light ? Color(UIColor.systemGray6) : .black)
         .ignoresSafeArea(.keyboard, edges: .all)
         .paywallSheet(isPresented: $showPaywall)
+        .sheet(isPresented: $showShareEditor) {
+            ShareEditorView(
+                channel: channel,
+                page: currentPage,
+                hasProAccess: hasProAccess,
+                colorScheme: colorScheme
+            )
+            .presentationDetents([.large])
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: openShareEditor) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .accessibilityLabel("Share Widget")
+            }
+        }
         .onAppear {
             AnalyticsService.shared.logCustomizeWidgetScreenOpened(
                 channel.channelName,
@@ -164,6 +181,16 @@ struct CustomizeWidgetView: View {
             enabled: channel.milestoneEnabled
         )
         WidgetCenter.shared.reloadAllTimelines()
+    }
+
+    func openShareEditor() {
+        guard hasProAccess || !currentPage.isProOnly else {
+            AnalyticsService.shared.logPaywallShown(source: "share_locked_widget")
+            showPaywall = true
+            return
+        }
+
+        showShareEditor = true
     }
 }
 
