@@ -13,6 +13,7 @@ import UserNotifications
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    @AppStorage("widgetTapDestination", store: .shared) private var widgetTapDestinationRawValue: String = WidgetTapDestination.youtube.rawValue
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         UNUserNotificationCenter.current().delegate = self
@@ -48,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let channelId = url.host() {
             let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
             let widgetType = components?.queryItems?.first(where: { $0.name == "widgetType" })?.value ?? "unknown"
-            openYoutubeChannel(channelId, widgetType: widgetType)
+            openChannelDestination(channelId, widgetType: widgetType)
         }
     }
 
@@ -62,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         AnalyticsService.shared.logMilestoneNotificationTapped(channelId: channelId)
-        openYoutubeChannel(channelId, widgetType: "milestone_notification")
+        openChannelDestination(channelId, widgetType: "milestone_notification")
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -71,9 +72,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    func openYoutubeChannel(_ channelId: String, widgetType: String) {
-        let channelUrl = StringUtils.getChannelUrlFromId(channelId)
-        AnalyticsService.shared.logChannelDeepLinkOpened(channelUrl, widgetType: widgetType)
+    func openChannelDestination(_ channelId: String, widgetType: String) {
+        let destination = WidgetTapDestination(storageValue: widgetTapDestinationRawValue)
+        let channelUrl: String
+
+        switch destination {
+        case .youtube:
+            channelUrl = StringUtils.getChannelUrlFromId(channelId)
+        case .studio:
+            channelUrl = StringUtils.getStudioUrl()
+        }
+
+        AnalyticsService.shared.logChannelDeepLinkOpened(
+            channelUrl,
+            widgetType: widgetType,
+            destination: destination.rawValue
+        )
         UIApplication.shared.open(URL(string: channelUrl)!, options: [:], completionHandler: nil)
     }
 

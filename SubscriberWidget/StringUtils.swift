@@ -10,4 +10,8 @@ class StringUtils {
     static func getChannelUrlFromId(_ channelId: String) -> String {
         return "https://youtube.com/channel/\(channelId)"
     }
+
+    static func getStudioUrl() -> String {
+        return "https://studio.youtube.com"
+    }
 }

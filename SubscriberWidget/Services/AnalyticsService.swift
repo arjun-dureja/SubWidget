@@ -140,10 +140,17 @@ class AnalyticsService {
         logEvent("review.requested")
     }
 
-    func logChannelDeepLinkOpened(_ channelUrl: String, widgetType: String) {
+    func logChannelDeepLinkOpened(_ channelUrl: String, widgetType: String, destination: String) {
         logEvent("channel_deeplink.opened", properties: [
             "channelUrl": channelUrl,
-            "widgetType": widgetType
+            "widgetType": widgetType,
+            "destination": destination
+        ])
+    }
+
+    func logWidgetTapDestinationChanged(_ destination: String) {
+        logEvent("widget_tap_destination.changed", properties: [
+            "destination": destination
         ])
     }
 

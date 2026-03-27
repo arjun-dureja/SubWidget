@@ -17,7 +17,15 @@ struct SettingsView: View {
     @AppStorage("showUpdateTime", store: .shared) var showUpdateTime: Bool = true
     @AppStorage("showWidgetRefreshButton", store: .shared) var showWidgetRefreshButton: Bool = false
     @AppStorage("hasProAccess", store: .shared) var hasProAccess: Bool = false
+    @AppStorage("widgetTapDestination", store: .shared) private var widgetTapDestinationRawValue: String = WidgetTapDestination.youtube.rawValue
     @State private var showPaywall = false
+
+    private var selectedWidgetTapDestination: Binding<WidgetTapDestination> {
+        Binding(
+            get: { WidgetTapDestination(storageValue: widgetTapDestinationRawValue) },
+            set: { widgetTapDestinationRawValue = $0.rawValue }
+        )
+    }
 
     var body: some View {
         NavigationView {
@@ -140,6 +148,26 @@ struct SettingsView: View {
                             }
                             AnalyticsService.shared.logWidgetRefreshButtonToggled(newValue)
                             WidgetCenter.shared.reloadAllTimelines()
+                        }
+                    }
+
+                    Section(footer: Text("Choose where widget taps open")) {
+                        Picker(
+                            selection: selectedWidgetTapDestination,
+                            label: Label {
+                                Text("Widget Tap Opens")
+                            } icon: {
+                                Image(systemName: "arrow.up.right.circle.fill")
+                                    .foregroundStyle(.white, Color.youtubeRed)
+                            }
+                        ) {
+                            ForEach(WidgetTapDestination.allCases, id: \.self) { destination in
+                                Text(destination.title)
+                                    .tag(destination)
+                            }
+                        }
+                        .onChange(of: widgetTapDestinationRawValue) { newValue in
+                            AnalyticsService.shared.logWidgetTapDestinationChanged(newValue)
                         }
                     }
 
