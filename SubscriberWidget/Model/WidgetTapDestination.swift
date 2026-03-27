@@ -5,7 +5,7 @@
 //  Created by Codex on 2026-03-26.
 //
 
-import Foundation
+import SwiftUI
 
 enum WidgetTapDestination: String, CaseIterable, Codable {
     case youtube
@@ -15,7 +15,7 @@ enum WidgetTapDestination: String, CaseIterable, Codable {
         self = WidgetTapDestination(rawValue: storageValue) ?? .youtube
     }
 
-    var title: String {
+    var title: LocalizedStringResource {
         switch self {
         case .youtube:
             return "YouTube"
