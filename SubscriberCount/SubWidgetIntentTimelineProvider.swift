@@ -19,15 +19,18 @@ struct SimpleEntry: TimelineEntry {
     let channel: YouTubeChannel?
     let channelImage: UIImage
     let widgetType: WidgetType
+    let shouldRetrySoon: Bool
 
     init(
         channel: YouTubeChannel?,
         channelImage: UIImage = UIImage(systemName: "person.circle")!,
-        widgetType: WidgetType
+        widgetType: WidgetType,
+        shouldRetrySoon: Bool = false
     ) {
         self.channel = channel
         self.channelImage = channelImage
         self.widgetType = widgetType
+        self.shouldRetrySoon = shouldRetrySoon
     }
 }
 
@@ -109,7 +112,7 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
 
             return Timeline(
                 entries: [result],
-                policy: result.channel == nil
+                policy: result.shouldRetrySoon
                     ? retryPolicy
                     : .after(.now.advanced(by: refreshFrequency * 60))
             )
@@ -124,7 +127,8 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
             AnalyticsService.shared.logWidgetChannelFetchFailed(SubWidgetError.invalidIdentifer.localizedDescription)
             return SimpleEntry(
                 channel: nil,
-                widgetType: widgetType
+                widgetType: widgetType,
+                shouldRetrySoon: true
             )
         }
 
@@ -133,7 +137,8 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
             AnalyticsService.shared.logWidgetChannelFetchFailed(SubWidgetError.channelNotfound.localizedDescription)
             return SimpleEntry(
                 channel: nil,
-                widgetType: widgetType
+                widgetType: widgetType,
+                shouldRetrySoon: true
             )
         }
 
@@ -150,7 +155,7 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
                 await MilestoneNotificationService.shared.checkAndNotifyMilestone(channel: updatedChannel)
             }
 
-            persist(updatedChannel, in: channels, with: channelStorageService)
+            persist(updatedChannel, with: channelStorageService)
 
             return SimpleEntry(
                 channel: updatedChannel,
@@ -164,16 +169,16 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
         return SimpleEntry(
             channel: channel,
             channelImage: await getImageForUrl(channel.profileImage),
-            widgetType: widgetType
+            widgetType: widgetType,
+            shouldRetrySoon: true
         )
     }
 
     private func persist(
         _ updatedChannel: YouTubeChannel,
-        in channels: [YouTubeChannel],
         with channelStorageService: ChannelStorageService
     ) {
-        var updatedChannels = channels
+        var updatedChannels = channelStorageService.getChannels()
         guard let index = updatedChannels.firstIndex(where: { $0.id == updatedChannel.id }) else {
             return
         }
