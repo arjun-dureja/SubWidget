@@ -24,6 +24,7 @@ struct ViewCount: Widget {
         )
         .configurationDisplayName("View Count")
         .description("View your YouTube view count in realtime")
+        .promptsForUserConfiguration()
         .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
     }
 }

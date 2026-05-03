@@ -19,15 +19,18 @@ struct SimpleEntry: TimelineEntry {
     let channel: YouTubeChannel?
     let channelImage: UIImage
     let widgetType: WidgetType
+    let shouldRetrySoon: Bool
 
     init(
         channel: YouTubeChannel?,
         channelImage: UIImage = UIImage(systemName: "person.circle")!,
-        widgetType: WidgetType
+        widgetType: WidgetType,
+        shouldRetrySoon: Bool = false
     ) {
         self.channel = channel
         self.channelImage = channelImage
         self.widgetType = widgetType
+        self.shouldRetrySoon = shouldRetrySoon
     }
 }
 
@@ -109,7 +112,7 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
 
             return Timeline(
                 entries: [result],
-                policy: result.channel == nil
+                policy: result.shouldRetrySoon
                     ? retryPolicy
                     : .after(.now.advanced(by: refreshFrequency * 60))
             )
@@ -120,38 +123,68 @@ struct SubWidgetIntentTimelineProvider: AppIntentTimelineProvider {
         for channelEntity: YouTubeChannelParam?,
         channelStorageService: ChannelStorageService
     ) async -> SimpleEntry {
+        guard let id = channelEntity?.identifier else {
+            AnalyticsService.shared.logWidgetChannelFetchFailed(SubWidgetError.invalidIdentifer.localizedDescription)
+            return SimpleEntry(
+                channel: nil,
+                widgetType: widgetType,
+                shouldRetrySoon: true
+            )
+        }
+
+        let channels = channelStorageService.getChannels()
+        guard let channel = channels.first(where: { $0.id == id }) else {
+            AnalyticsService.shared.logWidgetChannelFetchFailed(SubWidgetError.channelNotfound.localizedDescription)
+            return SimpleEntry(
+                channel: nil,
+                widgetType: widgetType,
+                shouldRetrySoon: true
+            )
+        }
+
         do {
-            guard let id = channelEntity?.identifier else {
-                throw SubWidgetError.invalidIdentifer
+            let youtubeService = YouTubeService()
+            var updatedChannel = try await youtubeService.getChannelDetailsFromId(for: channel.channelId)
+            updatedChannel.id = channel.id
+            updatedChannel.bgColor = channel.bgColor
+            updatedChannel.accentColor = channel.accentColor
+            updatedChannel.numberColor = channel.numberColor
+            updatedChannel.milestoneEnabled = channel.milestoneEnabled
+
+            if channel.milestoneEnabled {
+                await MilestoneNotificationService.shared.checkAndNotifyMilestone(channel: updatedChannel)
             }
 
-            let channels = channelStorageService.getChannels()
-            if let channel = channels.first(where: { $0.id == id }) {
-                let youtubeService = YouTubeService()
-                var updatedChannel = try await youtubeService.getChannelDetailsFromId(for: channel.channelId)
-                updatedChannel.bgColor = channel.bgColor
-                updatedChannel.accentColor = channel.accentColor
-                updatedChannel.numberColor = channel.numberColor
-                updatedChannel.milestoneEnabled = channel.milestoneEnabled
+            persist(updatedChannel, with: channelStorageService)
 
-                if channel.milestoneEnabled {
-                    await MilestoneNotificationService.shared.checkAndNotifyMilestone(channel: updatedChannel)
-                }
-
-                return SimpleEntry(
-                    channel: updatedChannel,
-                    channelImage: await getImageForUrl(updatedChannel.profileImage),
-                    widgetType: widgetType
-                )
-            }
+            return SimpleEntry(
+                channel: updatedChannel,
+                channelImage: await getImageForUrl(updatedChannel.profileImage),
+                widgetType: widgetType
+            )
         } catch {
             AnalyticsService.shared.logWidgetChannelFetchFailed(error.localizedDescription)
         }
 
         return SimpleEntry(
-            channel: nil,
-            widgetType: widgetType
+            channel: channel,
+            channelImage: await getImageForUrl(channel.profileImage),
+            widgetType: widgetType,
+            shouldRetrySoon: true
         )
+    }
+
+    private func persist(
+        _ updatedChannel: YouTubeChannel,
+        with channelStorageService: ChannelStorageService
+    ) {
+        var updatedChannels = channelStorageService.getChannels()
+        guard let index = updatedChannels.firstIndex(where: { $0.id == updatedChannel.id }) else {
+            return
+        }
+
+        updatedChannels[index] = updatedChannel
+        channelStorageService.saveChannels(updatedChannels)
     }
 
     private func getImageForUrl(_ urlString: String) async -> UIImage {
