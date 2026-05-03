@@ -23,6 +23,7 @@ struct CombinedCount: Widget {
         )
         .configurationDisplayName("Subscribers + Views")
         .description("View both your subscriber and view counts in one widget")
+        .promptsForUserConfiguration()
         .supportedFamilies([.systemMedium])
     }
 }

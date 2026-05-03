@@ -24,6 +24,7 @@ struct SubscriberCount: Widget {
         )
         .configurationDisplayName("Subscriber Count")
         .description("View your YouTube subscriber count in realtime")
+        .promptsForUserConfiguration()
         .supportedFamilies([.accessoryRectangular, .systemSmall, .systemMedium])
     }
 }
