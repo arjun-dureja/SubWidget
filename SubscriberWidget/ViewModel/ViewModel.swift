@@ -14,6 +14,12 @@ enum LoadingState {
     case error
 }
 
+private enum ChannelRefreshOutcome {
+    case updated(YouTubeChannel)
+    case unavailable
+    case unchanged
+}
+
 @MainActor
 class ViewModel: ObservableObject {
     let youtubeService: YouTubeServiceProtocol
@@ -165,13 +171,15 @@ class ViewModel: ObservableObject {
     }
 
     private func getChannelsWithUpdatedStatistics() async throws -> [YouTubeChannel] {
-        try await withThrowingTaskGroup(of: (Int, YouTubeChannel?).self) { group in
+        try await withThrowingTaskGroup(of: (Int, ChannelRefreshOutcome).self) { group in
             var decodedChannels = channelStorageService.getChannels()
             for (index, channel) in decodedChannels.enumerated() {
                 group.addTask {
                     do {
                         let updatedChannel = try await self.youtubeService.getChannelDetailsFromId(for: channel.channelId)
-                        return (index, updatedChannel)
+                        return (index, .updated(updatedChannel))
+                    } catch SubWidgetError.channelNotfound {
+                        return (index, .unavailable)
                     } catch let DecodingError.keyNotFound(key, context) {
                         // Skip any channels that failed to decode instead of showing an error message
                         AnalyticsService.shared.logChannelDetailsKeyNotFound(
@@ -180,22 +188,31 @@ class ViewModel: ObservableObject {
                             channel.channelName,
                             channel.channelId
                         )
-                        return (index, nil)
+                        return (index, .unchanged)
                     } catch {
                         throw error
                     }
                 }
             }
 
-            for try await (index, updatedChannel) in group {
-                if let updatedChannel {
+            var unavailableIndexes = Set<Int>()
+
+            for try await (index, outcome) in group {
+                switch outcome {
+                case .updated(let updatedChannel):
                     decodedChannels[index].subCount = updatedChannel.subCount
                     decodedChannels[index].viewCount = updatedChannel.viewCount
                     decodedChannels[index].profileImage = updatedChannel.profileImage
+                case .unavailable:
+                    unavailableIndexes.insert(index)
+                case .unchanged:
+                    break
                 }
             }
 
-            return decodedChannels
+            return decodedChannels.enumerated().compactMap { index, channel in
+                unavailableIndexes.contains(index) ? nil : channel
+            }
         }
     }
 }
