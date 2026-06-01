@@ -114,26 +114,9 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		72AFB3A12F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 7292FFFE251D1F3D0050194B /* Sources */;
-			membershipExceptions = (
-				/Localized/SubscriberCount.intentdefinition,
-			);
-		};
-		72AFB3A42F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 725FE1E8251D3983004B2907 /* Sources */;
-			membershipExceptions = (
-				/Localized/SubscriberCount.intentdefinition,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		72AFB2F22F2FF1C400C4774A /* SubscriberWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (72AFB3532F2FF1C400C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3572F2FF1C400C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SubscriberWidget; sourceTree = "<group>"; };
-		72AFB37A2F2FF1C800C4774A /* SubscriberCount */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (72AFB3A02F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A12F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, 72AFB3A32F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A42F2FF1C900C4774A /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SubscriberCount; sourceTree = "<group>"; };
+		72AFB37A2F2FF1C800C4774A /* SubscriberCount */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (72AFB3A02F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 72AFB3A32F2FF1C900C4774A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = SubscriberCount; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
