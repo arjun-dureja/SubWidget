@@ -40,7 +40,7 @@ struct SettingsView: View {
                     Section(footer: EmptyView()) {
                         VStack(spacing: 24) {
                             if !hasProAccess {
-                                ExchangeBannerAdView(apiKey: "ks_live_1QHlZ6UVasvjtB7uUQPCe5NKy1Bz3Udgdks5uiGIkx0")
+                                ExchangeBannerAdView(apiKey: Constants.kickstartExchangeApiKey)
                             }
 
                             HStack(spacing: 16) {
