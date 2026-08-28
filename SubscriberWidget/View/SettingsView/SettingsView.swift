@@ -6,8 +6,9 @@
 //  Copyright © 2021 Arjun Dureja. All rights reserved.
 //
 
-import SwiftUI
+import KickstartExchange
 import StoreKit
+import SwiftUI
 import WidgetKit
 
 struct SettingsView: View {
@@ -37,34 +38,40 @@ struct SettingsView: View {
 
                 Form {
                     Section(footer: EmptyView()) {
-                        HStack(spacing: 16) {
-                            Spacer()
-                            ZStack(alignment: .topTrailing) {
-                                AppIcon()
-                                    .cornerRadius(16)
-                                    .frame(width: 60, height: 60)
+                        VStack(spacing: 24) {
+                            if !hasProAccess {
+                                ExchangeBannerAdView(apiKey: Constants.kickstartExchangeApiKey)
+                            }
 
-                                if hasProAccess {
-                                    Text("PRO")
-                                        .font(.system(size: 12, weight: .bold))
-                                        .foregroundColor(.black)
-                                        .padding(4)
-                                        .background(Color.gold.cornerRadius(8))
-                                        .offset(x: 12, y: -12)
+                            HStack(spacing: 16) {
+                                Spacer()
+                                ZStack(alignment: .topTrailing) {
+                                    AppIcon()
+                                        .cornerRadius(16)
+                                        .frame(width: 60, height: 60)
+
+                                    if hasProAccess {
+                                        Text("PRO")
+                                            .font(.system(size: 12, weight: .bold))
+                                            .foregroundColor(.black)
+                                            .padding(4)
+                                            .background(Color.gold.cornerRadius(8))
+                                            .offset(x: 12, y: -12)
+                                    }
                                 }
-                            }
 
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("SubWidget \(Bundle.main.appVersion)")
-                                    .font(.system(size: 16, weight: .medium))
-                                Text("by Arjun Dureja")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(colorScheme == .dark ? .darkModeTitleGray2 : .titleGray)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("SubWidget \(Bundle.main.appVersion)")
+                                        .font(.system(size: 16, weight: .medium))
+                                    Text("by Arjun Dureja")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(colorScheme == .dark ? .darkModeTitleGray2 : .titleGray)
+                                }
+                                Spacer()
                             }
-                            Spacer()
                         }
                     }
-                    .padding(.top, 24)
+                    .padding(.top, hasProAccess ? 24 : 0)
                     .listRowBackground(Color.clear)
 
                     if !hasProAccess {
