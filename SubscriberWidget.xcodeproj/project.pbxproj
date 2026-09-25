@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A65D1A6E10694118ADE020B5 /* KickstartExchange in Frameworks */ = {isa = PBXBuildFile; productRef = 3297276CFAC44068A5668ECE /* KickstartExchange */; };
 		7209656C2F65E6A700A1376E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6F2F5E8CD7007AD287 /* RevenueCat */; };
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
@@ -137,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A65D1A6E10694118ADE020B5 /* KickstartExchange in Frameworks */,
 				72AFB3CC2F30722300C4774A /* ConfettiSwiftUI in Frameworks */,
 				72AFB3BF2F30231400C4774A /* RevenueCat in Frameworks */,
 				7247B03F2F42792A008A8DF0 /* FacebookCore in Frameworks */,
@@ -229,6 +231,7 @@
 			);
 			name = SubscriberWidget;
 			packageProductDependencies = (
+				3297276CFAC44068A5668ECE /* KickstartExchange */,
 				724BD9292AB4063A008C1DB2 /* Cache */,
 				72F2EE212B2D6128002AFCEA /* WishKit */,
 				722E2E842B65F86B00E4832E /* Mixpanel */,
@@ -281,6 +284,7 @@
 			);
 			mainGroup = 7292FFF9251D1F3D0050194B;
 			packageReferences = (
+				A83BC57C36D94A48925DA2CF /* XCRemoteSwiftPackageReference "KickstartSDK" */,
 				724BD9282AB4063A008C1DB2 /* XCRemoteSwiftPackageReference "Cache" */,
 				72F2EE202B2D605A002AFCEA /* XCRemoteSwiftPackageReference "wishkit-ios" */,
 				722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
@@ -644,6 +648,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A83BC57C36D94A48925DA2CF /* XCRemoteSwiftPackageReference "KickstartSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/KickstartSDK";
+			requirement = {
+				kind = exactVersion;
+				version = 0.5.0;
+			};
+		};
 		722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
@@ -695,6 +707,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3297276CFAC44068A5668ECE /* KickstartExchange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A83BC57C36D94A48925DA2CF /* XCRemoteSwiftPackageReference "KickstartSDK" */;
+			productName = KickstartExchange;
+		};
 		720A6A6F2F5E8CD7007AD287 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 72AFB3BD2F30231400C4774A /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
