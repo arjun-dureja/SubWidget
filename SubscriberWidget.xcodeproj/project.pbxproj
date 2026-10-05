@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A65D1A6E10694118ADE020B5 /* KickstartExchange in Frameworks */ = {isa = PBXBuildFile; productRef = 3297276CFAC44068A5668ECE /* KickstartExchange */; };
 		7209656C2F65E6A700A1376E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 720A6A6F2F5E8CD7007AD287 /* RevenueCat */; };
 		722E2E852B65F86B00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E842B65F86B00E4832E /* Mixpanel */; };
 		722E2E8C2B65FDFC00E4832E /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 722E2E8B2B65FDFC00E4832E /* Mixpanel */; };
@@ -22,6 +21,7 @@
 		72AFB3CC2F30722300C4774A /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFB3CB2F30722300C4774A /* ConfettiSwiftUI */; };
 		72B936FA2AB40BC900997D20 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 72B936F92AB40BC900997D20 /* Cache */; };
 		72F2EE222B2D6128002AFCEA /* WishKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72F2EE212B2D6128002AFCEA /* WishKit */; };
+		A65D1A6E10694118ADE020B5 /* KickstartExchange in Frameworks */ = {isa = PBXBuildFile; productRef = 3297276CFAC44068A5668ECE /* KickstartExchange */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,7 +375,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 45;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
@@ -385,7 +385,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 9.9.10;
+				MARKETING_VERSION = 9.9.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -404,7 +404,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SubscriberCountExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 45;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				INFOPLIST_FILE = SubscriberCount/Info.plist;
@@ -414,7 +414,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 9.9.10;
+				MARKETING_VERSION = 9.9.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget.SubscriberCount;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -555,7 +555,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -569,7 +569,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.9.10;
+				MARKETING_VERSION = 9.9.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -588,7 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SubscriberWidget/SubscriberWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_ASSET_PATHS = "\"SubscriberWidget/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -602,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.9.10;
+				MARKETING_VERSION = 9.9.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arjundureja.SubscriberWidget;
 				PRODUCT_NAME = SubWidget;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -648,14 +648,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A83BC57C36D94A48925DA2CF /* XCRemoteSwiftPackageReference "KickstartSDK" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/KickstartSDK";
-			requirement = {
-				kind = exactVersion;
-				version = 0.5.0;
-			};
-		};
 		722E2E832B65F86B00E4832E /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
@@ -702,6 +694,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.0.5;
+			};
+		};
+		A83BC57C36D94A48925DA2CF /* XCRemoteSwiftPackageReference "KickstartSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/KickstartSDK";
+			requirement = {
+				kind = exactVersion;
+				version = 0.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
